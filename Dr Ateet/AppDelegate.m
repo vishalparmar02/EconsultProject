@@ -190,7 +190,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
     DDLogVerbose(@"Silent notification: %@", userInfo.description);
     
     if([UIApplication sharedApplication].applicationState != UIApplicationStateActive){
-        NSDictionary *JSON = userInfo[@"aps"][@"json"];
+        NSDictionary *JSON = userInfo[@"aps"][@"call_payload"];
         
         UILocalNotification *notification = [[UILocalNotification alloc]init];
         notification.userInfo = userInfo;
@@ -211,7 +211,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 }
 
 - (void)handleNotification:(NSDictionary*)userInfo{
-    NSDictionary *JSON = userInfo[@"aps"][@"json"];
+    NSDictionary *JSON = userInfo[@"aps"][@"call_payload"];
     
     if ([JSON[@"type"] isEqualToString:@"v_call"]) {
         NSNotification *notification = [NSNotification notificationWithName:@"INCOMING_CALL_NOTIFICATION"
@@ -227,7 +227,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 - (void)handleLocalNotification:(NSDictionary*)userInfo{
     NSDictionary *JSON;
     if (userInfo[@"aps"] != nil) {
-         JSON = userInfo[@"aps"][@"json"];
+         JSON = userInfo[@"aps"][@"call_payload"];
     }else{
         JSON = userInfo;
     }

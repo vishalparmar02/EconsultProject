@@ -90,13 +90,19 @@
 //    NSDictionary *pushPayload = @{@"aps": @{@"alert" : json[@"description"],
 //                                            @"content-available" : @1,
 //                                            @"sound": @"",
-//                                            @"json" : json,
+//                                            @"call_payload" : json,
 //                                            @"priority": @5}};
     BOOL isCall = [json[@"type"] isEqualToString:@"v_call"];
+    NSString *isDoctor = [[CUser currentUser] isDoctor] ? @"y" : @"n";
     NSDictionary *pushPayload = @{@"aps": @{@"alert" : json[@"description"],
                                             @"sound": isCall ? @"ring.wav" : @"",
-                                            @"json" : json,
-                                            @"priority": @5}};
+                                            @"call_payload" : json},
+                                  @"pn_gcm1":@{@"data":@{@"isDoctor": isDoctor,
+                                                        @"call_payload": json,
+                                                        @"push_message" :json[@"description"],
+                                                        @"type": json[@"type"]}
+                                            }
+                                  };
     [self.client publish:json
                toChannel:channel
        mobilePushPayload:pushPayload
@@ -124,7 +130,7 @@
     NSDictionary *JSON = message.data.message;
     NSLog(@"isSimulator: %d, Type:%@", IS_SIMULATOR, JSON[@"type"]);
     if ([JSON[@"type"] isEqualToString:@"v_call"]) {
-        
+        NSLog(@"Call: %@", JSON.description);
         if([UIApplication sharedApplication].applicationState != UIApplicationStateActive){
             UILocalNotification *notification = [[UILocalNotification alloc]init];
             notification.userInfo = JSON;
@@ -143,6 +149,11 @@
             [[NSNotificationCenter defaultCenter] postNotification:notification];
         }
     }else if([JSON[@"type"] isEqualToString:@"v_call_end"]){
+        NSNotification *notification = [NSNotification notificationWithName:@"CALL_END_NOTIFICATION"
+                                                                     object:nil
+                                                                   userInfo:JSON];
+        [[NSNotificationCenter defaultCenter] postNotification:notification];
+    }else if([JSON[@"type"] isEqualToString:@"v_call_reject"]){
         NSNotification *notification = [NSNotification notificationWithName:@"CALL_END_NOTIFICATION"
                                                                      object:nil
                                                                    userInfo:JSON];
