@@ -126,7 +126,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (!self.consultation) return;
+//    if (!self.consultation) return;
     
     Appointment *appointment = self.appointments[indexPath.row];
     if ([[appointment[@"clinic_name"] lowercaseString] isEqualToString:@"online"]){

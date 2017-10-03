@@ -199,9 +199,9 @@ static NSDateFormatter *timeFormatter;
     
     slot[@"save"] = details;
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [slot saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+    [slot bookInBackgroundWithBlock:^(NSDictionary *responseObject, NSError * _Nullable error) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        if (succeeded) {
+        if (responseObject) {
             NSDateFormatter *dateF = [NSDateFormatter new];
             [dateF setDateFormat:@"dd MMM, YYYY"];
             

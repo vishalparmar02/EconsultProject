@@ -15,6 +15,7 @@
 @property (nonatomic, strong)   Clinic  *clinic;
 
 + (void)fetchSlotsForDate:(NSDate*)date clinic:(Clinic*)clinic inBackgroundWithBlock:(nullable ArrayResultBlock)block;
+- (void)bookInBackgroundWithBlock:(DictionaryResultBlock)block;
 
 - (NSString*)startTime;
 - (NSString*)endTime;

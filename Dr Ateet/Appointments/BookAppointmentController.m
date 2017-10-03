@@ -12,6 +12,7 @@
 #import <UIAlertController+Blocks/UIAlertController+Blocks.h>
 #import "Patient.h"
 #import "CUser.h"
+#import <SafariServices/SafariServices.h>
 
 @interface BookAppointmentController ()<UITextFieldDelegate>
 
@@ -98,8 +99,8 @@
         self.selectedClinic = self.clinics[row];
         self.clinicField.text = clinicTitles[row];
     }];
-    self.clinicField.inputView = self.clinicPicker;
     
+    self.clinicField.inputView = self.clinicPicker;
     self.clinicField.delegate = self;
     
     [self dateChanged];
@@ -136,13 +137,13 @@
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     if (self.dateField == textField) {
         [self dateChanged];
-    }else if (self.dateField == _clinicField) {
+    }else if (self.clinicField == textField) {
         if (!self.selectedClinic) {
             self.selectedClinic = self.clinics[0];
             [self.clinicPicker selectRow:0 inComponent:0 animated:NO];
             self.clinicField.text = self.selectedClinic[@"clinic_name"];
         }
-    }else if (self.dateField == _patientField) {
+    }else if (self.patientField == textField) {
         if (!self.selectedPatient) {
             self.selectedPatient = self.patients[0];
             [self.patientPicker selectRow:0 inComponent:0 animated:NO];
@@ -355,27 +356,30 @@ static NSDateFormatter *timeFormatter;
     
     slot[@"save"] = details;
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [slot saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+    [slot bookInBackgroundWithBlock:^(NSDictionary *responseObject, NSError * _Nullable error) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        if (succeeded) {
-            NSDateFormatter *dateF = [NSDateFormatter new];
-            [dateF setDateFormat:@"dd MMM, YYYY"];
-            
-            NSString *clinicText = @"Online";
-            if (self.selectedClinic.objectId.integerValue != -1){
-                clinicText = [NSString stringWithFormat:@"Walk In, %@", self.selectedClinic[@"clinic_name"]];
+        if (responseObject) {
+            if (self.selectedClinic.objectId.integerValue == -1) {
+                [self payForOnlineAppointment:responseObject[@"appointment_id"]];
+            }else{
+                NSDateFormatter *dateF = [NSDateFormatter new];
+                [dateF setDateFormat:@"dd MMM, YYYY"];
+                
+                NSString *clinicText = [NSString stringWithFormat:@"Walk In, %@", self.selectedClinic[@"clinic_name"]];
+                
+                NSString *message = [NSString stringWithFormat:@"Appointment booked successfully on %@ at %@, %@", [dateF stringFromDate:self.datePicker.date],
+                                     [slot startTime],
+                                     clinicText];
+                [UIAlertController showAlertInViewController:self
+                                                   withTitle:@""
+                                                     message:message
+                                           cancelButtonTitle:@"OK"
+                                      destructiveButtonTitle:nil
+                                           otherButtonTitles:nil
+                                                    tapBlock:nil];
             }
             
-            NSString *message = [NSString stringWithFormat:@"Appointment booked successfully on %@ at %@, %@", [dateF stringFromDate:self.datePicker.date],
-                                 [slot startTime],
-                                 clinicText];
-            [UIAlertController showAlertInViewController:self
-                                               withTitle:@""
-                                                 message:message
-                                       cancelButtonTitle:@"OK"
-                                  destructiveButtonTitle:nil
-                                       otherButtonTitles:nil
-                                                tapBlock:nil];
+            
         }else{
             [UIAlertController showAlertInViewController:self
                                                withTitle:@""
@@ -387,6 +391,15 @@ static NSDateFormatter *timeFormatter;
         }
         [self tryToFetchSlots];
     }];
+    
+}
+
+- (void)payForOnlineAppointment:(NSString*)appointmentID{
+    NSURL *paymentURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://da.konecthealth.com/pay-for-mobile-appointments/%@", appointmentID]];
+    SFSafariViewController *vc = [[SFSafariViewController alloc] initWithURL:paymentURL];
+    [self.navigationController presentViewController:vc
+                                            animated:YES
+                                          completion:nil];
 }
 
 @end

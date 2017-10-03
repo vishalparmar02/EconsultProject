@@ -203,7 +203,7 @@ static NSDateFormatter *todayFormatter, *onlyDateFormatter;
     return titleHeight + 120;
 }
 
-- (void)saveInBackgroundWithBlock:(BooleanResultBlock)block{
+- (void)bookInBackgroundWithBlock:(DictionaryResultBlock)block{
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
@@ -222,14 +222,7 @@ static NSDateFormatter *todayFormatter, *onlyDateFormatter;
             [error printHTMLError];
             if(block)block(nil, error);
         } else {
-            NSMutableArray *slots = [NSMutableArray array];
-            NSDictionary *slotDict = responseObject[@"data"];
-            for (NSArray *schedualArray in slotDict.allValues) {
-                for (NSDictionary *aSlot in schedualArray) {
-                    [slots addObject:[Slot slotFromDictionary:aSlot]];
-                }
-            }
-            if(block)block(slots, nil);
+            if(block)block(responseObject, nil);
         }
     }];
     [dataTask resume];

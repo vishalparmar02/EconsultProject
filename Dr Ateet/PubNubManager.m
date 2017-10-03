@@ -87,23 +87,22 @@
 }
 
 - (void)sendMessage:(NSDictionary*)json toChannel:(NSString*)channel{
-//    NSDictionary *pushPayload = @{@"aps": @{@"alert" : json[@"description"],
-//                                            @"content-available" : @1,
+//    NSDictionary *pushPayload = @{@"aps": @{@"content-available" : @1,
 //                                            @"sound": @"",
-//                                            @"call_payload" : json,
-//                                            @"priority": @5}};
-    BOOL isCall = [json[@"type"] isEqualToString:@"v_call"];
+//                                            @"call_payload" : json}};
+//    BOOL isCall = [json[@"type"] isEqualToString:@"v_call"];
+    NSDictionary *callPayload = @{@"call_payload" :json};
     NSString *isDoctor = [[CUser currentUser] isDoctor] ? @"y" : @"n";
-    NSDictionary *pushPayload = @{@"aps": @{@"alert" : json[@"description"],
-                                            @"sound": isCall ? @"ring.wav" : @"",
+    NSDictionary *pushPayload = @{@"aps": @{@"content-available" : @1,
+                                            @"sound": @"",
                                             @"call_payload" : json},
-                                  @"pn_gcm1":@{@"data":@{@"isDoctor": isDoctor,
+                                  @"pn_gcm":@{@"data":@{@"isDoctor": isDoctor,
                                                         @"call_payload": json,
                                                         @"push_message" :json[@"description"],
                                                         @"type": json[@"type"]}
                                             }
                                   };
-    [self.client publish:json
+    [self.client publish:callPayload
                toChannel:channel
        mobilePushPayload:pushPayload
           withCompletion:^(PNPublishStatus * _Nonnull status) {
@@ -128,6 +127,10 @@
 - (void)client:(PubNub *)client didReceiveMessage:(PNMessageResult *)message {
     
     NSDictionary *JSON = message.data.message;
+    if (JSON[@"call_payload"]) {
+        JSON = JSON[@"call_payload"];
+    }
+    
     NSLog(@"isSimulator: %d, Type:%@", IS_SIMULATOR, JSON[@"type"]);
     if ([JSON[@"type"] isEqualToString:@"v_call"]) {
         NSLog(@"Call: %@", JSON.description);
