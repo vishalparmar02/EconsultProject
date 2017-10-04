@@ -1,4 +1,0 @@
-/Users/shashankpatel/Documents/KonectHealth/dr-ateet-ios/Pods/IDMPhotoBrowser/Classes/IDMPhotoBrowser.bundle
-/Users/shashankpatel/Documents/KonectHealth/dr-ateet-ios/Pods/IDMPhotoBrowser/Classes/IDMPBLocalizations.bundle
-/Users/shashankpatel/Documents/KonectHealth/dr-ateet-ios/Pods/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle
-/Users/shashankpatel/Documents/KonectHealth/dr-ateet-ios/Pods/JSQMessagesViewController/JSQMessagesViewController/Assets/JSQMessagesAssets.bundle

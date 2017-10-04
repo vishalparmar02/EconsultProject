@@ -10,7 +10,7 @@
 #import "VerifyMobileController.h"
 #import <SafariServices/SafariServices.h>
 
-@interface RegisterMobileController ()
+@interface RegisterMobileController ()<UITextFieldDelegate>
 
 @property (nonatomic, strong)   IBOutlet    UITextField     *mobileNumberField;
 @property (nonatomic, strong)   IBOutlet    UIButton        *nextButton;
@@ -23,6 +23,7 @@
     if (TARGET_OS_SIMULATOR) {
         self.mobileNumberField.text = @"7600660648";
     }
+    self.mobileNumberField.delegate = self;
 }
 
 - (void)applyTheme{
@@ -50,6 +51,17 @@
                                                 tapBlock:nil];
         }
     }];
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    NSUInteger oldLength = [textField.text length];
+    NSUInteger replacementLength = [string length];
+    NSUInteger rangeLength = range.length;
+    
+    NSUInteger newLength = oldLength - rangeLength + replacementLength;
+    if(newLength > 10) [textField resignFirstResponder];
+    
+    return YES;
 }
 
 - (IBAction)tosTapped{

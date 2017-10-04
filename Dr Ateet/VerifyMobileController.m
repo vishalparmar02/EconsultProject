@@ -28,8 +28,19 @@
     if (TARGET_OS_SIMULATOR) {
         self.OTPField.text = @"1234";
     }
+    self.OTPField.delegate = self;
     self.phoneNumberLabel.text = self.mobileNumber;
     [self startResendCounter];
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    NSUInteger oldLength = [textField.text length];
+    NSUInteger replacementLength = [string length];
+    NSUInteger rangeLength = range.length;
+    
+    NSUInteger newLength = oldLength - rangeLength + replacementLength;
+    if(newLength > 6) [textField resignFirstResponder];
+    return YES;
 }
 
 - (void)startResendCounter{
