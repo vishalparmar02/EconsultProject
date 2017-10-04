@@ -20,6 +20,6 @@
 
 @interface ReportsController : BaseController
 
-@property (nonatomic, strong)   NSString    *patientID;
+@property (nonatomic, strong)   Patient    *patient;
 
 @end

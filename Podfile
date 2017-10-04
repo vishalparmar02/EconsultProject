@@ -2,17 +2,16 @@
 platform :ios, '9.1'
 
 
-target 'Dr Ateet Sharma' do
-  # Pods for Dr Ateet
-	pod 'AFNetworking'
-	pod 'MBProgressHUD'
-	pod 'IQKeyboardManager'
-	pod 'SDWebImage'
-	pod 'NSDate+TimeAgo'
-	pod 'iOS-Hierarchy-Viewer'
-	pod 'UIAlertController+Blocks'
-	pod 'Base64'
-	pod 'UIColor+Hex'
+def pods
+  pod 'AFNetworking'
+  pod 'MBProgressHUD'
+  pod 'IQKeyboardManager'
+  pod 'SDWebImage'
+  pod 'NSDate+TimeAgo'
+  pod 'iOS-Hierarchy-Viewer'
+  pod 'UIAlertController+Blocks'
+  pod 'Base64'
+  pod 'UIColor+Hex'
   pod 'JSQMessagesViewController'
   pod 'JTCalendar'
   pod 'MSDynamicsDrawerViewController'
@@ -23,4 +22,12 @@ target 'Dr Ateet Sharma' do
   pod 'AppRTC', path: '.'
   pod 'PubNub'
   pod 'CocoaLumberjack'
+end
+
+target 'Dr Ateet Sharma' do
+	pods
+end
+
+target 'Consult' do
+  pods
 end

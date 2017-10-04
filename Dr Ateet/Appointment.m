@@ -212,6 +212,10 @@
         return YES;
     }
     
+    if (![[self[@"clinic_name"] lowercaseString] isEqualToString:@"online"]) {
+        return NO;
+    }
+    
     NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:self.appointmentDate];
     if (interval > 0 &&  fabs(interval) < (30 * 60)) {
         return YES;

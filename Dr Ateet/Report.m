@@ -65,22 +65,29 @@
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
-    AFJSONRequestSerializer *reqSerializer = [AFJSONRequestSerializer serializer];
+    AFHTTPRequestSerializer *reqSerializer = [AFHTTPRequestSerializer serializer];
     [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"Authorization"];
     NSString *URLString          = [API_BASE_URL stringByAppendingPathComponent:ADD_REPORT];
     NSDictionary *params = @{@"role_id" : [CUser currentUser][@"role_id"],
                              @"patient_id" : self.patientID,
                              @"description" : self.reportDescription,
-                             @"report_type" : @""};
+                             @"report_type" : @"",
+                             @"count" : @(self.reportImages.count)
+                             };
     NSMutableURLRequest *request = [reqSerializer multipartFormRequestWithMethod:@"POST"
                                         URLString:URLString
                                        parameters:params
                         constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-                            NSData *imageData = UIImageJPEGRepresentation(self.reportImage, 0.5);
-                            [formData appendPartWithFileData:imageData
-                                                        name:@"file"
-                                                    fileName:@"image.jpg" 
-                                                    mimeType:@"image/jpeg"];
+                            NSInteger index = 0;
+                            for (UIImage *anImage in self.reportImages) {
+                                NSData *imageData = UIImageJPEGRepresentation(anImage, 0.5);
+                                NSString *name = [NSString stringWithFormat:@"file%ld", index++];
+                                [formData appendPartWithFileData:imageData
+                                                            name:name
+                                                        fileName:@"image.jpg"
+                                                        mimeType:@"image/jpeg"];
+                            }
+                            
                         } error:nil];
    
                              
@@ -95,8 +102,46 @@
     [dataTask resume];
 }
 
-- (NSURL*)reportImageURL{
-    return [NSURL URLWithString:self[@"upload_path"]];
+- (UIImage*)reportThumb{
+    NSString *fileName = self[@"file_title"];
+    NSURL *documentsURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    NSURL *fileURL = [documentsURL URLByAppendingPathComponent:fileName];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:fileURL.path]) {
+        return [UIImage imageNamed:@"pdf_icon"];
+    }
+    
+    CGPDFDocumentRef pdf = CGPDFDocumentCreateWithURL((CFURLRef)fileURL);
+    CGPDFPageRef page;
+    
+    CGRect aRect = CGRectMake(0, 0, 70, 100); // thumbnail size
+    UIGraphicsBeginImageContext(aRect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    UIImage* thumbnailImage;
+    
+    NSUInteger totalNum = CGPDFDocumentGetNumberOfPages(pdf);
+    
+    for(int i = 0; i < totalNum; i++ ) {
+        CGContextSaveGState(context);
+        CGContextTranslateCTM(context, 0.0, aRect.size.height);
+        CGContextScaleCTM(context, 1.0, -1.0);
+        
+        CGContextSetGrayFillColor(context, 1.0, 1.0);
+        CGContextFillRect(context, aRect);
+        page = CGPDFDocumentGetPage(pdf, i + 1);
+        CGAffineTransform pdfTransform = CGPDFPageGetDrawingTransform(page, kCGPDFMediaBox, aRect, 0, true);
+        CGContextConcatCTM(context, pdfTransform);
+        CGContextDrawPDFPage(context, page);
+        thumbnailImage = UIGraphicsGetImageFromCurrentImageContext();
+        CGContextRestoreGState(context);
+        if (thumbnailImage) {
+            break;
+        }
+    }
+
+    UIGraphicsEndImageContext();
+    CGPDFDocumentRelease(pdf);
+    
+    return thumbnailImage;
 }
 
 @end

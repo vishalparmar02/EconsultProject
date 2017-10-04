@@ -503,6 +503,7 @@ static NSInteger kARDAppClientErrorInvalidRoom = -7;
             break;
         }
     }
+    
     NSAssert(cameraID, @"Unable to get the front camera id");
     
     RTCVideoCapturer *capturer = [RTCVideoCapturer capturerWithDeviceName:cameraID];

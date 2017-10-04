@@ -12,7 +12,6 @@
 @implementation Patient
 
 + (void)fetchPatientsInBackgroundWithBlock:(nullable ArrayResultBlock)block{
-    
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
@@ -126,6 +125,14 @@
 + (id)patientFromDictionary:(NSDictionary*)dict{
     Patient *aPatient = [[Patient alloc] initWithDictionary:dict];
     return aPatient;
+}
+
+- (NSString*)objectId{
+    if (![[super objectId] length]) {
+        return self[@"patient_id"];
+    }
+    
+    return [super objectId];
 }
 
 - (NSString *)fullName{

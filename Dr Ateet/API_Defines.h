@@ -20,16 +20,18 @@
 #endif
 
 #define TARGET_NAME [[NSBundle mainBundle] infoDictionary][@"CFBundleDisplayName"]
-#define TEST_VERSION [TARGET_NAME isEqualToString:@"KH Consult"]
+#define TEST_VERSION [TARGET_NAME isEqualToString:@"Consult"]
 
 
-#define PUBLISH_KEY     TEST_VERSION || DEBUG ? DEBUG_PUBLISH_KEY : RELEASE_PUBLISH_KEY
-#define SUB_KEY         TEST_VERSION || DEBUG ? DEBUG_SUB_KEY : RELEASE_SUB_KEY
+#define PUBLISH_KEY     TEST_VERSION ? CONSULT_PUBLISH_KEY : (DEBUG ? DEBUG_PUBLISH_KEY : RELEASE_PUBLISH_KEY)
+#define SUB_KEY         TEST_VERSION ? CONSULT_SUB_KEY : (DEBUG ? DEBUG_SUB_KEY : RELEASE_SUB_KEY)
 
 
 //#define PUBLISH_KEY                 @"pub-c-8a2b71e5-abba-4100-a82f-0b711a688164"
 //#define SUB_KEY                     @"sub-c-c445e564-7c05-11e7-8bd1-0619f8945a4f"
 
+#define CONSULT_PUBLISH_KEY                 @"pub-c-557f4390-6625-4bbf-af0b-704cbd9f9730"
+#define CONSULT_SUB_KEY                     @"sub-c-d2ee5a6a-a80b-11e7-81e2-967c19df6324"
 
 #define DEBUG_PUBLISH_KEY                   @"pub-c-457a7ff0-70b4-46ed-8d40-4d21fabeaf01"
 #define DEBUG_SUB_KEY                       @"sub-c-0e556e0a-8e25-11e7-b947-aae040ae6b45"
@@ -43,7 +45,7 @@
 
 #define CURRENT_USER_KEY            @"current_user"
 
-#define API_BASE_URL                @"http://app.drateetsharma.com/api"
+#define API_BASE_URL                TEST_VERSION ? @"https://econsult.jshealthtech.com/api" : @"https://app.drateetsharma.com/api"
 
 #define REGISTER_PHONE_END_POINT    @"login"
 #define VERIFY_PHONE_END_POINT      @"verify"
@@ -69,6 +71,10 @@
 #define EDIT_PATIENT_PROFILE        @"patient/editProfile"
 
 #define GET_PATIENTS                @"doctor/patientInfo"
+#define GET_STAFF                   @"doctor/staffInfo/"
+#define ADD_STAFF                   @"doctor/addStaff"
+#define DELETE_STAFF                @"/staff/%@/"
+
 #define GET_MY_PATIENTS             @"users/%@/patients"
 #define SEARCH_PATIENTS             @"doctor/searchPatient"
 #define ADD_PATIENT                 @"addPatient"

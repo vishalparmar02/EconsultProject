@@ -10,8 +10,13 @@
 #import <IDMPhotoBrowser/IDMPhotoBrowser.h>
 #import "UIImage+FixRotation.h"
 #import "ReportUploadController.h"
+#import "PDFController.h"
+
+@import ImagePicker;
 
 #define kCellWidth ((CGRectGetWidth(collectionView.frame) / 2) - 0)
+
+#import "Consult-Bridging-Header.h"
 
 @implementation ReportCell
 
@@ -28,14 +33,12 @@
 - (void)setReport:(Report *)report{
     _report = report;
     self.reportLabel.text = [report[@"description"] capitalizedString];
-    [self.reportImageView sd_setImageWithURL:[report reportImageURL]
-                            placeholderImage:nil
-                                     options:SDWebImageProgressiveDownload];
+    self.reportImageView.image = report.reportThumb;
 }
 
 @end
 
-@interface ReportsController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface ReportsController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, ImagePickerDelegate>
 
 @property (nonatomic, strong) IBOutlet  UICollectionView    *collectionView;
 @property (nonatomic, strong) IBOutlet  UISegmentedControl  *reportTypeSegment;
@@ -50,9 +53,7 @@
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.title = @"Reports";
-    if ([[CUser currentUser] isPatient]) {
-        self.patientID = [CUser currentUser][@"patient_id"];
-    }
+    
     UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];
     [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
     
@@ -82,7 +83,26 @@
                                                   completion:nil];
 }
 
+- (void)cancelButtonDidPress:(ImagePickerController *)imagePicker{
+    [imagePicker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)doneButtonDidPress:(ImagePickerController *)imagePicker images:(NSArray<UIImage *> *)images{
+    [imagePicker dismissViewControllerAnimated:YES completion:nil];
+    self.reportToUpload = [Report new];
+    self.reportToUpload.patientID = self.patient.objectId;
+    self.reportToUpload.reportImages = images;
+    [self proceedToReportDetails];
+}
+
 - (IBAction)uploadTapped{
+    ImagePickerController *vc = [ImagePickerController new];
+    vc.delegate = self;
+    [self presentViewController:vc
+                       animated:YES
+                     completion:nil];
+    
+    return;
     UIAlertController * view=   [UIAlertController
                                  alertControllerWithTitle:@"Choose Source"
                                  message:@""
@@ -148,8 +168,8 @@
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     image = [image fixRotation];
     self.reportToUpload = [Report new];
-    self.reportToUpload.patientID = self.patientID;
-    self.reportToUpload.reportImage = image;
+    self.reportToUpload.patientID = self.patient.objectId;
+    self.reportToUpload.reportImages = @[image];
     [self proceedToReportDetails];
     
 //    ReportUploadController *vc = [ReportUploadController controller];
@@ -213,7 +233,7 @@
 - (void)fetchReports{
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-    [Report fetchReportsForPatientID:self.patientID
+    [Report fetchReportsForPatientID:self.patient.objectId
                inBackgroundWithBlock:^(NSArray *doctorReports, NSArray *patientReports, NSError * _Nullable error) {
                    [MBProgressHUD hideHUDForView:self.view
                                         animated:YES];
@@ -247,10 +267,10 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-    ReportCell *cell = (ReportCell*)[collectionView cellForItemAtIndexPath:indexPath];
-    IDMPhoto *photo = [IDMPhoto photoWithImage:cell.reportImageView.image];
-    IDMPhotoBrowser *browser = [[IDMPhotoBrowser alloc] initWithPhotos:@[photo] animatedFromView:cell.reportImageView];
-    [self presentViewController:browser animated:YES completion:nil];
+    
+    PDFController *vc = [PDFController controller];
+    vc.report = self.reports[indexPath.row];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

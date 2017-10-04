@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0046473B0EAF2418BADFA05F /* libPods-Consult.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CC5FF7B13DCA1F10089703 /* libPods-Consult.a */; };
 		1DA3B50238A6806E22A421C7 /* libPods-Dr Ateet Sharma.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 618AD42A7691C8DA11A121E9 /* libPods-Dr Ateet Sharma.a */; };
 		6914ACD31F46A2C8001131DE /* AddScheduleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6914ACD21F46A2C8001131DE /* AddScheduleController.m */; };
 		692460581F5FF70500067981 /* ring.wav in Resources */ = {isa = PBXBuildFile; fileRef = 692460571F5FF70500067981 /* ring.wav */; };
@@ -118,6 +119,13 @@
 		69BBCAD61F39CEE30065083B /* ClinicsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BBCAD51F39CEE30065083B /* ClinicsListController.m */; };
 		69BBCAD91F39CF510065083B /* Clinic.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BBCAD81F39CF510065083B /* Clinic.m */; };
 		69BBCADC1F39E08D0065083B /* ClinicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BBCADB1F39E08D0065083B /* ClinicViewController.m */; };
+		69D13FC91F84C8CE00B32ADD /* PDFController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D13FC81F84C8CE00B32ADD /* PDFController.m */; };
+		69D13FCA1F84C8CE00B32ADD /* PDFController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D13FC81F84C8CE00B32ADD /* PDFController.m */; };
+		69D13FE71F84D8A200B32ADD /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D13FE61F84D8A200B32ADD /* test.swift */; };
+		69D13FE81F84D8A200B32ADD /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D13FE61F84D8A200B32ADD /* test.swift */; };
+		69D13FF81F84DBF300B32ADD /* ImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69D13FF51F84DBE800B32ADD /* ImagePicker.framework */; };
+		69D13FFB1F84E3C200B32ADD /* StaffListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D13FFA1F84E3C200B32ADD /* StaffListController.m */; };
+		69D13FFC1F84E3C200B32ADD /* StaffListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D13FFA1F84E3C200B32ADD /* StaffListController.m */; };
 		69EE2FC51F3995530083E929 /* CObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EE2FC21F3995530083E929 /* CObject.m */; };
 		69EE2FC61F3995530083E929 /* CUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EE2FC41F3995530083E929 /* CUser.m */; };
 		69EE2FCC1F3999AB0083E929 /* MenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EE2FCB1F3999AB0083E929 /* MenuController.m */; };
@@ -165,8 +173,26 @@
 		69FAE96B1EDD4AEA0099141C /* AppointmentsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FAE9691EDD4AEA0099141C /* AppointmentsController.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		69D13FF41F84DBE800B32ADD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69D13FEF1F84DBE800B32ADD /* ImagePicker.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D5DC598B1C201BE1003BD79B;
+			remoteInfo = "ImagePicker-iOS";
+		};
+		69D13FF61F84DBE800B32ADD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69D13FEF1F84DBE800B32ADD /* ImagePicker.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D5DC59951C201BE1003BD79B;
+			remoteInfo = "ImagePicker-iOS-Tests";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		147223B71BD9FBC4C56C6001 /* Pods-Dr Ateet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dr Ateet.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dr Ateet/Pods-Dr Ateet.release.xcconfig"; sourceTree = "<group>"; };
+		46D21AB3736DCD45FCA6DA01 /* Pods-Consult.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Consult.release.xcconfig"; path = "Pods/Target Support Files/Pods-Consult/Pods-Consult.release.xcconfig"; sourceTree = "<group>"; };
 		48D29B1721D02BEED7ECC881 /* Pods-Dr Ateet Sharma.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dr Ateet Sharma.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dr Ateet Sharma/Pods-Dr Ateet Sharma.release.xcconfig"; sourceTree = "<group>"; };
 		618AD42A7691C8DA11A121E9 /* libPods-Dr Ateet Sharma.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dr Ateet Sharma.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6800F0457E175B9F9F046742 /* Pods-Dr Ateet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dr Ateet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dr Ateet/Pods-Dr Ateet.debug.xcconfig"; sourceTree = "<group>"; };
@@ -193,7 +219,7 @@
 		6925696F1F4EEAB7007DC450 /* ARTCVideoChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTCVideoChatViewController.m; sourceTree = "<group>"; };
 		695000EE1F55705C00B5A0B1 /* PubNubManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PubNubManager.h; sourceTree = "<group>"; };
 		695000EF1F55705C00B5A0B1 /* PubNubManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PubNubManager.m; sourceTree = "<group>"; };
-		6956CB041F5A89E700B66EB8 /* KH Consult.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KH Consult.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6956CB041F5A89E700B66EB8 /* Consult.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Consult.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6956CB061F5A8C9D00B66EB8 /* Info-KH-Consult.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-KH-Consult.plist"; sourceTree = "<group>"; };
 		695D77161F5EA4220011E666 /* GiveAppointmentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiveAppointmentController.h; sourceTree = "<group>"; };
 		695D77171F5EA4220011E666 /* GiveAppointmentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiveAppointmentController.m; sourceTree = "<group>"; };
@@ -235,6 +261,14 @@
 		69BBCAD81F39CF510065083B /* Clinic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Clinic.m; sourceTree = "<group>"; };
 		69BBCADA1F39E08D0065083B /* ClinicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClinicViewController.h; sourceTree = "<group>"; };
 		69BBCADB1F39E08D0065083B /* ClinicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClinicViewController.m; sourceTree = "<group>"; };
+		69D13FC71F84C8CE00B32ADD /* PDFController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDFController.h; sourceTree = "<group>"; };
+		69D13FC81F84C8CE00B32ADD /* PDFController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDFController.m; sourceTree = "<group>"; };
+		69D13FE41F84D8A100B32ADD /* Dr Ateet Sharma-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Dr Ateet Sharma-Bridging-Header.h"; sourceTree = "<group>"; };
+		69D13FE51F84D8A100B32ADD /* Consult-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Consult-Bridging-Header.h"; sourceTree = "<group>"; };
+		69D13FE61F84D8A200B32ADD /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
+		69D13FEF1F84DBE800B32ADD /* ImagePicker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ImagePicker.xcodeproj; path = ImagePicker/ImagePicker.xcodeproj; sourceTree = "<group>"; };
+		69D13FF91F84E3C200B32ADD /* StaffListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaffListController.h; sourceTree = "<group>"; };
+		69D13FFA1F84E3C200B32ADD /* StaffListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaffListController.m; sourceTree = "<group>"; };
 		69EE2FC11F3995530083E929 /* CObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CObject.h; sourceTree = "<group>"; };
 		69EE2FC21F3995530083E929 /* CObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CObject.m; sourceTree = "<group>"; };
 		69EE2FC31F3995530083E929 /* CUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUser.h; sourceTree = "<group>"; };
@@ -307,7 +341,9 @@
 		69FAE9671EDD4AEA0099141C /* Appointments.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Appointments.storyboard; sourceTree = "<group>"; };
 		69FAE9681EDD4AEA0099141C /* AppointmentsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppointmentsController.h; sourceTree = "<group>"; };
 		69FAE9691EDD4AEA0099141C /* AppointmentsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppointmentsController.m; sourceTree = "<group>"; };
+		86D03B9F798B48E2D0800E66 /* Pods-Consult.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Consult.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Consult/Pods-Consult.debug.xcconfig"; sourceTree = "<group>"; };
 		A248BD0E3F58E525A20BE10A /* Pods-Dr Ateet Sharma.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dr Ateet Sharma.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dr Ateet Sharma/Pods-Dr Ateet Sharma.debug.xcconfig"; sourceTree = "<group>"; };
+		D0CC5FF7B13DCA1F10089703 /* libPods-Consult.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Consult.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7DAE5BA5389103E78C63432 /* libPods-Dr Ateet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dr Ateet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -316,6 +352,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69D13FF81F84DBF300B32ADD /* ImagePicker.framework in Frameworks */,
+				0046473B0EAF2418BADFA05F /* libPods-Consult.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +373,7 @@
 			children = (
 				F7DAE5BA5389103E78C63432 /* libPods-Dr Ateet.a */,
 				618AD42A7691C8DA11A121E9 /* libPods-Dr Ateet Sharma.a */,
+				D0CC5FF7B13DCA1F10089703 /* libPods-Consult.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -379,6 +418,15 @@
 				6961563A1F4C1E9E005B7A87 /* PatientInfoController.m */,
 			);
 			name = Doctor;
+			sourceTree = "<group>";
+		};
+		69D13FF01F84DBE800B32ADD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				69D13FF51F84DBE800B32ADD /* ImagePicker.framework */,
+				69D13FF71F84DBE800B32ADD /* ImagePicker-iOS-Tests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		69EE2FC01F3995020083E929 /* API */ = {
@@ -430,10 +478,14 @@
 		69FAE8591EDBCC130099141C = {
 			isa = PBXGroup;
 			children = (
+				69D13FEF1F84DBE800B32ADD /* ImagePicker.xcodeproj */,
+				69D13FE61F84D8A200B32ADD /* test.swift */,
 				69FAE8641EDBCC130099141C /* Dr Ateet */,
 				69FAE8631EDBCC130099141C /* Products */,
 				8134364EF63F474EF884C1D1 /* Pods */,
 				55126B1575BD236F59AB5934 /* Frameworks */,
+				69D13FE41F84D8A100B32ADD /* Dr Ateet Sharma-Bridging-Header.h */,
+				69D13FE51F84D8A100B32ADD /* Consult-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -441,7 +493,7 @@
 			isa = PBXGroup;
 			children = (
 				69FAE8621EDBCC130099141C /* Dr Ateet Sharma.app */,
-				6956CB041F5A89E700B66EB8 /* KH Consult.app */,
+				6956CB041F5A89E700B66EB8 /* Consult.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -470,6 +522,10 @@
 				692569561F4EB741007DC450 /* ReportsController.m */,
 				692569601F4EC446007DC450 /* ReportUploadController.h */,
 				692569611F4EC446007DC450 /* ReportUploadController.m */,
+				69D13FF91F84E3C200B32ADD /* StaffListController.h */,
+				69D13FFA1F84E3C200B32ADD /* StaffListController.m */,
+				69D13FC71F84C8CE00B32ADD /* PDFController.h */,
+				69D13FC81F84C8CE00B32ADD /* PDFController.m */,
 				69FAE86E1EDBCC130099141C /* Main.storyboard */,
 				69FAE8711EDBCC130099141C /* Assets.xcassets */,
 				69FAE8731EDBCC130099141C /* LaunchScreen.storyboard */,
@@ -603,6 +659,8 @@
 				147223B71BD9FBC4C56C6001 /* Pods-Dr Ateet.release.xcconfig */,
 				A248BD0E3F58E525A20BE10A /* Pods-Dr Ateet Sharma.debug.xcconfig */,
 				48D29B1721D02BEED7ECC881 /* Pods-Dr Ateet Sharma.release.xcconfig */,
+				86D03B9F798B48E2D0800E66 /* Pods-Consult.debug.xcconfig */,
+				46D21AB3736DCD45FCA6DA01 /* Pods-Consult.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -610,21 +668,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6956CAB01F5A89E700B66EB8 /* KH Consult */ = {
+		6956CAB01F5A89E700B66EB8 /* Consult */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6956CB011F5A89E700B66EB8 /* Build configuration list for PBXNativeTarget "KH Consult" */;
+			buildConfigurationList = 6956CB011F5A89E700B66EB8 /* Build configuration list for PBXNativeTarget "Consult" */;
 			buildPhases = (
+				051DAAC3C0E355FDF453A07F /* [CP] Check Pods Manifest.lock */,
 				6956CAB21F5A89E700B66EB8 /* Sources */,
 				6956CAE21F5A89E700B66EB8 /* Frameworks */,
 				6956CAE41F5A89E700B66EB8 /* Resources */,
+				DFFB34403280A24E2F84BCE1 /* [CP] Embed Pods Frameworks */,
+				2E900039BBEAA66C768C7F4E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "KH Consult";
+			name = Consult;
 			productName = "Dr Ateet";
-			productReference = 6956CB041F5A89E700B66EB8 /* KH Consult.app */;
+			productReference = 6956CB041F5A89E700B66EB8 /* Consult.app */;
 			productType = "com.apple.product-type.application";
 		};
 		69FAE8611EDBCC130099141C /* Dr Ateet Sharma */ = {
@@ -659,10 +720,12 @@
 				TargetAttributes = {
 					6956CAB01F5A89E700B66EB8 = {
 						DevelopmentTeam = 4U5KNE4PJF;
+						LastSwiftMigration = 0900;
 					};
 					69FAE8611EDBCC130099141C = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 4U5KNE4PJF;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -686,13 +749,36 @@
 			mainGroup = 69FAE8591EDBCC130099141C;
 			productRefGroup = 69FAE8631EDBCC130099141C /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 69D13FF01F84DBE800B32ADD /* Products */;
+					ProjectRef = 69D13FEF1F84DBE800B32ADD /* ImagePicker.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				69FAE8611EDBCC130099141C /* Dr Ateet Sharma */,
-				6956CAB01F5A89E700B66EB8 /* KH Consult */,
+				6956CAB01F5A89E700B66EB8 /* Consult */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		69D13FF51F84DBE800B32ADD /* ImagePicker.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ImagePicker.framework;
+			remoteRef = 69D13FF41F84DBE800B32ADD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		69D13FF71F84DBE800B32ADD /* ImagePicker-iOS-Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "ImagePicker-iOS-Tests.xctest";
+			remoteRef = 69D13FF61F84DBE800B32ADD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		6956CAE41F5A89E700B66EB8 /* Resources */ = {
@@ -767,6 +853,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		051DAAC3C0E355FDF453A07F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2E900039BBEAA66C768C7F4E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Consult/Pods-Consult-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		3699E59E997CCAB8471AF2A3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -779,7 +895,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		5A3C386001C554DE847A0B4F /* [CP] Copy Pods Resources */ = {
@@ -811,6 +927,21 @@
 			shellPath = /bin/sh;
 			shellScript = "if [ $CONFIGURATION == Release ]; then\necho \"Bumping build number...\"\nplist=${PROJECT_DIR}/${INFOPLIST_FILE}\n\n# increment the build number (ie 115 to 116)\nbuildnum=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${plist}\")\nif [[ \"${buildnum}\" == \"\" ]]; then\necho \"No build number in $plist\"\nexit 2\nfi\n\nbuildnum=$(expr $buildnum + 1)\n/usr/libexec/Plistbuddy -c \"Set CFBundleVersion $buildnum\" \"${plist}\"\necho \"Bumped build number to $buildnum\"\n\nelse\necho $CONFIGURATION \" build - Not bumping build number.\"\nfi";
 		};
+		DFFB34403280A24E2F84BCE1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Consult/Pods-Consult-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		EF07FEA26223511A9850174A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -840,6 +971,7 @@
 				6956CAB71F5A89E700B66EB8 /* HomeController.m in Sources */,
 				6956CAB81F5A89E700B66EB8 /* AddScheduleController.m in Sources */,
 				6956CAB91F5A89E700B66EB8 /* ClinicViewController.m in Sources */,
+				69D13FCA1F84C8CE00B32ADD /* PDFController.m in Sources */,
 				6956CABA1F5A89E700B66EB8 /* VerifyMobileController.m in Sources */,
 				6956CABB1F5A89E700B66EB8 /* ClinicsListController.m in Sources */,
 				695D771D1F5EA5070011E666 /* SlotCell.m in Sources */,
@@ -853,6 +985,7 @@
 				6956CAC31F5A89E700B66EB8 /* BaseController.m in Sources */,
 				6956CAC41F5A89E700B66EB8 /* PatientsListController.m in Sources */,
 				6956CAC51F5A89E700B66EB8 /* Report.m in Sources */,
+				69D13FFC1F84E3C200B32ADD /* StaffListController.m in Sources */,
 				6956CAC61F5A89E700B66EB8 /* NSDictionary+JSON.m in Sources */,
 				6956CAC71F5A89E700B66EB8 /* DoctorProfileController.m in Sources */,
 				6956CAC81F5A89E700B66EB8 /* NSString+JSON.m in Sources */,
@@ -861,6 +994,7 @@
 				6956CACB1F5A89E700B66EB8 /* Appointment.m in Sources */,
 				695D77211F5EA5D60011E666 /* PatientSelectorController.m in Sources */,
 				6956CACC1F5A89E700B66EB8 /* UIButton+Blocks.m in Sources */,
+				69D13FE81F84D8A200B32ADD /* test.swift in Sources */,
 				6956CACD1F5A89E700B66EB8 /* CallController.m in Sources */,
 				6956CACE1F5A89E700B66EB8 /* PatientAppointmentsController.m in Sources */,
 				6956CACF1F5A89E700B66EB8 /* ChatThread.m in Sources */,
@@ -897,6 +1031,7 @@
 				69FAE86D1EDBCC130099141C /* HomeController.m in Sources */,
 				6914ACD31F46A2C8001131DE /* AddScheduleController.m in Sources */,
 				69BBCADC1F39E08D0065083B /* ClinicViewController.m in Sources */,
+				69D13FC91F84C8CE00B32ADD /* PDFController.m in Sources */,
 				69EE2FD31F399B190083E929 /* VerifyMobileController.m in Sources */,
 				69BBCAD61F39CEE30065083B /* ClinicsListController.m in Sources */,
 				695D771C1F5EA5070011E666 /* SlotCell.m in Sources */,
@@ -910,6 +1045,7 @@
 				69EE2FD61F399B400083E929 /* BaseController.m in Sources */,
 				696156351F4C1812005B7A87 /* PatientsListController.m in Sources */,
 				692569591F4EB7DE007DC450 /* Report.m in Sources */,
+				69D13FFB1F84E3C200B32ADD /* StaffListController.m in Sources */,
 				69FAE8C81EDD1B8C0099141C /* NSDictionary+JSON.m in Sources */,
 				69BBCAD01F39A5CA0065083B /* DoctorProfileController.m in Sources */,
 				69FAE8CA1EDD1B8C0099141C /* NSString+JSON.m in Sources */,
@@ -918,6 +1054,7 @@
 				6961563E1F4C2388005B7A87 /* Appointment.m in Sources */,
 				695D77201F5EA5D60011E666 /* PatientSelectorController.m in Sources */,
 				696156301F4C13F0005B7A87 /* UIButton+Blocks.m in Sources */,
+				69D13FE71F84D8A200B32ADD /* test.swift in Sources */,
 				69981F571F56AAAF00915518 /* CallController.m in Sources */,
 				6925696B1F4EE27E007DC450 /* PatientAppointmentsController.m in Sources */,
 				69FAE8DA1EDD29620099141C /* ChatThread.m in Sources */,
@@ -967,9 +1104,12 @@
 /* Begin XCBuildConfiguration section */
 		6956CB021F5A89E700B66EB8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86D03B9F798B48E2D0800E66 /* Pods-Consult.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconGeneric;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Dr Ateet/Dr Ateet.entitlements";
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 4U5KNE4PJF;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "./Dr Ateet/app.pch";
@@ -980,16 +1120,22 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.shashankpatel.consult.kh;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shashankpatel.consult;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Consult-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		6956CB031F5A89E700B66EB8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46D21AB3736DCD45FCA6DA01 /* Pods-Consult.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconGeneric;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Dr Ateet/Dr Ateet.entitlements";
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 4U5KNE4PJF;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "./Dr Ateet/app.pch";
@@ -1000,8 +1146,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.shashankpatel.consult.kh;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shashankpatel.consult;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Consult-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -1100,6 +1248,7 @@
 			baseConfigurationReference = A248BD0E3F58E525A20BE10A /* Pods-Dr Ateet Sharma.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Dr Ateet/Dr Ateet.entitlements";
 				DEVELOPMENT_TEAM = 4U5KNE4PJF;
 				ENABLE_BITCODE = NO;
@@ -1113,6 +1262,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.shashankpatel.drateet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Dr Ateet Sharma-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1121,6 +1273,7 @@
 			baseConfigurationReference = 48D29B1721D02BEED7ECC881 /* Pods-Dr Ateet Sharma.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Dr Ateet/Dr Ateet.entitlements";
 				DEVELOPMENT_TEAM = 4U5KNE4PJF;
 				ENABLE_BITCODE = NO;
@@ -1134,13 +1287,15 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.shashankpatel.drateet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Dr Ateet Sharma-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6956CB011F5A89E700B66EB8 /* Build configuration list for PBXNativeTarget "KH Consult" */ = {
+		6956CB011F5A89E700B66EB8 /* Build configuration list for PBXNativeTarget "Consult" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6956CB021F5A89E700B66EB8 /* Debug */,

@@ -22,6 +22,8 @@
 #import "PatientAppointmentsController.h"
 #import "AppointmentsController.h"
 #import "PatientSelectorController.h"
+#import "PatientsListController.h"
+#import "StaffListController.h"
 
 @interface MenuController ()<UITableViewDataSource ,UITableViewDelegate>
 
@@ -64,8 +66,9 @@
                       @[@"Online Consultation", @"Reports", @"My Profile"],
                       @[@"About Dr. Ateet Sharma", @"Logout"]];
     }else{
-        self.menu = @[@[@"Home", @"Profile", @"Professional Details"],
-                      @[@"Give Appointment", @"Clashing Appointments", @"My Schedules", @"My Clinics"],
+        self.menu = @[@[@"Home"],
+                      @[@"Appointments", @"Give Appointment", @"Clashing Appointments"],
+                      @[@"Patient Info", @"My Schedules", @"My Clinics", @"My Staff", @"Profile", @"Professional Profile"],
                       @[@"Logout"]];
     }
     
@@ -89,7 +92,12 @@
 }
 
 - (void)profileTapped{
-    [ApplicationDelegate.drawerController setPaneViewController:[DoctorProfileController navigationController]];
+    if([[CUser currentUser] isDoctor]){
+        [ApplicationDelegate.drawerController setPaneViewController:[DoctorProfileController navigationController]];
+    }else{
+        [ApplicationDelegate.drawerController setPaneViewController:[PatientProfileController navigationController]];
+    }
+    
     [ApplicationDelegate.drawerController setPaneState:MSDynamicsDrawerPaneStateClosed animated:YES allowUserInterruption:NO completion:^{
         
     }];
@@ -116,9 +124,22 @@
     }];
 }
 
+- (void)myStaffTapped{
+    [ApplicationDelegate.drawerController setPaneViewController:[StaffListController navigationController]];
+    [ApplicationDelegate.drawerController setPaneState:MSDynamicsDrawerPaneStateClosed animated:YES allowUserInterruption:NO completion:^{
+
+    }];
+}
 
 - (void)giveAppointmentTapped{
     [ApplicationDelegate.drawerController setPaneViewController:[PatientSelectorController navigationController]];
+    [ApplicationDelegate.drawerController setPaneState:MSDynamicsDrawerPaneStateClosed animated:YES allowUserInterruption:NO completion:^{
+        
+    }];
+}
+
+- (void)appointmentsTapped{
+    [ApplicationDelegate.drawerController setPaneViewController:[PatientAppointmentsController navigationController]];
     [ApplicationDelegate.drawerController setPaneState:MSDynamicsDrawerPaneStateClosed animated:YES allowUserInterruption:NO completion:^{
         
     }];
@@ -129,6 +150,13 @@
     UINavigationController *navVC = NavigationControllerWithController(vc);
     
     [ApplicationDelegate.drawerController setPaneViewController:navVC];
+    [ApplicationDelegate.drawerController setPaneState:MSDynamicsDrawerPaneStateClosed animated:YES allowUserInterruption:NO completion:^{
+        
+    }];
+}
+
+- (void)patientInfoTapped{
+    [ApplicationDelegate.drawerController setPaneViewController:[PatientsListController navigationController]];
     [ApplicationDelegate.drawerController setPaneState:MSDynamicsDrawerPaneStateClosed animated:YES allowUserInterruption:NO completion:^{
         
     }];
@@ -256,35 +284,49 @@
             case 0:
                 [self homeTapped];
                 break;
+            default:
+                break;
+        }
+    }else if(indexPath.section == 1){
+//        @[@"Appointments", @"Give Appointment", @"Clashing Appointments"]
+        switch (indexPath.row) {
+            case 0:
+                [self appointmentsTapped];
+                break;
             case 1:
-                [self profileTapped];
+                [self giveAppointmentTapped];
                 break;
             case 2:
+                [self clashingAppointmentTapped];
+                break;
+        }
+    }else if (indexPath.section == 2){
+//        @[@"Patient Info", @"My Schedules", @"My Clinics", @"My Staff", @"Profile", @"Professional Profile"]
+        switch (indexPath.row) {
+            case 0:
+                [self patientInfoTapped];
+                break;
+            case 1:
+                [self mySchedulesTapped];
+                break;
+            case 2:
+                [self myClinicsTapped];
+                break;
+            case 3:
+                [self myStaffTapped];
+                break;
+            case 4:
+                [self profileTapped];
+                break;
+            case 5:
                 [self proDetailsTapped];
                 break;
                 
             default:
                 break;
         }
-    }else if(indexPath.section == 1){
-        switch (indexPath.row) {
-            case 0:
-                [self giveAppointmentTapped];
-                break;
-            case 1:
-                [self clashingAppointmentTapped];
-                break;
-            case 2:
-                [self mySchedulesTapped];
-                break;
-            case 3:
-                [self myClinicsTapped];
-                break;
-                
-            default:
-                break;
-        }
-    }else if(indexPath.section == 2){
+    }
+    else if(indexPath.section == 3){
         [CUser logOut];
         [ApplicationDelegate setController];
     }

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Patient.h"
 #import "UIView+Theme.h"
+#import "BaseController.h"
 
 @interface PatientCell : UITableViewCell
 
@@ -19,7 +20,7 @@
 
 @end
 
-@interface PatientsListController : UIViewController
+@interface PatientsListController : BaseController
 
 + (id)controller;
 + (id)navigationController;

@@ -211,7 +211,12 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 }
 
 - (void)handleNotification:(NSDictionary*)userInfo{
-    NSDictionary *JSON = userInfo[@"aps"][@"call_payload"];
+    NSDictionary *aps = userInfo[@"aps"];
+    NSDictionary *JSON = aps[@"call_payload"];
+    
+    if (!JSON) {
+        JSON = JSON[@"json_data"];
+    }
     
     if ([JSON[@"type"] isEqualToString:@"v_call"]) {
         NSNotification *notification = [NSNotification notificationWithName:@"INCOMING_CALL_NOTIFICATION"

@@ -30,6 +30,9 @@ typedef void (^UserResultBlock)(CUser *_Nullable user, NSError *_Nullable error)
 - (void)saveFirstName:(NSString*)fName lastName:(NSString*)lName InBackgroundWithBlock:(BooleanResultBlock)block;
 - (void)updateProfileImageInBackgroundWithBlock:(nullable BooleanResultBlock)block;
 - (void)fetchMyPatientsInBackgroundWithBlock:(nullable ArrayResultBlock)block;
+- (void)fetchMyStaffInBackgroundWithBlock:(nullable ArrayResultBlock)block;
+- (void)addStaff:(NSDictionary*) staff withBlock:(nullable BooleanResultBlock)block;
+- (void)deleteStaffInBackgroundWithBlock:(nullable BooleanResultBlock)block;
 
 - (NSURL*)profileImageURL;
 - (BOOL)isPatient;

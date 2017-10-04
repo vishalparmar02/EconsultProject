@@ -86,7 +86,7 @@
 
 - (IBAction)reportsTapped{
     ReportsController *vc = [ReportsController controller];
-    vc.patientID = self.patient.objectId;
+    vc.patient = self.patient;
     vc.isChild = YES;
     UINavigationController *navVC = NavigationControllerWithController(vc);
     [self.navigationController presentViewController:navVC

@@ -163,7 +163,7 @@
             [self.navigationController pushViewController:vc
                                                  animated:YES];
         }else if (indexPath.row == 2) {
-            ReportsController *vc = [ReportsController controller];
+            PatientsListController *vc = [PatientsListController controller];
             vc.isChild = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }else if (indexPath.row == 3) {
@@ -185,6 +185,7 @@
                                                  animated:YES];
         }else if (indexPath.row == 2) {
             PatientsListController *vc = [PatientsListController controller];
+            vc.isChild = YES;
             [self.navigationController pushViewController:vc
                                                  animated:YES];
         }

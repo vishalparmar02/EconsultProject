@@ -33,7 +33,8 @@
 }
 
 - (NSString*)objectId{
-    return self[@"id"];
+    NSString *objectId = self[@"id"];
+    return [objectId isKindOfClass:[NSNumber class]] ? [(NSNumber*)objectId stringValue] : objectId;
 }
 
 - (void)resetDetails:(NSDictionary*)dict{

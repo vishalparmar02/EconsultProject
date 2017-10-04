@@ -8,6 +8,7 @@
 
 #import "PatientsListController.h"
 #import "PatientInfoController.h"
+#import "ReportsController.h"
 
 @implementation PatientCell
 
@@ -44,12 +45,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"My Patients";
-    [self fetchPatients];
+    
+    if ([[CUser currentUser] isDoctor]) {
+        [self fetchPatients];
+    }else{
+        [self fetchMyPatients];
+    }
 }
 
 - (void)fetchPatients{
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [Patient fetchPatientsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        self.patients = [objects sortedArrayUsingSelector:@selector(compare:)];
+        [self.tableView reloadData];
+    }];
+}
+
+- (void)fetchMyPatients{
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[CUser currentUser] fetchMyPatientsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         self.patients = [objects sortedArrayUsingSelector:@selector(compare:)];
         [self.tableView reloadData];
@@ -74,9 +89,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    PatientInfoController *vc = [PatientInfoController controller];
-    vc.patient = self.patients[indexPath.row];
-    [self.navigationController pushViewController:vc animated:YES];
+    if ([[CUser currentUser] isPatient]) {
+        ReportsController *vc = [ReportsController controller];
+        vc.patient = self.patients[indexPath.row];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else{
+        PatientInfoController *vc = [PatientInfoController controller];
+        vc.patient = self.patients[indexPath.row];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 @end

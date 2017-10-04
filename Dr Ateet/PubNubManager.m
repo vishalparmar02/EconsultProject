@@ -53,7 +53,11 @@
     
     if (currentUser) {
         if ([currentUser isPatient]) {//Patient
-            [channels addObject:[NSString stringWithFormat:@"patient_%@", currentUser[@"patient_id"]]];
+            NSString *patientID = currentUser[@"patient_id"];
+            if (![patientID isKindOfClass:[NSString class]]) {
+                patientID = [(NSNumber*)patientID stringValue];
+            }
+            [channels addObject:[NSString stringWithFormat:@"patient_%@", patientID]];
             [self.client subscribeToChannels:channels withPresence:NO];
             if (!TARGET_OS_SIMULATOR) {
                 NSLog(@"Device Token: %@", kDeviceToken);
@@ -129,6 +133,10 @@
     NSDictionary *JSON = message.data.message;
     if (JSON[@"call_payload"]) {
         JSON = JSON[@"call_payload"];
+    }
+    
+    if (JSON[@"json_data"]) {
+        JSON = JSON[@"json_data"];
     }
     
     NSLog(@"isSimulator: %d, Type:%@", IS_SIMULATOR, JSON[@"type"]);

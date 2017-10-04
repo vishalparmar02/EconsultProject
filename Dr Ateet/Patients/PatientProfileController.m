@@ -231,7 +231,7 @@
     [section addFormRow:row];
     
     //Height
-    row = [XLFormRowDescriptor formRowDescriptorWithTag:@"height" rowType:XLFormRowDescriptorTypeNumber title:@"Weight"];
+    row = [XLFormRowDescriptor formRowDescriptorWithTag:@"height" rowType:XLFormRowDescriptorTypeNumber title:@"Height"];
     [row.cellConfigAtConfigure setObject:@"190" forKey:@"textField.placeholder"];
     [row.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
     [row.cellConfig setObject:font forKey:@"textLabel.font"];

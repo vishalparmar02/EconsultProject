@@ -14,11 +14,11 @@ typedef void (^ReportsResultBlock)(NSArray *_Nullable doctorReports, NSArray *_N
 
 @property (nonatomic, strong)   NSString    *reportType, *reportDescription;
 @property (nonatomic, strong)   NSString    *patientID;
-@property (nonatomic, strong)   UIImage     *reportImage;
+@property (nonatomic, strong)   NSArray<UIImage*>     *reportImages;
 
 + (void)fetchReportsForPatientID:(NSString*)patientID
            inBackgroundWithBlock:(nullable ReportsResultBlock)block;
 
-- (NSURL*)reportImageURL;
+- (UIImage*)reportThumb;
 
 @end

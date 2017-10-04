@@ -365,11 +365,84 @@ static CUser *currentUser;
     [dataTask resume];
 }
 
+- (void)fetchMyStaffInBackgroundWithBlock:(nullable ArrayResultBlock)block{
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    AFJSONRequestSerializer *reqSerializer = [AFJSONRequestSerializer serializer];
+    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"Authorization"];
+    NSString *URLString          = [API_BASE_URL stringByAppendingPathComponent:GET_STAFF];
+    NSMutableURLRequest *request = [reqSerializer requestWithMethod:@"GET"
+                                                          URLString:URLString
+                                                         parameters:nil
+                                                              error:nil];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@", error);
+            if(block)block(nil, error);
+        } else {
+            NSMutableArray *staff = [NSMutableArray array];
+            NSArray *staffArray = responseObject[@"data"];
+            for (NSDictionary *staffDict in staffArray) {
+                [staff addObject:[[CUser alloc] initWithDictionary:staffDict]];
+            }
+            if(block)block(staff, nil);
+        }
+    }];
+    [dataTask resume];
+}
+
+- (void)deleteStaffInBackgroundWithBlock:(nullable BooleanResultBlock)block{
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    NSString *endPoint = [NSString stringWithFormat:DELETE_STAFF, self.objectId];
+    NSString *URLString             = [API_BASE_URL stringByAppendingPathComponent:endPoint];
+    NSMutableURLRequest *request    = [[AFJSONRequestSerializer serializer] requestWithMethod:@"DELETE"
+                                                                                    URLString:URLString
+                                                                                   parameters:nil
+                                                                                        error:nil];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@", error);
+            block(NO, error);
+        } else {
+            block(YES, nil);
+        }
+    }];
+    [dataTask resume];
+}
+
+- (void)addStaff:(NSDictionary*) staff withBlock:(nullable BooleanResultBlock)block{
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSString *URLString             = [API_BASE_URL stringByAppendingPathComponent:ADD_STAFF];
+    NSMutableURLRequest *request    = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST"
+                                                                                    URLString:URLString
+                                                                                   parameters:staff
+                                                                                        error:nil];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@", error);
+            block(NO, error);
+        } else {
+            block(YES, nil);
+        }
+    }];
+    [dataTask resume];
+}
+
 - (Patient*)patient{
     return [Patient patientFromDictionary:@{@"id" : self[@"patient_id"],
                                             @"patient_id" : self[@"patient_id"],
                                             @"first_name" : self[@"first_name"],
                                             @"last_name" : self[@"last_name"]}];
+}
+
+- (NSComparisonResult)compare:(CUser*)other{
+    return [self.fullName.lowercaseString compare:other.fullName.lowercaseString];
 }
 
 @end
