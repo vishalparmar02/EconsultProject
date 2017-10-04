@@ -34,7 +34,7 @@ PODS:
     - pop
     - SDWebImage
   - iOS-Hierarchy-Viewer (1.4.7)
-  - IQKeyboardManager (4.0.7)
+  - IQKeyboardManager (4.0.13)
   - JSQMessagesViewController (7.3.4):
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
@@ -67,7 +67,7 @@ DEPENDENCIES:
   - DLRadioButton
   - IDMPhotoBrowser
   - iOS-Hierarchy-Viewer
-  - IQKeyboardManager
+  - IQKeyboardManager (~> 4.0.13)
   - JSQMessagesViewController
   - JTCalendar
   - MBProgressHUD
@@ -93,7 +93,7 @@ SPEC CHECKSUMS:
   DLRadioButton: 7bb8a6e3768b572469ace553391ab4d2af6f9c19
   IDMPhotoBrowser: 35e8ba559a88f2a8be4ae04d7fd424665344ba06
   iOS-Hierarchy-Viewer: fb8ef72b55a8915ab0575543970754ea696e9061
-  IQKeyboardManager: 69002bb4fea60596b710e57d426abc00e5063630
+  IQKeyboardManager: 8eab4d8111418414619d1df8e4779ce5d0f8d7e2
   JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   JTCalendar: beb2f4c1b639bf6880f680b4858227acf83a049c
@@ -109,6 +109,6 @@ SPEC CHECKSUMS:
   UIColor+Hex: 9fee91bb8e19f17dd40a79ae1e98949a6a84489d
   XLForm: d5c391dfc62865927b5bcab0a5a0dbfb3e02b0ec
 
-PODFILE CHECKSUM: ef2f20753566489860dad1b211d2f3d1d5add9ed
+PODFILE CHECKSUM: a740c933a3f7e5c9e73fbce9bc40103284550e01
 
 COCOAPODS: 1.1.1

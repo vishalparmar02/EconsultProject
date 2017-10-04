@@ -10,10 +10,9 @@
 		0027DAF478B7C580DDBA9FDA6AF79A40 /* JSQMessagesBubbleImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A1A0F0FF4003A7146ED3DFADC1705F /* JSQMessagesBubbleImage.m */; };
 		0097C361F954ED7B5067F212826C11AE /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD52CBDC7C1A73547F1DF7FC39F84D /* DDASLLogger.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		00B1731A16A97121C00916A993EBC6B3 /* JSQMediaItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C2C83284DBE46742AA9E695E1F3B8B /* JSQMediaItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		00B5EEDD253C0B01BD7B72D3C9EE4206 /* IQUIView+IQKeyboardToolbar.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C54ABBF3E84F13F37B230F039D0A23D /* IQUIView+IQKeyboardToolbar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0192B121701BF3EADD3730B8E68E6DB6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48326235A5916AD92425E40F392C6A05 /* UIKit.framework */; };
 		0207141D0AF326DF5444EC1440379A13 /* PNPublishAPICallBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 2722242F893CA5E05A1ABB59F9337919 /* PNPublishAPICallBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		022EE92A69296EA1E3CF45909591C809 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0F161BD46E10B188953164C2EEBF1E0 /* Foundation.framework */; };
-		02497B4D2B4B8E85D9E0CB8C19DEC5F9 /* IQBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 877F1FE051C2E8B4BC2965EB8A381D5F /* IQBarButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		02647473608FCA586341C76EA09DEFD2 /* MSDynamicsDrawerViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 091C73A78B5AF2842E74F662117C5AA3 /* MSDynamicsDrawerViewController-dummy.m */; };
 		026C7FC5AE3DFA4DC264E1145C803F86 /* PNPublishStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = F48BC686D9A7EF33B8628528D9917A31 /* PNPublishStatus.m */; };
 		02E138B9942C4F8A4E0F78DC65FD018E /* RTCSessionDescription+JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 58A9B886239880063DA0B08460CA9417 /* RTCSessionDescription+JSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -26,7 +25,6 @@
 		051FE444B0DAEA4C173CDD1A597FF341 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7AFFDA63B9193A904816D7D8604EFB /* Security.framework */; };
 		056F903B5CD9A38587224C9289E820F7 /* JSQMessagesAvatarImageFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E27F45944956E928B232384B713C405 /* JSQMessagesAvatarImageFactory.m */; };
 		0580B8F9584273D6209C4CAA7ACC929E /* POPAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 05AC92122BB9C487DB79B7F2F875C159 /* POPAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		05925630D8F4C3B45165B7632C7432C0 /* IQKeyboardReturnKeyHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3031C75939AACA9D2F9D1367A640F4BF /* IQKeyboardReturnKeyHandler.m */; };
 		05ADA749EB797635BF1FA8E2791BEB55 /* POPAnimatableProperty.mm in Sources */ = {isa = PBXBuildFile; fileRef = A0E7B90E440728D4737A83FF5E454222 /* POPAnimatableProperty.mm */; };
 		05BE85B488E04587259EA74993A8F84F /* NSArray+XLFormAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DE23ECA8CDB3B58D1D889A3067D519FB /* NSArray+XLFormAdditions.m */; };
 		06105267E63B66D3E3C865A5FFBFCA9E /* UIDevice+JSQMessages.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A46868FD7CD08854EFC5F4FC48C06BC /* UIDevice+JSQMessages.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -38,6 +36,7 @@
 		083D588B017BB5424A50D1848F1EEFE0 /* PNLLogFileInformation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D8B89AD78382898F04AD92686B848E8 /* PNLLogFileInformation.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		086512D76D0A65CC8634953C6506D686 /* PNLeaveParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 038A799A9215F2406CE6175BDCA532A0 /* PNLeaveParser.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		08B7D5325784F106F7C1C6C35C8B74A1 /* XLFormDatePickerCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B547A8671547A3B4B17EBD1A3BF4E65 /* XLFormDatePickerCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		08C263DF6F9031C2ED55A0D16722652A /* IQUIView+IQKeyboardToolbar.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C54ABBF3E84F13F37B230F039D0A23D /* IQUIView+IQKeyboardToolbar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		09B2A02CC4C851CA36C0E49027063679 /* JSQMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = FEE640A4D58DFC5C451004E134E40CCD /* JSQMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		09E29ABB43CDA614D8717DEDCA0BDF84 /* PNStateModificationAPICallBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CE10E6F39291D89BE907C7CD3DC886 /* PNStateModificationAPICallBuilder.m */; };
 		0B740AFE34471B5D1B2DD24E3DF05741 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E536C7EF3FA4B2063F615C9453EE58 /* QuartzCore.framework */; };
@@ -60,16 +59,15 @@
 		118A933D2E13C3D597BD1FC22582E2F7 /* PNPresenceGlobalHereNowResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 964C1ABA1522C1E121E72DE7F3C7D997 /* PNPresenceGlobalHereNowResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		11C95E5BD5EB4D4FD5113A6B1A2A2462 /* Pods-Dr Ateet Sharma-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8837636A3BE8EB23D15A2C643C0A3CF2 /* Pods-Dr Ateet Sharma-dummy.m */; };
 		12E5725679E47B6C713026B1C085626A /* PNClientInformation.h in Headers */ = {isa = PBXBuildFile; fileRef = 62537B5405FA21331E8C54DD8A5DD9E0 /* PNClientInformation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1307DFA5C6BAC0A80D739B523F0D5247 /* IQTitleBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C41084F3FD14A7682200242B40107B1 /* IQTitleBarButtonItem.m */; };
 		1341A7AC2439CB63D459D32EF985A414 /* UIImage+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = FFA7D3FB9FD27C8E62BD8145B98C7BA7 /* UIImage+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		134FC60FAFF13893D34FCC2CDE67126F /* IQPreviousNextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CB6EDA46E606B988C8F9D1145AFA88B /* IQPreviousNextView.m */; };
 		1397527E70AB314B02DC62A080402047 /* BEMAnimationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 30E81DD6E0D73AF6C5F4FCAD266372C9 /* BEMAnimationManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		142A78B6BB1171835B98BB2CE6ECD430 /* IDMTapDetectingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B4848FA16FE587CF0B262CB182C79D /* IDMTapDetectingImageView.m */; };
 		14304BD62E1B1A484C21AD72F319048D /* UIImageView+HighlightedWebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = CB54104CA95C46646C84A3117BD16808 /* UIImageView+HighlightedWebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1491247C542939A49A047F3D170B86C3 /* PNAPICallBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = BE4CCAF6499F9D870CFADC6BC82CDA51 /* PNAPICallBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		158353C8E0E537FC73E14D9CDA65AD54 /* PNAPNSModificationAPICallBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = E72E489B01207105832F296550E5B35C /* PNAPNSModificationAPICallBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		15BF4C4C4C8C514DE2C2881629B1C801 /* IQUIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D74897BC892D38F262D6954DF6A3DD3 /* IQUIView+Hierarchy.m */; };
 		15F9A6F38DDE1AFD2F9151A10A18906F /* PNPresenceWhereNowResult.h in Headers */ = {isa = PBXBuildFile; fileRef = A9B779F72589603AE8D2CD2E6004002B /* PNPresenceWhereNowResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		16FEF4DF88110E5145A4C7D954C91BB3 /* IQKeyboardManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D6E0143B2ADBD3143CE197E753EAFBD3 /* IQKeyboardManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		17045EA58EB53C66039B73AFDA4BB11F /* IQUITextFieldView+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EC5E1EF52052E2C5A0E014F45D1544B /* IQUITextFieldView+Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		184253ED876A2DB5B9469D16C1F3FBC4 /* PNReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 81E6EB00635E9AE75CB1195B6ADAFD9C /* PNReachability.m */; };
 		1877147009696957BF3B794CF61DF2FF /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23B33D2558F94D1EC3D61A9171056C54 /* CoreAudio.framework */; };
 		18910E0D80D0A89E41177BAC96DD1958 /* XLFormSegmentedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC4E835D875DC96C279D83F96E12224 /* XLFormSegmentedCell.m */; };
@@ -83,6 +81,7 @@
 		19CE687B1BB097AB980993BA8752419E /* PNPresenceWhereNowParser.h in Headers */ = {isa = PBXBuildFile; fileRef = F52C946D2A49C9740339531C5196BC9E /* PNPresenceWhereNowParser.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		19DE4693188DB31E532ACC6EAC30440C /* JSQMessagesLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EE05E1C97F15F96C25D6A27EF448CB2 /* JSQMessagesLabel.m */; };
 		19F42604E74F477AE4E3A60DCEAE11DF /* PNAPICallBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = A702D46DC93323EC194E926577AF02C0 /* PNAPICallBuilder.m */; };
+		1A12AC09DAEE727DBD9D111A2B098516 /* IQKeyboardReturnKeyHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = BEACC4651A9A83AB3DBA208A33664BC3 /* IQKeyboardReturnKeyHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1A5BEDC57E17712D312C29BBFB2A3316 /* JTCalendarSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 61A802FC80F29B56EB421693AFCBB59E /* JTCalendarSettings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1ABDE5478843CEB87734C8D59FDB63C1 /* XLFormRowNavigationAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFFCC83BA0329F1F7CB2E7297CB60BF /* XLFormRowNavigationAccessoryView.m */; };
 		1B5D8F26385687A23F5A61C39B643B56 /* PNTimeResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CD4220DAD92C73EFDC5B9EEE3E3765 /* PNTimeResult.m */; };
@@ -92,21 +91,18 @@
 		1CCB7D98C13AC6B35C68272594A8AF8B /* SDWebImageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D6533E7EDCAA45E0C7B47C43F0F268BB /* SDWebImageManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1D2939B597945BAA7A1FEE42A7525DFF /* PubNub+State.m in Sources */ = {isa = PBXBuildFile; fileRef = 459D2155573829494C792AE0C0B5C9D8 /* PubNub+State.m */; };
 		1D31A36113958395AC9BC5D13AB8FB5F /* POPBasicAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10E63F1B036916EDCED73B12B546BF72 /* POPBasicAnimation.mm */; };
-		1D4879B92EA825397EDCF3A5B09C5EF2 /* IQTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A347585499280B8918747FED77FD97E7 /* IQTextView.m */; };
 		1DEBF937A21F8EB27AE0FD6DC6EB5C48 /* DDTTYLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EECC5C5C6B3EE9CC126BC20DC5FAFAF /* DDTTYLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E0C68C4341B14C2B4C986B847220B22 /* PNSubscribeParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 50D587EE3C37F5CDE21325C58475E593 /* PNSubscribeParser.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		1E78661008D7AA4375CC10ED59E1A0F4 /* PNStateAuditAPICallBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 537A1C3F53F057D6B431F269051ABE35 /* PNStateAuditAPICallBuilder.m */; };
 		1EC8E33A5F64B6B7C003A9F2D3C319CD /* IDMPhotoBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = AF2C8F9CF4B28819A5A6D1BA72C36E8C /* IDMPhotoBrowser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F5CE1998A3870157184541657829246 /* JSQSystemSoundPlayer+JSQMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B5B9E3394C26BBFF81442C07EEB30B /* JSQSystemSoundPlayer+JSQMessages.m */; };
 		1F796DB225522DF075625540CAA26659 /* JSQSystemSoundPlayer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C4917231B1A7FF7CAF0222CE9B72B06C /* JSQSystemSoundPlayer-dummy.m */; };
+		1FE215BF6E333819BA7309B141A776E5 /* IQUIViewController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = F3936FE38FD2843300BDE847EB96531E /* IQUIViewController+Additions.m */; };
 		1FF9C4CAA26FB487179CA73CE788BCD2 /* JSQMessagesAvatarImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 7770E5D11622438E202BF8217EACDDA8 /* JSQMessagesAvatarImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		20470E115EB27E27ED3651825805AAF6 /* PNPresenceGlobalHereNowResult.m in Sources */ = {isa = PBXBuildFile; fileRef = C6B8FAE968451CE32CAAB923D35E12E7 /* PNPresenceGlobalHereNowResult.m */; };
-		2096CD6E3FA4BFF26DB9085F6A0EF44D /* IQUITextFieldView+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EC5E1EF52052E2C5A0E014F45D1544B /* IQUITextFieldView+Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		20F82FBDEB5A8D22B5C5F0E568715FDB /* JSQMessagesCollectionViewCellIncoming.m in Sources */ = {isa = PBXBuildFile; fileRef = F8A985475E4DF1E051D036CDC620F00D /* JSQMessagesCollectionViewCellIncoming.m */; };
-		216E6D7ADF0FFF3318DB30C2CC565C5D /* IQNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = B47F6205D16CBF401F43797885859DA3 /* IQNSArray+Sort.m */; };
 		21B1EB50A8EC9F8BA6FAAC2F7E030FAD /* UIAlertController+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = D867839766D458B63DD1732B6673C276 /* UIAlertController+Blocks.m */; };
 		22070F61B09BA42858CC48073D6893D4 /* BEMCheckBoxGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 72DB7880157388187B2826D895E88649 /* BEMCheckBoxGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		231F8E21B389D7F294D8231F016AC11A /* IQUIViewController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = F3936FE38FD2843300BDE847EB96531E /* IQUIViewController+Additions.m */; };
 		23647965254B3E07E2FDDD729E0AD436 /* CocoaLumberjack-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2009418DEF1539DD6963C3803F86E3 /* CocoaLumberjack-dummy.m */; };
 		23BBB3A9749E70AB625AF5437E6EB76D /* JSQMessagesCollectionViewCellIncoming.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DD6975C3BA923B7F6ED85FF0DED5FB2 /* JSQMessagesCollectionViewCellIncoming.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		23C485F79C441EB309A2F0934B6F5380 /* PNData.m in Sources */ = {isa = PBXBuildFile; fileRef = DBCC30F3FEA208A3031990E3231CA68F /* PNData.m */; };
@@ -128,7 +124,10 @@
 		27EC8FE8D1CD87F055134B1D025DDFDC /* JSQMessagesLoadEarlierHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2257B53D8FF964417F4E9156D00418ED /* JSQMessagesLoadEarlierHeaderView.m */; };
 		2843898C40D365BC1361BF1CD832E9B2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36620CE1EAE09A0FE17E358470123468 /* CoreGraphics.framework */; };
 		28444A02652EC12DFDA3187C66EA7A8E /* UIColor+Hex.h in Headers */ = {isa = PBXBuildFile; fileRef = 712E0A70A44083DBC1DFD43EEA3695AE /* UIColor+Hex.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		287DB473D0F6D35B5839EDC75F207060 /* IQUIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D74897BC892D38F262D6954DF6A3DD3 /* IQUIView+Hierarchy.m */; };
 		28AB6D137E21676120A608B0C2B91C57 /* PNLLogFileInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0A116580694984BEC5BE1E4B537E92 /* PNLLogFileInformation.m */; };
+		28B30D7AF077B7BBD7361FB6AC3AA2BC /* IQBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 877F1FE051C2E8B4BC2965EB8A381D5F /* IQBarButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		291917106FFE5E242919B57386FBF2D5 /* IQTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A347585499280B8918747FED77FD97E7 /* IQTextView.m */; };
 		29518C95DD5E9339BB2DDB5170EDAA68 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6A88015EE8B9F7EC56957AA03DB0DB /* AVFoundation.framework */; };
 		29FCB886445A3A8C28BA24D4583FFD52 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36620CE1EAE09A0FE17E358470123468 /* CoreGraphics.framework */; };
 		2A198C91A24074C7A310A47232E5BB39 /* MF_Base64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 44054523284ED5F6FB9033EC37C9A427 /* MF_Base64Additions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -136,12 +135,15 @@
 		2C13044255685015B58B2B623DB43281 /* JSQMessagesMediaPlaceholderView.h in Headers */ = {isa = PBXBuildFile; fileRef = DA5B90557A50B04144ADA7D29EA5DCD4 /* JSQMessagesMediaPlaceholderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2C291B82560D53BA9123B7A51ACE70D9 /* PNHeartbeatParser.h in Headers */ = {isa = PBXBuildFile; fileRef = D340AE77B227E3EAEBA95993DEF9CC44 /* PNHeartbeatParser.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		2C7334FB7434DA84CADFBEFBB23ED11F /* JSQMessageAvatarImageDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 69DBF47F7F830AC70C520AFADBE13B6D /* JSQMessageAvatarImageDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CE1F5D65AC4F83BA81D8A1CC93EDB73 /* IQToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3120AB995EA44BFD792C41DB01C75CD5 /* IQToolbar.m */; };
 		2EA9AC0A1598A01DB69ACC7629641C64 /* PNSubscriberResults.m in Sources */ = {isa = PBXBuildFile; fileRef = 8099126C5AA3E81CD4A975BA80022EAF /* PNSubscriberResults.m */; };
 		2EBAA518CB8B2DAF89A63637091D4615 /* UIButton+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BD4983DA480A3DE176F0933BFF1B0F6 /* UIButton+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2ECD7C177B4A0748A18A1E9B9BDB54D0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0F161BD46E10B188953164C2EEBF1E0 /* Foundation.framework */; };
 		2EF34E33B4CD83DA46F783DFE41F7AC7 /* XLFormCheckCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2020CB8E54356BF76E27900825640819 /* XLFormCheckCell.m */; };
 		2F2D161C09B57511056E882266D99638 /* POPLayerExtras.h in Headers */ = {isa = PBXBuildFile; fileRef = 95EB2595F8DC5CD13B9A49F9140787E3 /* POPLayerExtras.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2FE381E7B51F51C0B3B8FD609F710D5E /* POPAnimationTracer.h in Headers */ = {isa = PBXBuildFile; fileRef = DFAE1DBE64E6E35FEDD310D54E158228 /* POPAnimationTracer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		302FE282F1961B9DDF2C551D10264738 /* XLFormDatePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8200631DB28AC9302DDA182BB6791334 /* XLFormDatePickerCell.m */; };
+		3037AB601C885680CFEA52F0D9BFF3B6 /* IQNSArray+Sort.h in Headers */ = {isa = PBXBuildFile; fileRef = D121DD734D9C1626AD4C16DEC6234D6B /* IQNSArray+Sort.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		30571BEF34D1A8DC4FC94D4933516B21 /* XLFormSliderCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 805A759923B29FC1DB2C6B6C321EA5E6 /* XLFormSliderCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3095159BC5D1BAA448AD2B62DA6F2AAF /* PNPresenceWhereNowAPICallBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6563E588164819EE8C0A5206D4246F25 /* PNPresenceWhereNowAPICallBuilder.m */; };
 		30C4CF70790695A22980D3772EBAEE36 /* JTVerticalCalendarView.h in Headers */ = {isa = PBXBuildFile; fileRef = A1B5046994D6376D3C8D87EFB1AA4DCC /* JTVerticalCalendarView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -152,14 +154,15 @@
 		31ED9BD97AF9E62874AF3CDF2F8090CF /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB32194A1748D5DC1B07B5DE3007634 /* AFNetworkActivityIndicatorManager.m */; };
 		320B694DB3AA97711690F3B20817DE68 /* BEMCheckBoxGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CDDD4431D9F3A1EE95A028B9BF0DD11 /* BEMCheckBoxGroup.m */; };
 		327F521BDF6825B7E8310A8364F4B329 /* DDASLLogCapture.h in Headers */ = {isa = PBXBuildFile; fileRef = 250E9FC6A5E7B95325A14D23D03BEC1C /* DDASLLogCapture.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3284B4F54AAD22766C0F8796748C35D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0F161BD46E10B188953164C2EEBF1E0 /* Foundation.framework */; };
 		33466CBB3E6C9151718558AF227C52B7 /* PNPresenceChannelHereNowResult.h in Headers */ = {isa = PBXBuildFile; fileRef = AED5EB11355C90BC7F56CDA1C144D8E1 /* PNPresenceChannelHereNowResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		33725188389B55C95D4D82D24A3888FD /* NSBundle+JSQMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EFAB91BC199AF9020A8AF36699A44C8 /* NSBundle+JSQMessages.m */; };
 		34D45D874B12C30CFB364628E9F39CD0 /* PubNub+CorePrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DEB7BB7049C8E994E1973515809CA48 /* PubNub+CorePrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		35773004282D2825DD45C3EF9B32C21F /* IQKeyboardManagerConstantsInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D41BA847E7BA00FE3DD142B65CD180B /* IQKeyboardManagerConstantsInternal.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		362CB6AF9B3FD9529B51A3BCEFAF9827 /* HVBaseRequestHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = C59F7C694CD93067E8609FB67C51340B /* HVBaseRequestHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		36322EE081678EB0326B955AF20AB041 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 781308D153FBE050E401773F8FABB2EC /* MobileCoreServices.framework */; };
 		3650F9D85A446CE47C950BA40E15A247 /* IDMPhoto.h in Headers */ = {isa = PBXBuildFile; fileRef = 522A00A6B97B2796736199D6908BB91D /* IDMPhoto.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		365ED04A3590D035D1F735A96B98A12D /* PubNub+APNS.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F45207698E5F9F9BB9B1E628EA65E00 /* PubNub+APNS.m */; };
+		366AE2A573933F601B7DEF7A62FE6657 /* IQUIScrollView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5821EB5A43F8805FD3BC4355EAD81049 /* IQUIScrollView+Additions.m */; };
 		36B5A26527543F81D9409298DFF49201 /* XLFormOptionsObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C3487ED1AC25589F5881B5FB48E1A96 /* XLFormOptionsObject.m */; };
 		36C6CC66A4A1F826B6C1EC10CAF00DDE /* JSQMessagesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = F8F5C8CF1422C1C8037C90D318A4A0E6 /* JSQMessagesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		36C8B4169311274B465A21F9D7E78F29 /* XLFormTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6C42F86FC870D0E95B89F6501AA6B4 /* XLFormTextView.m */; };
@@ -170,9 +173,7 @@
 		381C9A51E5C560179998C2A7C996A941 /* PNJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EFF175CF6B1ADB24965BCF4F53E9C84 /* PNJSON.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		396652A4E66826C0E921F93BB460D0C7 /* RTCSessionDescription+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 9961DDED2552FFFA5BF095315AE085AE /* RTCSessionDescription+JSON.m */; };
 		398E284637334B130BDA901BD22F685B /* HVPropertyEditorHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = BDB61076522213B255AEE3F974AAC4AE /* HVPropertyEditorHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		39A508CB9BEFAFD0CF396E6A8D20EF5C /* IQKeyboardManager-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F3A139CDADBFA493350DD7BDCF98D9 /* IQKeyboardManager-dummy.m */; };
 		39E002BDD4BB08F33C7783D60D5BD08C /* UIView+JSQMessages.h in Headers */ = {isa = PBXBuildFile; fileRef = B5D2D38A48C9B5869AC7150B5FECD0A3 /* UIView+JSQMessages.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		39F5F6C87C17B76A8665D9C88FB7EC30 /* IQTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 379BF9E9BB31DBC832061795FB52AFD4 /* IQTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		39FDCA36A83E659BCD33B98E28B3422C /* JSQAudioMediaItem.h in Headers */ = {isa = PBXBuildFile; fileRef = D46205B49C422E0859E50CBADE64B81B /* JSQAudioMediaItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A2A62898025D020BFC22110C338B51D /* PNPresenceChannelGroupHereNowAPICallBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF14E75CD8669344188A48BD1DAF731 /* PNPresenceChannelGroupHereNowAPICallBuilder.m */; };
 		3A2CFF1663E3CD09239767C03B239C1F /* PNUnsubscribeAPICallBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 3269964D2AC59280C300FDCC8363670B /* PNUnsubscribeAPICallBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -183,6 +184,7 @@
 		3CB0C401747902C67F3A375BB8AA0833 /* JSQMessagesLoadEarlierHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D74987D8A26765677508057904912F1 /* JSQMessagesLoadEarlierHeaderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D401182DC079D13377EAD65042C2783 /* JSQMessagesCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EFC8B23DFAEF6A6820FDB50891FF283 /* JSQMessagesCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D48574C7E04BF31E1A7447115C9372A /* UIView+XLFormAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B7626B067E8A328BACF190B05314180 /* UIView+XLFormAdditions.m */; };
+		3DA34CB466469ADCA4BE42937E580AB8 /* IQUITextFieldView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CE7AFFFE9B4CF6332821275458D723 /* IQUITextFieldView+Additions.m */; };
 		3DB7E473A2838A9A5CA5AFBA6B499989 /* JSQMessagesKeyboardController.h in Headers */ = {isa = PBXBuildFile; fileRef = 187D29FD4D352181E6D63E6781142916 /* JSQMessagesKeyboardController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3E321DEFB0A96DD4866928E23CB549A2 /* JSQMediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 046FDF3C88552C46AC69D06D150EBC9E /* JSQMediaItem.m */; };
 		3E3761C58EE2CB1E00E8D5F05AA9A647 /* HVBaseRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 849993AA1320B75956213544E327D65A /* HVBaseRequestHandler.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -194,12 +196,12 @@
 		40372C56143EC23D91CBAB5209984EDA /* BEMCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCA02AE5B6AD6CEE8E23B5DA660E208 /* BEMCheckBox.m */; };
 		4044BF6B8F9D331EC93CB45F8EB1CEC3 /* PNPresenceHereNowAPICallBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = B76AA6362971D582BE7AE78AC6B67571 /* PNPresenceHereNowAPICallBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		40B9D5A73BB300763C8A9E2DAC8FD832 /* PNStreamAPICallBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8902E7421DC6883122CB0E7F3520FBB0 /* PNStreamAPICallBuilder.m */; };
-		40EDE0FCE5C311580FD5B7E4E041351D /* IQUIWindow+Hierarchy.h in Headers */ = {isa = PBXBuildFile; fileRef = 740DAACA94D2BF0A87D19AD67590D63B /* IQUIWindow+Hierarchy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4158BC7D44CD642BAB15DE7971F60E90 /* SDWebImage-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 05408441E09D0E888EF2BFFBD2446D64 /* SDWebImage-dummy.m */; };
 		4171866DB61A0F96BFFE04E6811BE31F /* POPCustomAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8C235B44A34156C3090634E84D15B63A /* POPCustomAnimation.mm */; };
 		42F3665EAD592433B14AF7A788E71962 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDB403276DEF204E1653D2EB80CD7FF /* DDAbstractDatabaseLogger.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		430E9363A99BCDBF40494BC1EA09AD96 /* PNPublishSizeAPICallBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 788D43AF97012ED8D79F0AB39CDE13D0 /* PNPublishSizeAPICallBuilder.m */; };
 		435EC52560B7AEB0D9EC72B2F778CEBD /* PNHeartbeat.h in Headers */ = {isa = PBXBuildFile; fileRef = 21D0CE2273580EC5F165880489A2FDB0 /* PNHeartbeat.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		43643239F78BFE4405AD5092ACC1B176 /* IQPreviousNextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 833EE8B94AF5F80D1BA7E428C535397D /* IQPreviousNextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		437BDF167D45BB375E98C002DE95B02D /* UIAlertController+Blocks-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1804B22C70131DDE9EA128158EDDC31F /* UIAlertController+Blocks-dummy.m */; };
 		43C5FD53880A924F40DB22EACAC5F632 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7AFFDA63B9193A904816D7D8604EFB /* Security.framework */; };
 		4422B069073E05B9E3466E87FF421C79 /* XLFormDescriptorDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B209BC4C8598958357E67346A5A88D4 /* XLFormDescriptorDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -221,6 +223,7 @@
 		4913315F67708B2FE2809D0EF16CAB52 /* PNErrorParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 3444391F55BC983B63339EF921B26B3D /* PNErrorParser.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		492BC7048CEB961CDF1BAFC1F5FE4FF4 /* XLFormPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8BD2C77366ABEA420DD37323BCBC78 /* XLFormPickerCell.m */; };
 		496F8D1EC48BE0F532575BBAE5E74276 /* PNAcknowledgmentStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 6041276241362322A888A40285C5F718 /* PNAcknowledgmentStatus.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A49D2D82248088CA84188952B9E69BA /* IQToolbar.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D885A6B4DF7AF3A5E1B475B5922139D /* IQToolbar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A9F99F18AE409BCEC16E29275065E0C /* JSQMessagesBubbleImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 629FF027A7D2A613A1E7284969F6B1A4 /* JSQMessagesBubbleImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4B449C904DAB882F944800D7355FC018 /* PNChannelGroupChannelsResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7015BB3FC4E2D531EAF47148B12C8D /* PNChannelGroupChannelsResult.m */; };
 		4BEBE674F19CC53F4230FE93722087B8 /* JSQMessagesViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C294AEA88FDEC476F3211D84C27CBA /* JSQMessagesViewController-dummy.m */; };
@@ -253,6 +256,7 @@
 		536F7D0550F5FD9F5869CEC995CFEE9B /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D292E7A10AD59342ED70CA81CABD724 /* MBProgressHUD.m */; };
 		53977542CA9C977F5D4A00638DE11B4E /* webapp_index_ui.h in Headers */ = {isa = PBXBuildFile; fileRef = 91BF0992D34F0EF1A43127CAC9238B41 /* webapp_index_ui.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		53C12ADC78505D8AB0999D36DCBE6484 /* IDMTapDetectingView.m in Sources */ = {isa = PBXBuildFile; fileRef = A92120BBDC1D3FEFAAFA9EC6061B031F /* IDMTapDetectingView.m */; };
+		53E16175D3F285FCD0AA297379790B78 /* IQTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 379BF9E9BB31DBC832061795FB52AFD4 /* IQTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55083E52AD3A178413721E2C13C838BF /* PNReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = EF58427C6CC23A28E2BB92D26FD526A7 /* PNReachability.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		550B5A90DA76C3B9707A7FD5F6476558 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845721A53083C659FD4153FE12F4E68F /* AudioToolbox.framework */; };
 		551E9F842C52A7337B39D12ED62E3FE8 /* PNStateListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F44351D3BAAC2A2072287853F78C2C2 /* PNStateListener.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -272,6 +276,7 @@
 		59A5AF0DAF8986CB1B6E2EC381B485DF /* PNMessagePublishParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE75C8A87322D1990F79C4D7B890251 /* PNMessagePublishParser.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		59B22A4207C5539E9EE1FA4222145DEA /* JTCalendarDay.h in Headers */ = {isa = PBXBuildFile; fileRef = B3272B256C920549481D0D676E1E80EF /* JTCalendarDay.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		59B86B922C0BA257745DA4DAB4D4D4DF /* XLFormDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = E423301B7D20E5C1FE2968F0B2B8AFD6 /* XLFormDescriptor.m */; };
+		5A2FF5F16ABBFABA5EC18B9AF230429E /* IQUIWindow+Hierarchy.h in Headers */ = {isa = PBXBuildFile; fileRef = 740DAACA94D2BF0A87D19AD67590D63B /* IQUIWindow+Hierarchy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A608BCF8ED6A4C23D68F4DC70425627 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05CAF486B25B1ACF833F981498499B95 /* ImageIO.framework */; };
 		5A7EA0399ACD6C13883A34DC1CCECEE2 /* JSQAudioMediaViewAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = B936FC9D9E78A33D3EBEF2D82D01463F /* JSQAudioMediaViewAttributes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5AE7D5B7CA1DDEDBFCE5DF6BD6796C78 /* RTCICEServer+JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 38178AE1052728D4384F7F427722B144 /* RTCICEServer+JSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -284,6 +289,7 @@
 		5EC4F5138BA56B7ED1E5D7EF65BBF9FB /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B24A9237C2DCB1B8A17B4433E85B47F /* CoreVideo.framework */; };
 		5F17B67991822B49BB881C9AD84B567C /* FloatConversion.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A0BAC21B797552B8491D3405B55DB9A /* FloatConversion.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		5F3A1BBC91A52E34909CBCD617F11627 /* XLForm-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E04CF50C452B2DB88186843E12F5435 /* XLForm-dummy.m */; };
+		5F727C21B851A44853E09F23DC39FC72 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36620CE1EAE09A0FE17E358470123468 /* CoreGraphics.framework */; };
 		5FA9EEDF411B1574BF276DCF495DD28D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6A88015EE8B9F7EC56957AA03DB0DB /* AVFoundation.framework */; };
 		5FD2F1711C2DE533A0B3AD6BE256EFCF /* SDImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = A4D7F82DB7F0B1E2CD6107F314ABF1B6 /* SDImageCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5FE109F2181D5EF4346BDF6A6B7E94DE /* JTHorizontalCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD18CA2D91FE7026A794D79502621769 /* JTHorizontalCalendarView.m */; };
@@ -292,6 +298,7 @@
 		6088060D6F839D0EBF630E4798CB75FA /* PNChannel.h in Headers */ = {isa = PBXBuildFile; fileRef = BBC209E28EC78DBD4B8C384412007ED7 /* PNChannel.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		608AA338293A299B164BC81C78AAB795 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0F161BD46E10B188953164C2EEBF1E0 /* Foundation.framework */; };
 		60A7DBAAF2DB3FAE0F8E81788B93018C /* XLFormOptionsObject.h in Headers */ = {isa = PBXBuildFile; fileRef = DC722982679476BC701DAF501C1D02DE /* XLFormOptionsObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		612D7698019865805EFC789DCE5858AF /* IQUIView+Hierarchy.h in Headers */ = {isa = PBXBuildFile; fileRef = 81238A06E70000DAB606C4CEB8B0D0C4 /* IQUIView+Hierarchy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		61472C67940ACDCB7EC0434FF67F26CC /* XLFormTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F81F5B33F8DE16EB353EBD7F9749C944 /* XLFormTextViewCell.m */; };
 		616085E411AB756541FFEED3FB63473D /* POPAnimationTracerInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = B1C7E8729506250F4DF0133B7C2DB62E /* POPAnimationTracerInternal.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		61736A1C76B7F773CA53BC4872837DD0 /* XLForm.h in Headers */ = {isa = PBXBuildFile; fileRef = 20AB18E8DDCF811E6AB4AD36FE123FBB /* XLForm.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -303,12 +310,12 @@
 		626726EFAE2A3CCBBA1E14C3CB3030AE /* XLFormViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 94B6988173A30262975E128A5E732D34 /* XLFormViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		63134B9BE0E67322C5116B38D8FD5992 /* JSQMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 418033DCD209A7CFF28EF72720C6AA86 /* JSQMessage.m */; };
 		6335B81FFCD89D5F3D6D922821D67CCC /* PNPresenceHereNowParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E7451C604CBA265CD4FFEEDD027008F /* PNPresenceHereNowParser.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		63D3C8904D575511B8E5E56551A83838 /* IQUIViewController+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = E804723A9DC4594A4743E7CFDACB613A /* IQUIViewController+Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		63F2A113E579CD999751038842617020 /* PNErrorCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = B367464E3C883D2935D04ECBAF454F92 /* PNErrorCodes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		640EA46FE30E6DCD17A6946FD2A2642F /* XLFormTextFieldCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 5860E237B62C82704429129431EB6ABE /* XLFormTextFieldCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		64189F425F293C4C0338DBE390D18E83 /* JSQMessagesCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9356B9CA335B0ABEA6E8ED6A56F15A9E /* JSQMessagesCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		64A83D2EE3771FE71CCF5FF013B642D3 /* BEMAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB750A9A9156F62012F210BCA3258E5 /* BEMAnimationManager.m */; };
 		64C06CEDC232CD5641BF7AEF1DF2850E /* PNPushNotificationsAuditParser.h in Headers */ = {isa = PBXBuildFile; fileRef = CBA6C23FC683810A4C5EABAC01ACC717 /* PNPushNotificationsAuditParser.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		65E85D1CC225E16C66FF845C84EC23B5 /* IQBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FAFA663DCA830F13D6A34F6109F1B1D /* IQBarButtonItem.m */; };
 		6606553336D114238568B5E8B24BAE8A /* UIImage+JSQMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2F2152AF05A82F04A3647ED59C70CC /* UIImage+JSQMessages.m */; };
 		66635EAAE52FF5571DBCDC626FB8CA86 /* AFURLResponseSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = BE224E035F54BE5E084F32CD5F932342 /* AFURLResponseSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		66E1040543AF7BA3DC3731FE17C85F5B /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = B51E8A303E0156F50006C883D9D98ED7 /* AFSecurityPolicy.m */; };
@@ -321,7 +328,6 @@
 		69E3F5D52D7E4E01F27460C7AE27859D /* PNSubscribeStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F896BFC61387F9D56F8F86B6EE56508 /* PNSubscribeStatus.m */; };
 		6A02FD45879B57941D881E6030EB1755 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 9090B16F43CDC6A2EFA07CA4067CFE8B /* NSData+ImageContentType.m */; };
 		6A27450460A0C1B3A5E8CDC229E2B7F9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0F161BD46E10B188953164C2EEBF1E0 /* Foundation.framework */; };
-		6A7504B1615A2F9906B9D87C4C2EA5BD /* IQUIView+Hierarchy.h in Headers */ = {isa = PBXBuildFile; fileRef = 81238A06E70000DAB606C4CEB8B0D0C4 /* IQUIView+Hierarchy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6AC95ECE444E1FBDFBBE77BE066C1646 /* XLFormSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C46D06A6140705D36406CA30B331BC7 /* XLFormSwitchCell.m */; };
 		6B5790137BC6FFE6239115F7EFEE5DCE /* PNErrorStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 38212D423F218158DED0898A1DF2819E /* PNErrorStatus.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6B6DA040EAD2A2F32B3C86C9DEEBEC9D /* JSQMessagesToolbarButtonFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = D115629B8C60FD8EDA2D9421F6A4B3B9 /* JSQMessagesToolbarButtonFactory.m */; };
@@ -344,6 +350,7 @@
 		70D7D6B4F9D52D1472A5B0977D811A5A /* MSDynamicsDrawerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 34247A7A96535C8142C5AAC368F1E0F0 /* MSDynamicsDrawerViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		70DF255EDE6BF6C4D827D6BD1615A103 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E536C7EF3FA4B2063F615C9453EE58 /* QuartzCore.framework */; };
 		7120D49531DA8ED9D1240BDA66055FBF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845721A53083C659FD4153FE12F4E68F /* AudioToolbox.framework */; };
+		71DFF4FCF490E7C2983380C32C3E05A6 /* IQKeyboardManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D6E0143B2ADBD3143CE197E753EAFBD3 /* IQKeyboardManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7202F588A4BFB6FFDA071C8F7D1137A0 /* PNGZIP.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B734297B4F5D756F810129FDF33D4B0 /* PNGZIP.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		72D5B2075E221164E2B9C27E1E64788E /* PNChannelGroupsResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ADC58733AD2556B3E81F17510032DF5 /* PNChannelGroupsResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		72DCF4C6D6E1C3CF7D1EFD03FFB93863 /* webapp_style.h in Headers */ = {isa = PBXBuildFile; fileRef = E3136FB7FDBEFA89EB23188FC5D8F636 /* webapp_style.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -359,8 +366,8 @@
 		77871B1AED960DC2750A39AE57B21855 /* PNPublishSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B67A357EA8DCE9C76E98C6EA63D042 /* PNPublishSequence.m */; };
 		779AFCEBEF3FF01FAD678CD51748C730 /* BEMPathManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F57BA48BD764E16C28BEB992BE4FF203 /* BEMPathManager.m */; };
 		783DB721C585EDB841F2E1336D221DE1 /* XLFormValidationStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 4052F5759EDFFC011C59B6FD8E01708E /* XLFormValidationStatus.m */; };
+		78435610B927B7501F678EEA1FC136D9 /* IQUIView+IQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DE3A5D8FF05E88A3035FF0BA3BDE64 /* IQUIView+IQKeyboardToolbar.m */; };
 		78A0099239650F94DE5B5D1800A5655E /* PubNub+Presence.m in Sources */ = {isa = PBXBuildFile; fileRef = A65EEAD7085C538388EBC2DE0AFDC123 /* PubNub+Presence.m */; };
-		78C5700E07D002A99CAB0CB22497BDE7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48326235A5916AD92425E40F392C6A05 /* UIKit.framework */; };
 		79105E58102ED82A1767E7854C8EB259 /* PNSubscriber.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B0C52D8E848FE79105FDE73AB89BF5 /* PNSubscriber.m */; };
 		79940D9840B9D3C6A97E9226F2DD9491 /* JSQMessageData.h in Headers */ = {isa = PBXBuildFile; fileRef = ED2250D22A57BFBC2ED5710DAEC8AB06 /* JSQMessageData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7A62DC9D66572D71338347695B2D8CE8 /* UIImage+JSQMessages.h in Headers */ = {isa = PBXBuildFile; fileRef = B8038462F0F0071C7E63626369A49BDC /* UIImage+JSQMessages.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -382,6 +389,7 @@
 		8236F60682E2B7C22D132E929714B5C6 /* PNStructures.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F1267414DF40DB927760C899F87DCAE /* PNStructures.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		827800D496A1CAC0323A82008470FCDB /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 762448B3D69F124D37A351017D75FEE3 /* DDLog.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		8297CD0E370D3524DA0D3A40E52C924C /* JTCalendarDayView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F7CDEB54F83354F76888A428E7004D6 /* JTCalendarDayView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		82BA014C81EE79BD7F043D96AB562DB6 /* IQUIScrollView+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = B02DFE398B63D4770ADB7B7D221FA551 /* IQUIScrollView+Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		83854015C8C34EEA3B4A6FFFD49F7FE7 /* PNStateAPICallBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = DDA8F1D785AD93C2A6036E5418BD8FC8 /* PNStateAPICallBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84D85173ACB2B2E3174CDA007037F5F5 /* PNPresenceChannelHereNowAPICallBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = AC5D31A0F56031D9649AD31F3673C3D2 /* PNPresenceChannelHereNowAPICallBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		85070D62CEF568B131730EB9E6626353 /* PNClientStateParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 591BAEA7B1F76AF07C221C535D1B4780 /* PNClientStateParser.m */; };
@@ -411,7 +419,6 @@
 		8CB78B58C2A752E44D69EBF7E3663530 /* JTCalendar.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D0B0F28693B4982D4595448D40924A7 /* JTCalendar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8D0EF4D9911D34FADE191F3D7E0E0D3E /* PubNub+Time.m in Sources */ = {isa = PBXBuildFile; fileRef = DBA3C4F0AD0849CCFFE6827496C13258 /* PubNub+Time.m */; };
 		8DB9FA4578F609BEB01D1F3BCDF14057 /* XLFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A48731460BBA410A1366C6AF49FB6F72 /* XLFormViewController.m */; };
-		8DDD9AE2B9EDFE9E587127E6ECDFA44E /* IQUIView+IQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DE3A5D8FF05E88A3035FF0BA3BDE64 /* IQUIView+IQKeyboardToolbar.m */; };
 		8E2BD875A11BCF3DA2457B69E097A4BC /* PubNub+Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 30BB0383D7525415662383C32D43D13D /* PubNub+Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8E64F2067D403449E7C0079918DE0851 /* XLFormStepCounterCell.h in Headers */ = {isa = PBXBuildFile; fileRef = B484477BEB8989C701564145CB7A42D0 /* XLFormStepCounterCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8ED7BAE55573EB5EE65E7FFE8BDCF4F7 /* PNClientStateUpdateStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 35337389127F079680A9252595DBDBA7 /* PNClientStateUpdateStatus.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -444,9 +451,9 @@
 		9A5D204CFD4E6AFAA85F42A96F9723DD /* PNStateAuditAPICallBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = C351A72BD908041F835AC15BAF47E895 /* PNStateAuditAPICallBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A6BDAB4265FCE5D279FFC9657F2818C /* webapp_jquery.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB507A5E95FBB047F9D110CFEB8AB90 /* webapp_jquery.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9AB0BA45BD472353294B80D97AABE410 /* PubNub-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD020A24251B5F17649AA2EBDFD049F /* PubNub-dummy.m */; };
-		9AC4546D7D76789BE4580172B3ED50D8 /* IQToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3120AB995EA44BFD792C41DB01C75CD5 /* IQToolbar.m */; };
 		9B5D5AA9EF5B400D4EAE1D7F4BF75A43 /* PNPresenceChannelGroupHereNowAPICallBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 00B117C9233EFCDF7ABA9D569C373AF0 /* PNPresenceChannelGroupHereNowAPICallBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9B7EC39571FC3F4DA26F103CE11A6AEC /* PNAcknowledgmentStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 084379FF284A4C86A5C7BFD8B3ABFBB6 /* PNAcknowledgmentStatus.m */; };
+		9BAB868CD352FA0A0F9A81D0B22CDBB7 /* IQKeyboardManager-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F3A139CDADBFA493350DD7BDCF98D9 /* IQKeyboardManager-dummy.m */; };
 		9BE094CAEE024790A571258B37126683 /* JSQAudioMediaViewAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = A7752CA57C086EEEDE2FE328DAE274D0 /* JSQAudioMediaViewAttributes.m */; };
 		9C1602EB5FDE09C0947FA53AEC45EF48 /* PNNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EE62C05EA280623770591F5D7ADD36F /* PNNetwork.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		9C5006EF391FA73A16783D993BC80F3B /* PNChannelGroupClientStateResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0549A441D7A83900ED245B766C6AB387 /* PNChannelGroupClientStateResult.m */; };
@@ -459,7 +466,6 @@
 		9EC677C8DB106DCEEE8AF82D0D3194FC /* PNPushNotificationsAuditParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BBCE424246E74233298F7419AAC1521 /* PNPushNotificationsAuditParser.m */; };
 		9EE428CB30E27ADB9318E57D6D3834DC /* XLFormSelectorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B9BF1E3D074136690490A388082F55 /* XLFormSelectorCell.m */; };
 		9F247201EAF14B83CFA0AC12B30A45EF /* SRWebSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = E089CCF601575D62801F567AC282BEA2 /* SRWebSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9F30CF3623BE9CF4C8E7BAD708DDD0F6 /* IQUITextFieldView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CE7AFFFE9B4CF6332821275458D723 /* IQUITextFieldView+Additions.m */; };
 		9F5BB6B4995BA4A3B2C6AEBA6C31A6DB /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 40EC12193ED253C7CE3F286815B61254 /* AFURLSessionManager.m */; };
 		9F9136C0AEF806CA6D9F109EB8672848 /* PNRequestParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 3094EB0C8B4BB7ACA84A259130FBB7CF /* PNRequestParameters.m */; };
 		9FA0A22B02E1030F5ACD8D5D95C8DB6C /* UIColor+JSQMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF0A612D86E554DCFF28C969165497C /* UIColor+JSQMessages.m */; };
@@ -496,8 +502,6 @@
 		A7F7FDCD36E2DD8D8E346DB19452CC03 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 0603689265EB7042D2E08ACDC59700F7 /* UIWebView+AFNetworking.m */; };
 		A7FA7803B5975CC3CABF0069D7300EE2 /* JTCalendarSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BD4FCE74CD6A1E455B6C657D664FE1 /* JTCalendarSettings.m */; };
 		A82C45015186AE0DD6D01046E35DCDCF /* RTCICEServer+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5AB20A02FD1FF467134B95768350D /* RTCICEServer+JSON.m */; };
-		A838E16CC83CB17C1544E99ACBFBDA79 /* IQToolbar.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D885A6B4DF7AF3A5E1B475B5922139D /* IQToolbar.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A8939E6116FBA9F4912FCC3CB29F549C /* IQKeyboardReturnKeyHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = BEACC4651A9A83AB3DBA208A33664BC3 /* IQKeyboardReturnKeyHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A8D998210E601AF6B2ED6D2CC7ED5A44 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E536C7EF3FA4B2063F615C9453EE58 /* QuartzCore.framework */; };
 		A905B24C22D392012AC86B4E837F9B8B /* PNJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB638B66D10BE8A79703736DD738E9D /* PNJSON.m */; };
 		A9930B2F33FBC21532E68EA256904159 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0F161BD46E10B188953164C2EEBF1E0 /* Foundation.framework */; };
@@ -520,9 +524,7 @@
 		AE32FAC5976B6222A8DD2DC59905D360 /* SocketRocket-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 45887ABAEBD4796ECEF6604AF446E3D5 /* SocketRocket-dummy.m */; };
 		AE94E18B9E3FC94595ED131DD4DEE66C /* PNEnvelopeInformation.h in Headers */ = {isa = PBXBuildFile; fileRef = 66F618E1A552BC0E97E817CB0F19EBA3 /* PNEnvelopeInformation.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		AED0242AA0A1BBED844DBAB66C75D17F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7AFFDA63B9193A904816D7D8604EFB /* Security.framework */; };
-		AF45E51794891FF141A6FC4F54CA8D0D /* IQPreviousNextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 833EE8B94AF5F80D1BA7E428C535397D /* IQPreviousNextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AF8FF3E3887164472470AD81DA2BDF73 /* PNPresenceChannelHereNowResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 8217F2693D4F58A0E9873DAD93A52F13 /* PNPresenceChannelHereNowResult.m */; };
-		AFB419EFE60E91BEDE5927FE8BF36DB4 /* IQUIScrollView+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = B02DFE398B63D4770ADB7B7D221FA551 /* IQUIScrollView+Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AFC27BFFD1F201436342DEC8A00B1A2A /* PNStreamAuditAPICallBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 672C43594F2BD59D2C41385E79449C50 /* PNStreamAuditAPICallBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AFD0634B4D580C7C585C242BE0008A0E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0F161BD46E10B188953164C2EEBF1E0 /* Foundation.framework */; };
 		AFDE4CE739C0F5E3DEBB25D3D9F82C33 /* BEMPathManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 764C92B582AB46492CCC3D93A0F7218F /* BEMPathManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -555,7 +557,7 @@
 		BB7EED04D8BF3103E761E36434A64733 /* PubNub+PresencePrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 693AD42DA840EDE7114D5FA101342464 /* PubNub+PresencePrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		BB9525E18FC216D5950275F75916AB88 /* XLFormSliderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A18C9C92FA1D763B8C2FFC1F88225FA7 /* XLFormSliderCell.m */; };
 		BB97F2CC7B12BC4ED5FD081FB604FFA3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48326235A5916AD92425E40F392C6A05 /* UIKit.framework */; };
-		BC12241B094390F0F3D5EA4911EA4DF1 /* IQUIScrollView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5821EB5A43F8805FD3BC4355EAD81049 /* IQUIScrollView+Additions.m */; };
+		BB9911A0175C3FDE5E83423D6A17600B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E536C7EF3FA4B2063F615C9453EE58 /* QuartzCore.framework */; };
 		BC4B13AAA895C77C37C3612BD858A18B /* PNResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DBEAA204CC6CE5FB432DE46B441BC /* PNResult.m */; };
 		BCEBD8B1C3B80618F1C414AB39F95120 /* JSQMessagesAvatarImageFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 02FF9B7B06A3AA7060F52F32E2FAA265 /* JSQMessagesAvatarImageFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BCF32C8C2856CE9AE638F3432D540EF3 /* pop-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D10C47071D4DA58B3C5B2EBAF2D3F /* pop-dummy.m */; };
@@ -573,13 +575,13 @@
 		C1080CE2CAB7A01F274ACD4A06B89C23 /* POPAnimationExtras.mm in Sources */ = {isa = PBXBuildFile; fileRef = C44156823113605132BA5F99CB79929F /* POPAnimationExtras.mm */; };
 		C1C0D7C93BF3DE14A26757273598D0FA /* AFURLRequestSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = B8E0D1BB383DC7600A92792729A033BC /* AFURLRequestSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C23657B0710AE187185AB686C4682162 /* DALabeledCircularProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = E5896E5042766033F2829D5C2F95A082 /* DALabeledCircularProgressView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C25A3CE36F6D477F77AAE1CCCF454108 /* IQUIWindow+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A14D93D877D425ECDC903AD2FD0055 /* IQUIWindow+Hierarchy.m */; };
 		C28232EF0F24666464EB88D9C2EC5173 /* PNURLBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A07BE422F001F9122957CE4BB204BA2 /* PNURLBuilder.m */; };
 		C2ED3EDE03AAA61AE2990F24B9C85921 /* POPAnimationEvent.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5BB580F4A410F784F6B93F77F9C9B9E8 /* POPAnimationEvent.mm */; };
 		C31A20DEE08171A996974396A606CE6E /* XLFormValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = C647F4EAE6C015C7AD094FD3A449CA5A /* XLFormValidator.m */; };
 		C328B9FEB06D0EB7E53E02B022F5B069 /* PNConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = D80D157B3BFE3964DAEA57730C83AEC1 /* PNConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C411ECF88F1CA6D85AD5143244B4200D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0F161BD46E10B188953164C2EEBF1E0 /* Foundation.framework */; };
 		C43505CCA0853A6206F274C20BB1F9FA /* ARDMessageResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = C187ACBF1B6099E041F1BF8F4F35B0BA /* ARDMessageResponse.m */; };
-		C4BB53EA5D7C40FF3A597C2A56DD714B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36620CE1EAE09A0FE17E358470123468 /* CoreGraphics.framework */; };
 		C4C160B59A2D33A603EFE532FEC0BC4F /* JTCalendarScrollManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 779537E9893C796EDAC131167D6CDFB6 /* JTCalendarScrollManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C530AD236B631DBE04C6C868E947A191 /* JTHorizontalCalendarView.h in Headers */ = {isa = PBXBuildFile; fileRef = 02D1C1A8602DB42F04A603FB8842DC34 /* JTHorizontalCalendarView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C6178CC461DE5A072C94DF03D2F90E47 /* PNSubscribeChannelsOrGroupsAPIBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = FD42DBBD684FE0D6228F2D8C9A4C9F71 /* PNSubscribeChannelsOrGroupsAPIBuilder.m */; };
@@ -608,7 +610,6 @@
 		CDA2A512762BCA797DAEFC9AC4C07BB1 /* XLFormValidatorProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 0161EA08CF24C441FE27953973B0BF63 /* XLFormValidatorProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CEAE75E1248C4C9F4752069EDE941BCD /* PNParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A22295FD7D773BDB36DFE9D6A4D8CD2 /* PNParser.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		CF0606477A7BFBF1C9450E5D258B36EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0F161BD46E10B188953164C2EEBF1E0 /* Foundation.framework */; };
-		CF0E7F0BB66A225C73E9D0E5EE148769 /* IQNSArray+Sort.h in Headers */ = {isa = PBXBuildFile; fileRef = D121DD734D9C1626AD4C16DEC6234D6B /* IQNSArray+Sort.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CFA8FBDD6171A1AE94A5BA68E0589DCC /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E89D950E22F42688028644A9091C68 /* SRWebSocket.m */; };
 		D00753C9474A544549F26494CC4335C5 /* PNPresenceWhereNowAPICallBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F023844A32526BB5751A5668A41B844 /* PNPresenceWhereNowAPICallBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D06EC8AB3CF97EE078DFE05C0212D764 /* JSQMessageMediaData.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F133586F6807E8D364A31AD33918F1 /* JSQMessageMediaData.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -625,17 +626,19 @@
 		D3A9587651908F5B0271D3A94FC5ADE6 /* JSQVideoMediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7CDC9E3A259361E898C39E32A613EF /* JSQVideoMediaItem.m */; };
 		D40A4ACC6174F051F043B399E31CA5EA /* POPMath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 001A8705AD820CFB92BCB7A41E5C6F88 /* POPMath.mm */; };
 		D415D0767A8AF457434FFFB5957D4616 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E536C7EF3FA4B2063F615C9453EE58 /* QuartzCore.framework */; };
-		D43444F9273BC242437DE518EE99F85D /* IQBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FAFA663DCA830F13D6A34F6109F1B1D /* IQBarButtonItem.m */; };
 		D4581B4ACFF6ADF049B2F1C758573673 /* DDMultiFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C6A657DFD52A5C828D00E383861080B /* DDMultiFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4AA4704CA7863CC86E22AAF88635836 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 4720D435F4D6E61DE2F4DCE287A4A3BE /* UIProgressView+AFNetworking.m */; };
 		D549055AA28AFA11C82832F7E9A75388 /* XLFormInlineSelectorCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 218BE4944F3C2F97BB19AFED8F768CBA /* XLFormInlineSelectorCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D59FC98A74E440C4725B6FDC28F5951E /* AFSecurityPolicy.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E8CFD275DCA500C3B5A690F7623A416 /* AFSecurityPolicy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D5B7D8C76ECDAE3675FED3DDD52A1A1F /* IQKeyboardManagerConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 63A5249F22B56DD85DF2FFBC93CD4BE1 /* IQKeyboardManagerConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D5CB999FB5FC80FC126A38AB4DF12227 /* UIImageView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FF913856B094E734A3828F5D2BB3027 /* UIImageView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D5D72A6D25C26A2B96C0603031AB9BC9 /* PNURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C28B7A2C65CD072EEB1107DAF51BA43 /* PNURLRequest.m */; };
 		D6661D944DA4B5402DA6B57914542DF9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7AFFDA63B9193A904816D7D8604EFB /* Security.framework */; };
+		D6B65E7DBBF8D21997C3EE85152B95FB /* IQPreviousNextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CB6EDA46E606B988C8F9D1145AFA88B /* IQPreviousNextView.m */; };
 		D6DD2316F484C16BD554F42D00184121 /* XLFormPickerCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 78ACF1ECDD24AB720D6CE5982F18C7FE /* XLFormPickerCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D722F5F6EB881FEA9801E8305BBB5DAD /* XLForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DD8585998183BD0FFC7C271DC9D949 /* XLForm.m */; };
 		D7ABAC0DDEADE3FC873AF6222CD35CBF /* PNHistoryAPICallBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEBD51F9CD857007C0757C7237CCD08 /* PNHistoryAPICallBuilder.m */; };
+		D7F0B4172AD07FC9E4C6AA761FC069CD /* IQNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = B47F6205D16CBF401F43797885859DA3 /* IQNSArray+Sort.m */; };
 		D81EB0B7FE81351AA88717FEF443AD90 /* PNAES.m in Sources */ = {isa = PBXBuildFile; fileRef = 638B229B7776BBEB6C3A17885BFD5456 /* PNAES.m */; };
 		D8CD5F4AC2C322AEFEB219CA20F712BE /* JSQMessagesCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E53BFFF9EBFE9D219A4849B37AA2B0E /* JSQMessagesCollectionView.m */; };
 		D969E63EB6EF5B9713E3D741A69303F7 /* PNServiceData.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF8850863CD0443FD5B5DF1914F3F74 /* PNServiceData.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -655,8 +658,6 @@
 		DE517ABF54A86B38DE4034F7463C0AA5 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 323F3CCC4D8AA481A853AA86A9A110CA /* CoreMedia.framework */; };
 		DE9D8C374F41583087BDABA578073D25 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD049EEC92182A21B56EDF3BEBCE3DE /* SDWebImagePrefetcher.m */; };
 		DEDB430C4019414853EFA42DC4D1B07D /* JSQMessagesComposerTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 34D0C4E5C76E6DBA36D1AF54EDA068F8 /* JSQMessagesComposerTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DF2FCF6E1C61ED1C24D3E9245B1338EE /* IQKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E13A043D876DD6DA742D59CEED4E07 /* IQKeyboardManager.m */; };
-		DF777C9C89EC416FC43CD2114B8BAC35 /* IQUIWindow+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A14D93D877D425ECDC903AD2FD0055 /* IQUIWindow+Hierarchy.m */; };
 		E0EF330DB2D3521ED26E67B2E8687A2E /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C74D455F46B6E8930A6AD20BE33F7B /* AFNetworkReachabilityManager.m */; };
 		E17BB2FF6399B4047F8E907045CBB560 /* PNPresenceAPICallBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA51AE08D0C6A1EB9A2A4F34E579453 /* PNPresenceAPICallBuilder.m */; };
 		E19154771DAC77DA10D6574C98F5137F /* JSQMessagesBubbleImageFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A80F61FA557EE7FCE92D7F5F34A13D6 /* JSQMessagesBubbleImageFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -672,7 +673,6 @@
 		E42F0FDEE123DBB3A2F44FB4AC7A0962 /* HVHierarchyScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = 549383742F7DEE172647C1975D4F70EA /* HVHierarchyScanner.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E46AF5D2FFEDBB77639813665D70EFA0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36620CE1EAE09A0FE17E358470123468 /* CoreGraphics.framework */; };
 		E4BF5824B28636A10D15A3F80C726791 /* HVHierarchyHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F0A50E2F3566AD0EE4CDED0D227A25A /* HVHierarchyHandler.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		E4EF420CD43C3F081D49C037296B0DC1 /* IQTitleBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = C0B0F66966F613E8BE8E98975773B56B /* IQTitleBarButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E507C652D7200A1B3B7F495482B6F0AD /* POPPropertyAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6D5106290F124C61A40984FE3FFDCD0C /* POPPropertyAnimation.mm */; };
 		E5229F5125ACD420659E7B2D19BB30A8 /* MBProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C3270B3EBDEFF8ADD1216D89023A70FD /* MBProgressHUD-dummy.m */; };
 		E5397730A0C62C709B35B8C4CAA85B87 /* HVStaticFileHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD630E25A5C831811BA28AD89B050A5 /* HVStaticFileHandler.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -695,9 +695,7 @@
 		E9BDC951ED553ED9E556A4E69CB98EA7 /* XLFormStepCounterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0565A67448D3557F07E001D2F9824D /* XLFormStepCounterCell.m */; };
 		EA14342CE51381F7256BF9C42A0B3141 /* JSQAudioMediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F029D249F14C7849B7A93C13975FB3 /* JSQAudioMediaItem.m */; };
 		EA321C98029015AA4895C0B26891D8F8 /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B39DB5257374011F928150788554B11 /* MBProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EA3BFDB32E6DEA9B0E162E09E9293352 /* IQKeyboardManagerConstantsInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D41BA847E7BA00FE3DD142B65CD180B /* IQKeyboardManagerConstantsInternal.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EA63D61802CBB5332D37C2403F18CDE4 /* POPAnimationEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 5460EB20B76BB2998D6D20A3E81E270F /* POPAnimationEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EA73394A1F93D67EB80BD16F44D2753A /* IQTitleBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C41084F3FD14A7682200242B40107B1 /* IQTitleBarButtonItem.m */; };
 		EBAB9C5B4A97CF061B3FF6023021C184 /* SocketRocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 67BA64DA7C7BEA65E70BE8D1F76F8DC4 /* SocketRocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EBBCCB423C4505809FE2DE0824476D20 /* POPDecayAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = A9BA0F30C2AA19044C71345D8C149244 /* POPDecayAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECF0E11435B1AB64A915FA01541786F0 /* ARDMessageResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 847600364083DC1BB3A05AFFB843A76C /* ARDMessageResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -712,6 +710,7 @@
 		EFC11165318545F1E3148A85EC6E7CC9 /* JSQLocationMediaItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BAB94C65CE9599C1DDBB09F6B8B926B /* JSQLocationMediaItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EFF273862833E681F19D8B09F80529F7 /* UIView+JSQMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = B61CD54F9D91D77F0A860FF0986CDB7B /* UIView+JSQMessages.m */; };
 		F0211DEFE779973A0292F4489C1F1386 /* NSArray+XLFormAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = BBCEE3538C6B2A1912D85AE1D9601730 /* NSArray+XLFormAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F02320ABC117E8ACC68CA867458B20F5 /* IQUIViewController+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = E804723A9DC4594A4743E7CFDACB613A /* IQUIViewController+Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F04776D20A3CBB41C72E28A9DB9BE99F /* POPAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CACE6A888B784785FE33A74B3D73FB5 /* POPAction.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		F0604E7C14129D74843539C5A50B7C6C /* XLFormCheckCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E69D17A1D15D74C608D9343E7E8C414 /* XLFormCheckCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F099E5987DD80E8D78E909AF81D3C587 /* UIRefreshControl+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 83087BD9999184C4D9B6431D65DF6EFC /* UIRefreshControl+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -739,14 +738,16 @@
 		F6AAC503327BB942380DD5E2FFC00BB6 /* iOS-Hierarchy-Viewer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 725B61DB9B2515360571F3C2BAD0850B /* iOS-Hierarchy-Viewer-dummy.m */; };
 		F7F1CFF4BADD8BF20EC396E60165EA46 /* TransformationMatrix.h in Headers */ = {isa = PBXBuildFile; fileRef = 37EE2D6A6A194E20895753EFAE51B9A6 /* TransformationMatrix.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		F823A1E51FA77A84380869E13240C975 /* UIImageView+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 451B4B43A4B1D947D40AD311B079FEC6 /* UIImageView+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F88EBCF213D5CDC9DD9761F38AC8851A /* IQTitleBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = C0B0F66966F613E8BE8E98975773B56B /* IQTitleBarButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F9C180E3039D276E0662791759BCD3D9 /* PubNub+History.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C3D6E29536B10D9EF7602BD2D7366CD /* PubNub+History.m */; };
-		F9CE54098A2452FD14D27607572AA1C1 /* IQKeyboardManagerConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 63A5249F22B56DD85DF2FFBC93CD4BE1 /* IQKeyboardManagerConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB642FAF8430778D692EE86BEB7BA19C /* JSQMessagesBubbleSizeCalculating.h in Headers */ = {isa = PBXBuildFile; fileRef = E6EC2ABE79453F43B6CAD2CBBF003B76 /* JSQMessagesBubbleSizeCalculating.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB89322323A2CC9E7A2E878FEEB23B03 /* JSQMessagesInputToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F867508EFDE0B956EC5AD5786AE7FAE /* JSQMessagesInputToolbar.m */; };
 		FC0352E26F9C645CD44BC943579435C5 /* PNLogMacro.h in Headers */ = {isa = PBXBuildFile; fileRef = B420B73F6FEDB804A96F9412BC435BC8 /* PNLogMacro.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		FC1D6CF4EED069EFEA9BAA7DE1F959C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0F161BD46E10B188953164C2EEBF1E0 /* Foundation.framework */; };
 		FC6FA3D240ACC153812A8D3B11D02C05 /* PNAPICallBuilder+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = B9E3B7F212A98CDE8BD8EA8C01D6DBA8 /* PNAPICallBuilder+Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		FCF2E00898DFABBB231FB56E1402BF40 /* ARDUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F9A7F68306FF958D12CE0E2F3E5ADF8 /* ARDUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FD191B7D495F379CAE5D676EDD6D198B /* IQKeyboardReturnKeyHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3031C75939AACA9D2F9D1367A640F4BF /* IQKeyboardReturnKeyHandler.m */; };
+		FD4DA8F8F51FBE50740629944BBEBAD4 /* IQKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E13A043D876DD6DA742D59CEED4E07 /* IQKeyboardManager.m */; };
 		FD4FC7A5D88E5F1735EDA1C5EE2245B7 /* POPLayerExtras.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2B63ED462E50BA6AA0A40213FE8617C /* POPLayerExtras.mm */; };
 		FDEC67AB98658890884224459DD73B16 /* PubNub+SubscribePrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 02B9B55D571D2E8F7E7452E4DEE49E87 /* PubNub+SubscribePrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		FE82E792223A4D98EC33C453C7909F1A /* webapp_navbar.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C10F09D0AA3F4C0BA1DA49F3F6DDC35 /* webapp_navbar.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -831,7 +832,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 9650B5ADCE86F1A055FAFC635284BDB5;
+			remoteGlobalIDString = 904F4F27FD314010A3812EB2A9306183;
 			remoteInfo = IQKeyboardManager;
 		};
 		4AAB108EEA978DFB0F5DA2E25CBD3719 /* PBXContainerItemProxy */ = {
@@ -1069,7 +1070,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 9650B5ADCE86F1A055FAFC635284BDB5;
+			remoteGlobalIDString = 904F4F27FD314010A3812EB2A9306183;
 			remoteInfo = IQKeyboardManager;
 		};
 		DF981E543D3570994149D52BD4777C34 /* PBXContainerItemProxy */ = {
@@ -2001,16 +2002,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4F27DEBA4611E9AE6E3805AD3AF29C62 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C4BB53EA5D7C40FF3A597C2A56DD714B /* CoreGraphics.framework in Frameworks */,
-				3284B4F54AAD22766C0F8796748C35D2 /* Foundation.framework in Frameworks */,
-				78C5700E07D002A99CAB0CB22497BDE7 /* UIKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5270CC06A809E51DD3C5EE30AF20C8C8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -2024,6 +2015,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				C411ECF88F1CA6D85AD5143244B4200D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		64786C9E4ED20F0FD5D947A7C759FE3B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F727C21B851A44853E09F23DC39FC72 /* CoreGraphics.framework in Frameworks */,
+				2ECD7C177B4A0748A18A1E9B9BDB54D0 /* Foundation.framework in Frameworks */,
+				BB9911A0175C3FDE5E83423D6A17600B /* QuartzCore.framework in Frameworks */,
+				0192B121701BF3EADD3730B8E68E6DB6 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3766,26 +3768,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		29AAB4BCE0845BB840E7A3ADDC0BC6A2 /* Headers */ = {
+		3BB32FFA9CFEC89EF803C6A9C28804EC /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02497B4D2B4B8E85D9E0CB8C19DEC5F9 /* IQBarButtonItem.h in Headers */,
-				16FEF4DF88110E5145A4C7D954C91BB3 /* IQKeyboardManager.h in Headers */,
-				F9CE54098A2452FD14D27607572AA1C1 /* IQKeyboardManagerConstants.h in Headers */,
-				EA3BFDB32E6DEA9B0E162E09E9293352 /* IQKeyboardManagerConstantsInternal.h in Headers */,
-				A8939E6116FBA9F4912FCC3CB29F549C /* IQKeyboardReturnKeyHandler.h in Headers */,
-				CF0E7F0BB66A225C73E9D0E5EE148769 /* IQNSArray+Sort.h in Headers */,
-				AF45E51794891FF141A6FC4F54CA8D0D /* IQPreviousNextView.h in Headers */,
-				39F5F6C87C17B76A8665D9C88FB7EC30 /* IQTextView.h in Headers */,
-				E4EF420CD43C3F081D49C037296B0DC1 /* IQTitleBarButtonItem.h in Headers */,
-				A838E16CC83CB17C1544E99ACBFBDA79 /* IQToolbar.h in Headers */,
-				AFB419EFE60E91BEDE5927FE8BF36DB4 /* IQUIScrollView+Additions.h in Headers */,
-				2096CD6E3FA4BFF26DB9085F6A0EF44D /* IQUITextFieldView+Additions.h in Headers */,
-				6A7504B1615A2F9906B9D87C4C2EA5BD /* IQUIView+Hierarchy.h in Headers */,
-				00B5EEDD253C0B01BD7B72D3C9EE4206 /* IQUIView+IQKeyboardToolbar.h in Headers */,
-				63D3C8904D575511B8E5E56551A83838 /* IQUIViewController+Additions.h in Headers */,
-				40EDE0FCE5C311580FD5B7E4E041351D /* IQUIWindow+Hierarchy.h in Headers */,
+				28B30D7AF077B7BBD7361FB6AC3AA2BC /* IQBarButtonItem.h in Headers */,
+				71DFF4FCF490E7C2983380C32C3E05A6 /* IQKeyboardManager.h in Headers */,
+				D5B7D8C76ECDAE3675FED3DDD52A1A1F /* IQKeyboardManagerConstants.h in Headers */,
+				35773004282D2825DD45C3EF9B32C21F /* IQKeyboardManagerConstantsInternal.h in Headers */,
+				1A12AC09DAEE727DBD9D111A2B098516 /* IQKeyboardReturnKeyHandler.h in Headers */,
+				3037AB601C885680CFEA52F0D9BFF3B6 /* IQNSArray+Sort.h in Headers */,
+				43643239F78BFE4405AD5092ACC1B176 /* IQPreviousNextView.h in Headers */,
+				53E16175D3F285FCD0AA297379790B78 /* IQTextView.h in Headers */,
+				F88EBCF213D5CDC9DD9761F38AC8851A /* IQTitleBarButtonItem.h in Headers */,
+				4A49D2D82248088CA84188952B9E69BA /* IQToolbar.h in Headers */,
+				82BA014C81EE79BD7F043D96AB562DB6 /* IQUIScrollView+Additions.h in Headers */,
+				17045EA58EB53C66039B73AFDA4BB11F /* IQUITextFieldView+Additions.h in Headers */,
+				612D7698019865805EFC789DCE5858AF /* IQUIView+Hierarchy.h in Headers */,
+				08C263DF6F9031C2ED55A0D16722652A /* IQUIView+IQKeyboardToolbar.h in Headers */,
+				F02320ABC117E8ACC68CA867458B20F5 /* IQUIViewController+Additions.h in Headers */,
+				5A2FF5F16ABBFABA5EC18B9AF230429E /* IQUIWindow+Hierarchy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4491,13 +4493,13 @@
 			productReference = ED516F5F9B5B57FBB76AEBCD80BAC534 /* libUIAlertController+Blocks.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		9650B5ADCE86F1A055FAFC635284BDB5 /* IQKeyboardManager */ = {
+		904F4F27FD314010A3812EB2A9306183 /* IQKeyboardManager */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7541B338C29A841F18C894A4BC467CAC /* Build configuration list for PBXNativeTarget "IQKeyboardManager" */;
+			buildConfigurationList = 3A073C78D19617C74EEAEA91C3038721 /* Build configuration list for PBXNativeTarget "IQKeyboardManager" */;
 			buildPhases = (
-				3748F1E26AD1E44AB999B3F3C0A44526 /* Sources */,
-				4F27DEBA4611E9AE6E3805AD3AF29C62 /* Frameworks */,
-				29AAB4BCE0845BB840E7A3ADDC0BC6A2 /* Headers */,
+				F9C18451875B96F53877B78BC437E9BC /* Sources */,
+				64786C9E4ED20F0FD5D947A7C759FE3B /* Frameworks */,
+				3BB32FFA9CFEC89EF803C6A9C28804EC /* Headers */,
 			);
 			buildRules = (
 			);
@@ -4699,7 +4701,7 @@
 				A1A97200C6C3E37F6B004C9A2B8587A3 /* DLRadioButton */,
 				C5C0ED4101F92EFD295CFB644657F4A3 /* IDMPhotoBrowser */,
 				564C1ACCB341B6FB6B7C06E2BC5173D0 /* iOS-Hierarchy-Viewer */,
-				9650B5ADCE86F1A055FAFC635284BDB5 /* IQKeyboardManager */,
+				904F4F27FD314010A3812EB2A9306183 /* IQKeyboardManager */,
 				0722532A25FB326D6DDA96E5DCFC97EC /* JSQMessagesViewController */,
 				2E92024676DD391858028F02B5E9CDBE /* JSQSystemSoundPlayer */,
 				0BE4A16FFDEF8D8F814E3AE6A2577F6C /* JTCalendar */,
@@ -4854,28 +4856,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD1791307EDD23927701706DBDD3068F /* Pods-Consult-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3748F1E26AD1E44AB999B3F3C0A44526 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D43444F9273BC242437DE518EE99F85D /* IQBarButtonItem.m in Sources */,
-				39A508CB9BEFAFD0CF396E6A8D20EF5C /* IQKeyboardManager-dummy.m in Sources */,
-				DF2FCF6E1C61ED1C24D3E9245B1338EE /* IQKeyboardManager.m in Sources */,
-				05925630D8F4C3B45165B7632C7432C0 /* IQKeyboardReturnKeyHandler.m in Sources */,
-				216E6D7ADF0FFF3318DB30C2CC565C5D /* IQNSArray+Sort.m in Sources */,
-				134FC60FAFF13893D34FCC2CDE67126F /* IQPreviousNextView.m in Sources */,
-				1D4879B92EA825397EDCF3A5B09C5EF2 /* IQTextView.m in Sources */,
-				EA73394A1F93D67EB80BD16F44D2753A /* IQTitleBarButtonItem.m in Sources */,
-				9AC4546D7D76789BE4580172B3ED50D8 /* IQToolbar.m in Sources */,
-				BC12241B094390F0F3D5EA4911EA4DF1 /* IQUIScrollView+Additions.m in Sources */,
-				9F30CF3623BE9CF4C8E7BAD708DDD0F6 /* IQUITextFieldView+Additions.m in Sources */,
-				15BF4C4C4C8C514DE2C2881629B1C801 /* IQUIView+Hierarchy.m in Sources */,
-				8DDD9AE2B9EDFE9E587127E6ECDFA44E /* IQUIView+IQKeyboardToolbar.m in Sources */,
-				231F8E21B389D7F294D8231F016AC11A /* IQUIViewController+Additions.m in Sources */,
-				DF777C9C89EC416FC43CD2114B8BAC35 /* IQUIWindow+Hierarchy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5194,6 +5174,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F9C18451875B96F53877B78BC437E9BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65E85D1CC225E16C66FF845C84EC23B5 /* IQBarButtonItem.m in Sources */,
+				9BAB868CD352FA0A0F9A81D0B22CDBB7 /* IQKeyboardManager-dummy.m in Sources */,
+				FD4DA8F8F51FBE50740629944BBEBAD4 /* IQKeyboardManager.m in Sources */,
+				FD191B7D495F379CAE5D676EDD6D198B /* IQKeyboardReturnKeyHandler.m in Sources */,
+				D7F0B4172AD07FC9E4C6AA761FC069CD /* IQNSArray+Sort.m in Sources */,
+				D6B65E7DBBF8D21997C3EE85152B95FB /* IQPreviousNextView.m in Sources */,
+				291917106FFE5E242919B57386FBF2D5 /* IQTextView.m in Sources */,
+				1307DFA5C6BAC0A80D739B523F0D5247 /* IQTitleBarButtonItem.m in Sources */,
+				2CE1F5D65AC4F83BA81D8A1CC93EDB73 /* IQToolbar.m in Sources */,
+				366AE2A573933F601B7DEF7A62FE6657 /* IQUIScrollView+Additions.m in Sources */,
+				3DA34CB466469ADCA4BE42937E580AB8 /* IQUITextFieldView+Additions.m in Sources */,
+				287DB473D0F6D35B5839EDC75F207060 /* IQUIView+Hierarchy.m in Sources */,
+				78435610B927B7501F678EEA1FC136D9 /* IQUIView+IQKeyboardToolbar.m in Sources */,
+				1FE215BF6E333819BA7309B141A776E5 /* IQUIViewController+Additions.m in Sources */,
+				C25A3CE36F6D477F77AAE1CCCF454108 /* IQUIWindow+Hierarchy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FECD3FC16085400026FA9637297EBAF5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -5428,7 +5430,7 @@
 		9BC8925C3471403D4A7221F8D01FC798 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = IQKeyboardManager;
-			target = 9650B5ADCE86F1A055FAFC635284BDB5 /* IQKeyboardManager */;
+			target = 904F4F27FD314010A3812EB2A9306183 /* IQKeyboardManager */;
 			targetProxy = D74B07B172AB89B9B564060999C1E089 /* PBXContainerItemProxy */;
 		};
 		B4B64710533C92532CF0EBA069542CC3 /* PBXTargetDependency */ = {
@@ -5452,7 +5454,7 @@
 		C703F1F8ADA960127F6D3A28D9B4C016 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = IQKeyboardManager;
-			target = 9650B5ADCE86F1A055FAFC635284BDB5 /* IQKeyboardManager */;
+			target = 904F4F27FD314010A3812EB2A9306183 /* IQKeyboardManager */;
 			targetProxy = 41C9ACFA8B9093E847FEEA987C005D6C /* PBXContainerItemProxy */;
 		};
 		CDD1AFD494BC2EC6807ED2014766E10A /* PBXTargetDependency */ = {
@@ -5786,6 +5788,30 @@
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
+		};
+		3E7B3BFE616DB05D374F89045BF1E3F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7BE41195AF7BBBCB8CCBDE1697FCC1E4 /* IQKeyboardManager.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/IQKeyboardManager/IQKeyboardManager-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
 		};
 		42C583FF46EABEFF48AC41B9984C7945 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -6240,30 +6266,6 @@
 			};
 			name = Debug;
 		};
-		A6E10645FD2C648EF3A8BFEA3C600FDA /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7BE41195AF7BBBCB8CCBDE1697FCC1E4 /* IQKeyboardManager.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/IQKeyboardManager/IQKeyboardManager-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
 		AD24A8B772A3AB80F338EF6B452909A0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -6375,6 +6377,30 @@
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
+		};
+		B38EE81DBFCEF4590FD0251C6EA2ACED /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7BE41195AF7BBBCB8CCBDE1697FCC1E4 /* IQKeyboardManager.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/IQKeyboardManager/IQKeyboardManager-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
 		};
 		BB0A372136C83172F8858D60452E0D0D /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -6567,30 +6593,6 @@
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
-		};
-		D799F27E48667E45862B8E39A8737242 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7BE41195AF7BBBCB8CCBDE1697FCC1E4 /* IQKeyboardManager.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/IQKeyboardManager/IQKeyboardManager-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
 		};
 		DDCDBA8A4921A27B08254C96B26028FB /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -6843,6 +6845,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		3A073C78D19617C74EEAEA91C3038721 /* Build configuration list for PBXNativeTarget "IQKeyboardManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E7B3BFE616DB05D374F89045BF1E3F5 /* Debug */,
+				B38EE81DBFCEF4590FD0251C6EA2ACED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		483FBC4A668BF7F1A8767452E7E188AC /* Build configuration list for PBXNativeTarget "AFNetworking" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -6911,15 +6922,6 @@
 			buildConfigurations = (
 				F40DFCDCB7D6B84A5B56D29EEBB8D2AE /* Debug */,
 				77C293EA2828F5438F73CB42C8739636 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7541B338C29A841F18C894A4BC467CAC /* Build configuration list for PBXNativeTarget "IQKeyboardManager" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D799F27E48667E45862B8E39A8737242 /* Debug */,
-				A6E10645FD2C648EF3A8BFEA3C600FDA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

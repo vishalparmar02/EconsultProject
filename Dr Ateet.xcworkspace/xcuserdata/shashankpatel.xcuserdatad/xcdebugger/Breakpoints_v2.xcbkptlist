@@ -26,13 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dr Ateet/Appointments/AppointmentsController.m"
-            timestampString = "527162488.294035"
+            timestampString = "528810350.264006"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "402"
             endingLineNumber = "402"
-            landmarkName = "-startConsultation:"
-            landmarkType = "7">
+            landmarkName = "AppointmentsController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dr Ateet/MenuController.m"
-            timestampString = "528805380.054671"
+            timestampString = "528806022.962129"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "204"

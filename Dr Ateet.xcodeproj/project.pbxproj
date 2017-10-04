@@ -126,6 +126,10 @@
 		69D13FF81F84DBF300B32ADD /* ImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69D13FF51F84DBE800B32ADD /* ImagePicker.framework */; };
 		69D13FFB1F84E3C200B32ADD /* StaffListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D13FFA1F84E3C200B32ADD /* StaffListController.m */; };
 		69D13FFC1F84E3C200B32ADD /* StaffListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D13FFA1F84E3C200B32ADD /* StaffListController.m */; };
+		69D140031F85002300B32ADD /* ImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69D13FF51F84DBE800B32ADD /* ImagePicker.framework */; };
+		69D140041F85002300B32ADD /* ImagePicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69D13FF51F84DBE800B32ADD /* ImagePicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		69D140081F85004D00B32ADD /* ImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69D13FF51F84DBE800B32ADD /* ImagePicker.framework */; };
+		69D140091F85004D00B32ADD /* ImagePicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69D13FF51F84DBE800B32ADD /* ImagePicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69EE2FC51F3995530083E929 /* CObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EE2FC21F3995530083E929 /* CObject.m */; };
 		69EE2FC61F3995530083E929 /* CUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EE2FC41F3995530083E929 /* CUser.m */; };
 		69EE2FCC1F3999AB0083E929 /* MenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EE2FCB1F3999AB0083E929 /* MenuController.m */; };
@@ -188,7 +192,46 @@
 			remoteGlobalIDString = D5DC59951C201BE1003BD79B;
 			remoteInfo = "ImagePicker-iOS-Tests";
 		};
+		69D140051F85002300B32ADD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69D13FEF1F84DBE800B32ADD /* ImagePicker.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D5DC598A1C201BE1003BD79B;
+			remoteInfo = "ImagePicker-iOS";
+		};
+		69D1400A1F85004D00B32ADD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69D13FEF1F84DBE800B32ADD /* ImagePicker.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D5DC598A1C201BE1003BD79B;
+			remoteInfo = "ImagePicker-iOS";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		69D140071F85002300B32ADD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				69D140041F85002300B32ADD /* ImagePicker.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69D1400C1F85004D00B32ADD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				69D140091F85004D00B32ADD /* ImagePicker.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		147223B71BD9FBC4C56C6001 /* Pods-Dr Ateet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dr Ateet.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dr Ateet/Pods-Dr Ateet.release.xcconfig"; sourceTree = "<group>"; };
@@ -353,6 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69D13FF81F84DBF300B32ADD /* ImagePicker.framework in Frameworks */,
+				69D140081F85004D00B32ADD /* ImagePicker.framework in Frameworks */,
 				0046473B0EAF2418BADFA05F /* libPods-Consult.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,6 +405,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69D140031F85002300B32ADD /* ImagePicker.framework in Frameworks */,
 				1DA3B50238A6806E22A421C7 /* libPods-Dr Ateet Sharma.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -678,10 +723,12 @@
 				6956CAE41F5A89E700B66EB8 /* Resources */,
 				DFFB34403280A24E2F84BCE1 /* [CP] Embed Pods Frameworks */,
 				2E900039BBEAA66C768C7F4E /* [CP] Copy Pods Resources */,
+				69D1400C1F85004D00B32ADD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				69D1400B1F85004D00B32ADD /* PBXTargetDependency */,
 			);
 			name = Consult;
 			productName = "Dr Ateet";
@@ -699,10 +746,12 @@
 				69FAE8601EDBCC130099141C /* Resources */,
 				EF07FEA26223511A9850174A /* [CP] Embed Pods Frameworks */,
 				5A3C386001C554DE847A0B4F /* [CP] Copy Pods Resources */,
+				69D140071F85002300B32ADD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				69D140061F85002300B32ADD /* PBXTargetDependency */,
 			);
 			name = "Dr Ateet Sharma";
 			productName = "Dr Ateet";
@@ -1082,6 +1131,19 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		69D140061F85002300B32ADD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "ImagePicker-iOS";
+			targetProxy = 69D140051F85002300B32ADD /* PBXContainerItemProxy */;
+		};
+		69D1400B1F85004D00B32ADD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "ImagePicker-iOS";
+			targetProxy = 69D1400A1F85004D00B32ADD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		69FAE86E1EDBCC130099141C /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -1106,6 +1168,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 86D03B9F798B48E2D0800E66 /* Pods-Consult.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconGeneric;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Dr Ateet/Dr Ateet.entitlements";
@@ -1132,6 +1195,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46D21AB3736DCD45FCA6DA01 /* Pods-Consult.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconGeneric;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Dr Ateet/Dr Ateet.entitlements";
@@ -1247,6 +1311,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A248BD0E3F58E525A20BE10A /* Pods-Dr Ateet Sharma.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Dr Ateet/Dr Ateet.entitlements";
@@ -1272,6 +1337,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 48D29B1721D02BEED7ECC881 /* Pods-Dr Ateet Sharma.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Dr Ateet/Dr Ateet.entitlements";

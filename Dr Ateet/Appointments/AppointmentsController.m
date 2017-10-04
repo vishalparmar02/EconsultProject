@@ -49,6 +49,7 @@
     
     self.title = @"Appointments";
     if (!self.clashing) {
+        self.title = @"Clashing Appointments";
         _calendarManager = [JTCalendarManager new];
         _calendarManager.delegate = self;
         

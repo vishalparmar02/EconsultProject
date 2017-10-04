@@ -242,6 +242,15 @@
     [row.cellConfig setObject:detailFont forKey:@"textView.font"];
     [section addFormRow:row];
     
+    
+    // Website
+    row = [XLFormRowDescriptor formRowDescriptorWithTag:@"website" rowType:XLFormRowDescriptorTypeTextView];
+    row.value = @"http://drateetsharma.com";
+    row.height = 80;
+    [row.cellConfig setObject:font forKey:@"textLabel.font"];
+    [row.cellConfig setObject:detailFont forKey:@"textView.font"];
+    [section addFormRow:row];
+    
     self.form = form;
 }
 
@@ -323,6 +332,15 @@
     row = [XLFormRowDescriptor formRowDescriptorWithTag:@"gender" rowType:XLFormRowDescriptorTypeSelectorSegmentedControl title:@"Gender"];
     row.selectorOptions = @[@"Male" , @"Female"];
     row.value = [user[row.tag] capitalizedString];
+    [section addFormRow:row];
+    
+    
+    // Website
+    row = [XLFormRowDescriptor formRowDescriptorWithTag:@"website" rowType:XLFormRowDescriptorTypeURL title:@"Website"];
+    row.value = @"http://drateetsharma.com";
+    [row.cellConfig setObject:font forKey:@"textLabel.font"];
+    [row.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
+    [row.cellConfig setObject:detailFont forKey:@"textField.font"];
     [section addFormRow:row];
     
     self.form = form;

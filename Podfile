@@ -5,7 +5,7 @@ platform :ios, '9.1'
 def pods
   pod 'AFNetworking'
   pod 'MBProgressHUD'
-  pod 'IQKeyboardManager'
+  pod 'IQKeyboardManager', '~> 4.0.13'
   pod 'SDWebImage'
   pod 'NSDate+TimeAgo'
   pod 'iOS-Hierarchy-Viewer'
