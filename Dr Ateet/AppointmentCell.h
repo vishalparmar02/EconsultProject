@@ -18,6 +18,7 @@
 - (void)markDoneAppointment:(Appointment*)appointment;
 - (void)editAppointment:(Appointment*)appointment;
 - (void)startConsultation:(Appointment*)appointment;
+- (void)infoTapped:(Appointment*)appointment;
 
 @end
 
@@ -30,7 +31,8 @@
 @property (nonatomic, strong) IBOutlet  UILabel         *consulationStatusLabel;
 @property (nonatomic, strong) IBOutlet  UIButton        *startConsultationButton;
 @property (nonatomic, strong) IBOutlet  UIView          *consulationDoneContainer;
-@property (nonatomic, strong) IBOutlet  UIButton        *changeButton, *cancelButton;
+@property (nonatomic, strong) IBOutlet  UIImageView     *infoIcon;
+@property (nonatomic, strong) IBOutlet  UIButton        *changeButton, *cancelButton, *infoButton;
 @property (nonatomic, strong) IBOutlet  UIView          *container;
 @property (nonatomic, strong)           Appointment     *appointment;
 @property (nonatomic, strong)           BEMCheckBox     *consulationDoneCheckBox;

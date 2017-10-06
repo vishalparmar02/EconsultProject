@@ -62,6 +62,7 @@
 
 #define GET_SLOTS                   @"slots"
 #define ADD_APPOINTMENT             @"appointments/add"
+#define GET_APPOINTMENT             @"appointments/%@"
 
 #define GET_REPORTS                 @"patient/getReports"
 #define ADD_REPORT                  @"patient/addReports/"

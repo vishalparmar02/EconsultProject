@@ -221,7 +221,7 @@
         return YES;
     }
     
-    if (interval < 0 &&  fabs(interval) < (10 * 60)) {
+    if (interval < 0 &&  fabs(interval) < (5 * 60)) {
         return YES;
     }
     
@@ -270,6 +270,15 @@ static NSDateFormatter *inFormatter, *outFormatter, *appointmentDF;
     return [appointmentDF stringFromDate:appointmentDate];
 }
 
+- (NSString*)todayDateString{
+    if(!appointmentDF){
+        appointmentDF = [NSDateFormatter new];
+    }
+    NSDate *today = [NSDate date];
+    appointmentDF.dateFormat = @"dd LLL, yyyy";
+    return [appointmentDF stringFromDate:today];
+}
+
 - (NSDate*)appointmentDate{
     if(!appointmentDF){
         appointmentDF = [NSDateFormatter new];
@@ -283,6 +292,18 @@ static NSDateFormatter *inFormatter, *outFormatter, *appointmentDF;
 
 - (BOOL)hasPassed{
     return [self.appointmentEndDate compare:[NSDate date]] == NSOrderedAscending;
+}
+
+- (BOOL)isOnToday{
+    return [self.appointmentDateString isEqualToString:self.todayDateString];
+}
+
+- (BOOL)isInFuture{
+    return [self.appointmentDate compare:[NSDate date]] == NSOrderedDescending;
+}
+
+- (BOOL)isOnline{
+    return [[self[@"clinic_name"] lowercaseString] isEqualToString:@"online"];
 }
 
 - (NSDate*)appointmentEndDate{

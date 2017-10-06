@@ -29,6 +29,7 @@
 @property (nonatomic, strong)   IBOutlet    NSLayoutConstraint  *appointmentForHeight;
 @property (nonatomic, strong)   IBOutlet    UITextField     *patientField;
 @property (nonatomic, strong)   NSMutableArray  *patients;
+@property (nonatomic, strong)   SFSafariViewController *paymentController;
 
 @end
 
@@ -392,10 +393,64 @@ static NSDateFormatter *timeFormatter;
     
 }
 
+- (void)startPaymentStatusChecking:(NSString*)appointmentID{
+    NSString *endPoint = [NSString stringWithFormat:GET_APPOINTMENT, appointmentID];
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    AFJSONRequestSerializer *reqSerializer = [AFJSONRequestSerializer serializer];
+    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"Authorization"];
+    NSString *URLString          = [API_BASE_URL stringByAppendingPathComponent:endPoint];
+    NSMutableURLRequest *request = [reqSerializer requestWithMethod:@"GET"
+                                                          URLString:URLString
+                                                         parameters:nil
+                                                              error:nil];
+    //    NSLog(@"Dict: %@", [self[@"save"] description]);
+    //    NSDictionary *dict = self[@"save"];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            [error printHTMLError];
+        } else {
+            if ([responseObject[@"status"] boolValue]) {
+                NSDictionary *appointmentDict = responseObject[@"data"];
+                Appointment *appointment = [Appointment appointmentFromDictionary:appointmentDict];
+                if (![appointment[@"paid"] boolValue]) {
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [self startPaymentStatusChecking:appointmentID];
+                    });
+                }else{
+                    [self.paymentController dismissViewControllerAnimated:YES completion:^{
+                        NSDateFormatter *dateF = [NSDateFormatter new];
+                        [dateF setDateFormat:@"dd MMM, YYYY"];
+                        
+                        NSString *clinicText = [NSString stringWithFormat:@"Walk In, %@", self.selectedClinic[@"clinic_name"]];
+                        
+                        NSString *message = [NSString stringWithFormat:@"Appointment booked successfully on %@ at %@, %@", [appointment appointmentDateString],
+                                             [appointment startTime],
+                                             clinicText];
+                        [UIAlertController showAlertInViewController:self
+                                                           withTitle:@""
+                                                             message:message
+                                                   cancelButtonTitle:@"OK"
+                                              destructiveButtonTitle:nil
+                                                   otherButtonTitles:nil
+                                                            tapBlock:nil];
+                    }];
+                }
+            }
+            
+        }
+    }];
+    [dataTask resume];
+}
+
 - (void)payForOnlineAppointment:(NSString*)appointmentID{
+    [self startPaymentStatusChecking:appointmentID];
     NSURL *paymentURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://da.konecthealth.com/pay-for-mobile-appointments/%@", appointmentID]];
-    SFSafariViewController *vc = [[SFSafariViewController alloc] initWithURL:paymentURL];
-    [self.navigationController presentViewController:vc
+    self.paymentController = [[SFSafariViewController alloc] initWithURL:paymentURL];
+    [self.navigationController presentViewController:self.paymentController
                                             animated:YES
                                           completion:nil];
 }

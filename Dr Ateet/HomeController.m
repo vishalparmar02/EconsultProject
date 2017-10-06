@@ -17,6 +17,7 @@
 #import "DemoMessagesViewController.h"
 #import "PatientProfileController.h"
 #import "DoctorProfileController.h"
+#import "GiveAppointmentController.h"
 
 #define kCellWidth ((CGRectGetWidth(collectionView.frame) / 2) - 0)
 
@@ -92,9 +93,9 @@
 
     }else{
         self.menuItems = @[@{@"image" : @"appointment", @"title" : @"Appointments"},
-                           @{@"image" : @"consultation", @"title" : @"Consultation"},
-                           @{@"image" : @"patients", @"title" : @"My Patients"},
-                           @{@"image" : @"payment", @"title" : @"Payments"}];
+                           @{@"image" : @"give_appointment", @"title" : @"Give Appointment"},
+                           @{@"image" : @"patients", @"title" : @"Patient Info"},
+                           @{@"image" : @"appointment", @"title" : @"Clashing Appointments"}];
 //        self.collectionViewPadding.constant = 0;
     }
 }
@@ -175,6 +176,13 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
     }else{
+        
+//        [@{@"image" : @"appointment", @"title" : @"Appointments"},
+//         @{@"image" : @"give_appointment", @"title" : @"Give Appointment"},
+//         @{@"image" : @"patients", @"title" : @"Patient Info"},
+//         @{@"image" : @"appointment", @"title" : @"Clashing Appointments"}
+        
+         
         if (indexPath.row == 0) {
             AppointmentsController *vc = [AppointmentsController controller];
             vc.clashing = NO;
@@ -182,11 +190,17 @@
             [self.navigationController pushViewController:vc
                                                  animated:YES];
         }else if (indexPath.row == 1) {
-            ThreadController *vc = [ThreadController controller];
+            GiveAppointmentController *vc = [GiveAppointmentController controller];
+            vc.isChild = YES;
             [self.navigationController pushViewController:vc
                                                  animated:YES];
         }else if (indexPath.row == 2) {
             PatientsListController *vc = [PatientsListController controller];
+            vc.isChild = YES;
+            [self.navigationController pushViewController:vc
+                                                 animated:YES];
+        }else if (indexPath.row == 3) {
+            AppointmentsController *vc = [AppointmentsController clashingController];
             vc.isChild = YES;
             [self.navigationController pushViewController:vc
                                                  animated:YES];

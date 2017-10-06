@@ -38,6 +38,8 @@
     
     NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:appointment.appointmentDate];
     BOOL shouldAllowConsultation = interval > 30 * 60;
+    self.infoButton.enabled = ![appointment isOnline];
+    self.infoIcon.alpha = ![appointment isOnline];
     
     if ([appointment[@"status"] boolValue] ||
         [appointment.appointmentEndDate compare:[NSDate date]] == NSOrderedAscending ||
@@ -73,6 +75,12 @@
 - (IBAction)startConsultationTapped{
     if ([self.delegate respondsToSelector:@selector(startConsultation:)]) {
         [self.delegate startConsultation:self.appointment];
+    }
+}
+
+- (IBAction)infoTapped{
+    if ([self.delegate respondsToSelector:@selector(infoTapped:)]) {
+        [self.delegate infoTapped:self.appointment];
     }
 }
 

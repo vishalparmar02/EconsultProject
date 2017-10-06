@@ -78,8 +78,11 @@
         
         if (self.consultation) {
             NSMutableArray *validAppointments = [NSMutableArray array];
-            for (Appointment *anAppointment in self.upcomingAppointments) {
-                if(![anAppointment[@"canceled"] boolValue]){
+            for (Appointment *anAppointment in objects) {
+                NSLog(anAppointment.appointmentDate.description);
+                if(![anAppointment[@"canceled"] boolValue] &&
+                   ([anAppointment isOnToday] || [anAppointment isInFuture]) &&
+                   [anAppointment isOnline]){
                     [validAppointments addObject:anAppointment];
                 }
             }
@@ -178,6 +181,19 @@
                                         }];
     
     
+}
+
+- (void)infoTapped:(Appointment*)appointment{
+    NSDictionary *address = appointment[@"address"];
+    NSString *addressString = [NSString stringWithFormat:@"%@, %@\n Contact Number: %@", address[@"address"],
+                               address[@"city"], address[@"contact_number"]];
+    [UIAlertController showAlertInViewController:self
+                                       withTitle:appointment[@"clinic_name"]  
+                                         message:addressString
+                               cancelButtonTitle:@"OK"
+                          destructiveButtonTitle:nil
+                               otherButtonTitles:nil
+                                        tapBlock:nil];
 }
 
 - (void)startConsultation:(Appointment*)appointment{

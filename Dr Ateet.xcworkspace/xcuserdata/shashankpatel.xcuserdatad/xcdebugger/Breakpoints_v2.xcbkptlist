@@ -26,13 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dr Ateet/Appointments/AppointmentsController.m"
-            timestampString = "528902257.925894"
+            timestampString = "528975606.941101"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "403"
-            endingLineNumber = "403"
-            landmarkName = "-startConsultation:"
-            landmarkType = "7">
+            startingLineNumber = "402"
+            endingLineNumber = "402"
+            landmarkName = "AppointmentsController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -89,8 +89,8 @@
                   symbolName = "-[DoctorProDetailsController setFormState:]"
                   moduleName = "Consult"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shashankpatel/Documents/KonectHealth/Dr%20Ateet/Dr%20Ateet/DoctorProDetailsController.m"
-                  timestampString = "528904064.375471"
+                  urlString = "file:///Users/shashankpatel/Documents/KonectHealth/dr-ateet-ios/Dr%20Ateet/DoctorProDetailsController.m"
+                  timestampString = "528975607.069596"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "144"
@@ -104,8 +104,8 @@
                   symbolName = "-[DoctorProDetailsController setFormState:]"
                   moduleName = "Consult"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shashankpatel/Documents/KonectHealth/Dr%20Ateet/Dr%20Ateet/DoctorProDetailsController.m"
-                  timestampString = "528904064.377802"
+                  urlString = "file:///Users/shashankpatel/Documents/KonectHealth/dr-ateet-ios/Dr%20Ateet/DoctorProDetailsController.m"
+                  timestampString = "528975607.071362"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "144"

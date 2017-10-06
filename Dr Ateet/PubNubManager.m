@@ -94,7 +94,7 @@
 //    NSDictionary *pushPayload = @{@"aps": @{@"content-available" : @1,
 //                                            @"sound": @"",
 //                                            @"call_payload" : json}};
-//    BOOL isCall = [json[@"type"] isEqualToString:@"v_call"];
+    BOOL isCall = [json[@"type"] isEqualToString:@"v_call"];
     NSDictionary *callPayload = @{@"call_payload" :json};
     NSString *isDoctor = [[CUser currentUser] isDoctor] ? @"y" : @"n";
     NSDictionary *pushPayload = @{@"aps": @{@"content-available" : @1,
@@ -108,7 +108,7 @@
                                   };
     [self.client publish:callPayload
                toChannel:channel
-       mobilePushPayload:pushPayload
+       mobilePushPayload:isCall ? pushPayload : nil
           withCompletion:^(PNPublishStatus * _Nonnull status) {
               
           }];

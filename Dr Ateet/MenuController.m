@@ -169,7 +169,7 @@
 }
 
 - (void)appointmentsTapped{
-    [ApplicationDelegate.drawerController setPaneViewController:[PatientAppointmentsController navigationController]];
+    [ApplicationDelegate.drawerController setPaneViewController:[AppointmentsController navigationController]];
     [ApplicationDelegate.drawerController setPaneState:MSDynamicsDrawerPaneStateClosed animated:YES allowUserInterruption:NO completion:^{
         
     }];

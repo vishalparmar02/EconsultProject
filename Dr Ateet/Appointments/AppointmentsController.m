@@ -33,7 +33,6 @@
 
 + (AppointmentsController*)controller{
     AppointmentsController *vc = ControllerFromStoryBoard(@"Appointments", @"AppointmentsController");
-    vc.isChild = YES;
     return vc;
 }
 

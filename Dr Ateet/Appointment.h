@@ -25,5 +25,8 @@
 - (NSString*)appointmentDateString;
 - (BOOL)hasPassed;
 - (BOOL)allowConsultation;
+- (BOOL)isOnToday;
+- (BOOL)isInFuture;
+- (BOOL)isOnline;
 
 @end
