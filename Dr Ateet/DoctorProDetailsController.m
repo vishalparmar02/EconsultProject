@@ -174,14 +174,13 @@
                                        otherButtonTitles:nil
                                                 tapBlock:nil];
         }else{
-            [self setFormState:NO];
             self.navigationItem.rightBarButtonItem = self.editButton;
             
             for (NSString *aKey in currentUserDict.allKeys){
                 currentUser[aKey] = currentUserDict[aKey];
             }
             [currentUser setCurrent];
-            
+            [self setFormState:NO];
             [UIAlertController showAlertInViewController:self
                                                withTitle:@"Success"
                                                  message:@"Updated Successfully."

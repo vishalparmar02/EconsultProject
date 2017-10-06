@@ -253,8 +253,6 @@ static NSDateFormatter *timeFormatter;
 - (void)loadPatients{
     [[CUser currentUser] fetchMyPatientsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         [self.patients removeAllObjects];
-         
-        [self.patients addObject:[[CUser currentUser] patient]];
         
         for (Patient *aPatient in objects) {
             [self.patients addObject:aPatient];

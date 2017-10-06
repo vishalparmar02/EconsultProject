@@ -27,6 +27,7 @@
 @property (nonatomic, strong) IBOutlet  UILabel         *nameLabel, *timeLabel, *dateLabel;
 @property (nonatomic, strong) IBOutlet  UILabel         *mobileLabel, *bookedByLabel;
 @property (nonatomic, strong) IBOutlet  UILabel         *consulationDoneLabel, *paymentStatusLabel;
+@property (nonatomic, strong) IBOutlet  UILabel         *consulationStatusLabel;
 @property (nonatomic, strong) IBOutlet  UIButton        *startConsultationButton;
 @property (nonatomic, strong) IBOutlet  UIView          *consulationDoneContainer;
 @property (nonatomic, strong) IBOutlet  UIButton        *changeButton, *cancelButton;

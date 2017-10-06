@@ -44,11 +44,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"My Patients";
+    
     
     if ([[CUser currentUser] isDoctor]) {
+        self.title = @"My Patients";
         [self fetchPatients];
     }else{
+        self.title = @"Select Patient";
         [self fetchMyPatients];
     }
 }
@@ -79,7 +81,6 @@
     PatientCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PatientCell"
                                                        forIndexPath:indexPath];
     cell.patient = self.patients[indexPath.row];
-    
     return cell;
 }
 
@@ -91,6 +92,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if ([[CUser currentUser] isPatient]) {
         ReportsController *vc = [ReportsController controller];
+        vc.isChild = YES;
         vc.patient = self.patients[indexPath.row];
         [self.navigationController pushViewController:vc animated:YES];
     }else{

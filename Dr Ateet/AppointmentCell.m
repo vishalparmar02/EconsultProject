@@ -33,7 +33,7 @@
     self.dateLabel.text = [appointment appointmentDateString];
     self.consulationDoneCheckBox.on = [appointment[@"status"] boolValue];
     self.consulationDoneCheckBox.enabled = !self.consulationDoneCheckBox.on;
-    
+    self.consulationStatusLabel.text = [appointment[@"canceled"] boolValue] ? @"Canceled" : @"Pending";
     self.paymentStatusLabel.text = [appointment[@"fees"] integerValue] > 0 ? @"Pending" : @"Complete";
     
     NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:appointment.appointmentDate];
@@ -48,7 +48,7 @@
         self.cancelButton.alpha = 1;
         self.changeButton.alpha = 1;
     }
-    self.startConsultationButton.hidden = !appointment.allowConsultation;
+//    self.startConsultationButton.hidden = !appointment.allowConsultation;
     self.consulationDoneLabel.enabled = shouldAllowConsultation;
 }
 

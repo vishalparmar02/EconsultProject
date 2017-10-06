@@ -24,6 +24,28 @@
 #import "PatientSelectorController.h"
 #import "PatientsListController.h"
 #import "StaffListController.h"
+#import "UIView+Theme.h"
+
+@implementation SideMenuCell
+
+- (void)setMenuText:(NSString*)text badge:(NSInteger)badge{
+    self.badgeLabel.alpha = badge;
+    self.badgeLabel.clipsToBounds = YES;
+    [self.badgeLabel applyShadow];
+    
+    self.badgeLabel.text = [NSString stringWithFormat:@"%ld", badge];
+    self.menuLabel.text = text;
+}
+
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    CGFloat revealWidth = [ApplicationDelegate.drawerController revealWidthForDirection:MSDynamicsDrawerDirectionLeft];
+    self.badgePaddingConstraint.constant = self.contentView.frame.size.width - revealWidth;
+    self.badgeLabel.layer.cornerRadius = self.badgeLabel.frame.size.height / 2;
+    self.badgeLabel.clipsToBounds = YES;
+}
+
+@end
 
 @interface MenuController ()<UITableViewDataSource ,UITableViewDelegate>
 
@@ -31,6 +53,8 @@
 @property (nonatomic, strong)   IBOutlet    UITableView         *tableView;
 @property (nonatomic, strong)   IBOutlet    UIButton            *profileButton;
 @property (nonatomic, strong)   IBOutlet    NSLayoutConstraint  *profileButtonCenterConstraint;
+@property (nonatomic)                       NSInteger           conflictCount;
+
 @end
 
 @implementation MenuController
@@ -47,7 +71,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self reload];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"MenuCell"];
 }
 
 - (void)reload{
@@ -66,13 +89,20 @@
                       @[@"Online Consultation", @"Reports", @"My Profile"],
                       @[@"About Dr. Ateet Sharma", @"Logout"]];
     }else{
+        [self fetchConflictCount];
         self.menu = @[@[@"Home"],
                       @[@"Appointments", @"Give Appointment", @"Clashing Appointments"],
                       @[@"Patient Info", @"My Schedules", @"My Clinics", @"My Staff", @"Profile", @"Professional Profile"],
                       @[@"Logout"]];
     }
-    
     [self.tableView reloadData];
+}
+
+- (void)fetchConflictCount{
+    [Appointment fetchClashingAppointmentsBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        self.conflictCount = objects.count;
+        [self.tableView reloadData];
+    }];
 }
 
 - (void)viewDidLayoutSubviews{
@@ -170,7 +200,7 @@
 }
 
 - (void)reportsTapped{
-    [ApplicationDelegate.drawerController setPaneViewController:[ReportsController navigationController]];
+    [ApplicationDelegate.drawerController setPaneViewController:[PatientsListController navigationController]];
     [ApplicationDelegate.drawerController setPaneState:MSDynamicsDrawerPaneStateClosed animated:YES allowUserInterruption:NO completion:^{
         
     }];
@@ -218,9 +248,15 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MenuCell" forIndexPath:indexPath];
+    SideMenuCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SideMenuCell" forIndexPath:indexPath];
     NSArray *subMenu = _menu[indexPath.section];
-    cell.textLabel.text = subMenu[indexPath.row];
+    NSString *menuText = subMenu[indexPath.row];
+
+    NSInteger badge = 0;
+    if ([menuText isEqualToString:@"Clashing Appointments"]) {
+        badge = self.conflictCount;
+    }
+    [cell setMenuText:menuText badge:badge];
     return cell;
 }
 

@@ -47,9 +47,8 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
-    self.title = @"Appointments";
     if (!self.clashing) {
-        self.title = @"Clashing Appointments";
+        self.title = @"Appointments";
         _calendarManager = [JTCalendarManager new];
         _calendarManager.delegate = self;
         
@@ -58,6 +57,8 @@
         [_calendarManager setMenuView:_calendarMenuView];
         [_calendarManager setContentView:_calendarContentView];
         [_calendarManager setDate:_todayDate];
+    }else{
+        self.title = @"Clashing Appointments";
     }
     
 }

@@ -44,6 +44,7 @@
 @property (nonatomic, strong) IBOutlet  UISegmentedControl  *reportTypeSegment;
 @property (nonatomic, strong)           NSArray             *reports, *patientReports, *doctorReports;
 @property (nonatomic, strong)           Report              *reportToUpload;
+@property (nonatomic, strong)           UIBarButtonItem     *uploadButton;
 
 @end
 
@@ -52,7 +53,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.title = @"Reports";
+    self.title = [NSString stringWithFormat:@"%@ Reports", self.patient.fullName];
     
     UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];
     [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
@@ -60,10 +61,11 @@
     layout.minimumLineSpacing = 0.0;
     layout.minimumInteritemSpacing = 0.0;
     self.collectionView.collectionViewLayout = layout;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Upload"
+    self.uploadButton = [[UIBarButtonItem alloc] initWithTitle:@"Upload"
                                                                               style:UIBarButtonItemStylePlain
                                                                              target:self
                                                                              action:@selector(uploadTapped)];
+    [self segmentChanged];
     
     if (self.isChild && (self.isBeingPresented || self.navigationController.isBeingPresented)) {
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done"
@@ -248,6 +250,14 @@
 
 - (IBAction)segmentChanged{
     self.reports = self.reportTypeSegment.selectedSegmentIndex == 0 ? self.patientReports : self.doctorReports;
+    if (self.reportTypeSegment.selectedSegmentIndex == 0 && [[CUser currentUser] isPatient]) {
+        self.navigationItem.rightBarButtonItem = self.uploadButton;
+    }else if (self.reportTypeSegment.selectedSegmentIndex == 1 && [[CUser currentUser] isDoctor]) {
+        self.navigationItem.rightBarButtonItem = self.uploadButton;
+    }else{
+        self.navigationItem.rightBarButtonItem = nil;
+    }
+    
     [self.collectionView reloadData];
 }
 

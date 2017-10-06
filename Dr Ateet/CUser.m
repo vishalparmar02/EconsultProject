@@ -356,9 +356,11 @@ static CUser *currentUser;
         } else {
             NSMutableArray *patients = [NSMutableArray array];
             NSArray *patientsArray = responseObject[@"data"];
+            [patients addObject:[[CUser currentUser] patient]];
             for (NSDictionary *patientDict in patientsArray) {
                 [patients addObject:[Patient patientFromDictionary:patientDict]];
             }
+            
             if(block)block(patients, nil);
         }
     }];
@@ -435,9 +437,11 @@ static CUser *currentUser;
 }
 
 - (Patient*)patient{
+    NSString *myFirstName = [NSString stringWithFormat:@"Self - %@",self[@"first_name"]];
     return [Patient patientFromDictionary:@{@"id" : self[@"patient_id"],
+                                            @"mobile_number" : self.mobile,
                                             @"patient_id" : self[@"patient_id"],
-                                            @"first_name" : self[@"first_name"],
+                                            @"first_name" : myFirstName,
                                             @"last_name" : self[@"last_name"]}];
 }
 

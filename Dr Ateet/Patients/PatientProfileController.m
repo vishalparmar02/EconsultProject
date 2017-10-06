@@ -231,8 +231,17 @@
     [section addFormRow:row];
     
     //Height
-    row = [XLFormRowDescriptor formRowDescriptorWithTag:@"height" rowType:XLFormRowDescriptorTypeNumber title:@"Height"];
-    [row.cellConfigAtConfigure setObject:@"190" forKey:@"textField.placeholder"];
+    row = [XLFormRowDescriptor formRowDescriptorWithTag:@"height" rowType:XLFormRowDescriptorTypeNumber title:@"Height in cm"];
+    [row.cellConfigAtConfigure setObject:@"e.g. 190 cm" forKey:@"textField.placeholder"];
+    [row.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
+    [row.cellConfig setObject:font forKey:@"textLabel.font"];
+    [row.cellConfig setObject:detailFont forKey:@"textField.font"];
+    row.value = user[row.tag];
+    [section addFormRow:row];
+    
+    //Refered By
+    row = [XLFormRowDescriptor formRowDescriptorWithTag:@"refer_by" rowType:XLFormRowDescriptorTypeNumber title:@"Referred By"];
+    [row.cellConfigAtConfigure setObject:@"e.g. Dr. Ateet Sharma" forKey:@"textField.placeholder"];
     [row.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
     [row.cellConfig setObject:font forKey:@"textLabel.font"];
     [row.cellConfig setObject:detailFont forKey:@"textField.font"];
@@ -282,7 +291,7 @@
                                        otherButtonTitles:nil
                                                 tapBlock:nil];
         }else{
-            [self setFormState:NO];
+            
             self.navigationItem.rightBarButtonItem = self.editButton;
             
             for (NSString *aKey in currentUserDict.allKeys){
@@ -290,13 +299,17 @@
             }
             [currentUser setCurrent];
             
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self setFormState:NO];
+            });
             [UIAlertController showAlertInViewController:self
                                                withTitle:@"Success"
                                                  message:@"Updated Successfully."
                                        cancelButtonTitle:@"OK"
                                   destructiveButtonTitle:nil
                                        otherButtonTitles:nil
-                                                tapBlock:nil];
+                                                tapBlock:^(UIAlertController * _Nonnull controller, UIAlertAction * _Nonnull action, NSInteger buttonIndex) {
+                                                }];
         }
     }];
 }

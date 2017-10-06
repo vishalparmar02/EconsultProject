@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@interface SideMenuCell : UITableViewCell
+
+@property (nonatomic, strong)   IBOutlet    UILabel             *badgeLabel, *menuLabel;
+@property (nonatomic, strong)   IBOutlet    NSLayoutConstraint  *badgePaddingConstraint;
+
+- (void)setMenuText:(NSString*)text badge:(NSInteger)badge;
+
+@end
+
 @interface MenuController : UIViewController
 
 + (id)controller;

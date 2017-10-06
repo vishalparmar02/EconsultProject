@@ -171,9 +171,10 @@
     [section addFormRow:row];
     
     // DOB
-    row = [XLFormRowDescriptor formRowDescriptorWithTag:@"dob" rowType:XLFormRowDescriptorTypeDateInline title:@"Date of Birth"];
+    row = [XLFormRowDescriptor formRowDescriptorWithTag:@"dob" rowType:XLFormRowDescriptorTypeText title:@"Date of Birth"];
     [row.cellConfig setObject:font forKey:@"textLabel.font"];
-    row.value = [dateFormatter dateFromString:profile[row.tag]];
+    [row.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
+    row.value = profile[row.tag];
     [section addFormRow:row];
     
 //    //Gender

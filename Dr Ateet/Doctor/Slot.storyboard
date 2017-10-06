@@ -629,10 +629,7 @@ Tue (Week 1, Week 2)</string>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shashank Patel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WAJ-af-hdY">
-                                                            <rect key="frame" x="60" y="15" width="136.5" height="20"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="20" id="ZKY-HK-Jw6"/>
-                                                            </constraints>
+                                                            <rect key="frame" x="60" y="4.5" width="262" height="40"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -647,6 +644,8 @@ Tue (Week 1, Week 2)</string>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
+                                                        <constraint firstItem="WAJ-af-hdY" firstAttribute="height" secondItem="jyf-dI-10j" secondAttribute="height" id="BIE-fC-fv2"/>
+                                                        <constraint firstAttribute="trailing" secondItem="WAJ-af-hdY" secondAttribute="trailing" constant="10" id="ONs-8R-rOW"/>
                                                         <constraint firstItem="jyf-dI-10j" firstAttribute="centerY" secondItem="9MD-PS-XGt" secondAttribute="centerY" id="SWL-ea-8f2"/>
                                                         <constraint firstItem="WAJ-af-hdY" firstAttribute="leading" secondItem="jyf-dI-10j" secondAttribute="trailing" constant="10" id="WaB-fq-JLn"/>
                                                         <constraint firstAttribute="baseline" secondItem="1FN-zw-0jN" secondAttribute="bottom" constant="-10" id="Wne-kI-dsN"/>

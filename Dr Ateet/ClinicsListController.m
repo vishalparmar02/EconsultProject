@@ -77,7 +77,7 @@
     [Clinic fetchClinicsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         NSMutableArray *clinics = [NSMutableArray array];
         for (Clinic *aClinic in objects ) {
-            if (![aClinic.objectId isEqual:@-1]) {
+            if (aClinic.objectId.integerValue != -1) {
                 [clinics addObject:aClinic];
             }
         }

@@ -158,8 +158,7 @@
         }else if (indexPath.row == 1) {
             PatientAppointmentsController *vc = [PatientAppointmentsController controller];
             vc.consultation = YES;
-            vc.child = YES;
-//            DemoMessagesViewController *vc = [DemoMessagesViewController new];
+            vc.isChild = YES;
             [self.navigationController pushViewController:vc
                                                  animated:YES];
         }else if (indexPath.row == 2) {
@@ -168,6 +167,7 @@
             [self.navigationController pushViewController:vc animated:YES];
         }else if (indexPath.row == 3) {
             PatientAppointmentsController *vc = [PatientAppointmentsController controller];
+            vc.consultation = NO;
             vc.isChild = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }else if(indexPath.row == 4) {
@@ -177,6 +177,8 @@
     }else{
         if (indexPath.row == 0) {
             AppointmentsController *vc = [AppointmentsController controller];
+            vc.clashing = NO;
+            vc.isChild = YES;
             [self.navigationController pushViewController:vc
                                                  animated:YES];
         }else if (indexPath.row == 1) {

@@ -33,6 +33,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.appointmentTypeSegment.alpha = !self.consultation;
     self.edgesForExtendedLayout=UIRectEdgeNone;
     if (self.isChild && self.navigationController.isBeingPresented) {
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done"
@@ -74,11 +75,23 @@
         }
         self.upcomingAppointments = upcomingAppointments;
         self.pastAppointments = pastAppointments;
-        if (_appointmentTypeSegment.selectedSegmentIndex == 0) {
-            self.appointments = self.upcomingAppointments;
+        
+        if (self.consultation) {
+            NSMutableArray *validAppointments = [NSMutableArray array];
+            for (Appointment *anAppointment in self.upcomingAppointments) {
+                if(![anAppointment[@"canceled"] boolValue]){
+                    [validAppointments addObject:anAppointment];
+                }
+            }
+            self.appointments = validAppointments;
         }else{
-            self.appointments = self.pastAppointments;
+            if (_appointmentTypeSegment.selectedSegmentIndex == 0) {
+                self.appointments = self.upcomingAppointments;
+            }else{
+                self.appointments = self.pastAppointments;
+            }
         }
+        
         [self.tableView reloadData];
     }];
 }
@@ -106,7 +119,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSString *identifier = self.bookedOnly ? @"ConsultationLogCell" : @"AppointmentCell";
+    NSString *identifier = self.bookedOnly ? @"ConsultationLogCell" : (self.consultation ? @"ConsultationCell" : @"AppointmentCell");
     AppointmentCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier
                                                             forIndexPath:indexPath];
     cell.appointment = self.appointments[indexPath.row];
@@ -116,17 +129,17 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return self.bookedOnly ? 50 : 230;
+    return self.bookedOnly ? 50 : (self.consultation ? 230 : 170);
 }
 
-//- (nullable NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    return nil;
-//}
+- (nullable NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    return nil;
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-//    if (!self.consultation) return;
+    if (!self.consultation) return;
     
     Appointment *appointment = self.appointments[indexPath.row];
     if ([[appointment[@"clinic_name"] lowercaseString] isEqualToString:@"online"]){
@@ -169,7 +182,13 @@
 
 - (void)startConsultation:(Appointment*)appointment{
     if (![appointment allowConsultation]) {
-//        return;
+        [UIAlertController showAlertInViewController:self
+                                           withTitle:@""
+                                             message:@"Online consultation will be activated 5 minutes prior to the appointment time." cancelButtonTitle:@"Ok"
+                              destructiveButtonTitle:nil
+                                   otherButtonTitles:nil
+                                            tapBlock:nil];
+        return;
     }
     NSNumber *senderID = [[CUser currentUser] isPatient] ? [CUser currentUser][@"patient_id"] : @-1;
     NSString *calleeChannel = [NSString stringWithFormat:@"patient_%@", [appointment[@"patient_id"] stringValue]];
