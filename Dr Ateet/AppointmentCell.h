@@ -31,13 +31,14 @@
 @property (nonatomic, strong) IBOutlet  UILabel         *consulationStatusLabel;
 @property (nonatomic, strong) IBOutlet  UIButton        *startConsultationButton;
 @property (nonatomic, strong) IBOutlet  UIView          *consulationDoneContainer;
-@property (nonatomic, strong) IBOutlet  UIImageView     *infoIcon;
-@property (nonatomic, strong) IBOutlet  UIButton        *changeButton, *cancelButton, *infoButton;
+@property (nonatomic, strong) IBOutlet  UIImageView     *infoIcon, *videoCallIcon;
+@property (nonatomic, strong) IBOutlet  UIButton        *changeButton, *cancelButton, *infoButton, *videoCallButton;
 @property (nonatomic, strong) IBOutlet  UIView          *container;
 @property (nonatomic, strong)           Appointment     *appointment;
 @property (nonatomic, strong)           BEMCheckBox     *consulationDoneCheckBox;
 @property (nonatomic, strong)           id<AppointmentCellDelegate> delegate;
 @property (nonatomic)                   BOOL            consultation;
 @property (nonatomic, strong) IBOutlet  UIView          *actionView;
+@property (nonatomic, strong) IBOutlet  NSLayoutConstraint  *actionBarHeight;
 
 @end

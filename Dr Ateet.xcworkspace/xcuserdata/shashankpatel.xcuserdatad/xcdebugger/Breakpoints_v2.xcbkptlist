@@ -25,22 +25,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Dr Ateet/Appointments/AppointmentsController.m"
-            timestampString = "528975606.941101"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "402"
-            endingLineNumber = "402"
-            landmarkName = "AppointmentsController"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Dr Ateet/AppDelegate.m"
             timestampString = "528463296.718607"
             startingColumnNumber = "9223372036854775807"
@@ -90,7 +74,7 @@
                   moduleName = "Consult"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shashankpatel/Documents/KonectHealth/dr-ateet-ios/Dr%20Ateet/DoctorProDetailsController.m"
-                  timestampString = "528975607.069596"
+                  timestampString = "529229366.427881"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "144"
@@ -105,7 +89,7 @@
                   moduleName = "Consult"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shashankpatel/Documents/KonectHealth/dr-ateet-ios/Dr%20Ateet/DoctorProDetailsController.m"
-                  timestampString = "528975607.071362"
+                  timestampString = "529229366.430048"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "144"

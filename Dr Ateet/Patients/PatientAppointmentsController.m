@@ -79,7 +79,6 @@
         if (self.consultation) {
             NSMutableArray *validAppointments = [NSMutableArray array];
             for (Appointment *anAppointment in objects) {
-                NSLog(anAppointment.appointmentDate.description);
                 if(![anAppointment[@"canceled"] boolValue] &&
                    ([anAppointment isOnToday] || [anAppointment isInFuture]) &&
                    [anAppointment isOnline]){
@@ -121,18 +120,25 @@
     return self.appointments.count;
 }
 
+- (NSString*)identifierForAppointment:(Appointment*)appointment{
+    if (self.bookedOnly) return @"ConsultationLogCell";
+    if (self.consultation) return @"ConsultationCell";
+    if ([appointment isOnline]) return @"OnlineAppointmentCell";
+    else return @"ClinicAppointmentCell";
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSString *identifier = self.bookedOnly ? @"ConsultationLogCell" : (self.consultation ? @"ConsultationCell" : @"AppointmentCell");
-    AppointmentCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier
+    Appointment *appointment = self.appointments[indexPath.row];
+    AppointmentCell *cell = [tableView dequeueReusableCellWithIdentifier:[self identifierForAppointment:appointment]
                                                             forIndexPath:indexPath];
-    cell.appointment = self.appointments[indexPath.row];
+    cell.appointment = appointment;
 //    cell.startConsultationButton.alpha = self.consultation;
     cell.delegate = self;
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return self.bookedOnly ? 50 : (self.consultation ? 230 : 170);
+    return self.bookedOnly ? 50 : (self.consultation ? 230 : 220);
 }
 
 - (nullable NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -206,28 +212,7 @@
                                             tapBlock:nil];
         return;
     }
-    NSNumber *senderID = [[CUser currentUser] isPatient] ? [CUser currentUser][@"patient_id"] : @-1;
-    NSString *calleeChannel = [NSString stringWithFormat:@"patient_%@", [appointment[@"patient_id"] stringValue]];
-    
-    NSString *roomID = [NSString stringWithFormat:@"room_%u", arc4random_uniform(999999)];
-    NSString *callDescription = @"Dr. would like to start video consulation.";
-    if ([[CUser currentUser] isPatient]) {
-        NSString *patientName = [NSString stringWithFormat:@"%@ %@", [CUser currentUser][@"first_name"],
-                                 [CUser currentUser][@"last_name"]];
-        
-        callDescription = [NSString stringWithFormat:@"%@ would like to start video consulation.", patientName];
-    }
-    
-    NSDictionary *callDict = @{@"description" : callDescription,
-                               @"is_initiator" : @1,
-                               @"room_id" : roomID,
-                               @"sender_id" : senderID,
-                               @"type" : @"v_call",
-                               @"channel" : calleeChannel,
-                               @"caller" : [[CUser currentUser] fullName],
-                               @"callee" : @"Dr."};
-    [CallController sharedController].expectingCall = YES;
-    [PubNubManager sendMessage:callDict toChannel:calleeChannel];
+    [appointment startConsultation];
 }
 
 - (void)confirmCancelAppointment:(Appointment*)appointment{

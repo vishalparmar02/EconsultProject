@@ -170,9 +170,23 @@ static NSDateFormatter *timeFormatter;
         return;
     }
     
+    NSDateFormatter *dateF = [NSDateFormatter new];
+    [dateF setDateFormat:@"dd MMM, YYYY"];
+    
+    NSString *clinicText = @"Online";
+    if (self.selectedClinic.objectId.integerValue != -1){
+        clinicText = [NSString stringWithFormat:@"Walk In, %@", self.selectedClinic[@"clinic_name"]];
+    }
+    
+    NSString *message = [NSString stringWithFormat:@"Patient:%@ \nDate: %@ \nTime: %@\nConsult Type: %@",
+                         self.patient.fullName,
+                         [dateF stringFromDate:self.datePicker.date],
+                         [slot startTime],
+                         clinicText];
+    
     [UIAlertController showAlertInViewController:self
-                                       withTitle:@""
-                                         message:@"Are you sure you want to book this appointment?"
+                                       withTitle:@"Confirm Booking"
+                                         message:message
                                cancelButtonTitle:nil
                           destructiveButtonTitle:@"No"
                                otherButtonTitles:@[@"Yes"]

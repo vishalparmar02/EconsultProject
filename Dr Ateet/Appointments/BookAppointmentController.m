@@ -44,13 +44,14 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     self.patients = [NSMutableArray array];
-    [self loadPatients];
     
     if (self.appointment) {
         self.title = @"Change Appointment";
-        self.appointmentForHeight.constant = 0;
+        self.patientField.enabled = NO;
+        self.patientField.text = self.appointment[@"name"];
     }else{
         self.title = @"Book Appointment";
+        [self loadPatients];
     }
     
     UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];

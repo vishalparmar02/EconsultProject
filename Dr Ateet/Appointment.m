@@ -7,6 +7,8 @@
 //
 
 #import "Appointment.h"
+#import "CallController.h"
+#import "PubNubManager.h"
 
 @implementation Appointment
 
@@ -31,7 +33,11 @@
             NSMutableArray *appointments = [NSMutableArray array];
             NSArray *appointmentsArray = responseObject[@"data"];
             for (NSDictionary *appointmentDict in appointmentsArray) {
-                [appointments addObject:[Appointment appointmentFromDictionary:appointmentDict]];
+                Appointment *appointment = [Appointment appointmentFromDictionary:appointmentDict];
+                if (![appointment hasPassed]) {
+                    [appointments addObject:appointment];
+                }
+                
             }
             
             [appointments sortUsingComparator:^NSComparisonResult(Appointment *obj1, Appointment *obj2) {
@@ -137,7 +143,7 @@
     NSString *URLString          = [API_BASE_URL stringByAppendingPathComponent:CANCEL_APPOINTMENT];
     
     NSDictionary *params = @{@"id" : self.objectId,
-                             @"canceled_reason" : @"",
+                             @"canceled_reason" : self[@"reason"],
                              @"is_canceled_by_patient" : @([[CUser currentUser] isPatient])};
     
     NSMutableURLRequest *request = [reqSerializer requestWithMethod:@"POST"
@@ -318,5 +324,32 @@ static NSDateFormatter *inFormatter, *outFormatter, *appointmentDF;
     return [appointmentDF dateFromString:appointmentDateString];
 }
 
+- (void)startConsultation{
+    if (![self isOnline]) {
+        return;
+    }
+    NSNumber *senderID = [[CUser currentUser] isPatient] ? [CUser currentUser][@"patient_id"] : @-1;
+    NSString *calleeChannel = [NSString stringWithFormat:@"patient_%@", [self[@"patient_id"] stringValue]];
+    
+    NSString *roomID = [NSString stringWithFormat:@"room_%u", arc4random_uniform(999999)];
+    NSString *callDescription = @"Dr. would like to start video consulation.";
+    if ([[CUser currentUser] isPatient]) {
+        NSString *patientName = [NSString stringWithFormat:@"%@ %@", [CUser currentUser][@"first_name"],
+                                 [CUser currentUser][@"last_name"]];
+        
+        callDescription = [NSString stringWithFormat:@"%@ would like to start video consulation.", patientName];
+    }
+    
+    NSDictionary *callDict = @{@"description" : callDescription,
+                               @"is_initiator" : @1,
+                               @"room_id" : roomID,
+                               @"sender_id" : senderID,
+                               @"type" : @"v_call",
+                               @"channel" : calleeChannel,
+                               @"caller" : [[CUser currentUser] fullName],
+                               @"callee" : @"Dr."};
+    [CallController sharedController].expectingCall = YES;
+    [PubNubManager sendMessage:callDict toChannel:calleeChannel];
+}
 
 @end

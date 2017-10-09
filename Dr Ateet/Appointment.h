@@ -28,5 +28,6 @@
 - (BOOL)isOnToday;
 - (BOOL)isInFuture;
 - (BOOL)isOnline;
+- (void)startConsultation;
 
 @end

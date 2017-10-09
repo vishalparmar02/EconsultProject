@@ -18,6 +18,7 @@
 #import "PatientProfileController.h"
 #import "DoctorProfileController.h"
 #import "GiveAppointmentController.h"
+#import "PatientSelectorController.h"
 
 #define kCellWidth ((CGRectGetWidth(collectionView.frame) / 2) - 0)
 
@@ -190,7 +191,7 @@
             [self.navigationController pushViewController:vc
                                                  animated:YES];
         }else if (indexPath.row == 1) {
-            GiveAppointmentController *vc = [GiveAppointmentController controller];
+            PatientSelectorController *vc = [PatientSelectorController controller];
             vc.isChild = YES;
             [self.navigationController pushViewController:vc
                                                  animated:YES];

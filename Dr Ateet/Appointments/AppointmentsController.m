@@ -291,7 +291,8 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    AppointmentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AppointmentCell"
+    NSString *identifier = self.clashing ? @"ClashingAppointmentCell" : @"AppointmentCell";
+    AppointmentCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier
                                                             forIndexPath:indexPath];
     cell.appointment = self.appointments[indexPath.row];
     cell.delegate = self;
@@ -347,19 +348,35 @@
 }
 
 - (void)cancelAppointment:(Appointment*)appointment{
-    [UIAlertController showAlertInViewController:self
-                                       withTitle:@""
-                                         message:@"Are you sure you want to cancel this appointment?"
-                               cancelButtonTitle:nil
-                          destructiveButtonTitle:@"No"
-                               otherButtonTitles:@[@"Yes"]
-                                        tapBlock:^(UIAlertController * _Nonnull controller, UIAlertAction * _Nonnull action, NSInteger buttonIndex) {
-                                            if (buttonIndex == 2) {
-                                                [self confirmCancelAppointment:appointment];
-                                            }
-                                        }];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@""
+                                                                   message:@"Are you sure you want to cancel this appointment?"
+                                                            preferredStyle:UIAlertControllerStyleAlert];
     
     
+    __block UITextField *reasonField;
+    if([[CUser currentUser] isDoctor]){
+        [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+            reasonField = textField;
+            textField.placeholder = @"Reason? (Optional)";
+        }];
+    }
+    
+    
+    UIAlertAction *no = [UIAlertAction actionWithTitle:@"No"
+                                                 style:UIAlertActionStyleDestructive
+                                               handler:nil];
+    
+    UIAlertAction *yes = [UIAlertAction actionWithTitle:@"Yes"
+                                                 style:UIAlertActionStyleDefault
+                                                handler:^(UIAlertAction * _Nonnull action) {
+                                                    appointment[@"reason"] = reasonField.text.length ? reasonField.text : @"";
+                                                    [self confirmCancelAppointment:appointment];
+                                                }];
+    
+    [alert addAction:no];
+    [alert addAction:yes];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 //
 //- (void)startConsultation:(Appointment*)appointment{
@@ -401,7 +418,7 @@
 }
 
 - (void)startConsultation:(Appointment*)appointment{
-    
+    [appointment startConsultation];
 }
 
 - (void)markDoneAppointment:(Appointment*)appointment{

@@ -41,15 +41,25 @@
     self.infoButton.enabled = ![appointment isOnline];
     self.infoIcon.alpha = ![appointment isOnline];
     
+    self.videoCallButton.alpha = [appointment isOnline];
+    self.videoCallIcon.alpha = [appointment isOnline];
+    
     if ([appointment[@"status"] boolValue] ||
         [appointment.appointmentEndDate compare:[NSDate date]] == NSOrderedAscending ||
         [appointment[@"canceled"] boolValue]) {
         self.cancelButton.alpha = 0;
         self.changeButton.alpha = 0;
+        self.startConsultationButton.alpha = 0;
+        self.cancelButton.alpha = 0;
+        self.actionBarHeight.constant = 0;
     }else{
         self.cancelButton.alpha = 1;
         self.changeButton.alpha = 1;
+        self.startConsultationButton.alpha = [appointment isOnline];
+        self.actionBarHeight.constant = 20;
     }
+    
+    
 //    self.startConsultationButton.hidden = !appointment.allowConsultation;
     self.consulationDoneLabel.enabled = shouldAllowConsultation;
 }
