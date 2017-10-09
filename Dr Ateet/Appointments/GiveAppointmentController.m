@@ -23,6 +23,8 @@
 @property (nonatomic, strong)   IBOutlet    UICollectionView    *collectionView;
 @property (nonatomic, strong)   IBOutlet    UILabel *noAppointmentLabel;
 @property (nonatomic, strong)   IBOutlet    NSLayoutConstraint  *appointmentForHeight;
+@property (nonatomic, strong)               UITextField         *timeField;
+@property (nonatomic, strong)               UIDatePicker        *timePicker;
 
 @end
 
@@ -145,12 +147,20 @@ static NSDateFormatter *timeFormatter;
 
 #pragma mark UICollectionView methods
 
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 2;
+}
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return self.slots.count;
+    return section == 0 ? 1 : self.slots.count;
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        UICollectionViewCell *addCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"AddSlotCell" forIndexPath:indexPath];
+        return addCell;
+    }
     SlotCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SlotCell" forIndexPath:indexPath];
     cell.date = self.datePicker.date;
     cell.slot = self.slots[indexPath.row];
@@ -158,11 +168,16 @@ static NSDateFormatter *timeFormatter;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(kSlotCellWidth, 50);
+    return CGSizeMake(indexPath.section == 0 ? collectionView.frame.size.width : kSlotCellWidth, 50);
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.section == 0) {
+        [self addSlotTapped];
+        return;
+    }
     
     Slot *slot = self.slots[indexPath.row];
     
@@ -195,6 +210,83 @@ static NSDateFormatter *timeFormatter;
                                                 [self bookSlot:slot];
                                             }
                                         }];
+}
+
+- (void)addSlotTapped{
+    if (!self.selectedClinic) {
+        [UIAlertController showAlertInViewController:self
+                                           withTitle:@""
+                                             message:@"Please select a clinic to add slot"
+                                   cancelButtonTitle:@"OK"
+                              destructiveButtonTitle:nil
+                                   otherButtonTitles:nil
+                                            tapBlock:nil];
+        return;
+    }
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Select Start Time"
+                                                                   message:nil
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        self.timeField = textField;
+        self.timePicker = [[UIDatePicker alloc] init];
+        self.timePicker.datePickerMode = UIDatePickerModeTime;
+        [self.timePicker addTarget:self action:@selector(slotTimeChanged) forControlEvents:UIControlEventValueChanged];
+        textField.inputView = self.timePicker;
+    }];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel"
+                                                 style:UIAlertActionStyleDestructive
+                                               handler:nil];
+    
+    UIAlertAction *OK = [UIAlertAction actionWithTitle:@"OK"
+                                                 style:UIAlertActionStyleDefault
+                                               handler:^(UIAlertAction * _Nonnull action) {
+                                                   [self tryToAddSlot];
+                                               }];
+    [alert addAction:cancel];
+    [alert addAction:OK];
+    [self presentViewController:alert animated:YES completion:nil];
+
+}
+
+- (void)tryToAddSlot{
+    Slot *slot = [Slot new];
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    dateFormatter.dateFormat = @"yyyy-MM-dd";
+    NSString *appointmentDate = [dateFormatter stringFromDate:self.datePicker.date];
+    dateFormatter.dateFormat = @"HH:mm:ss";
+    NSString *appointmentTime = [dateFormatter stringFromDate:self.timePicker.date];
+    
+    slot[@"save"] = @{@"appointment_date" : appointmentDate,
+                      @"open_time" : appointmentTime};
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [slot createInBackgroundWithBlock:^(NSDictionary *dictionary, NSError * _Nullable error) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (!error) {
+            dateFormatter.dateFormat = @"H:m:s";
+            NSString *startTime = [dateFormatter stringFromDate:self.timePicker.date];
+            Slot *aSlot = [[Slot alloc] initWithDictionary:@{@"id" : dictionary[@"slot_id"],
+                                                             @"start_time" : startTime
+                                                             }];
+            [self bookSlot:aSlot];
+        }else{
+            [UIAlertController showAlertInViewController:self
+                                               withTitle:nil
+                                                 message:error.userInfo[@"message"]
+                                       cancelButtonTitle:@"OK"
+                                  destructiveButtonTitle:nil
+                                       otherButtonTitles:nil
+                                                tapBlock:nil];
+        }
+    }];
+}
+
+- (void)slotTimeChanged{
+    NSDateFormatter *timeFormatter = [NSDateFormatter new];
+    timeFormatter.dateFormat = @"hh:mm a";
+    self.timeField.text = [timeFormatter stringFromDate:self.timePicker.date];
 }
 
 - (void)bookSlot:(Slot*)slot{

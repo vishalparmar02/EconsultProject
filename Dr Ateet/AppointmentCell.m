@@ -43,6 +43,10 @@
     
     self.videoCallButton.alpha = [appointment isOnline];
     self.videoCallIcon.alpha = [appointment isOnline];
+    NSLog(@"%f", [appointment.appointmentDate timeIntervalSinceNow]);
+    if ([appointment.appointmentDate timeIntervalSinceNow] > 30 * 60) {
+        self.consulationDoneCheckBox.enabled = NO;
+    }
     
     if ([appointment[@"status"] boolValue] ||
         [appointment.appointmentEndDate compare:[NSDate date]] == NSOrderedAscending ||

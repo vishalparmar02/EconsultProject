@@ -260,4 +260,35 @@ static NSDateFormatter *todayFormatter, *onlyDateFormatter;
     [dataTask resume];
 }
 
+- (void)createInBackgroundWithBlock:(nullable DictionaryResultBlock)block{
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    AFJSONRequestSerializer *reqSerializer = [AFJSONRequestSerializer serializer];
+    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"Authorization"];
+    NSString *URLString          = [API_BASE_URL stringByAppendingPathComponent:ADD_SLOT];
+    NSMutableURLRequest *request = [reqSerializer requestWithMethod:@"POST"
+                                                          URLString:URLString
+                                                         parameters:self[@"save"]
+                                                              error:nil];
+    NSDictionary *dict = self[@"save"];
+    NSLog([dict JSONString]);
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            [error printHTMLError];
+            if(block)block(nil, error);
+        } else {
+            if ([responseObject[@"status"] boolValue]) {
+                if(block)block(responseObject, nil);
+            }else{
+                NSError *error = [NSError errorWithDomain:@"501" code:501 userInfo:responseObject];
+                if(block)block(nil, error);
+            }
+//
+        }
+    }];
+    [dataTask resume];
+}
+
+
 @end

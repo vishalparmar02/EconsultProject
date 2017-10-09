@@ -2870,8 +2870,48 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AddSlotCell" id="kgc-hu-Jfx">
+                                        <rect key="frame" x="5" y="0.0" width="365" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="365" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LEQ-xz-qiR">
+                                                    <rect key="frame" x="5" y="5" width="355" height="40"/>
+                                                    <subviews>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Slot" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="oYF-sD-1QV">
+                                                            <rect key="frame" x="2" y="0.0" width="351" height="40"/>
+                                                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.14117647059999999" green="0.4549019608" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="oYF-sD-1QV" firstAttribute="centerY" secondItem="LEQ-xz-qiR" secondAttribute="centerY" id="3Jg-hl-QP4"/>
+                                                        <constraint firstItem="oYF-sD-1QV" firstAttribute="centerX" secondItem="LEQ-xz-qiR" secondAttribute="centerX" id="64d-s1-Czs"/>
+                                                        <constraint firstItem="oYF-sD-1QV" firstAttribute="width" secondItem="LEQ-xz-qiR" secondAttribute="width" constant="-4" id="79J-w8-lTH"/>
+                                                        <constraint firstItem="oYF-sD-1QV" firstAttribute="height" secondItem="LEQ-xz-qiR" secondAttribute="height" id="pVe-07-IiA"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="LEQ-xz-qiR" firstAttribute="width" secondItem="kgc-hu-Jfx" secondAttribute="width" constant="-10" id="J4I-fc-LEz"/>
+                                            <constraint firstItem="LEQ-xz-qiR" firstAttribute="height" secondItem="kgc-hu-Jfx" secondAttribute="height" constant="-10" id="g7x-Ll-riE"/>
+                                            <constraint firstItem="LEQ-xz-qiR" firstAttribute="centerX" secondItem="kgc-hu-Jfx" secondAttribute="centerX" id="mBT-vr-oT5"/>
+                                            <constraint firstItem="LEQ-xz-qiR" firstAttribute="centerY" secondItem="kgc-hu-Jfx" secondAttribute="centerY" id="wn8-Kf-14p"/>
+                                        </constraints>
+                                        <size key="customSize" width="365" height="50"/>
+                                    </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SlotCell" id="mDx-8c-BMW" customClass="SlotCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="50"/>
+                                        <rect key="frame" x="137.5" y="60" width="100" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="50"/>

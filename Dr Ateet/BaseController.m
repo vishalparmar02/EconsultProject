@@ -36,8 +36,9 @@
 
 - (void)addNavigationButtons{
     if (!self.isChild) {
-        UIButton *menuIcon = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+        UIButton *menuIcon = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
         [menuIcon setImage:[UIImage imageNamed:@"menu_icon.png"] forState:UIControlStateNormal];
+        menuIcon.imageView.contentMode = UIViewContentModeScaleAspectFit;
         [menuIcon addTarget:self action:@selector(menuTapped) forControlEvents:UIControlEventTouchUpInside];
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:menuIcon];
     }

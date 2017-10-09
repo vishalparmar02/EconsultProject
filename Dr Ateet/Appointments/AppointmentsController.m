@@ -305,6 +305,7 @@
 
 - (nullable NSIndexPath *)tableView:(UITableView *)tableView
            willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    return nil;
     return [[CUser currentUser] isDoctor] ? indexPath : nil;
 }
 

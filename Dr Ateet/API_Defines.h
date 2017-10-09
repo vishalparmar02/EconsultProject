@@ -61,6 +61,7 @@
 #define DELETE_SCHEDULE             @"schedules/%@/%@"
 
 #define GET_SLOTS                   @"slots"
+#define ADD_SLOT                    @"customSlot"
 #define ADD_APPOINTMENT             @"appointments/add"
 #define GET_APPOINTMENT             @"appointments/%@"
 

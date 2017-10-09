@@ -16,6 +16,7 @@
 
 + (void)fetchSlotsForDate:(NSDate*)date clinic:(Clinic*)clinic inBackgroundWithBlock:(nullable ArrayResultBlock)block;
 - (void)bookInBackgroundWithBlock:(DictionaryResultBlock)block;
+- (void)createInBackgroundWithBlock:(nullable DictionaryResultBlock)block;
 
 - (NSString*)startTime;
 - (NSString*)endTime;
