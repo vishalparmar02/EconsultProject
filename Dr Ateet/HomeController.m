@@ -105,11 +105,69 @@
 //    [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self checkProfileCompletion];
+}
+
+- (void)checkProfileCompletion{
+    if(![[CUser currentUser][@"first_name"] length] ||
+       ![[CUser currentUser][@"last_name"] length]){
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Update Profile"
+                                                                       message:nil
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        __block UITextField *fNameField, *lNameField;
+        [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+            fNameField = textField;
+            textField.placeholder = @"First Name";
+        }];
+        
+        [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+            lNameField = textField;
+            textField.placeholder = @"Last Name";
+        }];
+        UIAlertAction *update = [UIAlertAction actionWithTitle:@"Update"
+                                                     style:UIAlertActionStyleDefault
+                                                   handler:^(UIAlertAction * _Nonnull action) {
+                                                       [self updateProfileWithFirstName:fNameField.text
+                                                                               lastName:lNameField.text];
+                                                   }];
+        [alert addAction:update];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+}
+
+- (void)updateProfileWithFirstName:(NSString*)fName lastName:(NSString*)lName{
+    NSMutableDictionary *currentUserDict = [[defaults_object(CURRENT_USER_KEY) JSONObject] mutableCopy];
+    currentUserDict[@"first_name"] = fName;
+    currentUserDict[@"last_name"] = lName;
+    __block CUser *currentUser = [CUser currentUser];
+    currentUser[@"update"] = currentUserDict;
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [currentUser updateInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (error) {
+            [UIAlertController showAlertInViewController:self
+                                               withTitle:@"Error"
+                                                 message:@"Please retry"
+                                       cancelButtonTitle:@"OK"
+                                  destructiveButtonTitle:nil
+                                       otherButtonTitles:nil
+                                                tapBlock:nil];
+        }else{
+            for (NSString *aKey in currentUserDict.allKeys){
+                currentUser[aKey] = currentUserDict[aKey];
+            }
+            [currentUser setCurrent];
+            
+        }
+    }];
+}
+
 - (void)viewWillLayoutSubviews{
     [super viewWillLayoutSubviews];
     self.userImageView.layer.cornerRadius = self.userImageView.frame.size.width / 2;
 }
-
 
 - (IBAction)profileTapped{
     if ([[CUser currentUser] isPatient]) {
@@ -176,14 +234,7 @@
             DoctorProfileController *vc = [DoctorProfileController fullProfileController];
             [self.navigationController pushViewController:vc animated:YES];
         }
-    }else{
-        
-//        [@{@"image" : @"appointment", @"title" : @"Appointments"},
-//         @{@"image" : @"give_appointment", @"title" : @"Give Appointment"},
-//         @{@"image" : @"patients", @"title" : @"Patient Info"},
-//         @{@"image" : @"appointment", @"title" : @"Clashing Appointments"}
-        
-         
+    }else{         
         if (indexPath.row == 0) {
             AppointmentsController *vc = [AppointmentsController controller];
             vc.clashing = NO;
