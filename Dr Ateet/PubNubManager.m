@@ -69,7 +69,7 @@
                                                   }
                                               }];
             }
-        }else{//Doctor
+        }else if([currentUser isDoctor]){//Doctor
             [Patient fetchPatientsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
                 for (Patient *aPatient in objects) {
                     [channels addObject:[NSString stringWithFormat:@"patient_%@", aPatient.objectId]];

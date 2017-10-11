@@ -270,6 +270,10 @@ static CUser *currentUser;
     return [self[@"role_id"] integerValue] == 3;
 }
 
+- (BOOL)isStaff{
+    return [self[@"role_id"] integerValue] == 2;
+}
+
 - (BOOL)isDoctor{
     return [self[@"role_id"] integerValue] == 1;
 }

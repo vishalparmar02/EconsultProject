@@ -170,7 +170,7 @@
 }
 
 - (IBAction)profileTapped{
-    if ([[CUser currentUser] isPatient]) {
+    if ([[CUser currentUser] isPatient] || [[CUser currentUser] isStaff]) {
         PatientProfileController *vc = [PatientProfileController controller];
         [self.navigationController pushViewController:vc animated:YES];
     }else{

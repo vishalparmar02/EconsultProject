@@ -306,12 +306,13 @@
 - (nullable NSIndexPath *)tableView:(UITableView *)tableView
            willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     return nil;
-    return [[CUser currentUser] isDoctor] ? indexPath : nil;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (self.clashing) return;
+    if (![[CUser currentUser] isDoctor]) return;
+    
     
     NSNumber *senderID = [[CUser currentUser] isPatient] ? [CUser currentUser][@"patient_id"] : @-1;
     Appointment *appointment = self.appointments[indexPath.row];
@@ -355,7 +356,7 @@
     
     
     __block UITextField *reasonField;
-    if([[CUser currentUser] isDoctor]){
+    if([[CUser currentUser] isDoctor] || [[CUser currentUser] isStaff]){
         [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
             reasonField = textField;
             textField.placeholder = @"Reason? (Optional)";

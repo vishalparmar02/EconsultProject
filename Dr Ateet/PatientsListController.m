@@ -49,6 +49,9 @@
     if ([[CUser currentUser] isDoctor]) {
         self.title = @"My Patients";
         [self fetchPatients];
+    }else if ([[CUser currentUser] isStaff]) {
+        self.title = @"Patients";
+        [self fetchPatients];
     }else{
         self.title = @"Select Patient";
         [self fetchMyPatients];

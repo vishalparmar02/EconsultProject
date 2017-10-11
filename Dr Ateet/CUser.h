@@ -36,6 +36,7 @@ typedef void (^UserResultBlock)(CUser *_Nullable user, NSError *_Nullable error)
 
 - (NSURL*)profileImageURL;
 - (BOOL)isPatient;
+- (BOOL)isStaff;
 - (BOOL)isDoctor;
 - (NSString*)fullName;
 - (Patient*)patient;

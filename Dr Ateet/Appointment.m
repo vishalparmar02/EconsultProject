@@ -328,6 +328,11 @@ static NSDateFormatter *inFormatter, *outFormatter, *appointmentDF;
     if (![self isOnline]) {
         return;
     }
+    
+    if ([[CUser currentUser] isStaff]) {
+        return;
+    }
+    
     NSNumber *senderID = [[CUser currentUser] isPatient] ? [CUser currentUser][@"patient_id"] : @-1;
     NSString *calleeChannel = [NSString stringWithFormat:@"patient_%@", [self[@"patient_id"] stringValue]];
     

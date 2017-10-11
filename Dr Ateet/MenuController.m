@@ -82,17 +82,19 @@
                                    options:SDWebImageProgressiveDownload];
     
     if ([[CUser currentUser] isPatient]) {
-//        self.menu = @[@[@"Home", @"Profile", @"Reports"],
-//                      @[@"Book Appointment", @"My Appointments"],
-//                      @[@"Logout"]];
         self.menu = @[@[@"Home", @"Book Appointment", @"My Appointments"],
                       @[@"Online Consultation", @"Reports", @"My Profile"],
                       @[@"About Dr. Ateet Sharma", @"Logout"]];
-    }else{
+    }else if([[CUser currentUser] isDoctor]){
         [self fetchConflictCount];
         self.menu = @[@[@"Home"],
                       @[@"Appointments", @"Give Appointment", @"Clashing Appointments"],
                       @[@"Patient Info", @"My Schedules", @"My Clinics", @"My Staff", @"Profile", @"Professional Profile"],
+                      @[@"Logout"]];
+    }else{
+        self.menu = @[@[@"Home"],
+                      @[@"Appointments", @"Give Appointment", @"Clashing Appointments"],
+                      @[@"Patient Info", @"Profile", @"Professional Profile"],
                       @[@"Logout"]];
     }
     [self.tableView reloadData];
@@ -264,8 +266,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if ([[CUser currentUser] isPatient]) {
         [self patientMenuTapped:indexPath];
-    }else{
+    }else if ([[CUser currentUser] isDoctor]) {
         [self doctorMenuTapped:indexPath];
+    }else{
+        [self staffMenuTapped:indexPath];
     }
 }
 
@@ -355,6 +359,51 @@
                 [self profileTapped];
                 break;
             case 5:
+                [self proDetailsTapped];
+                break;
+                
+            default:
+                break;
+        }
+    }
+    else if(indexPath.section == 3){
+        [CUser logOut];
+        [ApplicationDelegate setController];
+    }
+}
+
+- (void)staffMenuTapped:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        switch (indexPath.row) {
+            case 0:
+                [self homeTapped];
+                break;
+            default:
+                break;
+        }
+    }else if(indexPath.section == 1){
+        //        @[@"Appointments", @"Give Appointment", @"Clashing Appointments"]
+        switch (indexPath.row) {
+            case 0:
+                [self appointmentsTapped];
+                break;
+            case 1:
+                [self giveAppointmentTapped];
+                break;
+            case 2:
+                [self clashingAppointmentTapped];
+                break;
+        }
+    }else if (indexPath.section == 2){
+        //        @[@"Patient Info", @"My Schedules", @"My Clinics", @"My Staff", @"Profile", @"Professional Profile"]
+        switch (indexPath.row) {
+            case 0:
+                [self patientInfoTapped];
+                break;
+            case 1:
+                [self profileTapped];
+                break;
+            case 2:
                 [self proDetailsTapped];
                 break;
                 
