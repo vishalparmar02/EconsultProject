@@ -111,8 +111,9 @@
 }
 
 - (void)checkProfileCompletion{
-    if(![[CUser currentUser][@"first_name"] length] ||
-       ![[CUser currentUser][@"last_name"] length]){
+    if([CUser currentUser] &&
+       (![[CUser currentUser][@"first_name"] length] ||
+       ![[CUser currentUser][@"last_name"] length])){
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Update Profile"
                                                                        message:nil
                                                                 preferredStyle:UIAlertControllerStyleAlert];
