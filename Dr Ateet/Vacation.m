@@ -39,4 +39,28 @@
     [dataTask resume];
 }
 
+- (void)saveInBackgroundWithBlock:(BooleanResultBlock)block{
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    AFJSONRequestSerializer *reqSerializer = [AFJSONRequestSerializer serializer];
+    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"Authorization"];
+    NSString *URLString          = [API_BASE_URL stringByAppendingPathComponent:ADD_VACATION];
+    NSMutableURLRequest *request = [reqSerializer requestWithMethod:@"POST"
+                                                          URLString:URLString
+                                                         parameters:self[@"save"]
+                                                              error:nil];
+    NSDictionary *dict = self[@"save"];
+    NSLog(@"%@", [dict JSONString]);
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            [error printHTMLError];
+            if(block)block(NO, error);
+        } else {
+            if(block)block(YES, nil);
+        }
+    }];
+    [dataTask resume];
+}
+
 @end

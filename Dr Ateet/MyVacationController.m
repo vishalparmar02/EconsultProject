@@ -46,8 +46,10 @@
 
 @interface MyVacationController ()<UITableViewDataSource, UITableViewDelegate, VacationCellDelegate>
 
-@property (nonatomic, strong) IBOutlet  UITableView *tableView;
-@property (nonatomic, strong)           NSArray     *vacations;
+@property (nonatomic, strong) IBOutlet  UITableView     *tableView;
+@property (nonatomic, strong)           NSArray         *vacations;
+@property (nonatomic, strong)           UIDatePicker    *startDatePicker, *endDatePicker;
+@property (nonatomic, strong)           UITextField     *startDateField, *endDateField, *descriptionField;
 
 @end
 
@@ -63,7 +65,7 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithTitle:@"Add"
                                                                   style:UIBarButtonItemStylePlain
                                                                  target:self action:@selector(addVacationTapped)];
-    self.navigationItem.rightBarButtonItem = addButton;
+//    self.navigationItem.rightBarButtonItem = addButton;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -110,20 +112,49 @@
 //    [self.navigationController pushViewController:vc animated:YES];
 }
 
+- (void)startDateChanged{
+    NSDateFormatter *timeFormatter = [NSDateFormatter new];
+    timeFormatter.dateFormat = @"YYYY-MM-dd";
+    self.startDateField.text = [timeFormatter stringFromDate:self.startDatePicker.date];
+}
+
+- (void)endDateChanged{
+    NSDateFormatter *timeFormatter = [NSDateFormatter new];
+    timeFormatter.dateFormat = @"YYYY-MM-dd";
+    self.endDateField.text = [timeFormatter stringFromDate:self.endDatePicker.date];
+}
+
 - (void)addVacationTapped{
     UIAlertController *addVacation = [UIAlertController alertControllerWithTitle:@"Add Vacation"
                                                                          message:nil
                                                                   preferredStyle:UIAlertControllerStyleAlert];
-    __block UITextField *startDate, *endDate;
     
     [addVacation addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        startDate = textField;
-        textField.placeholder = @"Start Date";
+        self.startDateField = textField;
+        self.startDateField.placeholder = @"Start Date";
+        self.startDatePicker = [[UIDatePicker alloc] init];
+        self.startDatePicker.datePickerMode = UIDatePickerModeDate;
+        [self.startDatePicker addTarget:self
+                                 action:@selector(startTimeChanged)
+                       forControlEvents:UIControlEventValueChanged];
+        self.startDateField.inputView = self.startDatePicker;
     }];
     
     [addVacation addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        endDate = textField;
-        textField.placeholder = @"End Date";
+        self.endDateField = textField;
+        self.endDateField.placeholder = @"End Date";
+        self.endDatePicker = [[UIDatePicker alloc] init];
+        self.endDatePicker.datePickerMode = UIDatePickerModeDate;
+        [self.endDatePicker addTarget:self
+                                 action:@selector(endDateChanged)
+                       forControlEvents:UIControlEventValueChanged];
+        self.endDateField.inputView = self.endDatePicker;
+    }];
+    
+    [addVacation addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        self.descriptionField = textField;
+        self.descriptionField.text = @"";
+        textField.placeholder = @"Description";
     }];
     
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel"
@@ -134,13 +165,28 @@
     UIAlertAction *add = [UIAlertAction actionWithTitle:@"Add"
                                                       style:UIAlertActionStyleDefault
                                                     handler:^(UIAlertAction * _Nonnull action) {
-                                                        
+                                                        [self addVacation];
                                                     }];
     [addVacation addAction:cancel];
     [addVacation addAction:add];
     [self.navigationController presentViewController:addVacation
                                             animated:YES
                                           completion:nil];
+}
+
+- (void)addVacation{
+    Vacation *vacation = [Vacation new];
+    vacation[@"save"] = @{@"users_id" : [CUser currentUser].objectId,
+                          @"descriptions" : self.descriptionField.text,
+                          @"start_date" : self.startDateField.text,
+                          @"end_date" : self.endDateField.text};
+    [MBProgressHUD showHUDAddedTo:self.view
+                         animated:YES];
+    [vacation saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        [MBProgressHUD hideHUDForView:self.view
+                             animated:YES];
+        [self fetchVacations];
+    }];
 }
 
 - (void)deleteVacation:(Vacation*)vacation{
