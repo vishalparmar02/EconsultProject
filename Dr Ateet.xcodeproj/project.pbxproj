@@ -114,6 +114,10 @@
 		69981F571F56AAAF00915518 /* CallController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69981F561F56AAAF00915518 /* CallController.m */; };
 		69A035141EFB87EC00044F47 /* SlotManagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A035131EFB87EC00044F47 /* SlotManagerController.m */; };
 		69A035161EFB882B00044F47 /* Slot.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69A035151EFB882B00044F47 /* Slot.storyboard */; };
+		69BA7E0C1FA8B5310030ECF1 /* MyVacationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BA7E0B1FA8B5310030ECF1 /* MyVacationController.m */; };
+		69BA7E0D1FA8B5310030ECF1 /* MyVacationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BA7E0B1FA8B5310030ECF1 /* MyVacationController.m */; };
+		69BA7E101FA8B5560030ECF1 /* Vacation.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BA7E0F1FA8B5560030ECF1 /* Vacation.m */; };
+		69BA7E111FA8B5560030ECF1 /* Vacation.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BA7E0F1FA8B5560030ECF1 /* Vacation.m */; };
 		69BBCAD01F39A5CA0065083B /* DoctorProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BBCACF1F39A5CA0065083B /* DoctorProfileController.m */; };
 		69BBCAD31F39C5300065083B /* DoctorProDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BBCAD21F39C5300065083B /* DoctorProDetailsController.m */; };
 		69BBCAD61F39CEE30065083B /* ClinicsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BBCAD51F39CEE30065083B /* ClinicsListController.m */; };
@@ -293,6 +297,10 @@
 		69A035121EFB87EC00044F47 /* SlotManagerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlotManagerController.h; path = Doctor/SlotManagerController.h; sourceTree = "<group>"; };
 		69A035131EFB87EC00044F47 /* SlotManagerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlotManagerController.m; path = Doctor/SlotManagerController.m; sourceTree = "<group>"; };
 		69A035151EFB882B00044F47 /* Slot.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Slot.storyboard; path = Doctor/Slot.storyboard; sourceTree = "<group>"; };
+		69BA7E0A1FA8B5310030ECF1 /* MyVacationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyVacationController.h; sourceTree = "<group>"; };
+		69BA7E0B1FA8B5310030ECF1 /* MyVacationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyVacationController.m; sourceTree = "<group>"; };
+		69BA7E0E1FA8B5560030ECF1 /* Vacation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vacation.h; sourceTree = "<group>"; };
+		69BA7E0F1FA8B5560030ECF1 /* Vacation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vacation.m; sourceTree = "<group>"; };
 		69BBCACE1F39A5CA0065083B /* DoctorProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorProfileController.h; sourceTree = "<group>"; };
 		69BBCACF1F39A5CA0065083B /* DoctorProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorProfileController.m; sourceTree = "<group>"; };
 		69BBCAD11F39C51F0065083B /* DoctorProDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorProDetailsController.h; sourceTree = "<group>"; };
@@ -463,6 +471,15 @@
 			name = Doctor;
 			sourceTree = "<group>";
 		};
+		69BA7E081FA8B51E0030ECF1 /* Vacation */ = {
+			isa = PBXGroup;
+			children = (
+				69BA7E0A1FA8B5310030ECF1 /* MyVacationController.h */,
+				69BA7E0B1FA8B5310030ECF1 /* MyVacationController.m */,
+			);
+			name = Vacation;
+			sourceTree = "<group>";
+		};
 		69D13FF01F84DBE800B32ADD /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -492,6 +509,8 @@
 				696156371F4C18FD005B7A87 /* Patient.m */,
 				6961563C1F4C2388005B7A87 /* Appointment.h */,
 				6961563D1F4C2388005B7A87 /* Appointment.m */,
+				69BA7E0E1FA8B5560030ECF1 /* Vacation.h */,
+				69BA7E0F1FA8B5560030ECF1 /* Vacation.m */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -544,6 +563,7 @@
 		69FAE8641EDBCC130099141C /* Dr Ateet */ = {
 			isa = PBXGroup;
 			children = (
+				69BA7E081FA8B51E0030ECF1 /* Vacation */,
 				696156321F4C13F5005B7A87 /* Helpers */,
 				69EE2FCD1F399B110083E929 /* Authentication */,
 				69EE2FC91F39989C0083E929 /* Menu */,
@@ -1019,12 +1039,14 @@
 				6956CAB81F5A89E700B66EB8 /* AddScheduleController.m in Sources */,
 				6956CAB91F5A89E700B66EB8 /* ClinicViewController.m in Sources */,
 				69D13FCA1F84C8CE00B32ADD /* PDFController.m in Sources */,
+				69BA7E111FA8B5560030ECF1 /* Vacation.m in Sources */,
 				6956CABA1F5A89E700B66EB8 /* VerifyMobileController.m in Sources */,
 				6956CABB1F5A89E700B66EB8 /* ClinicsListController.m in Sources */,
 				695D771D1F5EA5070011E666 /* SlotCell.m in Sources */,
 				6956CABC1F5A89E700B66EB8 /* ARTCVideoChatViewController.m in Sources */,
 				6956CABD1F5A89E700B66EB8 /* SlotManagerController.m in Sources */,
 				6956CABE1F5A89E700B66EB8 /* DoctorProDetailsController.m in Sources */,
+				69BA7E0D1FA8B5310030ECF1 /* MyVacationController.m in Sources */,
 				6956CABF1F5A89E700B66EB8 /* NSArray+JSON.m in Sources */,
 				6956CAC01F5A89E700B66EB8 /* CUser.m in Sources */,
 				6956CAC11F5A89E700B66EB8 /* AppDelegate.m in Sources */,
@@ -1079,12 +1101,14 @@
 				6914ACD31F46A2C8001131DE /* AddScheduleController.m in Sources */,
 				69BBCADC1F39E08D0065083B /* ClinicViewController.m in Sources */,
 				69D13FC91F84C8CE00B32ADD /* PDFController.m in Sources */,
+				69BA7E101FA8B5560030ECF1 /* Vacation.m in Sources */,
 				69EE2FD31F399B190083E929 /* VerifyMobileController.m in Sources */,
 				69BBCAD61F39CEE30065083B /* ClinicsListController.m in Sources */,
 				695D771C1F5EA5070011E666 /* SlotCell.m in Sources */,
 				692569711F4EEAB7007DC450 /* ARTCVideoChatViewController.m in Sources */,
 				69A035141EFB87EC00044F47 /* SlotManagerController.m in Sources */,
 				69BBCAD31F39C5300065083B /* DoctorProDetailsController.m in Sources */,
+				69BA7E0C1FA8B5310030ECF1 /* MyVacationController.m in Sources */,
 				69FAE8C71EDD1B8C0099141C /* NSArray+JSON.m in Sources */,
 				69EE2FC61F3995530083E929 /* CUser.m in Sources */,
 				69FAE86A1EDBCC130099141C /* AppDelegate.m in Sources */,

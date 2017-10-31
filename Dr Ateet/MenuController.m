@@ -24,6 +24,7 @@
 #import "PatientSelectorController.h"
 #import "PatientsListController.h"
 #import "StaffListController.h"
+#import "MyVacationController.h"
 #import "UIView+Theme.h"
 
 @implementation SideMenuCell
@@ -89,7 +90,7 @@
         [self fetchConflictCount];
         self.menu = @[@[@"Home"],
                       @[@"Appointments", @"Give Appointment", @"Clashing Appointments"],
-                      @[@"Patient Info", @"My Schedules", @"My Clinics", @"My Staff", @"Profile", @"Professional Profile"],
+                      @[@"Patient Info", @"My Schedules", @"My Clinics", @"My Staff", @"Profile", @"Professional Profile", @"My Vacation"],
                       @[@"Logout"]];
     }else{
         self.menu = @[@[@"Home"],
@@ -144,6 +145,13 @@
 
 - (void)proDetailsTapped{
     [ApplicationDelegate.drawerController setPaneViewController:[DoctorProDetailsController navigationController]];
+    [ApplicationDelegate.drawerController setPaneState:MSDynamicsDrawerPaneStateClosed animated:YES allowUserInterruption:NO completion:^{
+        
+    }];
+}
+
+- (void)myVacationTapped{
+    [ApplicationDelegate.drawerController setPaneViewController:[MyVacationController navigationController]];
     [ApplicationDelegate.drawerController setPaneState:MSDynamicsDrawerPaneStateClosed animated:YES allowUserInterruption:NO completion:^{
         
     }];

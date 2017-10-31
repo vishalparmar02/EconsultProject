@@ -449,7 +449,7 @@ static NSDateFormatter *timeFormatter;
 
 - (void)payForOnlineAppointment:(NSString*)appointmentID{
     [self startPaymentStatusChecking:appointmentID];
-    NSURL *paymentURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://da.konecthealth.com/pay-for-mobile-appointments/%@", appointmentID]];
+    NSURL *paymentURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://consult.drateetsharma.com/pay-for-mobile-appointments/%@", appointmentID]];
     self.paymentController = [[SFSafariViewController alloc] initWithURL:paymentURL];
     [self.navigationController presentViewController:self.paymentController
                                             animated:YES
