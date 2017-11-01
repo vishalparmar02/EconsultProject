@@ -46,6 +46,7 @@
 #define CURRENT_USER_KEY            @"current_user"
 
 #define API_BASE_URL                TEST_VERSION ? @"https://econsult.jshealthtech.com/api" : @"https://app.drateetsharma.com/api"
+#define PAY_URL                     TEST_VERSION ? @"https://econsult.jshealthtech.com/pay-for-mobile-appointments/%@" : @"https://https://consult.drateetsharma.com/pay-for-mobile-appointments/%@"
 
 #define REGISTER_PHONE_END_POINT    @"login"
 #define VERIFY_PHONE_END_POINT      @"verify"
