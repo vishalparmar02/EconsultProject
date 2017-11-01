@@ -369,6 +369,9 @@
             case 5:
                 [self proDetailsTapped];
                 break;
+            case 6:
+                [self myVacationTapped];
+                break;
                 
             default:
                 break;

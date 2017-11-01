@@ -74,12 +74,12 @@
                   moduleName = "Dr Ateet Sharma"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shashankpatel/Documents/KonectHealth/dr-ateet-ios/Dr%20Ateet/DoctorProDetailsController.m"
-                  timestampString = "529583790.9227"
+                  timestampString = "531220124.407659"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "144"
                   endingLineNumber = "144"
-                  offsetFromSymbolStart = "37">
+                  offsetFromSymbolStart = "66">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -89,12 +89,12 @@
                   moduleName = "Dr Ateet Sharma"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shashankpatel/Documents/KonectHealth/dr-ateet-ios/Dr%20Ateet/DoctorProDetailsController.m"
-                  timestampString = "529583790.924801"
+                  timestampString = "531220124.409642"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "144"
                   endingLineNumber = "144"
-                  offsetFromSymbolStart = "66">
+                  offsetFromSymbolStart = "79">
                </Location>
             </Locations>
          </BreakpointContent>

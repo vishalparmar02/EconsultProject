@@ -20,20 +20,16 @@
 
 - (void)setVacation:(Vacation *)vacation{
     _vacation = vacation;
-    self.vacationNameField.text = vacation[@"vacation_name"];
+    NSDateFormatter *df = [NSDateFormatter new];
+    [df setDateFormat:@"dd-MM-YYYY"];
+    NSDate *startDate = [df dateFromString:vacation[@"start_date"]];
+    NSDate *endDate = [df dateFromString:vacation[@"end_date"]];
     
-    NSString *address = vacation[@"address"];
-    NSString *city = vacation[@"city"];
-    NSString *state = vacation[@"state"];
-    NSString *contactNumber = vacation[@"contact_number"];
-    
-    NSMutableArray *components = [NSMutableArray array];
-    if (address.length) [components addObject:address];
-    if (city.length) [components addObject:city];
-    if (state.length) [components addObject:state];
-    if (contactNumber.length) [components addObject:contactNumber];
-    
-    self.vacationDetailsField.text = [components componentsJoinedByString:@"\n"];
+    [df setDateFormat:@"dd LLL, YYYY"];
+    self.vacationNameField.text = vacation[@"descriptions"];
+    self.vacationDetailsField.text = [NSString stringWithFormat:@"%@ - %@",
+                                      [df stringFromDate:startDate],
+                                      [df stringFromDate:endDate]];
 }
 
 - (IBAction)deleteTapped{
@@ -44,7 +40,7 @@
 
 @end
 
-@interface MyVacationController ()<UITableViewDataSource, UITableViewDelegate, VacationCellDelegate>
+@interface MyVacationController ()<UITableViewDataSource, UITableViewDelegate, VacationCellDelegate, UITextFieldDelegate>
 
 @property (nonatomic, strong) IBOutlet  UITableView     *tableView;
 @property (nonatomic, strong)           NSArray         *vacations;
@@ -56,7 +52,7 @@
 @implementation MyVacationController
 
 + (id)controller{
-    return ControllerFromStoryBoard(@"Slot", [self description]);
+    return ControllerFromStoryBoard(@"Appointments", [self description]);
 }
 
 - (void)viewDidLoad {
@@ -65,7 +61,7 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithTitle:@"Add"
                                                                   style:UIBarButtonItemStylePlain
                                                                  target:self action:@selector(addVacationTapped)];
-//    self.navigationItem.rightBarButtonItem = addButton;
+    self.navigationItem.rightBarButtonItem = addButton;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -75,18 +71,18 @@
 
 - (void)fetchVacations{
     [Vacation fetchVacationsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-        NSMutableArray *vacations = [NSMutableArray array];
-        for (Vacation *aVacation in objects ) {
-            if (aVacation.objectId.integerValue != -1) {
-                [vacations addObject:aVacation];
-            }
-        }
-        [vacations sortUsingComparator:^NSComparisonResult(Vacation *obj1, Vacation *obj2) {
-            return [[obj1[@"vacation_name"] lowercaseString] compare:[obj2[@"vacation_name"] lowercaseString]];
-        }];
-        self.vacations = vacations;
+        self.vacations = objects;
         [self.tableView reloadData];
     }];
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    if (textField == self.startDateField) {
+        [self startDateChanged];
+    }else if (textField == self.endDateField) {
+        [self endDateChanged];
+    }
+    return YES;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -102,7 +98,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 125;
+    return 60;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -114,13 +110,13 @@
 
 - (void)startDateChanged{
     NSDateFormatter *timeFormatter = [NSDateFormatter new];
-    timeFormatter.dateFormat = @"YYYY-MM-dd";
+    timeFormatter.dateFormat = @"dd LLLL, YYYY";
     self.startDateField.text = [timeFormatter stringFromDate:self.startDatePicker.date];
 }
 
 - (void)endDateChanged{
     NSDateFormatter *timeFormatter = [NSDateFormatter new];
-    timeFormatter.dateFormat = @"YYYY-MM-dd";
+    timeFormatter.dateFormat = @"dd LLLL, YYYY";
     self.endDateField.text = [timeFormatter stringFromDate:self.endDatePicker.date];
 }
 
@@ -131,17 +127,19 @@
     
     [addVacation addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
         self.startDateField = textField;
+        self.startDateField.delegate = self;
         self.startDateField.placeholder = @"Start Date";
         self.startDatePicker = [[UIDatePicker alloc] init];
         self.startDatePicker.datePickerMode = UIDatePickerModeDate;
         [self.startDatePicker addTarget:self
-                                 action:@selector(startTimeChanged)
+                                 action:@selector(startDateChanged)
                        forControlEvents:UIControlEventValueChanged];
         self.startDateField.inputView = self.startDatePicker;
     }];
     
     [addVacation addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
         self.endDateField = textField;
+        self.endDateField.delegate = self;
         self.endDateField.placeholder = @"End Date";
         self.endDatePicker = [[UIDatePicker alloc] init];
         self.endDatePicker.datePickerMode = UIDatePickerModeDate;
@@ -175,11 +173,14 @@
 }
 
 - (void)addVacation{
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    dateFormatter.dateFormat = @"YYYY-MM-dd";
+    
     Vacation *vacation = [Vacation new];
     vacation[@"save"] = @{@"users_id" : [CUser currentUser].objectId,
                           @"descriptions" : self.descriptionField.text,
-                          @"start_date" : self.startDateField.text,
-                          @"end_date" : self.endDateField.text};
+                          @"start_date" : [dateFormatter stringFromDate:self.startDatePicker.date],
+                          @"end_date" : [dateFormatter stringFromDate:self.endDatePicker.date]};
     [MBProgressHUD showHUDAddedTo:self.view
                          animated:YES];
     [vacation saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
