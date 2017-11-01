@@ -69,7 +69,7 @@ open class ImagePickerController: UIViewController {
 
   var volume = AVAudioSession.sharedInstance().outputVolume
 
-  open weak var delegate: ImagePickerDelegate?
+  @objc open weak var delegate: ImagePickerDelegate?
   open var stack = ImageStack()
   open var imageLimit = 0
   open var preferredImageSize: CGSize?

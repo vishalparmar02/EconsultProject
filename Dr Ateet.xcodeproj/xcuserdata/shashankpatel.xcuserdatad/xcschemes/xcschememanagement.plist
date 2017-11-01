@@ -4,25 +4,20 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Dr Ateet.xcscheme</key>
+		<key>Dr Ateet Sharma.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>27</integer>
 		</dict>
 		<key>KH Consult.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>24</integer>
+			<integer>0</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>6956CAB01F5A89E700B66EB8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>69FAE8611EDBCC130099141C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

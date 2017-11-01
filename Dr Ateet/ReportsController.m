@@ -11,6 +11,7 @@
 #import "UIImage+FixRotation.h"
 #import "ReportUploadController.h"
 #import "PDFController.h"
+#import "Dr Ateet Sharma-Bridging-Header.h"
 
 @import ImagePicker;
 
