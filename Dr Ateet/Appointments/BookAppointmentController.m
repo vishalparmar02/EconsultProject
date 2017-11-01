@@ -449,7 +449,6 @@ static NSDateFormatter *timeFormatter;
 
 - (void)payForOnlineAppointment:(NSString*)appointmentID{
     [self startPaymentStatusChecking:appointmentID];
-    
     NSURL *paymentURL = [NSURL URLWithString:[NSString stringWithFormat:PAY_URL, appointmentID]];
     self.paymentController = [[SFSafariViewController alloc] initWithURL:paymentURL];
     [self.navigationController presentViewController:self.paymentController

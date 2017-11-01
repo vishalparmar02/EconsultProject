@@ -61,6 +61,9 @@
 #define UPDATE_SCHEDULE             @"schedules/%@"
 #define DELETE_SCHEDULE             @"schedules/%@/%@"
 
+#define GET_VACATIONS               @"doctor/getVacation"
+#define ADD_VACATION                @"doctor/addVacation"
+
 #define GET_SLOTS                   @"slots"
 #define ADD_SLOT                    @"customSlot"
 #define ADD_APPOINTMENT             @"appointments/add"
