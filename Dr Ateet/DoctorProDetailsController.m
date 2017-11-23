@@ -56,10 +56,16 @@
 }
 
 - (void)addNavigationButtons{
-    UIButton *menuIcon = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+    UIButton *menuIcon = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
     [menuIcon setImage:[UIImage imageNamed:@"menu_icon.png"] forState:UIControlStateNormal];
+    menuIcon.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [menuIcon addTarget:self action:@selector(menuTapped) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:menuIcon];
+    
+    if (@available(iOS 9, *)) {
+        [menuIcon.widthAnchor constraintEqualToConstant: 32].active = YES;
+        [menuIcon.heightAnchor constraintEqualToConstant: 32].active = YES;
+    }
 }
 
 - (void)menuTapped{

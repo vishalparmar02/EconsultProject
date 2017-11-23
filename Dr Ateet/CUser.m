@@ -96,7 +96,7 @@ static CUser *currentUser;
     
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error) {
-            NSLog(@"Error: %@", error);
+            [error printHTMLError];
             block(NO, error);
         } else {
             block(YES, nil);
@@ -431,7 +431,7 @@ static CUser *currentUser;
     
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error) {
-            NSLog(@"Error: %@", error);
+            [error printHTMLError];
             block(NO, error);
         } else {
             block(YES, nil);

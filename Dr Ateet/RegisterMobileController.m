@@ -65,7 +65,7 @@
 }
 
 - (IBAction)tosTapped{
-    SFSafariViewController *safariVC = [[SFSafariViewController alloc]initWithURL:[NSURL URLWithString:@"https://www.chilapp.in/terms-conditions"] entersReaderIfAvailable:NO];
+    SFSafariViewController *safariVC = [[SFSafariViewController alloc]initWithURL:[NSURL URLWithString:@"https://consult.drateetsharma.com/term-conditions"] entersReaderIfAvailable:NO];
     safariVC.delegate = self;
     [self presentViewController:safariVC animated:NO completion:nil];
 }

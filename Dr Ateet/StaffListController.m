@@ -93,7 +93,7 @@
     }];
     [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
         mobileField = textField;
-        textField.keyboardType = UIKeyboardTypePhonePad;
+//        textField.keyboardType = UIKeyboardTypePhonePad;
         textField.placeholder = @"Mobile Number";
         textField.delegate = self;
         textField.tag = 100;
@@ -122,7 +122,8 @@
                                                     if (lNameField.text == nil) {
                                                         lNameField.text = @"";
                                                     }
-                                                     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                                                    
+                                                    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
                                                          
                                                     NSDictionary *staff = @{@"first_name" : fNameField.text,
                                                                             @"last_name" : lNameField.text,
