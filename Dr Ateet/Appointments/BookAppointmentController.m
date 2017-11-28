@@ -401,7 +401,7 @@ static NSDateFormatter *timeFormatter;
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
     AFJSONRequestSerializer *reqSerializer = [AFJSONRequestSerializer serializer];
-    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"Authorization"];
+    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"api-token"];
     NSString *URLString          = [API_BASE_URL stringByAppendingPathComponent:endPoint];
     NSMutableURLRequest *request = [reqSerializer requestWithMethod:@"GET"
                                                           URLString:URLString

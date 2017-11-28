@@ -27,7 +27,7 @@
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
     AFJSONRequestSerializer *reqSerializer = [AFJSONRequestSerializer serializer];
-    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"Authorization"];
+    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"api-token"];
     NSString *URLString          = [API_BASE_URL stringByAppendingPathComponent:GET_SCHEDULES];
     NSMutableURLRequest *request = [reqSerializer requestWithMethod:@"GET"
                                                           URLString:URLString
@@ -177,7 +177,7 @@ static NSDateFormatter *inFormatter, *outFormatter;
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
     AFJSONRequestSerializer *reqSerializer = [AFJSONRequestSerializer serializer];
-    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"Authorization"];
+    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"api-token"];
     NSString *URLString          = [API_BASE_URL stringByAppendingPathComponent:ADD_SCHEDULE];
     NSMutableURLRequest *request = [reqSerializer requestWithMethod:@"POST"
                                                           URLString:URLString
@@ -209,7 +209,7 @@ static NSDateFormatter *inFormatter, *outFormatter;
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
     AFJSONRequestSerializer *reqSerializer = [AFJSONRequestSerializer serializer];
-    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"Authorization"];
+    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"api-token"];
     NSString *URLString          = [API_BASE_URL stringByAppendingPathComponent:endPoint];
     NSMutableURLRequest *request = [reqSerializer requestWithMethod:@"DELETE"
                                                           URLString:URLString
@@ -239,7 +239,7 @@ static NSDateFormatter *inFormatter, *outFormatter;
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
     AFJSONRequestSerializer *reqSerializer = [AFJSONRequestSerializer serializer];
-    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"Authorization"];
+    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"api-token"];
     NSString *URLString          = [API_BASE_URL stringByAppendingPathComponent:endPoint];
     NSMutableURLRequest *request = [reqSerializer requestWithMethod:@"DELETE"
                                                           URLString:URLString

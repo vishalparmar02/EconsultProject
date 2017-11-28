@@ -15,7 +15,7 @@
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
     AFJSONRequestSerializer *reqSerializer = [AFJSONRequestSerializer serializer];
-    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"Authorization"];
+    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"api-token"];
     NSString *URLString          = [API_BASE_URL stringByAppendingPathComponent:GET_VACATIONS];
     
     NSMutableURLRequest *request = [reqSerializer requestWithMethod:@"GET"
@@ -44,7 +44,7 @@
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
     AFJSONRequestSerializer *reqSerializer = [AFJSONRequestSerializer serializer];
-    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"Authorization"];
+    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"api-token"];
     NSString *URLString          = [API_BASE_URL stringByAppendingPathComponent:ADD_VACATION];
     NSMutableURLRequest *request = [reqSerializer requestWithMethod:@"POST"
                                                           URLString:URLString

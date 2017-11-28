@@ -16,7 +16,7 @@
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
     AFJSONRequestSerializer *reqSerializer = [AFJSONRequestSerializer serializer];
-    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"Authorization"];
+    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"api-token"];
     NSString *URLString          = [API_BASE_URL stringByAppendingPathComponent:GET_PATIENTS];
     NSMutableURLRequest *request = [reqSerializer requestWithMethod:@"GET"
                                                           URLString:URLString
@@ -44,7 +44,7 @@
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
     AFJSONRequestSerializer *reqSerializer = [AFJSONRequestSerializer serializer];
-    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"Authorization"];
+    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"api-token"];
     NSString *URLString          = [API_BASE_URL stringByAppendingPathComponent:SEARCH_PATIENTS];
     NSMutableURLRequest *request = [reqSerializer requestWithMethod:@"POST"
                                                           URLString:URLString
@@ -72,7 +72,7 @@
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
     AFJSONRequestSerializer *reqSerializer = [AFJSONRequestSerializer serializer];
-    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"Authorization"];
+    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"api-token"];
     NSString *URLString          = [API_BASE_URL stringByAppendingPathComponent:ADD_PATIENT];
     NSMutableURLRequest *request = [reqSerializer requestWithMethod:@"POST"
                                                           URLString:URLString
@@ -95,7 +95,7 @@
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
     AFJSONRequestSerializer *reqSerializer = [AFJSONRequestSerializer serializer];
-    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"Authorization"];
+    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"api-token"];
     NSString *URLString          = [API_BASE_URL stringByAppendingPathComponent:GET_BOOKED_APPOINTMENTS];
     
     NSDictionary *params = @{@"patient_id" : self.objectId};

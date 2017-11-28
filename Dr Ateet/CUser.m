@@ -33,10 +33,10 @@
 }
 
 - (NSString*)authHeader{
-    NSString *authEncoded = [[NSString stringWithFormat:@"%@:%@", self[@"mobile"], self[@"authrization"]] base64String];
+//    NSString *authEncoded = [[NSString stringWithFormat:@"%@:%@", self[@"mobile"], self[@"authrization"]] base64String];
     
 //    NSString *authEncoded = [@"9586856996:15a7e757-93e7-4845-ae1a-fe41655a8428" base64String];
-    return [NSString stringWithFormat:@"Basic %@", authEncoded];
+    return self[@"api_token"];
 }
 
 - (void)setObject:(id)object forKey:(NSString *)key{
@@ -287,7 +287,7 @@ static CUser *currentUser;
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
     AFJSONRequestSerializer *reqSerializer = [AFJSONRequestSerializer serializer];
-    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"Authorization"];
+    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"api-token"];
     
     NSString *URLString          = [API_BASE_URL stringByAppendingPathComponent:endPoint];
     NSMutableURLRequest *request = [reqSerializer requestWithMethod:@"POST"
@@ -312,7 +312,7 @@ static CUser *currentUser;
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
     AFJSONRequestSerializer *reqSerializer = [AFJSONRequestSerializer serializer];
-    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"Authorization"];
+    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"api-token"];
     NSString *URLString          = [API_BASE_URL stringByAppendingPathComponent:UPDATE_PROFILE_PIC];
     NSDictionary *params = @{@"users_id" : [CUser currentUser].objectId};
     NSMutableURLRequest *request = [reqSerializer multipartFormRequestWithMethod:@"POST"
@@ -346,7 +346,7 @@ static CUser *currentUser;
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     NSString *endPoint = [NSString stringWithFormat:GET_MY_PATIENTS, self.objectId];
     AFJSONRequestSerializer *reqSerializer = [AFJSONRequestSerializer serializer];
-    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"Authorization"];
+    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"api-token"];
     NSString *URLString          = [API_BASE_URL stringByAppendingPathComponent:endPoint];
     NSMutableURLRequest *request = [reqSerializer requestWithMethod:@"GET"
                                                           URLString:URLString
@@ -375,7 +375,7 @@ static CUser *currentUser;
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     AFJSONRequestSerializer *reqSerializer = [AFJSONRequestSerializer serializer];
-    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"Authorization"];
+    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"api-token"];
     NSString *URLString          = [API_BASE_URL stringByAppendingPathComponent:GET_STAFF];
     NSMutableURLRequest *request = [reqSerializer requestWithMethod:@"GET"
                                                           URLString:URLString

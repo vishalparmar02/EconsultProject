@@ -28,7 +28,7 @@
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
     AFJSONRequestSerializer *reqSerializer = [AFJSONRequestSerializer serializer];
-    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"Authorization"];
+    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"api-token"];
     NSString *URLString          = [API_BASE_URL stringByAppendingPathComponent:GET_REPORTS];
     NSDictionary *params = @{@"patient_id" : patientID};
     NSMutableURLRequest *request = [reqSerializer requestWithMethod:@"POST"
@@ -66,7 +66,7 @@
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
     AFHTTPRequestSerializer *reqSerializer = [AFHTTPRequestSerializer serializer];
-    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"Authorization"];
+    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"api-token"];
     NSString *URLString          = [API_BASE_URL stringByAppendingPathComponent:ADD_REPORT];
     NSDictionary *params = @{@"role_id" : [CUser currentUser][@"role_id"],
                              @"patient_id" : self.patientID,

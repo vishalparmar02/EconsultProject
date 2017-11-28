@@ -42,7 +42,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zfj-wV-KmX">
                                 <rect key="frame" x="0.0" y="84" width="375" height="187.5"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctor_female" translatesAutoresizingMaskIntoConstraints="NO" id="GeR-LI-WAS">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_photo" translatesAutoresizingMaskIntoConstraints="NO" id="GeR-LI-WAS">
                                         <rect key="frame" x="132" y="10" width="112.5" height="112.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="GeR-LI-WAS" secondAttribute="height" multiplier="1:1" id="5hk-73-6C8"/>
@@ -645,12 +645,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctor_female" translatesAutoresizingMaskIntoConstraints="NO" id="jhK-VV-TeF">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Knee Icon" translatesAutoresizingMaskIntoConstraints="NO" id="jhK-VV-TeF">
                                 <rect key="frame" x="138" y="95" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="jhK-VV-TeF" secondAttribute="height" multiplier="1:1" id="aN4-W7-0gC"/>
                                     <constraint firstAttribute="width" constant="100" id="iEH-KC-Bqi"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pg5-mr-9a5">
                                 <rect key="frame" x="0.0" y="294" width="375" height="80"/>
@@ -776,15 +781,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctor_female" translatesAutoresizingMaskIntoConstraints="NO" id="Sz5-3j-D14">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Knee Icon" translatesAutoresizingMaskIntoConstraints="NO" id="Sz5-3j-D14">
                                 <rect key="frame" x="138" y="95" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="25G-TT-guQ"/>
                                     <constraint firstAttribute="width" secondItem="Sz5-3j-D14" secondAttribute="height" multiplier="1:1" id="9Hk-6W-lEY"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+919900099000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcz-9S-t4B">
-                                <rect key="frame" x="9.5" y="220.5" width="355" height="23.5"/>
+                                <rect key="frame" x="9.5" y="210" width="355" height="23.5"/>
                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -864,10 +874,10 @@
                         <constraints>
                             <constraint firstItem="Hj8-NS-SuP" firstAttribute="top" secondItem="j0g-Sp-sDV" secondAttribute="bottom" id="1BN-kC-mBf"/>
                             <constraint firstItem="Sz5-3j-D14" firstAttribute="top" secondItem="eJE-Ak-z9u" secondAttribute="bottom" constant="75" id="3kH-c2-FNH"/>
-                            <constraint firstItem="TWr-Ci-DCi" firstAttribute="top" secondItem="bcz-9S-t4B" secondAttribute="bottom" constant="40" id="9Xx-xK-lJt"/>
                             <constraint firstItem="Hj8-NS-SuP" firstAttribute="width" secondItem="71p-82-S3z" secondAttribute="width" id="FhJ-f1-85p"/>
                             <constraint firstItem="TWr-Ci-DCi" firstAttribute="centerY" secondItem="71p-82-S3z" secondAttribute="centerY" id="Pqu-f7-Hos"/>
                             <constraint firstItem="TWr-Ci-DCi" firstAttribute="centerX" secondItem="71p-82-S3z" secondAttribute="centerX" id="R1B-cR-OlX"/>
+                            <constraint firstItem="bcz-9S-t4B" firstAttribute="top" secondItem="Sz5-3j-D14" secondAttribute="bottom" constant="15" id="RZs-zz-oZg"/>
                             <constraint firstItem="bcz-9S-t4B" firstAttribute="centerX" secondItem="TWr-Ci-DCi" secondAttribute="centerX" id="iZX-8j-56d"/>
                             <constraint firstItem="TWr-Ci-DCi" firstAttribute="width" secondItem="71p-82-S3z" secondAttribute="width" id="lFh-ds-3bA"/>
                             <constraint firstItem="j0g-Sp-sDV" firstAttribute="width" secondItem="Hj8-NS-SuP" secondAttribute="width" id="r5U-tR-6V6"/>
@@ -1266,7 +1276,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="doctor_female" width="175" height="200"/>
+        <image name="Knee Icon" width="341" height="341"/>
+        <image name="default_photo" width="333" height="333"/>
         <image name="doctor_photo" width="156" height="181"/>
     </resources>
 </document>
