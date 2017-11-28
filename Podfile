@@ -31,3 +31,7 @@ end
 target 'Consult' do
   pods
 end
+
+target 'Dr Jinesh Shah' do
+  pods
+end

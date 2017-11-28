@@ -9,17 +9,27 @@
 #ifndef API_Defines_h
 #define API_Defines_h
 
+#include <stdio.h>
+#include <string.h>
+
 #import <AFNetworking/AFNetworking.h>
 #import "NSUserDefaults-macros.h"
 #import "NSArray+JSON.h"
 #import "NSDictionary+JSON.h"
 #import "NSString+JSON.h"
 
+//NSArray *API_URLs = @[@"https://econsult.jshealthtech.com/api/v2",
+//                      @"https://app.drateetsharma.com/api",
+//                      @"http://api.drjineshshah.com/api/v2"];
+
+#define API_URL [[[NSBundle mainBundle] infoDictionary] valueForKey:@"API_URL"]
+
+
 #ifndef DEBUG
 #define DEBUG 0
 #endif
 
-#define TARGET_NAME [[NSBundle mainBundle] infoDictionary][@"CFBundleDisplayName"]
+#define TARGET_NAME (NSString*) [[NSBundle mainBundle] infoDictionary][@"CFBundleDisplayName"]
 #define TEST_VERSION [TARGET_NAME isEqualToString:@"Consult"]
 
 
@@ -45,8 +55,12 @@
 
 #define CURRENT_USER_KEY            @"current_user"
 
-#define API_BASE_URL                TEST_VERSION ? @"https://econsult.jshealthtech.com/api/v2" : @"https://app.drateetsharma.com/api"
+//#define API_BASE_URL                TEST_VERSION ? @"https://econsult.jshealthtech.com/api/v2" : @"https://app.drateetsharma.com/api"
+//#define PAY_URL                     TEST_VERSION ? @"https://econsult.jshealthtech.com/pay-for-mobile-appointments/%@" : @"https://consult.drateetsharma.com/pay-for-mobile-appointments/%@"
+
+#define API_BASE_URL                TEST_VERSION ? @"https://econsult.jshealthtech.com/api/v2" : API_URL
 #define PAY_URL                     TEST_VERSION ? @"https://econsult.jshealthtech.com/pay-for-mobile-appointments/%@" : @"https://consult.drateetsharma.com/pay-for-mobile-appointments/%@"
+
 
 #define REGISTER_PHONE_END_POINT    @"login"
 #define VERIFY_PHONE_END_POINT      @"verify"
