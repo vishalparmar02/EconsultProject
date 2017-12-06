@@ -66,7 +66,6 @@
 		6923B4971FCD7CFF005039BB /* PatientProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 692569531F4EB3D3007DC450 /* PatientProfileController.m */; };
 		6923B4981FCD7CFF005039BB /* CObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EE2FC21F3995530083E929 /* CObject.m */; };
 		6923B49A1FCD7CFF005039BB /* ImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69D13FF51F84DBE800B32ADD /* ImagePicker.framework */; };
-		6923B49B1FCD7CFF005039BB /* libPods-Consult.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CC5FF7B13DCA1F10089703 /* libPods-Consult.a */; };
 		6923B49D1FCD7CFF005039BB /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE8831EDBF2A80099141C /* Roboto-Bold.ttf */; };
 		6923B49E1FCD7CFF005039BB /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE8871EDBF2A80099141C /* Roboto-LightItalic.ttf */; };
 		6923B49F1FCD7CFF005039BB /* RobotoCondensed-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE88F1EDBF2A80099141C /* RobotoCondensed-Italic.ttf */; };
@@ -180,7 +179,6 @@
 		6956CAFC1F5A89E700B66EB8 /* Consultation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE8D61EDD266C0099141C /* Consultation.storyboard */; };
 		6956CAFD1F5A89E700B66EB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE8711EDBCC130099141C /* Assets.xcassets */; };
 		6956CAFE1F5A89E700B66EB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE86E1EDBCC130099141C /* Main.storyboard */; };
-		6956CB071F5A8C9D00B66EB8 /* Info-KH-Consult.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6956CB061F5A8C9D00B66EB8 /* Info-KH-Consult.plist */; };
 		695D77181F5EA4220011E666 /* GiveAppointmentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 695D77171F5EA4220011E666 /* GiveAppointmentController.m */; };
 		695D77191F5EA4220011E666 /* GiveAppointmentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 695D77171F5EA4220011E666 /* GiveAppointmentController.m */; };
 		695D771C1F5EA5070011E666 /* SlotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 695D771B1F5EA5070011E666 /* SlotCell.m */; };
@@ -216,6 +214,12 @@
 		69D13FFB1F84E3C200B32ADD /* StaffListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D13FFA1F84E3C200B32ADD /* StaffListController.m */; };
 		69D13FFC1F84E3C200B32ADD /* StaffListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D13FFA1F84E3C200B32ADD /* StaffListController.m */; };
 		69D140091F85004D00B32ADD /* ImagePicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69D13FF51F84DBE800B32ADD /* ImagePicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		69DF5CE81FD7D6F00015132A /* Consult-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 69DF5CE01FD7D6F00015132A /* Consult-Info.plist */; };
+		69DF5CE91FD7D6F00015132A /* Consult-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 69DF5CE01FD7D6F00015132A /* Consult-Info.plist */; };
+		69DF5CEB1FD7D6F00015132A /* Dr Ateet Sharma-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 69DF5CE31FD7D6F00015132A /* Dr Ateet Sharma-Info.plist */; };
+		69DF5CEC1FD7D6F00015132A /* Dr Ateet Sharma-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 69DF5CE31FD7D6F00015132A /* Dr Ateet Sharma-Info.plist */; };
+		69DF5CEE1FD7D6F00015132A /* Dr Jinesh Shah-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 69DF5CE61FD7D6F00015132A /* Dr Jinesh Shah-Info.plist */; };
+		69DF5CEF1FD7D6F00015132A /* Dr Jinesh Shah-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 69DF5CE61FD7D6F00015132A /* Dr Jinesh Shah-Info.plist */; };
 		69EE2FC51F3995530083E929 /* CObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EE2FC21F3995530083E929 /* CObject.m */; };
 		69EE2FC61F3995530083E929 /* CUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EE2FC41F3995530083E929 /* CUser.m */; };
 		69EE2FCC1F3999AB0083E929 /* MenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EE2FCB1F3999AB0083E929 /* MenuController.m */; };
@@ -349,7 +353,6 @@
 		6914ACD11F46A2C8001131DE /* AddScheduleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddScheduleController.h; sourceTree = "<group>"; };
 		6914ACD21F46A2C8001131DE /* AddScheduleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddScheduleController.m; sourceTree = "<group>"; };
 		6923B4BF1FCD7CFF005039BB /* Dr Jinesh Shah.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dr Jinesh Shah.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6923B4C01FCD7CFF005039BB /* Dr Jinesh Shah-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Dr Jinesh Shah-Info.plist"; path = "/Users/shashankpatel/Documents/KonectHealth/Dr Ateet/Dr Jinesh Shah-Info.plist"; sourceTree = "<absolute>"; };
 		692460571F5FF70500067981 /* ring.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ring.wav; sourceTree = "<group>"; };
 		692569521F4EB3D3007DC450 /* PatientProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientProfileController.h; sourceTree = "<group>"; };
 		692569531F4EB3D3007DC450 /* PatientProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientProfileController.m; sourceTree = "<group>"; };
@@ -372,7 +375,6 @@
 		695000EE1F55705C00B5A0B1 /* PubNubManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PubNubManager.h; sourceTree = "<group>"; };
 		695000EF1F55705C00B5A0B1 /* PubNubManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PubNubManager.m; sourceTree = "<group>"; };
 		6956CB041F5A89E700B66EB8 /* Consult.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Consult.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6956CB061F5A8C9D00B66EB8 /* Info-KH-Consult.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-KH-Consult.plist"; sourceTree = "<group>"; };
 		695D77161F5EA4220011E666 /* GiveAppointmentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiveAppointmentController.h; sourceTree = "<group>"; };
 		695D77171F5EA4220011E666 /* GiveAppointmentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiveAppointmentController.m; sourceTree = "<group>"; };
 		695D771A1F5EA5070011E666 /* SlotCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlotCell.h; sourceTree = "<group>"; };
@@ -424,6 +426,12 @@
 		69D13FEF1F84DBE800B32ADD /* ImagePicker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ImagePicker.xcodeproj; path = ImagePicker/ImagePicker.xcodeproj; sourceTree = "<group>"; };
 		69D13FF91F84E3C200B32ADD /* StaffListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaffListController.h; sourceTree = "<group>"; };
 		69D13FFA1F84E3C200B32ADD /* StaffListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaffListController.m; sourceTree = "<group>"; };
+		69DF5CE01FD7D6F00015132A /* Consult-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Consult-Info.plist"; sourceTree = "<group>"; };
+		69DF5CE11FD7D6F00015132A /* Consult-keys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Consult-keys.h"; sourceTree = "<group>"; };
+		69DF5CE31FD7D6F00015132A /* Dr Ateet Sharma-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Dr Ateet Sharma-Info.plist"; sourceTree = "<group>"; };
+		69DF5CE41FD7D6F00015132A /* Dr Ateet Sharma-keys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Dr Ateet Sharma-keys.h"; sourceTree = "<group>"; };
+		69DF5CE61FD7D6F00015132A /* Dr Jinesh Shah-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Dr Jinesh Shah-Info.plist"; sourceTree = "<group>"; };
+		69DF5CE71FD7D6F00015132A /* Dr Jinesh Shah-keys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Dr Jinesh Shah-keys.h"; sourceTree = "<group>"; };
 		69EE2FC11F3995530083E929 /* CObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CObject.h; sourceTree = "<group>"; };
 		69EE2FC21F3995530083E929 /* CObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CObject.m; sourceTree = "<group>"; };
 		69EE2FC31F3995530083E929 /* CUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUser.h; sourceTree = "<group>"; };
@@ -446,7 +454,6 @@
 		69FAE86F1EDBCC130099141C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		69FAE8711EDBCC130099141C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		69FAE8741EDBCC130099141C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		69FAE8761EDBCC130099141C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69FAE8801EDBF2A80099141C /* Apache License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Apache License.txt"; sourceTree = "<group>"; };
 		69FAE8811EDBF2A80099141C /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		69FAE8821EDBF2A80099141C /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
@@ -508,7 +515,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6923B49A1FCD7CFF005039BB /* ImagePicker.framework in Frameworks */,
-				6923B49B1FCD7CFF005039BB /* libPods-Consult.a in Frameworks */,
 				67078B79EDA22BEC6BE15D2F /* libPods-Dr Jinesh Shah.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -605,6 +611,43 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		69DF5CDE1FD7D6F00015132A /* Apps */ = {
+			isa = PBXGroup;
+			children = (
+				69DF5CDF1FD7D6F00015132A /* Consult */,
+				69DF5CE21FD7D6F00015132A /* Dr Ateet Sharma */,
+				69DF5CE51FD7D6F00015132A /* Dr Jinesh Shah */,
+			);
+			path = Apps;
+			sourceTree = SOURCE_ROOT;
+		};
+		69DF5CDF1FD7D6F00015132A /* Consult */ = {
+			isa = PBXGroup;
+			children = (
+				69DF5CE01FD7D6F00015132A /* Consult-Info.plist */,
+				69DF5CE11FD7D6F00015132A /* Consult-keys.h */,
+			);
+			path = Consult;
+			sourceTree = "<group>";
+		};
+		69DF5CE21FD7D6F00015132A /* Dr Ateet Sharma */ = {
+			isa = PBXGroup;
+			children = (
+				69DF5CE31FD7D6F00015132A /* Dr Ateet Sharma-Info.plist */,
+				69DF5CE41FD7D6F00015132A /* Dr Ateet Sharma-keys.h */,
+			);
+			path = "Dr Ateet Sharma";
+			sourceTree = "<group>";
+		};
+		69DF5CE51FD7D6F00015132A /* Dr Jinesh Shah */ = {
+			isa = PBXGroup;
+			children = (
+				69DF5CE61FD7D6F00015132A /* Dr Jinesh Shah-Info.plist */,
+				69DF5CE71FD7D6F00015132A /* Dr Jinesh Shah-keys.h */,
+			);
+			path = "Dr Jinesh Shah";
+			sourceTree = "<group>";
+		};
 		69EE2FC01F3995020083E929 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -663,7 +706,6 @@
 				55126B1575BD236F59AB5934 /* Frameworks */,
 				69D13FE41F84D8A100B32ADD /* Dr Ateet Sharma-Bridging-Header.h */,
 				69D13FE51F84D8A100B32ADD /* Consult-Bridging-Header.h */,
-				6923B4C01FCD7CFF005039BB /* Dr Jinesh Shah-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -680,6 +722,7 @@
 		69FAE8641EDBCC130099141C /* Dr Ateet */ = {
 			isa = PBXGroup;
 			children = (
+				69DF5CDE1FD7D6F00015132A /* Apps */,
 				69BA7E081FA8B51E0030ECF1 /* Vacation */,
 				696156321F4C13F5005B7A87 /* Helpers */,
 				69EE2FCD1F399B110083E929 /* Authentication */,
@@ -708,8 +751,6 @@
 				69FAE86E1EDBCC130099141C /* Main.storyboard */,
 				69FAE8711EDBCC130099141C /* Assets.xcassets */,
 				69FAE8731EDBCC130099141C /* LaunchScreen.storyboard */,
-				69FAE8761EDBCC130099141C /* Info.plist */,
-				6956CB061F5A8C9D00B66EB8 /* Info-KH-Consult.plist */,
 				69FAE8651EDBCC130099141C /* Supporting Files */,
 			);
 			path = "Dr Ateet";
@@ -1026,16 +1067,19 @@
 				6956CAE51F5A89E700B66EB8 /* Roboto-Bold.ttf in Resources */,
 				6956CAE61F5A89E700B66EB8 /* Roboto-LightItalic.ttf in Resources */,
 				6956CAE71F5A89E700B66EB8 /* RobotoCondensed-Italic.ttf in Resources */,
+				69DF5CEF1FD7D6F00015132A /* Dr Jinesh Shah-Info.plist in Resources */,
 				6956CAE81F5A89E700B66EB8 /* RobotoCondensed-BoldItalic.ttf in Resources */,
 				6956CAE91F5A89E700B66EB8 /* Roboto-MediumItalic.ttf in Resources */,
 				6956CAEA1F5A89E700B66EB8 /* jsq_messages_sample.m4a in Resources */,
 				6956CAEB1F5A89E700B66EB8 /* Roboto-Italic.ttf in Resources */,
+				69DF5CEC1FD7D6F00015132A /* Dr Ateet Sharma-Info.plist in Resources */,
 				692460591F5FF70500067981 /* ring.wav in Resources */,
 				6956CAEC1F5A89E700B66EB8 /* Roboto-Light.ttf in Resources */,
 				6956CAED1F5A89E700B66EB8 /* LaunchScreen.storyboard in Resources */,
 				6956CAEE1F5A89E700B66EB8 /* Roboto-BoldItalic.ttf in Resources */,
 				6956CAEF1F5A89E700B66EB8 /* Roboto-BlackItalic.ttf in Resources */,
 				6956CAF01F5A89E700B66EB8 /* Roboto-Thin.ttf in Resources */,
+				69DF5CE91FD7D6F00015132A /* Consult-Info.plist in Resources */,
 				6956CAF11F5A89E700B66EB8 /* Roboto-Regular.ttf in Resources */,
 				6956CAF21F5A89E700B66EB8 /* RobotoCondensed-LightItalic.ttf in Resources */,
 				6956CAF31F5A89E700B66EB8 /* Apache License.txt in Resources */,
@@ -1057,20 +1101,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6956CB071F5A8C9D00B66EB8 /* Info-KH-Consult.plist in Resources */,
 				69FAE8961EDBF2A80099141C /* Roboto-Bold.ttf in Resources */,
 				69FAE89A1EDBF2A80099141C /* Roboto-LightItalic.ttf in Resources */,
 				69FAE8A21EDBF2A80099141C /* RobotoCondensed-Italic.ttf in Resources */,
+				69DF5CEE1FD7D6F00015132A /* Dr Jinesh Shah-Info.plist in Resources */,
 				69FAE8A11EDBF2A80099141C /* RobotoCondensed-BoldItalic.ttf in Resources */,
 				69FAE89C1EDBF2A80099141C /* Roboto-MediumItalic.ttf in Resources */,
 				69FAE8EF1EDD335B0099141C /* jsq_messages_sample.m4a in Resources */,
 				692460581F5FF70500067981 /* ring.wav in Resources */,
+				69DF5CEB1FD7D6F00015132A /* Dr Ateet Sharma-Info.plist in Resources */,
 				69FAE8981EDBF2A80099141C /* Roboto-Italic.ttf in Resources */,
 				69FAE8991EDBF2A80099141C /* Roboto-Light.ttf in Resources */,
 				69FAE8751EDBCC130099141C /* LaunchScreen.storyboard in Resources */,
 				69FAE8971EDBF2A80099141C /* Roboto-BoldItalic.ttf in Resources */,
 				69FAE8951EDBF2A80099141C /* Roboto-BlackItalic.ttf in Resources */,
 				69FAE89E1EDBF2A80099141C /* Roboto-Thin.ttf in Resources */,
+				69DF5CE81FD7D6F00015132A /* Consult-Info.plist in Resources */,
 				69FAE89D1EDBF2A80099141C /* Roboto-Regular.ttf in Resources */,
 				69FAE8A41EDBF2A80099141C /* RobotoCondensed-LightItalic.ttf in Resources */,
 				69FAE8931EDBF2A80099141C /* Apache License.txt in Resources */,
@@ -1522,7 +1568,6 @@
 			baseConfigurationReference = 37924059889E3058A26BA967 /* Pods-Dr Jinesh Shah.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				API_URL = "http://api.drjineshshah.com/api/v2";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconGeneric;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Dr Ateet/Dr Ateet.entitlements";
@@ -1530,7 +1575,12 @@
 				DEVELOPMENT_TEAM = 4U5KNE4PJF;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "./Dr Ateet/app.pch";
-				INFOPLIST_FILE = "Dr Jinesh Shah-Info.plist";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PRODUCT_NAME=\"Dr Jinesh Shah\"",
+					"COCOAPODS=1",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Apps/Dr Jinesh Shah/Dr Jinesh Shah-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -1550,7 +1600,6 @@
 			baseConfigurationReference = 232DFB1D33FEBAFCA91F9D6C /* Pods-Dr Jinesh Shah.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				API_URL = "http://api.drjineshshah.com/api/v2";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconGeneric;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Dr Ateet/Dr Ateet.entitlements";
@@ -1558,7 +1607,12 @@
 				DEVELOPMENT_TEAM = 4U5KNE4PJF;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "./Dr Ateet/app.pch";
-				INFOPLIST_FILE = "Dr Jinesh Shah-Info.plist";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"PRODUCT_NAME=\"Dr Jinesh Shah\"",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Apps/Dr Jinesh Shah/Dr Jinesh Shah-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -1577,7 +1631,6 @@
 			baseConfigurationReference = 86D03B9F798B48E2D0800E66 /* Pods-Consult.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				API_URL = "https://econsult.jshealthtech.com/api/v2";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconGeneric;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Dr Ateet/Dr Ateet.entitlements";
@@ -1585,7 +1638,12 @@
 				DEVELOPMENT_TEAM = 4U5KNE4PJF;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "./Dr Ateet/app.pch";
-				INFOPLIST_FILE = "Dr Ateet/Info-KH-Consult.plist";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"PRODUCT_NAME=\"Consult\"",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Apps/Consult/Consult-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -1605,7 +1663,6 @@
 			baseConfigurationReference = 46D21AB3736DCD45FCA6DA01 /* Pods-Consult.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				API_URL = "https://econsult.jshealthtech.com/api/v2";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconGeneric;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Dr Ateet/Dr Ateet.entitlements";
@@ -1613,7 +1670,12 @@
 				DEVELOPMENT_TEAM = 4U5KNE4PJF;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "./Dr Ateet/app.pch";
-				INFOPLIST_FILE = "Dr Ateet/Info-KH-Consult.plist";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"PRODUCT_NAME=\"Consult\"",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Apps/Consult/Consult-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -1735,14 +1797,13 @@
 			baseConfigurationReference = A248BD0E3F58E525A20BE10A /* Pods-Dr Ateet Sharma.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				API_URL = "https://app.drateetsharma.com/api";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Dr Ateet/Dr Ateet.entitlements";
 				DEVELOPMENT_TEAM = 57A8UFYFCW;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "./Dr Ateet/app.pch";
-				INFOPLIST_FILE = "Dr Ateet/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Apps/Dr Ateet Sharma/Dr Ateet Sharma-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -1763,14 +1824,13 @@
 			baseConfigurationReference = 48D29B1721D02BEED7ECC881 /* Pods-Dr Ateet Sharma.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				API_URL = "https://app.drateetsharma.com/api";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Dr Ateet/Dr Ateet.entitlements";
 				DEVELOPMENT_TEAM = 57A8UFYFCW;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "./Dr Ateet/app.pch";
-				INFOPLIST_FILE = "Dr Ateet/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Apps/Dr Ateet Sharma/Dr Ateet Sharma-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (

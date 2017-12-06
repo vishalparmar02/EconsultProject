@@ -57,7 +57,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 }
 
 - (void)registerForPushNotifications{
-    NSString *message = [NSString stringWithFormat:@"Get the most out of %@ App by allowing notifications in the next alert.", TARGET_NAME];
+    NSString *message = [NSString stringWithFormat:@"Get the most out of % App by allowing notifications in the next alert.", APP_NAME];
     [UIAlertController showAlertInViewController:self.window.rootViewController
                                        withTitle:@"Important"
                                          message:message
@@ -83,7 +83,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+    NSLog(@"API: %@", API_URL);
     [DDLog addLogger:[DDTTYLogger sharedInstance]]; // TTY = Xcode console
     [DDLog addLogger:[DDASLLogger sharedInstance]]; // ASL = Apple System Logs
     

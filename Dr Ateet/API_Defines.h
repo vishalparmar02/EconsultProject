@@ -22,45 +22,31 @@
 //                      @"https://app.drateetsharma.com/api",
 //                      @"http://api.drjineshshah.com/api/v2"];
 
-#define API_URL [[[NSBundle mainBundle] infoDictionary] valueForKey:@"API_URL"]
-
-
 #ifndef DEBUG
 #define DEBUG 0
 #endif
 
-#define TARGET_NAME (NSString*) [[NSBundle mainBundle] infoDictionary][@"CFBundleDisplayName"]
-#define TEST_VERSION [TARGET_NAME isEqualToString:@"Consult"]
+#define APP_NAME (NSString*) [[NSBundle mainBundle] infoDictionary][@"CFBundleDisplayName"]
+#define DR_ATEET_SHARMA_APP [TARGET_NAME isEqualToString:@"Dr Ateet Sharma"]
+#define DR_JINESH_SHAH_APP [TARGET_NAME isEqualToString:@"Dr Jinesh Shah"]
+#define CONSULT_APP [TARGET_NAME isEqualToString:@"Consult"]
 
+#define QUOTEME(x) QUOTEME_1(x)
+#define QUOTEME_1(x) #x
+#define INCLUDE_FILE(x) QUOTEME(x-keys.h)
 
-#define PUBLISH_KEY     TEST_VERSION ? CONSULT_PUBLISH_KEY : (DEBUG ? DEBUG_PUBLISH_KEY : RELEASE_PUBLISH_KEY)
-#define SUB_KEY         TEST_VERSION ? CONSULT_SUB_KEY : (DEBUG ? DEBUG_SUB_KEY : RELEASE_SUB_KEY)
+#include INCLUDE_FILE(PRODUCT_NAME)
 
-
-//#define PUBLISH_KEY                 @"pub-c-8a2b71e5-abba-4100-a82f-0b711a688164"
-//#define SUB_KEY                     @"sub-c-c445e564-7c05-11e7-8bd1-0619f8945a4f"
-
-#define CONSULT_PUBLISH_KEY                 @"pub-c-557f4390-6625-4bbf-af0b-704cbd9f9730"
-#define CONSULT_SUB_KEY                     @"sub-c-d2ee5a6a-a80b-11e7-81e2-967c19df6324"
-
-#define DEBUG_PUBLISH_KEY                   @"pub-c-457a7ff0-70b4-46ed-8d40-4d21fabeaf01"
-#define DEBUG_SUB_KEY                       @"sub-c-0e556e0a-8e25-11e7-b947-aae040ae6b45"
-
-#define RELEASE_PUBLISH_KEY                 @"pub-c-8a2b71e5-abba-4100-a82f-0b711a688164"
-#define RELEASE_SUB_KEY                     @"sub-c-c445e564-7c05-11e7-8bd1-0619f8945a4f"
-
+#define PUBLISH_KEY     DEBUG ? DEBUG_PUBLISH_KEY : RELEASE_PUBLISH_KEY
+#define SUB_KEY         DEBUG ? DEBUG_SUB_KEY : RELEASE_SUB_KEY
 
 #define OUT_DATE_FORMAT             @"dd LLL yyyy HH:mm a"
 #define IN_DATE_FORMAT              @"yyyy-LL-dd'T'HH:mm:ssZ"
 
 #define CURRENT_USER_KEY            @"current_user"
 
-//#define API_BASE_URL                TEST_VERSION ? @"https://econsult.jshealthtech.com/api/v2" : @"https://app.drateetsharma.com/api"
-//#define PAY_URL                     TEST_VERSION ? @"https://econsult.jshealthtech.com/pay-for-mobile-appointments/%@" : @"https://consult.drateetsharma.com/pay-for-mobile-appointments/%@"
-
-#define API_BASE_URL                TEST_VERSION ? @"https://econsult.jshealthtech.com/api/v2" : API_URL
-#define PAY_URL                     TEST_VERSION ? @"https://econsult.jshealthtech.com/pay-for-mobile-appointments/%@" : @"https://consult.drateetsharma.com/pay-for-mobile-appointments/%@"
-
+#define API_BASE_URL                API_URL
+#define PAY_URL                     DEBUG ? DEBUG_PAY_URL : RELEASE_PAY_URL
 
 #define REGISTER_PHONE_END_POINT    @"login"
 #define VERIFY_PHONE_END_POINT      @"verify"
@@ -145,3 +131,4 @@
 #define PLACE_ORDER_END_POINT       @"private/v1/orders/%@?seat=%@"
 
 #endif /* API_Defines_h */
+

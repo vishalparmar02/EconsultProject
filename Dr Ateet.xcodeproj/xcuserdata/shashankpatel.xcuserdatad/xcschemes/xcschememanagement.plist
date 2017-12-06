@@ -12,12 +12,12 @@
 		<key>Dr Ateet Sharma.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>28</integer>
+			<integer>29</integer>
 		</dict>
 		<key>Dr Jinesh Shah.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>29</integer>
+			<integer>28</integer>
 		</dict>
 		<key>KH Consult.xcscheme</key>
 		<dict>
@@ -27,6 +27,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>6923B45E1FCD7CFF005039BB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>6956CAB01F5A89E700B66EB8</key>
 		<dict>
 			<key>primary</key>

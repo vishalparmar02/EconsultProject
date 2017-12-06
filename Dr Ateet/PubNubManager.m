@@ -116,7 +116,7 @@
 
 - (instancetype)init{
     if (self = [super init]) {
-        NSLog(@"%d - %@:%@", DEBUG, TARGET_NAME, PUBLISH_KEY);
+        NSLog(@"%d - %@:%@", DEBUG, APP_NAME, PUBLISH_KEY);
         self.configuration = [PNConfiguration configurationWithPublishKey:PUBLISH_KEY
                                                              subscribeKey:SUB_KEY];
         NSLog(PUBLISH_KEY);

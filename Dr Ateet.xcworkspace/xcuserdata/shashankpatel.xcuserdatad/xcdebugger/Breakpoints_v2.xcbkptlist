@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dr Ateet/AppDelegate.m"
-            timestampString = "533574693.055347"
+            timestampString = "534240893.211603"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "174"
@@ -73,8 +73,8 @@
                   symbolName = "-[DoctorProDetailsController setFormState:]"
                   moduleName = "Dr Jinesh Shah"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shashankpatel/Documents/KonectHealth/Dr%20Ateet/Dr%20Ateet/DoctorProDetailsController.m"
-                  timestampString = "533574693.195928"
+                  urlString = "file:///Users/shashankpatel/Documents/KonectHealth/dr-ateet-ios/Dr%20Ateet/DoctorProDetailsController.m"
+                  timestampString = "534240893.331003"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "150"
@@ -88,8 +88,8 @@
                   symbolName = "-[DoctorProDetailsController setFormState:]"
                   moduleName = "Dr Jinesh Shah"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shashankpatel/Documents/KonectHealth/Dr%20Ateet/Dr%20Ateet/DoctorProDetailsController.m"
-                  timestampString = "533574693.198258"
+                  urlString = "file:///Users/shashankpatel/Documents/KonectHealth/dr-ateet-ios/Dr%20Ateet/DoctorProDetailsController.m"
+                  timestampString = "534240893.332513"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "150"
@@ -97,6 +97,22 @@
                   offsetFromSymbolStart = "79">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Dr Ateet/CUser.m"
+            timestampString = "534240993.711086"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "-authHeader"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
