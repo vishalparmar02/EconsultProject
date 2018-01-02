@@ -26,7 +26,6 @@
 #define DEBUG 0
 #endif
 
-#define APP_NAME (NSString*) [[NSBundle mainBundle] infoDictionary][@"CFBundleDisplayName"]
 #define DR_ATEET_SHARMA_APP [TARGET_NAME isEqualToString:@"Dr Ateet Sharma"]
 #define DR_JINESH_SHAH_APP [TARGET_NAME isEqualToString:@"Dr Jinesh Shah"]
 #define CONSULT_APP [TARGET_NAME isEqualToString:@"Consult"]

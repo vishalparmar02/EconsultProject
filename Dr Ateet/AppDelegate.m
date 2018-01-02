@@ -57,7 +57,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 }
 
 - (void)registerForPushNotifications{
-    NSString *message = [NSString stringWithFormat:@"Get the most out of % App by allowing notifications in the next alert.", APP_NAME];
+    NSString *message = [NSString stringWithFormat:@"Get the most out of %@ App by allowing notifications in the next alert.", APP_NAME];
     [UIAlertController showAlertInViewController:self.window.rootViewController
                                        withTitle:@"Important"
                                          message:message
@@ -280,6 +280,14 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
     if ([CUser currentUser]) {
         self.window.rootViewController = self.drawerController;
     }else{
+        if(self.window.rootViewController){
+            UINavigationController *navController = (UINavigationController *)self.window.rootViewController;
+            if ([navController isKindOfClass:[UINavigationController class]]) {
+                if([navController.viewControllers[0] isKindOfClass:[RegisterMobileController class]]){
+                    return;
+                }
+            }
+        }
         self.window.rootViewController = [RegisterMobileController navigationController];
     }
     [self tryForPushNotification];

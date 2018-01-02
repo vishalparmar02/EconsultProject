@@ -1803,6 +1803,11 @@
 				DEVELOPMENT_TEAM = 57A8UFYFCW;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "./Dr Ateet/app.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"PRODUCT_NAME=\"Dr Ateet Sharma\"",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Apps/Dr Ateet Sharma/Dr Ateet Sharma-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1830,6 +1835,11 @@
 				DEVELOPMENT_TEAM = 57A8UFYFCW;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "./Dr Ateet/app.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"PRODUCT_NAME=\"Dr Ateet Sharma\"",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Apps/Dr Ateet Sharma/Dr Ateet Sharma-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -20,4 +20,6 @@
 
 #define API_URL                             @"https://app.drateetsharma.com/api"
 
+#define APP_NAME                            @"Dr Ateet Sharma"
+
 #endif /* Dr_Ateet_Sharma_keys_h */
