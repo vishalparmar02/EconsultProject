@@ -18,7 +18,10 @@
 #define DEBUG_PAY_URL                       @"https://econsult.jshealthtech.com/pay-for-mobile-appointments/%@"
 #define RELEASE_PAY_URL                     @"https://consult.drateetsharma.com/pay-for-mobile-appointments/%@"
 
-#define API_URL                             @"https://app.drateetsharma.com/api"
+#define DEBUG_API_URL                       @"http://beta.app.drateetsharma.com/api/v2"
+#define RELEASE_API_URL                     @"https://app.drateetsharma.com/api"
+
+#define API_URL                             DEBUG ? DEBUG_API_URL : RELEASE_API_URL
 
 #define APP_NAME                            @"Dr Ateet Sharma"
 

@@ -7,6 +7,7 @@
 //
 
 #import "Schedule.h"
+#import "MonthSelector.h"
 
 @implementation Schedule
 
@@ -108,6 +109,17 @@ static NSDateFormatter *inFormatter, *outFormatter;
     return time;
 }
 
+- (NSString*)repeatMonthsString{
+    NSArray *months = [MonthSelector allMonths];
+    NSArray *selectedMonths = self[@"repeat_month"];
+    NSMutableArray *selectedMonthNames = [NSMutableArray array];
+    for (NSString *monthIndex in selectedMonths) {
+        NSString *monthName = months[monthIndex.integerValue - 1];
+        [selectedMonthNames addObject:monthName];
+    }
+    return [selectedMonthNames componentsJoinedByString:@", "];
+}
+
 - (NSString*)timePerPatient{
     return [NSString stringWithFormat:@"%@ Minutes", self[@"time_duration"]];
 }
@@ -145,6 +157,28 @@ static NSDateFormatter *inFormatter, *outFormatter;
     return [repeatStringArray componentsJoinedByString:@"\n"];
 }
 
+- (CGFloat)heightForRepeatMonths{
+    UIFont *font = [UIFont fontWithName:@"Roboto-Light" size:14];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
+    
+    NSDictionary *attributes = @{NSFontAttributeName : font,
+                                 NSParagraphStyleAttributeName: paragraphStyle};
+    NSAttributedString *attrStr = [[NSAttributedString alloc] initWithString:[self repeatMonthsString]
+                                                                  attributes:attributes];
+    CGFloat width = [UIScreen mainScreen].bounds.size.width - 20;
+    CGRect rect = [attrStr boundingRectWithSize:CGSizeMake(width, 10000) options:NSStringDrawingUsesLineFragmentOrigin context:nil];
+    
+    CGFloat height = rect.size.height;
+    if ((int)height % 21 != 0) {
+        int div = ((int)height) / 21;
+        div++;
+        return 21 * div;
+    }
+    
+    return rect.size.height;
+}
+
 - (CGFloat)heightForRepeatString{
     UIFont *font = [UIFont fontWithName:@"Roboto-Light" size:14];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
@@ -168,8 +202,9 @@ static NSDateFormatter *inFormatter, *outFormatter;
 }
 
 - (CGFloat)height{
-    CGFloat titleHeight = [self heightForRepeatString];
-    return titleHeight + 120;
+    CGFloat repeatMonthHeight = [self heightForRepeatMonths];
+    CGFloat repeatStringHeight = [self heightForRepeatString];
+    return repeatMonthHeight + repeatStringHeight + 130;
 }
 
 - (void)saveInBackgroundWithBlock:(BooleanResultBlock)block{

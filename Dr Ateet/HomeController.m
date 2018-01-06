@@ -19,6 +19,7 @@
 #import "DoctorProfileController.h"
 #import "GiveAppointmentController.h"
 #import "PatientSelectorController.h"
+#import "NotificationsController.h"
 
 #define kCellWidth ((CGRectGetWidth(collectionView.frame) / 2) - 0)
 
@@ -72,6 +73,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIButton *notificationIcon = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
+    [notificationIcon setImage:[UIImage imageNamed:@"bell.png"] forState:UIControlStateNormal];
+    notificationIcon.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [notificationIcon addTarget:self action:@selector(notificationTapped) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:notificationIcon];
+    
+    if (@available(iOS 9, *)) {
+        [notificationIcon.widthAnchor constraintEqualToConstant: 32].active = YES;
+        [notificationIcon.heightAnchor constraintEqualToConstant: 32].active = YES;
+    }
+    
     self.userNameLabel.text = [[CUser currentUser] fullName];
     NSURL *profileURLString = [[CUser currentUser] profileImageURL];
     [self.userImageView sd_setImageWithURL:profileURLString
@@ -108,6 +121,12 @@
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [self checkProfileCompletion];
+}
+
+- (void)notificationTapped{
+    NotificationsController *vc = [[NotificationsController alloc] init];
+    [self presentViewController:NavigationControllerWithController(vc) animated:YES completion:nil];
+    
 }
 
 - (void)checkProfileCompletion{

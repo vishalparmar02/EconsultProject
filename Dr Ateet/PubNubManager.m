@@ -58,6 +58,7 @@
                 patientID = [(NSNumber*)patientID stringValue];
             }
             [channels addObject:[NSString stringWithFormat:@"patient_%@", patientID]];
+            [channels addObject:[NSString stringWithFormat:@"users_%@", currentUser.objectId]];
             [self.client subscribeToChannels:channels withPresence:NO];
             if (!TARGET_OS_SIMULATOR) {
                 NSLog(@"Device Token: %@", kDeviceToken);
@@ -71,6 +72,7 @@
             }
         }else if([currentUser isDoctor]){//Doctor
             [Patient fetchPatientsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+                [channels addObject:[NSString stringWithFormat:@"users_%@", currentUser.objectId]];
                 for (Patient *aPatient in objects) {
                     [channels addObject:[NSString stringWithFormat:@"patient_%@", aPatient.objectId]];
                 }
@@ -169,6 +171,16 @@
                                                                      object:nil
                                                                    userInfo:JSON];
         [[NSNotificationCenter defaultCenter] postNotification:notification];
+    }else if([JSON[@"type"] isEqualToString:@"generic"] || [JSON[@"type"] isEqualToString:@"upload_report"]){
+        if([UIApplication sharedApplication].applicationState != UIApplicationStateActive){
+            UILocalNotification *notification = [[UILocalNotification alloc]init];
+            notification.userInfo = JSON;
+            [notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:1]];
+            [notification setTimeZone:[NSTimeZone  defaultTimeZone]];
+            notification.soundName = @"ring.wav";
+            [notification setAlertBody:JSON[@"description"]];
+            [[UIApplication sharedApplication] setScheduledLocalNotifications:[NSArray arrayWithObject:notification]];
+        }
     }
 }
 

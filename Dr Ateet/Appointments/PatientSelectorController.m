@@ -53,7 +53,7 @@
     if (YES) {
         [self.searchBar resignFirstResponder];
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Add New Patient" message:nil preferredStyle:UIAlertControllerStyleAlert];
-        __block UITextField *firstNameField, *lastNameField, *mobileNumberField;
+        __block UITextField *firstNameField, *lastNameField, *countryCodeField, *mobileNumberField;
         [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
             firstNameField = textField;
             textField.placeholder = @"First Name";
@@ -62,6 +62,12 @@
         [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
             lastNameField = textField;
             textField.placeholder = @"Last Name";
+        }];
+        
+        [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+            countryCodeField = textField;
+            textField.placeholder = @"Country Code";
+            textField.keyboardType = UIKeyboardTypePhonePad;
         }];
         
         [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
@@ -85,6 +91,7 @@
                                                          [alert dismissViewControllerAnimated:YES completion:nil];
                                                          [self addPatient:firstNameField.text
                                                                          :lastNameField.text
+                                                                         :countryCodeField.text
                                                                          :mobileNumberField.text];
                                                      }];
         
@@ -95,11 +102,12 @@
     }
 }
 
-- (void)addPatient:(NSString*)firstName :(NSString*)lastName :(NSString*)mobile{
+- (void)addPatient:(NSString*)firstName :(NSString*)lastName :(NSString*)countryCode :(NSString*)mobile{
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     NSDictionary *patientDict = @{@"first_name" : firstName,
                                   @"last_name" : lastName,
                                   @"mobile_number" : mobile,
+                                  @"country_code" : countryCode,
                                   @"users_id" : [CUser currentUser].objectId,
                                   @"role_id" : [CUser currentUser][@"role_id"]};
     typeof(self) __weak weakSelf = self;

@@ -114,6 +114,15 @@
     row.value = user[row.tag];
     [section addFormRow:row];
     
+    // Country Code
+    row = [XLFormRowDescriptor formRowDescriptorWithTag:@"country_code" rowType:XLFormRowDescriptorTypePhone title:@"Country Code"];
+    [row.cellConfigAtConfigure setObject:@"Country Code" forKey:@"textField.placeholder"];
+    [row.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
+    [row.cellConfig setObject:font forKey:@"textLabel.font"];
+    [row.cellConfig setObject:detailFont forKey:@"textField.font"];
+    row.value = user[row.tag];
+    [section addFormRow:row];
+    
     // Mobile Number
     row = [XLFormRowDescriptor formRowDescriptorWithTag:@"mobile_number" rowType:XLFormRowDescriptorTypePhone title:@"Mobile Number"];
     [row.cellConfigAtConfigure setObject:@"Mobile Number" forKey:@"textField.placeholder"];
@@ -301,7 +310,11 @@
             self.navigationItem.rightBarButtonItem = self.editButton;
             
             for (NSString *aKey in currentUserDict.allKeys){
-                currentUser[aKey] = currentUserDict[aKey];
+                if ([currentUserDict[aKey] isKindOfClass:[NSNull class]]) {
+                    currentUser[aKey] = @"";
+                }else{
+                    currentUser[aKey] = currentUserDict[aKey];
+                }
             }
             [currentUser setCurrent];
             

@@ -14,8 +14,10 @@
 
 - (NSString*)startTime;
 - (NSString*)endTime;
+- (NSString*)repeatMonthsString;
 - (NSString*)time;
 - (NSString*)repeatString;
+- (CGFloat)heightForRepeatMonths;
 - (CGFloat)heightForRepeatString;
 - (CGFloat)height;
 - (NSString*)timePerPatient;

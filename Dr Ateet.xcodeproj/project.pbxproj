@@ -195,6 +195,12 @@
 		697DBA4F1F3ACB4300241776 /* ScheduleListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 697DBA4E1F3ACB4300241776 /* ScheduleListController.m */; };
 		697DBA521F3ACB6F00241776 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 697DBA511F3ACB6F00241776 /* Schedule.m */; };
 		69981F571F56AAAF00915518 /* CallController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69981F561F56AAAF00915518 /* CallController.m */; };
+		699841322000B68B007DD7C6 /* MonthSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 699841312000B68B007DD7C6 /* MonthSelector.m */; };
+		699841332000B68B007DD7C6 /* MonthSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 699841312000B68B007DD7C6 /* MonthSelector.m */; };
+		699841342000B68B007DD7C6 /* MonthSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 699841312000B68B007DD7C6 /* MonthSelector.m */; };
+		699841382000CC00007DD7C6 /* NotificationsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 699841372000CC00007DD7C6 /* NotificationsController.m */; };
+		699841392000CC00007DD7C6 /* NotificationsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 699841372000CC00007DD7C6 /* NotificationsController.m */; };
+		6998413A2000CC00007DD7C6 /* NotificationsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 699841372000CC00007DD7C6 /* NotificationsController.m */; };
 		69A035141EFB87EC00044F47 /* SlotManagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A035131EFB87EC00044F47 /* SlotManagerController.m */; };
 		69A035161EFB882B00044F47 /* Slot.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69A035151EFB882B00044F47 /* Slot.storyboard */; };
 		69AB82781FA9BC6C0086AE84 /* ImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69D13FF51F84DBE800B32ADD /* ImagePicker.framework */; };
@@ -405,6 +411,10 @@
 		697DBA511F3ACB6F00241776 /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
 		69981F551F56AAAF00915518 /* CallController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallController.h; sourceTree = "<group>"; };
 		69981F561F56AAAF00915518 /* CallController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallController.m; sourceTree = "<group>"; };
+		699841302000B68B007DD7C6 /* MonthSelector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MonthSelector.h; sourceTree = "<group>"; };
+		699841312000B68B007DD7C6 /* MonthSelector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonthSelector.m; sourceTree = "<group>"; };
+		699841362000CC00007DD7C6 /* NotificationsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationsController.h; sourceTree = "<group>"; };
+		699841372000CC00007DD7C6 /* NotificationsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationsController.m; sourceTree = "<group>"; };
 		69A035121EFB87EC00044F47 /* SlotManagerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlotManagerController.h; path = Doctor/SlotManagerController.h; sourceTree = "<group>"; };
 		69A035131EFB87EC00044F47 /* SlotManagerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlotManagerController.m; path = Doctor/SlotManagerController.m; sourceTree = "<group>"; };
 		69A035151EFB882B00044F47 /* Slot.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Slot.storyboard; path = Doctor/Slot.storyboard; sourceTree = "<group>"; };
@@ -594,6 +604,8 @@
 				696156341F4C1812005B7A87 /* PatientsListController.m */,
 				696156391F4C1E9E005B7A87 /* PatientInfoController.h */,
 				6961563A1F4C1E9E005B7A87 /* PatientInfoController.m */,
+				699841302000B68B007DD7C6 /* MonthSelector.h */,
+				699841312000B68B007DD7C6 /* MonthSelector.m */,
 			);
 			name = Doctor;
 			sourceTree = "<group>";
@@ -747,6 +759,8 @@
 				69981F561F56AAAF00915518 /* CallController.m */,
 				69FAE86B1EDBCC130099141C /* HomeController.h */,
 				69FAE86C1EDBCC130099141C /* HomeController.m */,
+				699841362000CC00007DD7C6 /* NotificationsController.h */,
+				699841372000CC00007DD7C6 /* NotificationsController.m */,
 				692569551F4EB741007DC450 /* ReportsController.h */,
 				692569561F4EB741007DC450 /* ReportsController.m */,
 				692569601F4EC446007DC450 /* ReportUploadController.h */,
@@ -916,6 +930,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6956CB011F5A89E700B66EB8 /* Build configuration list for PBXNativeTarget "Consult" */;
 			buildPhases = (
+				6998413B2000D4F9007DD7C6 /* ShellScript */,
 				051DAAC3C0E355FDF453A07F /* [CP] Check Pods Manifest.lock */,
 				6956CAB21F5A89E700B66EB8 /* Sources */,
 				6956CAE21F5A89E700B66EB8 /* Frameworks */,
@@ -1317,6 +1332,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dr Jinesh Shah/Pods-Dr Jinesh Shah-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		6998413B2000D4F9007DD7C6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ $CONFIGURATION == Release ]; then\necho \"Bumping build number...\"\nplist=${PROJECT_DIR}/${INFOPLIST_FILE}\n\n# increment the build number (ie 115 to 116)\nbuildnum=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${plist}\")\nif [[ \"${buildnum}\" == \"\" ]]; then\necho \"No build number in $plist\"\nexit 2\nfi\n\nbuildnum=$(expr $buildnum + 1)\n/usr/libexec/Plistbuddy -c \"Set CFBundleVersion $buildnum\" \"${plist}\"\necho \"Bumped build number to $buildnum\"\n\nelse\necho $CONFIGURATION \" build - Not bumping build number.\"\nfi";
+		};
 		DFFB34403280A24E2F84BCE1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1386,6 +1414,7 @@
 				6923B4801FCD7CFF005039BB /* Appointment.m in Sources */,
 				6923B4811FCD7CFF005039BB /* PatientSelectorController.m in Sources */,
 				6923B4821FCD7CFF005039BB /* UIButton+Blocks.m in Sources */,
+				6998413A2000CC00007DD7C6 /* NotificationsController.m in Sources */,
 				6923B4831FCD7CFF005039BB /* CallController.m in Sources */,
 				6923B4841FCD7CFF005039BB /* PatientAppointmentsController.m in Sources */,
 				6923B4851FCD7CFF005039BB /* ChatThread.m in Sources */,
@@ -1403,6 +1432,7 @@
 				6923B4901FCD7CFF005039BB /* ReportUploadController.m in Sources */,
 				6923B4911FCD7CFF005039BB /* UIImage+FixRotation.m in Sources */,
 				6923B4921FCD7CFF005039BB /* AppointmentCell.m in Sources */,
+				699841342000B68B007DD7C6 /* MonthSelector.m in Sources */,
 				6923B4931FCD7CFF005039BB /* DemoModelData.m in Sources */,
 				6923B4941FCD7CFF005039BB /* PubNubManager.m in Sources */,
 				6923B4951FCD7CFF005039BB /* PatientInfoController.m in Sources */,
@@ -1448,6 +1478,7 @@
 				6956CACB1F5A89E700B66EB8 /* Appointment.m in Sources */,
 				695D77211F5EA5D60011E666 /* PatientSelectorController.m in Sources */,
 				6956CACC1F5A89E700B66EB8 /* UIButton+Blocks.m in Sources */,
+				699841392000CC00007DD7C6 /* NotificationsController.m in Sources */,
 				6956CACD1F5A89E700B66EB8 /* CallController.m in Sources */,
 				6956CACE1F5A89E700B66EB8 /* PatientAppointmentsController.m in Sources */,
 				6956CACF1F5A89E700B66EB8 /* ChatThread.m in Sources */,
@@ -1465,6 +1496,7 @@
 				6956CAD91F5A89E700B66EB8 /* ReportUploadController.m in Sources */,
 				6956CADA1F5A89E700B66EB8 /* UIImage+FixRotation.m in Sources */,
 				6956CADB1F5A89E700B66EB8 /* AppointmentCell.m in Sources */,
+				699841332000B68B007DD7C6 /* MonthSelector.m in Sources */,
 				6956CADC1F5A89E700B66EB8 /* DemoModelData.m in Sources */,
 				6956CADD1F5A89E700B66EB8 /* PubNubManager.m in Sources */,
 				6956CADE1F5A89E700B66EB8 /* PatientInfoController.m in Sources */,
@@ -1510,6 +1542,7 @@
 				6961563E1F4C2388005B7A87 /* Appointment.m in Sources */,
 				695D77201F5EA5D60011E666 /* PatientSelectorController.m in Sources */,
 				696156301F4C13F0005B7A87 /* UIButton+Blocks.m in Sources */,
+				699841382000CC00007DD7C6 /* NotificationsController.m in Sources */,
 				69981F571F56AAAF00915518 /* CallController.m in Sources */,
 				6925696B1F4EE27E007DC450 /* PatientAppointmentsController.m in Sources */,
 				69FAE8DA1EDD29620099141C /* ChatThread.m in Sources */,
@@ -1527,6 +1560,7 @@
 				692569621F4EC446007DC450 /* ReportUploadController.m in Sources */,
 				6925695F1F4EC39A007DC450 /* UIImage+FixRotation.m in Sources */,
 				696156411F4C2543005B7A87 /* AppointmentCell.m in Sources */,
+				699841322000B68B007DD7C6 /* MonthSelector.m in Sources */,
 				69FAE8EA1EDD31930099141C /* DemoModelData.m in Sources */,
 				695000F01F55705C00B5A0B1 /* PubNubManager.m in Sources */,
 				6961563B1F4C1E9E005B7A87 /* PatientInfoController.m in Sources */,

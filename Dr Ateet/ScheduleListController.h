@@ -20,8 +20,9 @@
 @property (nonatomic, strong) IBOutlet  UILabel     *scheduleNameLabel;
 @property (nonatomic, strong) IBOutlet  UILabel     *scheduleDetailsLabel;
 @property (nonatomic, strong) IBOutlet  UILabel     *timePerPatientLabel;
+@property (nonatomic, strong) IBOutlet  UILabel     *monthsDetailsLabel;
 
-@property (nonatomic, strong) IBOutlet  NSLayoutConstraint  *detailsHeight;
+@property (nonatomic, strong) IBOutlet  NSLayoutConstraint  *detailsHeight, *monthsDetailsHeight;
 
 @property (nonatomic, strong) IBOutlet  UIView      *container;
 @property (nonatomic, strong)           Schedule    *schedule;

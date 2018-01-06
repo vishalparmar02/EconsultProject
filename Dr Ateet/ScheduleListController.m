@@ -22,6 +22,9 @@
     _schedule = schedule;
     
     self.scheduleNameLabel.text = [schedule time];
+    self.monthsDetailsLabel.text = [schedule repeatMonthsString];
+    self.monthsDetailsHeight.constant = [schedule heightForRepeatMonths];
+    self.detailsHeight.constant = [schedule heightForRepeatString];
     self.scheduleDetailsLabel.text = [schedule repeatString];
     self.timePerPatientLabel.text = [schedule timePerPatient];
     self.detailsHeight.constant = [schedule heightForRepeatString];

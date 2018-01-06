@@ -8,6 +8,7 @@
 
 #import "AddScheduleController.h"
 #import "UIPickerView+Blocks.h"
+#import "MonthSelector.h"
 
 @interface ScheduleDayCell ()
 
@@ -86,11 +87,14 @@
 
 @end
 
-@interface AddScheduleController ()<UITextFieldDelegate>
+@interface AddScheduleController ()<UITextFieldDelegate, MonthSelectorDelegate>
 
-@property (nonatomic, strong) IBOutlet  UITableView *tableView;
-@property (nonatomic, strong)           NSArray     *days;
+@property (nonatomic, strong) IBOutlet  UITableView     *tableView;
+@property (nonatomic, strong)           NSArray         *days;
+@property (nonatomic, strong)           NSMutableArray  *selectedMonths;
+
 @property (nonatomic, strong) IBOutlet  UITextField     *startTimeField, *endTimeField, *timePerPatientField;
+@property (nonatomic, strong) IBOutlet  UILabel         *monthsLabel;
 @property (nonatomic, strong)           UIPickerView    *minutesPicker;
 @property (nonatomic, strong)           UIDatePicker    *startTimePicker, *endTimePicker;
 
@@ -241,12 +245,22 @@ static NSDateFormatter *saveTimeFormatter;
     
     NSString *timePerPatient = [self.timePerPatientField.text stringByReplacingOccurrencesOfString:@" Min"
                                                                                         withString:@""];
+    if (self.selectedMonths.count == 0) self.selectedMonths = [MonthSelector allMonths].mutableCopy;
+    NSMutableArray *months = [NSMutableArray array];
+    for (NSInteger index = 0; index < [MonthSelector allMonths].count; index++) {
+        NSString *monthName = [MonthSelector allMonths][index];
+        if ([self.selectedMonths containsObject:monthName]) {
+            [months addObject:[@(index+1) stringValue]];
+        }
+    }
+    
     Schedule *newSchedule = [Schedule new];
     newSchedule[@"save"] = @{@"open_time" : [saveTimeFormatter stringFromDate:startTime],
                              @"close_time" : [saveTimeFormatter stringFromDate:endTime],
                              @"clinic_name" : self.clinicName,
                              @"clinic_id" : self.clinicID,
                              @"repeat" : repeatArray,
+                             @"repeat_month" : months,
                              @"time_duration" : timePerPatient};
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [newSchedule saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
@@ -296,10 +310,20 @@ static NSDateFormatter *saveTimeFormatter;
                                                                                         withString:@""];
     timePerPatient = [timePerPatient stringByReplacingOccurrencesOfString:@" Min"
                                                                               withString:@""];
+    if (self.selectedMonths.count == 0) self.selectedMonths = [MonthSelector allMonths].mutableCopy;
+    NSMutableArray *months = [NSMutableArray array];
+    for (NSInteger index = 0; index < [MonthSelector allMonths].count; index++) {
+        NSString *monthName = [MonthSelector allMonths][index];
+        if ([self.selectedMonths containsObject:monthName]) {
+            [months addObject:[@(index+1) stringValue]];
+        }
+    }
+    
     self.schedule[@"update"] = @{@"open_time" : [saveTimeFormatter stringFromDate:startTime],
                                  @"close_time" : [saveTimeFormatter stringFromDate:endTime],
                                  @"clinic_name" : self.schedule[@"clinicName"],
                                  @"clinic_id" : self.schedule[@"clinic_id"],
+                                 @"repeat_month" : months,
                                  @"repeat" : repeatArray,
                                  @"time_duration" : timePerPatient};
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -317,6 +341,31 @@ static NSDateFormatter *saveTimeFormatter;
                                                 tapBlock:nil];
         }
     }];
+}
+
+- (IBAction)monthSelectorTapped{
+    MonthSelector *selector = [[MonthSelector alloc] init];
+    selector.selectedMonths = self.selectedMonths;
+    selector.delegate = self;
+    [self presentViewController:NavigationControllerWithController(selector)
+                       animated:YES
+                     completion:nil];
+}
+
+- (void)monthsUpdated:(NSMutableArray *)selectedMonths{
+//    self.selectedMonths
+    if (selectedMonths.count == 12 || selectedMonths.count == 0) {
+        self.monthsLabel.text = @"All Months";
+        [self.selectedMonths removeAllObjects];
+        [self.selectedMonths addObjectsFromArray:[MonthSelector allMonths]];
+    }else{
+        self.selectedMonths = selectedMonths;
+        NSMutableArray *shortMonths = [NSMutableArray array];
+        for (NSString *aMonth in self.selectedMonths) {
+            [shortMonths addObject:[aMonth substringToIndex:3]];
+        }
+        self.monthsLabel.text = [shortMonths componentsJoinedByString:@", "];
+    }
 }
 
 @end

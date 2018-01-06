@@ -207,6 +207,12 @@ static NSDateFormatter *timeFormatter;
         
         [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
             mobileNumberField = textField;
+            textField.placeholder = @"Country Code";
+            textField.keyboardType = UIKeyboardTypePhonePad;
+        }];
+        
+        [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+            mobileNumberField = textField;
             textField.placeholder = @"Mobile Number";
             textField.keyboardType = UIKeyboardTypePhonePad;
         }];
