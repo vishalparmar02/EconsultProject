@@ -29,6 +29,7 @@ PODS:
     - CocoaLumberjack/Default
   - DACircularProgress (2.3.1)
   - DLRadioButton (1.4.9)
+  - EMCCountryPickerController+DialingCodes (1.4.3)
   - IDMPhotoBrowser (1.9.1):
     - DACircularProgress
     - pop
@@ -65,6 +66,7 @@ DEPENDENCIES:
   - BEMCheckBox
   - CocoaLumberjack
   - DLRadioButton
+  - EMCCountryPickerController+DialingCodes
   - IDMPhotoBrowser
   - iOS-Hierarchy-Viewer
   - IQKeyboardManager (~> 4.0.13)
@@ -91,6 +93,7 @@ SPEC CHECKSUMS:
   CocoaLumberjack: c823149bccc5519a9447aeb433be7b1212a7d6a5
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   DLRadioButton: 7bb8a6e3768b572469ace553391ab4d2af6f9c19
+  EMCCountryPickerController+DialingCodes: e665199306ba06f3997b4a3025bb69302d937169
   IDMPhotoBrowser: 35e8ba559a88f2a8be4ae04d7fd424665344ba06
   iOS-Hierarchy-Viewer: fb8ef72b55a8915ab0575543970754ea696e9061
   IQKeyboardManager: 8eab4d8111418414619d1df8e4779ce5d0f8d7e2
@@ -109,6 +112,6 @@ SPEC CHECKSUMS:
   UIColor+Hex: 9fee91bb8e19f17dd40a79ae1e98949a6a84489d
   XLForm: d5c391dfc62865927b5bcab0a5a0dbfb3e02b0ec
 
-PODFILE CHECKSUM: 6213ea8b36875a464fb7ef427f004a59a38920ee
+PODFILE CHECKSUM: 1c4b4974498878e421c2777c1b514b92f016afaf
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.3.1

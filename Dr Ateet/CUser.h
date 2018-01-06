@@ -19,8 +19,11 @@ typedef void (^UserResultBlock)(CUser *_Nullable user, NSError *_Nullable error)
 
 + (nullable CUser*)currentUser;
 + (void)logOut;
-+ (void)registerMobile:(nonnull NSString *)phone inBackgroundWithBlock:(nullable BooleanResultBlock)block;
-+ (void)verifyMobile:(nonnull NSString *)phone OTP:(NSString*)OTP inBackgroundWithBlock:(nullable UserResultBlock)block;
++ (void)registerMobile:(nonnull NSString *)phone
+               country:(NSString*)country
+ inBackgroundWithBlock:(nullable BooleanResultBlock)block;
++ (void)verifyMobile:(nonnull NSString *)phone country:(NSString*)country
+                 OTP:(NSString*)OTP inBackgroundWithBlock:(nullable UserResultBlock)block;
 + (void)fetchDoctorProfileInBackgroundWithBlock:(DictionaryResultBlock)block;
 
 - (void)setCurrent;

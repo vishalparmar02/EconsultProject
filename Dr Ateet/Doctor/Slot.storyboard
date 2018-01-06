@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -429,13 +428,13 @@ Tue (Week 1, Week 2)</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qug-j6-KiF">
-                                                    <rect key="frame" x="120" y="0.0" width="237" height="59.5"/>
+                                                    <rect key="frame" x="120" y="0.0" width="230" height="59.5"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0qv-LF-3v8">
-                                                            <rect key="frame" x="0.0" y="0.0" width="59.5" height="59.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="58" height="59.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1st" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDe-Qp-sZP">
-                                                                    <rect key="frame" x="0.5" y="39.5" width="60" height="20"/>
+                                                                    <rect key="frame" x="0.5" y="39.5" width="58.5" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="fLw-C7-Rbr"/>
                                                                     </constraints>
@@ -452,10 +451,10 @@ Tue (Week 1, Week 2)</string>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="weJ-J7-zwL">
-                                                            <rect key="frame" x="59" y="0.0" width="59" height="59.5"/>
+                                                            <rect key="frame" x="57.5" y="0.0" width="58" height="59.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2nd" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WgV-uk-0MX">
-                                                                    <rect key="frame" x="0.0" y="39.5" width="59" height="20"/>
+                                                                    <rect key="frame" x="0.0" y="39.5" width="58" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="U8m-qR-Pze"/>
                                                                     </constraints>
@@ -472,10 +471,10 @@ Tue (Week 1, Week 2)</string>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jdr-XC-xjT">
-                                                            <rect key="frame" x="118" y="0.0" width="59" height="59.5"/>
+                                                            <rect key="frame" x="115.5" y="0.0" width="58.5" height="59.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3rd" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnP-4b-Rwd">
-                                                                    <rect key="frame" x="0.0" y="39.5" width="59" height="20"/>
+                                                                    <rect key="frame" x="0.0" y="39.5" width="58.5" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="0q6-HP-5nI"/>
                                                                     </constraints>
@@ -492,10 +491,10 @@ Tue (Week 1, Week 2)</string>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PSh-TB-e3B">
-                                                            <rect key="frame" x="177" y="0.0" width="59" height="59.5"/>
+                                                            <rect key="frame" x="174" y="0.0" width="58" height="59.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4th" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvX-T1-2mk">
-                                                                    <rect key="frame" x="0.0" y="39.5" width="59" height="20"/>
+                                                                    <rect key="frame" x="0.0" y="39.5" width="58" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="TXE-CS-Rxz"/>
                                                                     </constraints>
@@ -611,9 +610,17 @@ Tue (Week 1, Week 2)</string>
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" showsCancelButton="YES" id="Kox-XV-22M">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="6E2-Hy-pfL" id="Ckt-W9-cNT"/>
+                                    </connections>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PatientCell" rowHeight="60" id="yfC-Uv-3xr" customClass="PatientCell">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="84" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yfC-Uv-3xr" id="C4J-FM-8U5">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="59.5"/>
@@ -622,7 +629,7 @@ Tue (Week 1, Week 2)</string>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9MD-PS-XGt">
                                                     <rect key="frame" x="5" y="5" width="332" height="50"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jyf-dI-10j">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jyf-dI-10j">
                                                             <rect key="frame" x="10" y="4.5" width="40" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="jyf-dI-10j" secondAttribute="height" id="ETR-bY-Phz"/>
@@ -685,6 +692,7 @@ Tue (Week 1, Week 2)</string>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="searchBar" destination="Kox-XV-22M" id="onC-z7-LCx"/>
                         <outlet property="tableView" destination="87M-jM-kBn" id="Gku-zF-u0I"/>
                     </connections>
                 </viewController>

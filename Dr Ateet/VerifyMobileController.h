@@ -11,6 +11,6 @@
 
 @interface VerifyMobileController : BaseController
 
-@property   (nonatomic, strong)     NSString    *mobileNumber;
+@property   (nonatomic, strong)     NSString    *mobileNumber, *countryCode;
 
 @end

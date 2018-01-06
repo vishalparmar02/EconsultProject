@@ -19,5 +19,6 @@
 
 - (void)fetchBookedAppointmentsInBackgroundWithBlock:(nullable ArrayResultBlock)block;
 + (void)addPatient:(NSDictionary*)dict inBackgroundWithBlock:(nullable DictionaryResultBlock)block;
+- (BOOL)matches:(NSString*)matchString;
 
 @end

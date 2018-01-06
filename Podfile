@@ -22,6 +22,8 @@ def pods
   pod 'AppRTC', path: '.'
   pod 'PubNub'
   pod 'CocoaLumberjack'
+  pod 'EMCCountryPickerController+DialingCodes'
+
 end
 
 target 'Dr Ateet Sharma' do

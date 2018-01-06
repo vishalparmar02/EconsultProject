@@ -70,7 +70,8 @@
 
 - (IBAction)resendTapped{
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [CUser registerMobile:self.mobileNumber inBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+    [CUser registerMobile:self.mobileNumber country:self.countryCode
+    inBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (!succeeded) {
             [UIAlertController showAlertInViewController:self
@@ -97,7 +98,8 @@
                                             tapBlock:nil];
         return;
     }
-    [CUser verifyMobile:self.mobileNumber OTP:self.OTPField.text inBackgroundWithBlock:^(CUser * _Nullable user, NSError * _Nullable error) {
+    [CUser verifyMobile:self.mobileNumber country:self.countryCode
+                    OTP:self.OTPField.text inBackgroundWithBlock:^(CUser * _Nullable user, NSError * _Nullable error) {
         if (!error) {
             [PubNubManager updateChannels];
             [[MenuController controller] reload];

@@ -166,4 +166,10 @@
     return [self.fullName.lowercaseString compare:other.fullName.lowercaseString];
 }
 
+- (BOOL)matches:(NSString*)matchString{
+    return [[self fullName] rangeOfString:matchString options:NSCaseInsensitiveSearch].location != NSNotFound
+    || [self[@"mobile_number"] rangeOfString:matchString options:NSCaseInsensitiveSearch].location != NSNotFound
+    || matchString.length == 0;
+}
+
 @end

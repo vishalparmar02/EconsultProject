@@ -208,6 +208,9 @@
 		69BBCAD61F39CEE30065083B /* ClinicsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BBCAD51F39CEE30065083B /* ClinicsListController.m */; };
 		69BBCAD91F39CF510065083B /* Clinic.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BBCAD81F39CF510065083B /* Clinic.m */; };
 		69BBCADC1F39E08D0065083B /* ClinicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BBCADB1F39E08D0065083B /* ClinicViewController.m */; };
+		69C9A3A41FFE1C7E00231853 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C9A3A31FFE1C7E00231853 /* Notification.m */; };
+		69C9A3A51FFE1C7E00231853 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C9A3A31FFE1C7E00231853 /* Notification.m */; };
+		69C9A3A61FFE1C7E00231853 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C9A3A31FFE1C7E00231853 /* Notification.m */; };
 		69D13FC91F84C8CE00B32ADD /* PDFController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D13FC81F84C8CE00B32ADD /* PDFController.m */; };
 		69D13FCA1F84C8CE00B32ADD /* PDFController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D13FC81F84C8CE00B32ADD /* PDFController.m */; };
 		69D13FF81F84DBF300B32ADD /* ImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69D13FF51F84DBE800B32ADD /* ImagePicker.framework */; };
@@ -419,6 +422,8 @@
 		69BBCAD81F39CF510065083B /* Clinic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Clinic.m; sourceTree = "<group>"; };
 		69BBCADA1F39E08D0065083B /* ClinicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClinicViewController.h; sourceTree = "<group>"; };
 		69BBCADB1F39E08D0065083B /* ClinicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClinicViewController.m; sourceTree = "<group>"; };
+		69C9A3A21FFE1C7E00231853 /* Notification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
+		69C9A3A31FFE1C7E00231853 /* Notification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
 		69D13FC71F84C8CE00B32ADD /* PDFController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDFController.h; sourceTree = "<group>"; };
 		69D13FC81F84C8CE00B32ADD /* PDFController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDFController.m; sourceTree = "<group>"; };
 		69D13FE41F84D8A100B32ADD /* Dr Ateet Sharma-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Dr Ateet Sharma-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -670,6 +675,8 @@
 				6961563D1F4C2388005B7A87 /* Appointment.m */,
 				69BA7E0E1FA8B5560030ECF1 /* Vacation.h */,
 				69BA7E0F1FA8B5560030ECF1 /* Vacation.m */,
+				69C9A3A21FFE1C7E00231853 /* Notification.h */,
+				69C9A3A31FFE1C7E00231853 /* Notification.m */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -1152,7 +1159,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2E900039BBEAA66C768C7F4E /* [CP] Copy Pods Resources */ = {
@@ -1162,6 +1169,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Consult/Pods-Consult-resources.sh",
+				"${PODS_ROOT}/EMCCountryPickerController+DialingCodes/EMCCountryPickerController/EMCCountryPickerController.bundle",
 				"${PODS_ROOT}/IDMPhotoBrowser/Classes/IDMPhotoBrowser.bundle",
 				"${PODS_ROOT}/IDMPhotoBrowser/Classes/IDMPBLocalizations.bundle",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
@@ -1199,7 +1207,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5A3C386001C554DE847A0B4F /* [CP] Copy Pods Resources */ = {
@@ -1209,6 +1217,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Dr Ateet Sharma/Pods-Dr Ateet Sharma-resources.sh",
+				"${PODS_ROOT}/EMCCountryPickerController+DialingCodes/EMCCountryPickerController/EMCCountryPickerController.bundle",
 				"${PODS_ROOT}/IDMPhotoBrowser/Classes/IDMPhotoBrowser.bundle",
 				"${PODS_ROOT}/IDMPhotoBrowser/Classes/IDMPBLocalizations.bundle",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
@@ -1256,11 +1265,11 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Consult-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Dr Jinesh Shah-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6923B4B81FCD7CFF005039BB /* [CP] Embed Pods Frameworks */ = {
@@ -1284,7 +1293,8 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Consult/Pods-Consult-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Dr Jinesh Shah/Pods-Dr Jinesh Shah-resources.sh",
+				"${PODS_ROOT}/EMCCountryPickerController+DialingCodes/EMCCountryPickerController/EMCCountryPickerController.bundle",
 				"${PODS_ROOT}/IDMPhotoBrowser/Classes/IDMPhotoBrowser.bundle",
 				"${PODS_ROOT}/IDMPhotoBrowser/Classes/IDMPBLocalizations.bundle",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
@@ -1381,6 +1391,7 @@
 				6923B4851FCD7CFF005039BB /* ChatThread.m in Sources */,
 				6923B4861FCD7CFF005039BB /* MenuController.m in Sources */,
 				6923B4871FCD7CFF005039BB /* RegisterMobileController.m in Sources */,
+				69C9A3A61FFE1C7E00231853 /* Notification.m in Sources */,
 				6923B4881FCD7CFF005039BB /* NSError+PrintHTML.m in Sources */,
 				6923B4891FCD7CFF005039BB /* BookAppointmentController.m in Sources */,
 				6923B48A1FCD7CFF005039BB /* UIView+Theme.m in Sources */,
@@ -1442,6 +1453,7 @@
 				6956CACF1F5A89E700B66EB8 /* ChatThread.m in Sources */,
 				6956CAD01F5A89E700B66EB8 /* MenuController.m in Sources */,
 				6956CAD11F5A89E700B66EB8 /* RegisterMobileController.m in Sources */,
+				69C9A3A51FFE1C7E00231853 /* Notification.m in Sources */,
 				6956CAD21F5A89E700B66EB8 /* NSError+PrintHTML.m in Sources */,
 				6956CAD31F5A89E700B66EB8 /* BookAppointmentController.m in Sources */,
 				6956CAD41F5A89E700B66EB8 /* UIView+Theme.m in Sources */,
@@ -1503,6 +1515,7 @@
 				69FAE8DA1EDD29620099141C /* ChatThread.m in Sources */,
 				69EE2FCC1F3999AB0083E929 /* MenuController.m in Sources */,
 				69EE2FD21F399B190083E929 /* RegisterMobileController.m in Sources */,
+				69C9A3A41FFE1C7E00231853 /* Notification.m in Sources */,
 				69FAE8C91EDD1B8C0099141C /* NSError+PrintHTML.m in Sources */,
 				692569651F4ECE2E007DC450 /* BookAppointmentController.m in Sources */,
 				69FAE8CB1EDD1B8C0099141C /* UIView+Theme.m in Sources */,

@@ -75,6 +75,8 @@
 #define EDIT_DOCTOR_PROFILE         @"doctor/editProfile"
 #define EDIT_PATIENT_PROFILE        @"patient/editProfile"
 
+#define GET_NOTIFICATIONS           @"/%@/notification"
+
 #define GET_PATIENTS                @"doctor/patientInfo"
 #define GET_STAFF                   @"doctor/staffInfo/"
 #define ADD_STAFF                   @"doctor/addStaff"

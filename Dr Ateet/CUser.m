@@ -84,10 +84,13 @@ static CUser *currentUser;
     [PubNubManager updateChannels];
 }
 
-+ (void)registerMobile:(nonnull NSString *)phone inBackgroundWithBlock:(nullable BooleanResultBlock)block{
++ (void)registerMobile:(nonnull NSString *)phone
+               country:(NSString*)country
+ inBackgroundWithBlock:(nullable BooleanResultBlock)block{
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-    NSDictionary *params = @{@"mobile_number" : phone};
+    NSDictionary *params = @{@"mobile_number" : phone,
+                             @"country_code" : country};
     NSString *URLString             = [API_BASE_URL stringByAppendingPathComponent:REGISTER_PHONE_END_POINT];
     NSMutableURLRequest *request    = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST"
                                                                                     URLString:URLString
@@ -105,7 +108,8 @@ static CUser *currentUser;
     [dataTask resume];
 }
 
-+ (void)verifyMobile:(nonnull NSString *)phone OTP:(NSString*)OTP inBackgroundWithBlock:(nullable UserResultBlock)block{
++ (void)verifyMobile:(nonnull NSString *)phone country:(NSString*)country
+                 OTP:(NSString*)OTP inBackgroundWithBlock:(nullable UserResultBlock)block{
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     NSDictionary *params = @{@"mobile_number" : phone,
