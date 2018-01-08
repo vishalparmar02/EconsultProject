@@ -47,6 +47,8 @@
 #define API_BASE_URL                API_URL
 #define PAY_URL                     DEBUG ? DEBUG_PAY_URL : RELEASE_PAY_URL
 
+#define CHECK_UPDATE                @"app/check-update"
+
 #define REGISTER_PHONE_END_POINT    @"login"
 #define VERIFY_PHONE_END_POINT      @"verify"
 #define GET_CLINICS                 @"getAllClinics"
