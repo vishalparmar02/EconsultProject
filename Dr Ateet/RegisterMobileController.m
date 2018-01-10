@@ -48,6 +48,7 @@
         if (succeeded) {
             VerifyMobileController *vc = [VerifyMobileController controller];
             vc.mobileNumber = self.mobileNumberField.text;
+            vc.countryCode = self.countryCodeField.text;
             [self.navigationController pushViewController:vc animated:YES];
         }else{
             [UIAlertController showAlertInViewController:self

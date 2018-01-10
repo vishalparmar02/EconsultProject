@@ -17,6 +17,7 @@
 #import "NSArray+JSON.h"
 #import "NSDictionary+JSON.h"
 #import "NSString+JSON.h"
+#import "NSDictionary+Status.h"
 
 //NSArray *API_URLs = @[@"https://econsult.jshealthtech.com/api/v2",
 //                      @"https://app.drateetsharma.com/api",

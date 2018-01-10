@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "$0"
+SCRIPT_DIR="$( cd "$( dirname "$0" )" && pwd )"
+echo "$SCRIPT_DIR"
+cd "$SCRIPT_DIR"
+echo `pwd`
+read commit_message
+git add .
+git commit -m "$commit_message"
+git push origin master

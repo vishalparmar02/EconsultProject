@@ -124,9 +124,15 @@ static CUser *currentUser;
         if (error) {
             block(nil, error);
         } else {
-            CUser *user = [[CUser alloc] initWithDictionary:responseObject[@"data"]];
-            [user setCurrent];
-            block(user, error);
+            if ([responseObject isSuccess]) {
+                CUser *user = [[CUser alloc] initWithDictionary:responseObject[@"data"]];
+                [user setCurrent];
+                block(user, error);
+            }else{
+                block(nil, [NSError errorWithDomain:NSURLErrorDomain
+                                               code:401 userInfo:responseObject]);
+            }
+            
         }
     }];
     [dataTask resume];

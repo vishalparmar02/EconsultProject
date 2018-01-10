@@ -105,6 +105,9 @@
 		692569681F4ED74D007DC450 /* Slot.m in Sources */ = {isa = PBXBuildFile; fileRef = 692569671F4ED74D007DC450 /* Slot.m */; };
 		6925696B1F4EE27E007DC450 /* PatientAppointmentsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6925696A1F4EE27E007DC450 /* PatientAppointmentsController.m */; };
 		692569711F4EEAB7007DC450 /* ARTCVideoChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6925696F1F4EEAB7007DC450 /* ARTCVideoChatViewController.m */; };
+		694C9F472005E88F009A7C69 /* NSDictionary+Status.m in Sources */ = {isa = PBXBuildFile; fileRef = 694C9F462005E88F009A7C69 /* NSDictionary+Status.m */; };
+		694C9F482005E88F009A7C69 /* NSDictionary+Status.m in Sources */ = {isa = PBXBuildFile; fileRef = 694C9F462005E88F009A7C69 /* NSDictionary+Status.m */; };
+		694C9F492005E88F009A7C69 /* NSDictionary+Status.m in Sources */ = {isa = PBXBuildFile; fileRef = 694C9F462005E88F009A7C69 /* NSDictionary+Status.m */; };
 		695000F01F55705C00B5A0B1 /* PubNubManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 695000EF1F55705C00B5A0B1 /* PubNubManager.m */; };
 		6956CAB31F5A89E700B66EB8 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 697DBA511F3ACB6F00241776 /* Schedule.m */; };
 		6956CAB41F5A89E700B66EB8 /* ScheduleListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 697DBA4E1F3ACB4300241776 /* ScheduleListController.m */; };
@@ -381,6 +384,8 @@
 		6925696A1F4EE27E007DC450 /* PatientAppointmentsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PatientAppointmentsController.m; path = ../Patients/PatientAppointmentsController.m; sourceTree = "<group>"; };
 		6925696E1F4EEAB7007DC450 /* ARTCVideoChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARTCVideoChatViewController.h; sourceTree = "<group>"; };
 		6925696F1F4EEAB7007DC450 /* ARTCVideoChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTCVideoChatViewController.m; sourceTree = "<group>"; };
+		694C9F442005E88E009A7C69 /* NSDictionary+Status.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Status.h"; sourceTree = "<group>"; };
+		694C9F462005E88F009A7C69 /* NSDictionary+Status.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Status.m"; sourceTree = "<group>"; };
 		695000EE1F55705C00B5A0B1 /* PubNubManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PubNubManager.h; sourceTree = "<group>"; };
 		695000EF1F55705C00B5A0B1 /* PubNubManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PubNubManager.m; sourceTree = "<group>"; };
 		6956CB041F5A89E700B66EB8 /* Consult.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Consult.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -668,6 +673,8 @@
 		69EE2FC01F3995020083E929 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				694C9F442005E88E009A7C69 /* NSDictionary+Status.h */,
+				694C9F462005E88F009A7C69 /* NSDictionary+Status.m */,
 				69EE2FC71F39955F0083E929 /* API_Defines.h */,
 				69EE2FC11F3995530083E929 /* CObject.h */,
 				69EE2FC21F3995530083E929 /* CObject.m */,
@@ -1388,6 +1395,7 @@
 				6923B4661FCD7CFF005039BB /* ReportsController.m in Sources */,
 				6923B4671FCD7CFF005039BB /* HomeController.m in Sources */,
 				6923B4681FCD7CFF005039BB /* AddScheduleController.m in Sources */,
+				694C9F492005E88F009A7C69 /* NSDictionary+Status.m in Sources */,
 				6923B4691FCD7CFF005039BB /* ClinicViewController.m in Sources */,
 				6923B46A1FCD7CFF005039BB /* PDFController.m in Sources */,
 				6923B46B1FCD7CFF005039BB /* Vacation.m in Sources */,
@@ -1452,6 +1460,7 @@
 				6956CAB61F5A89E700B66EB8 /* ReportsController.m in Sources */,
 				6956CAB71F5A89E700B66EB8 /* HomeController.m in Sources */,
 				6956CAB81F5A89E700B66EB8 /* AddScheduleController.m in Sources */,
+				694C9F482005E88F009A7C69 /* NSDictionary+Status.m in Sources */,
 				6956CAB91F5A89E700B66EB8 /* ClinicViewController.m in Sources */,
 				69D13FCA1F84C8CE00B32ADD /* PDFController.m in Sources */,
 				69BA7E111FA8B5560030ECF1 /* Vacation.m in Sources */,
@@ -1516,6 +1525,7 @@
 				692569571F4EB741007DC450 /* ReportsController.m in Sources */,
 				69FAE86D1EDBCC130099141C /* HomeController.m in Sources */,
 				6914ACD31F46A2C8001131DE /* AddScheduleController.m in Sources */,
+				694C9F472005E88F009A7C69 /* NSDictionary+Status.m in Sources */,
 				69BBCADC1F39E08D0065083B /* ClinicViewController.m in Sources */,
 				69D13FC91F84C8CE00B32ADD /* PDFController.m in Sources */,
 				69BA7E101FA8B5560030ECF1 /* Vacation.m in Sources */,
