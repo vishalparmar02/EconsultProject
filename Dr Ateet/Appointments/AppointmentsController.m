@@ -317,7 +317,7 @@
     NSNumber *senderID = [[CUser currentUser] isPatient] ? [CUser currentUser][@"patient_id"] : @-1;
     Appointment *appointment = self.appointments[indexPath.row];
     if ([[appointment[@"clinic_name"] lowercaseString] isEqualToString:@"online"]){
-        NSString *calleeChannel = [NSString stringWithFormat:@"patient_%@", [appointment[@"patient_id"] stringValue]];
+        NSString *calleeChannel = PATIENT_CHANNEL([appointment[@"patient_id"] stringValue]);
         
         NSString *roomID = [NSString stringWithFormat:@"room_%u", arc4random_uniform(999999)];
         NSString *callDescription = @"Dr. would like to start video call.";

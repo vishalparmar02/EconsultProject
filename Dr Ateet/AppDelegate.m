@@ -18,6 +18,8 @@
 #import <CocoaLumberjack/CocoaLumberjack.h>
 #import "Notification.h"
 
+@import LNRSimpleNotifications;
+
 static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 #define PushNotificationDetailsKey  @"PushNotificationDetailsKey"
@@ -341,6 +343,27 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
         [[CallController sharedController] callReceived:self.scheduledCallNotification];
         self.scheduledCallNotification = nil;
     }
+}
+
+
+- (void)showNotificationWithTitle:(NSString*)title description:(NSString*)description{
+    static LNRNotificationManager *notificationsManager;
+    if (!notificationsManager) {
+        notificationsManager = [[LNRNotificationManager alloc] init];
+        notificationsManager.notificationsTitleTextColor = [UIColor whiteColor];
+        notificationsManager.notificationsBodyTextColor = [UIColor whiteColor];
+        notificationsManager.notificationsTitleFont = [UIFont fontWithName:@"OpenSans-SemiBold" size:25];
+        notificationsManager.notificationsBodyFont = [UIFont fontWithName:@"OpenSans-SemiBold" size:20];
+    }
+    
+    notificationsManager.notificationsBackgroundColor = [UIColor orangeColor];
+    LNRNotification *notification = [[LNRNotification alloc] initWithTitle:title
+                                                                      body:description
+                                                                  duration:3
+                                                                     onTap:nil
+                                                                 onTimeout:nil];
+    [notificationsManager showNotificationWithNotification:notification];
+    
 }
 
 

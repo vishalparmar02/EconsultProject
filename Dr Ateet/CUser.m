@@ -91,6 +91,7 @@ static CUser *currentUser;
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     NSDictionary *params = @{@"mobile_number" : phone,
                              @"country_code" : country};
+    NSLog(API_BASE_URL);
     NSString *URLString             = [API_BASE_URL stringByAppendingPathComponent:REGISTER_PHONE_END_POINT];
     NSMutableURLRequest *request    = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST"
                                                                                     URLString:URLString

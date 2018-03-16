@@ -140,6 +140,7 @@ static NSInteger kARDAppClientErrorInvalidRoom = -7;
 }
 
 - (void)orientationChanged:(NSNotification *)notification {
+    return;
     UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
     if (UIDeviceOrientationIsLandscape(orientation) || UIDeviceOrientationIsPortrait(orientation)) {
         //Remove current video track

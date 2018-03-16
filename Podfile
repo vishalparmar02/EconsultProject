@@ -1,7 +1,6 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '9.1'
 
-
 def pods
   pod 'AFNetworking'
   pod 'MBProgressHUD'
@@ -23,7 +22,6 @@ def pods
   pod 'PubNub'
   pod 'CocoaLumberjack'
   pod 'EMCCountryPickerController+DialingCodes'
-
 end
 
 target 'Dr Ateet Sharma' do
@@ -37,3 +35,4 @@ end
 target 'Dr Jinesh Shah' do
   pods
 end
+

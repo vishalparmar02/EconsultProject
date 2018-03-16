@@ -82,17 +82,16 @@ If you don't set any theme options your notifications will default to black text
 __The Class Triggering Notifications__
 
 ```swift
-
 let notificationManager = LNRNotificationManager()
 
 ### 
 
 func methodThatTriggersNotification:(title: String, body: String) {
-	notificationManager.showNotification("Test Title", body: "Test Body", callback: { () -> Void in
-		notificationManager.dismissActiveNotification({ () -> Void in
-			println("Notification dismissed")
-		})
-	})
+	notificationManager.showNotification(notification: LNRNotification(title: title, body: body, duration: LNRNotificationDuration.default.rawValue, onTap: { () -> Void in
+		print("Notification Dismissed")
+	}, onTimeout: { () -> Void in
+		print("Notification Timed Out")
+	}))
 }
 ```
 
@@ -117,9 +116,9 @@ Absolutely!
 
 ## About LISNR
 
-LISNR is a startup leveraging high frequency, inaudible sounds waves to transmit data over audio. Using our technology we have activated synchronized light shows at concerts, triggered location-based notifications, rewarded music fans with behind-the-scenes content, delivered at-shelf product information, and solved pain points in sports stadiums for the Dallas Cowboys, Swedish House Mafia, Roc Nation, AT&T, Budweiser, and many more.
+LISNR is a startup leveraging ultrasonic audio to transmit data between devices without a network. Using our technology we have synchronized light shows on phones at concerts, triggered location-based notifications, rewarded music fans with behind-the-scenes content, delivered at-shelf product information, and made art galleries come alive.
 
-Want to know more about LISNR? Reach out to [dev@lisnr.com](dev@lisnr.com).
+Want to know more about LISNR? Reach out to [inquiries@lisnr.com](inquiries@lisnr.com).
 
 ## License
 

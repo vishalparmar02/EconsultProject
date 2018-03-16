@@ -57,7 +57,7 @@
             if (![patientID isKindOfClass:[NSString class]]) {
                 patientID = [(NSNumber*)patientID stringValue];
             }
-            [channels addObject:[NSString stringWithFormat:@"patient_%@", patientID]];
+            [channels addObject:PATIENT_CHANNEL(patientID)];
             [channels addObject:[NSString stringWithFormat:@"users_%@", currentUser.objectId]];
             [self.client subscribeToChannels:channels withPresence:NO];
             if (!TARGET_OS_SIMULATOR) {
@@ -74,8 +74,9 @@
             [Patient fetchPatientsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
                 [channels addObject:[NSString stringWithFormat:@"users_%@", currentUser.objectId]];
                 for (Patient *aPatient in objects) {
-                    [channels addObject:[NSString stringWithFormat:@"patient_%@", aPatient.objectId]];
+                    [channels addObject:PATIENT_CHANNEL(aPatient.objectId)];
                 }
+                NSLog(@"Subscribe to:%@", channels.description);
                 [self.client subscribeToChannels:channels withPresence:NO];
                 NSLog(@"Device Token: %@", kDeviceToken);
                 if (!TARGET_OS_SIMULATOR) {
@@ -108,6 +109,7 @@
                                                         @"type": json[@"type"]}
                                             }
                                   };
+    NSLog(json.description);
     [self.client publish:callPayload
                toChannel:channel
        mobilePushPayload:isCall ? pushPayload : nil

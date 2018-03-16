@@ -10,7 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "PubNubManager.h"
 #import "CallController.h"
-
+@import LNRSimpleNotifications;
 //#define SERVER_HOST_URL @"https://appr.tc"
 #define SERVER_HOST_URL @"https://konecthealth-177004.appspot.com"
 
@@ -82,7 +82,32 @@
                                              selector:@selector(callEnded:) name:@"CALL_END_NOTIFICATION"
                                                object:nil];
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(pauseVideo)
+                                                 name:UIApplicationWillResignActiveNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(resumeVideo)
+                                                 name:UIApplicationDidBecomeActiveNotification
+                                               object:nil];
 
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+}
+
+- (void)pauseVideo{
+    NSLog(@"Muting video");
+    [self.client muteVideoIn];
+}
+
+- (void)resumeVideo{
+    NSLog(@"Resuming video");
+    [self.client unmuteVideoIn];
+//    [self.client connectToRoomWithId:self.roomName options:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -104,6 +129,7 @@
 }
 
 - (void)orientationChanged:(NSNotification *)notification{
+    return;
     [self videoView:self.localView didChangeVideoSize:self.localVideoSize];
     [self videoView:self.remoteView didChangeVideoSize:self.remoteVideoSize];
 }
@@ -214,13 +240,7 @@
     [self disconnect];
     [self.navigationController dismissViewControllerAnimated:YES completion:^{
         if(callEndDict){
-            [UIAlertController showAlertInViewController:ApplicationDelegate.window.rootViewController
-                                               withTitle:callEndDict[@"description"]
-                                                 message:nil
-                                       cancelButtonTitle:@"OK"
-                                  destructiveButtonTitle:nil
-                                       otherButtonTitles:nil
-                                                tapBlock:nil];
+            [ApplicationDelegate showNotificationWithTitle:callEndDict[@"description"] description:@""];
         }
     }];
 }
@@ -278,12 +298,12 @@
 }
 
 - (void)appClient:(ARDAppClient *)client didError:(NSError *)error {
-    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:nil
-                                                        message:[NSString stringWithFormat:@"%@", error]
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-    [alertView show];
+//    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:nil
+//                                                        message:[NSString stringWithFormat:@"%@", error]
+//                                                       delegate:nil
+//                                              cancelButtonTitle:@"OK"
+//                                              otherButtonTitles:nil];
+//    [alertView show];
     [self disconnect];
 }
 

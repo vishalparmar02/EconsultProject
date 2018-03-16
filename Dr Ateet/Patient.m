@@ -18,6 +18,7 @@
     AFJSONRequestSerializer *reqSerializer = [AFJSONRequestSerializer serializer];
     [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"api-token"];
     NSString *URLString          = [API_BASE_URL stringByAppendingPathComponent:GET_PATIENTS];
+    NSLog(@"URLString: %@", URLString);
     NSMutableURLRequest *request = [reqSerializer requestWithMethod:@"GET"
                                                           URLString:URLString
                                                          parameters:nil

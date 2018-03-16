@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <PubNub/PubNub.h>
+#import "API_Defines.h"
 
 @interface PubNubManager : NSObject<PNObjectEventListener>
 

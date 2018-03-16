@@ -204,6 +204,8 @@
 		699841382000CC00007DD7C6 /* NotificationsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 699841372000CC00007DD7C6 /* NotificationsController.m */; };
 		699841392000CC00007DD7C6 /* NotificationsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 699841372000CC00007DD7C6 /* NotificationsController.m */; };
 		6998413A2000CC00007DD7C6 /* NotificationsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 699841372000CC00007DD7C6 /* NotificationsController.m */; };
+		699B3051205820F20025906B /* LNRSimpleNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 699B3050205820E90025906B /* LNRSimpleNotifications.framework */; };
+		699B3052205820F20025906B /* LNRSimpleNotifications.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 699B3050205820E90025906B /* LNRSimpleNotifications.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69A035141EFB87EC00044F47 /* SlotManagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A035131EFB87EC00044F47 /* SlotManagerController.m */; };
 		69A035161EFB882B00044F47 /* Slot.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69A035151EFB882B00044F47 /* Slot.storyboard */; };
 		69AB82781FA9BC6C0086AE84 /* ImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69D13FF51F84DBE800B32ADD /* ImagePicker.framework */; };
@@ -227,8 +229,6 @@
 		69D13FFC1F84E3C200B32ADD /* StaffListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D13FFA1F84E3C200B32ADD /* StaffListController.m */; };
 		69D140091F85004D00B32ADD /* ImagePicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69D13FF51F84DBE800B32ADD /* ImagePicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69DF5CE81FD7D6F00015132A /* Consult-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 69DF5CE01FD7D6F00015132A /* Consult-Info.plist */; };
-		69DF5CE91FD7D6F00015132A /* Consult-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 69DF5CE01FD7D6F00015132A /* Consult-Info.plist */; };
-		69DF5CEB1FD7D6F00015132A /* Dr Ateet Sharma-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 69DF5CE31FD7D6F00015132A /* Dr Ateet Sharma-Info.plist */; };
 		69DF5CEC1FD7D6F00015132A /* Dr Ateet Sharma-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 69DF5CE31FD7D6F00015132A /* Dr Ateet Sharma-Info.plist */; };
 		69DF5CEE1FD7D6F00015132A /* Dr Jinesh Shah-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 69DF5CE61FD7D6F00015132A /* Dr Jinesh Shah-Info.plist */; };
 		69DF5CEF1FD7D6F00015132A /* Dr Jinesh Shah-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 69DF5CE61FD7D6F00015132A /* Dr Jinesh Shah-Info.plist */; };
@@ -287,6 +287,20 @@
 			remoteGlobalIDString = D5DC598A1C201BE1003BD79B;
 			remoteInfo = "ImagePicker-iOS";
 		};
+		699B304F205820E90025906B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 699B304A205820E90025906B /* LNRSimpleNotifications.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FCF2A49B1D9D978000C13050;
+			remoteInfo = LNRSimpleNotifications;
+		};
+		699B3053205820F20025906B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 699B304A205820E90025906B /* LNRSimpleNotifications.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = FCF2A49A1D9D978000C13050;
+			remoteInfo = LNRSimpleNotifications;
+		};
 		69AB827A1FA9BC6C0086AE84 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 69D13FEF1F84DBE800B32ADD /* ImagePicker.xcodeproj */;
@@ -335,6 +349,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				699B3052205820F20025906B /* LNRSimpleNotifications.framework in Embed Frameworks */,
 				69AB82791FA9BC6C0086AE84 /* ImagePicker.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -420,6 +435,7 @@
 		699841312000B68B007DD7C6 /* MonthSelector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonthSelector.m; sourceTree = "<group>"; };
 		699841362000CC00007DD7C6 /* NotificationsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationsController.h; sourceTree = "<group>"; };
 		699841372000CC00007DD7C6 /* NotificationsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationsController.m; sourceTree = "<group>"; };
+		699B304A205820E90025906B /* LNRSimpleNotifications.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LNRSimpleNotifications.xcodeproj; path = LNRSimpleNotifications/LNRSimpleNotifications/LNRSimpleNotifications.xcodeproj; sourceTree = "<group>"; };
 		69A035121EFB87EC00044F47 /* SlotManagerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlotManagerController.h; path = Doctor/SlotManagerController.h; sourceTree = "<group>"; };
 		69A035131EFB87EC00044F47 /* SlotManagerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlotManagerController.m; path = Doctor/SlotManagerController.m; sourceTree = "<group>"; };
 		69A035151EFB882B00044F47 /* Slot.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Slot.storyboard; path = Doctor/Slot.storyboard; sourceTree = "<group>"; };
@@ -554,6 +570,7 @@
 			files = (
 				69AB82781FA9BC6C0086AE84 /* ImagePicker.framework in Frameworks */,
 				1DA3B50238A6806E22A421C7 /* libPods-Dr Ateet Sharma.a in Frameworks */,
+				699B3051205820F20025906B /* LNRSimpleNotifications.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,6 +602,14 @@
 				6961562F1F4C13F0005B7A87 /* UIPickerView+Blocks.m */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		699B304B205820E90025906B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				699B3050205820E90025906B /* LNRSimpleNotifications.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		69A035111EFB87BD00044F47 /* Doctor */ = {
@@ -725,6 +750,7 @@
 		69FAE8591EDBCC130099141C = {
 			isa = PBXGroup;
 			children = (
+				699B304A205820E90025906B /* LNRSimpleNotifications.xcodeproj */,
 				69D13FEF1F84DBE800B32ADD /* ImagePicker.xcodeproj */,
 				69FAE8641EDBCC130099141C /* Dr Ateet */,
 				69FAE8631EDBCC130099141C /* Products */,
@@ -937,8 +963,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6956CB011F5A89E700B66EB8 /* Build configuration list for PBXNativeTarget "Consult" */;
 			buildPhases = (
-				6998413B2000D4F9007DD7C6 /* ShellScript */,
 				051DAAC3C0E355FDF453A07F /* [CP] Check Pods Manifest.lock */,
+				6998413B2000D4F9007DD7C6 /* ShellScript */,
 				6956CAB21F5A89E700B66EB8 /* Sources */,
 				6956CAE21F5A89E700B66EB8 /* Frameworks */,
 				6956CAE41F5A89E700B66EB8 /* Resources */,
@@ -973,6 +999,7 @@
 			);
 			dependencies = (
 				69AB827B1FA9BC6C0086AE84 /* PBXTargetDependency */,
+				699B3054205820F20025906B /* PBXTargetDependency */,
 			);
 			name = "Dr Ateet Sharma";
 			productName = "Dr Ateet";
@@ -985,7 +1012,7 @@
 		69FAE85A1EDBCC130099141C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Shashank Patel";
 				TargetAttributes = {
 					6923B45E1FCD7CFF005039BB = {
@@ -1027,6 +1054,10 @@
 					ProductGroup = 69D13FF01F84DBE800B32ADD /* Products */;
 					ProjectRef = 69D13FEF1F84DBE800B32ADD /* ImagePicker.xcodeproj */;
 				},
+				{
+					ProductGroup = 699B304B205820E90025906B /* Products */;
+					ProjectRef = 699B304A205820E90025906B /* LNRSimpleNotifications.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -1038,6 +1069,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		699B3050205820E90025906B /* LNRSimpleNotifications.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = LNRSimpleNotifications.framework;
+			remoteRef = 699B304F205820E90025906B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		69D13FF51F84DBE800B32ADD /* ImagePicker.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -1108,7 +1146,6 @@
 				6956CAEE1F5A89E700B66EB8 /* Roboto-BoldItalic.ttf in Resources */,
 				6956CAEF1F5A89E700B66EB8 /* Roboto-BlackItalic.ttf in Resources */,
 				6956CAF01F5A89E700B66EB8 /* Roboto-Thin.ttf in Resources */,
-				69DF5CE91FD7D6F00015132A /* Consult-Info.plist in Resources */,
 				6956CAF11F5A89E700B66EB8 /* Roboto-Regular.ttf in Resources */,
 				6956CAF21F5A89E700B66EB8 /* RobotoCondensed-LightItalic.ttf in Resources */,
 				6956CAF31F5A89E700B66EB8 /* Apache License.txt in Resources */,
@@ -1138,7 +1175,6 @@
 				69FAE89C1EDBF2A80099141C /* Roboto-MediumItalic.ttf in Resources */,
 				69FAE8EF1EDD335B0099141C /* jsq_messages_sample.m4a in Resources */,
 				692460581F5FF70500067981 /* ring.wav in Resources */,
-				69DF5CEB1FD7D6F00015132A /* Dr Ateet Sharma-Info.plist in Resources */,
 				69FAE8981EDBF2A80099141C /* Roboto-Italic.ttf in Resources */,
 				69FAE8991EDBF2A80099141C /* Roboto-Light.ttf in Resources */,
 				69FAE8751EDBCC130099141C /* LaunchScreen.storyboard in Resources */,
@@ -1587,6 +1623,11 @@
 			isa = PBXTargetDependency;
 			name = "ImagePicker-iOS";
 			targetProxy = 6923B4601FCD7CFF005039BB /* PBXContainerItemProxy */;
+		};
+		699B3054205820F20025906B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LNRSimpleNotifications;
+			targetProxy = 699B3053205820F20025906B /* PBXContainerItemProxy */;
 		};
 		69AB827B1FA9BC6C0086AE84 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

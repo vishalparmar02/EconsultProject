@@ -25,7 +25,7 @@
 + (void)fetchClinicsInBackgroundWithBlock:(nullable ArrayResultBlock)block{
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-    
+    NSLog(API_URL);
     AFJSONRequestSerializer *reqSerializer = [AFJSONRequestSerializer serializer];
     [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"api-token"];
     NSString *URLString          = [API_BASE_URL stringByAppendingPathComponent:GET_CLINICS];

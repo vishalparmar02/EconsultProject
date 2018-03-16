@@ -1,0 +1,405 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E5469B334DCD2DFC66098029 /* Pods_LNRSimpleNotificationsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3852B8E586919AE7BE309E1 /* Pods_LNRSimpleNotificationsDemo.framework */; };
+		FC7BA7C21BCEA0E300A012D9 /* lisnr-cir-bw-notifications-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FC7BA7C11BCEA0E300A012D9 /* lisnr-cir-bw-notifications-icon@2x.png */; };
+		FC93F0C61B7A5BC100A05DC5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC93F0C51B7A5BC100A05DC5 /* Images.xcassets */; };
+		FC93F0C91B7A5BC100A05DC5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC93F0C71B7A5BC100A05DC5 /* LaunchScreen.xib */; };
+		FC93F0EB1B7A5DDA00A05DC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC93F0EA1B7A5DDA00A05DC5 /* Main.storyboard */; };
+		FC93F0EE1B7A5E8600A05DC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC93F0EC1B7A5E8600A05DC5 /* AppDelegate.swift */; };
+		FC93F0EF1B7A5E8600A05DC5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC93F0ED1B7A5E8600A05DC5 /* ViewController.swift */; };
+		FC93F0F11B7A5EC200A05DC5 /* click.wav in Resources */ = {isa = PBXBuildFile; fileRef = FC93F0F01B7A5EC200A05DC5 /* click.wav */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4079FA62D9DD4D3AF10411C0 /* Pods-LNRSimpleNotificationsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LNRSimpleNotificationsDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LNRSimpleNotificationsDemo/Pods-LNRSimpleNotificationsDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		C33490DA382AE8DB80127715 /* Pods-LNRSimpleNotificationsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LNRSimpleNotificationsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-LNRSimpleNotificationsDemo/Pods-LNRSimpleNotificationsDemo.release.xcconfig"; sourceTree = "<group>"; };
+		E3852B8E586919AE7BE309E1 /* Pods_LNRSimpleNotificationsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LNRSimpleNotificationsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC7BA7C11BCEA0E300A012D9 /* lisnr-cir-bw-notifications-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lisnr-cir-bw-notifications-icon@2x.png"; sourceTree = "<group>"; };
+		FC93F0B91B7A5BC100A05DC5 /* LNRSimpleNotificationsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LNRSimpleNotificationsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC93F0BD1B7A5BC100A05DC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC93F0C51B7A5BC100A05DC5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FC93F0C81B7A5BC100A05DC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		FC93F0EA1B7A5DDA00A05DC5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		FC93F0EC1B7A5E8600A05DC5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FC93F0ED1B7A5E8600A05DC5 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FC93F0F01B7A5EC200A05DC5 /* click.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = click.wav; path = Resources/click.wav; sourceTree = "<group>"; };
+		FCE5F6BA1D8BAC1D0032FC69 /* LNRSimpleNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LNRSimpleNotifications.framework; path = "Pods/../build/Debug-iphoneos/LNRSimpleNotifications.framework"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FC93F0B61B7A5BC100A05DC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5469B334DCD2DFC66098029 /* Pods_LNRSimpleNotificationsDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C20C108122FB2CCEF091FE48 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4079FA62D9DD4D3AF10411C0 /* Pods-LNRSimpleNotificationsDemo.debug.xcconfig */,
+				C33490DA382AE8DB80127715 /* Pods-LNRSimpleNotificationsDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FC93F0B01B7A5BC100A05DC5 = {
+			isa = PBXGroup;
+			children = (
+				FC93F0BB1B7A5BC100A05DC5 /* LNRSimpleNotificationsDemo */,
+				FC93F0BA1B7A5BC100A05DC5 /* Products */,
+				FCE5F6B91D8BAC1D0032FC69 /* Frameworks */,
+				C20C108122FB2CCEF091FE48 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		FC93F0BA1B7A5BC100A05DC5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FC93F0B91B7A5BC100A05DC5 /* LNRSimpleNotificationsDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FC93F0BB1B7A5BC100A05DC5 /* LNRSimpleNotificationsDemo */ = {
+			isa = PBXGroup;
+			children = (
+				FC93F0E91B7A5DCF00A05DC5 /* Resources */,
+				FC93F0EC1B7A5E8600A05DC5 /* AppDelegate.swift */,
+				FC93F0ED1B7A5E8600A05DC5 /* ViewController.swift */,
+				FC93F0EA1B7A5DDA00A05DC5 /* Main.storyboard */,
+				FC93F0C51B7A5BC100A05DC5 /* Images.xcassets */,
+				FC93F0C71B7A5BC100A05DC5 /* LaunchScreen.xib */,
+				FC93F0BC1B7A5BC100A05DC5 /* Supporting Files */,
+			);
+			path = LNRSimpleNotificationsDemo;
+			sourceTree = "<group>";
+		};
+		FC93F0BC1B7A5BC100A05DC5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FC93F0BD1B7A5BC100A05DC5 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FC93F0E91B7A5DCF00A05DC5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FC7BA7C11BCEA0E300A012D9 /* lisnr-cir-bw-notifications-icon@2x.png */,
+				FC93F0F01B7A5EC200A05DC5 /* click.wav */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		FCE5F6B91D8BAC1D0032FC69 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FCE5F6BA1D8BAC1D0032FC69 /* LNRSimpleNotifications.framework */,
+				E3852B8E586919AE7BE309E1 /* Pods_LNRSimpleNotificationsDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FC93F0B81B7A5BC100A05DC5 /* LNRSimpleNotificationsDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC93F0D81B7A5BC100A05DC5 /* Build configuration list for PBXNativeTarget "LNRSimpleNotificationsDemo" */;
+			buildPhases = (
+				8782C38309F63EB8685F525E /* [CP] Check Pods Manifest.lock */,
+				FC93F0B51B7A5BC100A05DC5 /* Sources */,
+				FC93F0B61B7A5BC100A05DC5 /* Frameworks */,
+				FC93F0B71B7A5BC100A05DC5 /* Resources */,
+				19CC4F48002E15C862D25FEA /* [CP] Embed Pods Frameworks */,
+				6CAAFF27F7C627E954D69717 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LNRSimpleNotificationsDemo;
+			productName = LNRSimpleNotificationsDemo;
+			productReference = FC93F0B91B7A5BC100A05DC5 /* LNRSimpleNotificationsDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FC93F0B11B7A5BC100A05DC5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Jon Schneider";
+				TargetAttributes = {
+					FC93F0B81B7A5BC100A05DC5 = {
+						CreatedOnToolsVersion = 6.4;
+						LastSwiftMigration = 0800;
+					};
+				};
+			};
+			buildConfigurationList = FC93F0B41B7A5BC100A05DC5 /* Build configuration list for PBXProject "LNRSimpleNotificationsDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FC93F0B01B7A5BC100A05DC5;
+			productRefGroup = FC93F0BA1B7A5BC100A05DC5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FC93F0B81B7A5BC100A05DC5 /* LNRSimpleNotificationsDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FC93F0B71B7A5BC100A05DC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC93F0C91B7A5BC100A05DC5 /* LaunchScreen.xib in Resources */,
+				FC93F0C61B7A5BC100A05DC5 /* Images.xcassets in Resources */,
+				FC7BA7C21BCEA0E300A012D9 /* lisnr-cir-bw-notifications-icon@2x.png in Resources */,
+				FC93F0EB1B7A5DDA00A05DC5 /* Main.storyboard in Resources */,
+				FC93F0F11B7A5EC200A05DC5 /* click.wav in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		19CC4F48002E15C862D25FEA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LNRSimpleNotificationsDemo/Pods-LNRSimpleNotificationsDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6CAAFF27F7C627E954D69717 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LNRSimpleNotificationsDemo/Pods-LNRSimpleNotificationsDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8782C38309F63EB8685F525E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FC93F0B51B7A5BC100A05DC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC93F0EE1B7A5E8600A05DC5 /* AppDelegate.swift in Sources */,
+				FC93F0EF1B7A5E8600A05DC5 /* ViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FC93F0C71B7A5BC100A05DC5 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FC93F0C81B7A5BC100A05DC5 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FC93F0D61B7A5BC100A05DC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FC93F0D71B7A5BC100A05DC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FC93F0D91B7A5BC100A05DC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4079FA62D9DD4D3AF10411C0 /* Pods-LNRSimpleNotificationsDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				INFOPLIST_FILE = LNRSimpleNotificationsDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lisnr.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		FC93F0DA1B7A5BC100A05DC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C33490DA382AE8DB80127715 /* Pods-LNRSimpleNotificationsDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				INFOPLIST_FILE = LNRSimpleNotificationsDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lisnr.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FC93F0B41B7A5BC100A05DC5 /* Build configuration list for PBXProject "LNRSimpleNotificationsDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC93F0D61B7A5BC100A05DC5 /* Debug */,
+				FC93F0D71B7A5BC100A05DC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FC93F0D81B7A5BC100A05DC5 /* Build configuration list for PBXNativeTarget "LNRSimpleNotificationsDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC93F0D91B7A5BC100A05DC5 /* Debug */,
+				FC93F0DA1B7A5BC100A05DC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FC93F0B11B7A5BC100A05DC5 /* Project object */;
+}

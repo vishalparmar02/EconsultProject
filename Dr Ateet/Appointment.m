@@ -334,7 +334,7 @@ static NSDateFormatter *inFormatter, *outFormatter, *appointmentDF;
     }
     
     NSNumber *senderID = [[CUser currentUser] isPatient] ? [CUser currentUser][@"patient_id"] : @-1;
-    NSString *calleeChannel = [NSString stringWithFormat:@"patient_%@", [self[@"patient_id"] stringValue]];
+    NSString *calleeChannel = PATIENT_CHANNEL([self[@"patient_id"] stringValue]);
     
     NSString *roomID = [NSString stringWithFormat:@"room_%u", arc4random_uniform(999999)];
     NSString *callDescription = @"Dr. would like to start video consulation.";

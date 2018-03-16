@@ -413,8 +413,6 @@ static NSDateFormatter *timeFormatter;
                                                           URLString:URLString
                                                          parameters:nil
                                                               error:nil];
-    //    NSLog(@"Dict: %@", [self[@"save"] description]);
-    //    NSDictionary *dict = self[@"save"];
     
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error) {
