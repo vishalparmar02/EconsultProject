@@ -10,6 +10,12 @@
 #import <libjingle_peerconnection/RTCEAGLVideoView.h>
 #import <AppRTC/ARDAppClient.h>
 
+@protocol ARTCVideoChatDelegate
+
+- (void)callEndTapped;
+
+@end
+
 @interface ARTCVideoChatViewController : UIViewController <ARDAppClientDelegate, RTCEAGLVideoViewDelegate>
 
 
@@ -35,6 +41,8 @@
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *localViewBottomConstraint;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *footerViewBottomConstraint;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *buttonContainerViewLeftConstraint;
+
+@property (strong, nonatomic) NSObject<ARTCVideoChatDelegate>   *delegate;
 
 @property (strong, nonatomic) NSString *roomUrl;
 @property (strong, nonatomic) NSString *roomName;

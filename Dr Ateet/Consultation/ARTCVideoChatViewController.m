@@ -106,7 +106,16 @@
 
 - (void)resumeVideo{
     NSLog(@"Resuming video");
-    [self.client unmuteVideoIn];
+    @try{
+        NSLog(@"In Try");
+        [self.client swapCameraToFront];
+        [self.client unmuteVideoIn];
+    }@catch(NSException *ex){
+        NSLog(@"Exception: %@", ex.description);
+        NSLog(@"Swapping to front");
+        [self.client swapCameraToFront];
+    }
+    
 //    [self.client connectToRoomWithId:self.roomName options:nil];
 }
 
@@ -222,6 +231,9 @@
                                @"channel" : calleeChannel};
     
     [PubNubManager sendMessage:callDict toChannel:calleeChannel];
+    if ([self.delegate respondsToSelector:@selector(callEndTapped)]) {
+        [self.delegate callEndTapped];
+    }
     [self hangUpCall];
 }
 

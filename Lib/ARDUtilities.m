@@ -76,7 +76,7 @@
                   withData:(NSData *)data
          completionHandler:(void (^)(BOOL succeeded,
                                      NSData *data))completionHandler {
-    NSLog(@"url = %@", url);
+//    NSLog(@"url = %@", url);
   NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
   request.HTTPMethod = @"POST";
   request.HTTPBody = data;

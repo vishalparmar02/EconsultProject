@@ -15,15 +15,10 @@
 #import "ARTCVideoChatViewController.h"
 #import "PubNubManager.h"
 #import "CallController.h"
-#import <CocoaLumberjack/CocoaLumberjack.h>
 #import "Notification.h"
 
 @import LNRSimpleNotifications;
 
-static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
-
-#define PushNotificationDetailsKey  @"PushNotificationDetailsKey"
-#define DEVICE_TOKEN                @"DeviceToken"
 
 @interface AppDelegate ()
 
@@ -36,6 +31,7 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 
 - (void)tryForPushNotification{
+    return;
     static BOOL tried = NO;
     if (tried) {
         return;
@@ -248,7 +244,8 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
         [notification setAlertBody:JSON[@"description"]];
         NSString *type = JSON[@"type"];
         if ([type isEqualToString:@"v_call"]) {
-            [application setScheduledLocalNotifications:[NSArray arrayWithObject:notification]];
+            [[CallController sharedController] reportCall:JSON];
+//            [application setScheduledLocalNotifications:[NSArray arrayWithObject:notification]];
         }
     }
     completionHandler(UIBackgroundFetchResultNewData);

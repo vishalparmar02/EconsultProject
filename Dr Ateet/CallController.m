@@ -14,7 +14,7 @@
 #import <PushKit/PushKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface CallController ()<CXProviderDelegate>{
+@interface CallController ()<CXProviderDelegate, ARTCVideoChatDelegate,PKPushRegistryDelegate>{
     AVAudioPlayer *ringPlayer;
 }
 
@@ -24,6 +24,8 @@
 @property (nonatomic, strong)           CXProvider              *callKitProvider;
 @property (nonatomic, strong)           CXCallController        *callKitCallController;
 @property (nonatomic, strong)           PKPushRegistry          *voipRegistry;
+@property (nonatomic, strong)           NSUUID                  *currentCallUUID;
+@property (nonatomic)                   BOOL                    scheduleAnswer;
 
 @end
 
@@ -50,11 +52,55 @@
                                              selector:@selector(callReceived:) name:@"INCOMING_CALL_NOTIFICATION"
                                                object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(applicationBecameActive)
+                                                 name:UIApplicationDidBecomeActiveNotification
+                                               object:nil];
+    
     NSURL *ringURL = [[NSBundle mainBundle] URLForResource:@"ring" withExtension:@"wav"];
     
     ringPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:ringURL error:NULL];
     
     [self configureCallKit];
+    [self configurePushKit];
+}
+
+- (void)configurePushKit{
+    PKPushRegistry *pushRegistry = [[PKPushRegistry alloc] initWithQueue:dispatch_get_main_queue()];
+    pushRegistry.delegate = self;
+    pushRegistry.desiredPushTypes = [NSSet setWithObject:PKPushTypeVoIP];
+}
+
+- (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(NSString *)type{
+    if([credentials.token length] == 0) {
+        NSLog(@"voip token NULL");
+        return;
+    }
+    
+    NSLog(@"PushCredentials: %@", credentials.token);
+    
+    NSData *oldToken = [[NSUserDefaults standardUserDefaults] dataForKey:@"DeviceToken"];
+    if (oldToken && [oldToken isEqualToData:credentials.token]) {
+        return;
+    }
+    NSString *token = [[[[credentials.token description]
+                         stringByReplacingOccurrencesOfString: @"<" withString: @""]
+                        stringByReplacingOccurrencesOfString: @">" withString: @""]
+                       stringByReplacingOccurrencesOfString: @" " withString: @""];
+    DDLogVerbose(@"P Token: %@", token);
+    
+    // remove old token from all PubNub channels for push notifications
+    [[PubNubManager sharedManager].client removeAllPushNotificationsFromDeviceWithPushToken:oldToken
+                                                                              andCompletion:^(PNAcknowledgmentStatus *status) {
+                                                                                  DDLogVerbose(@"status: %@", status);
+                                                                              }];
+    
+    defaults_set_object(DEVICE_TOKEN, credentials.token);
+    [PubNubManager updateChannels];
+}
+
+- (void)pushRegistry:(PKPushRegistry *)registry didReceiveIncomingPushWithPayload:(PKPushPayload *)payload forType:(NSString *)type{
+    NSLog(@"didReceiveIncomingPushWithPayload");
 }
 
 - (void)viewDidLoad {
@@ -78,6 +124,17 @@
     [self.view insertSubview:blurEffectView atIndex:0];
 }
 
+- (void)applicationBecameActive{
+    if (self.scheduleAnswer) {
+        self.scheduleAnswer = NO;
+        UINavigationController *navVC = NavigationControllerWithController(self);
+        navVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        [navVC pushViewController:self.videoChatController animated:NO];
+        [ApplicationDelegate.window.rootViewController presentViewController:navVC
+                                                                    animated:YES
+                                                                  completion:nil];
+    }
+}
 
 - (void)callReceived:(NSNotification*)notification{
     NSDictionary *callDict = notification.userInfo;
@@ -115,7 +172,7 @@
 - (void)showIncomingCall:(NSDictionary*)callDict{
     ringPlayer.numberOfLoops = 0;
     [ringPlayer play];
-    [self reportIncomingCallFrom:callDict[@"caller"] withUUID:[NSUUID UUID]];
+
     UINavigationController *navVC = NavigationControllerWithController(self);
     navVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     [ApplicationDelegate.window.rootViewController presentViewController:navVC
@@ -124,13 +181,14 @@
 }
 
 - (void)receiveAsCaller{
-    if (self.expectingCall) {
-        [ApplicationDelegate.window.rootViewController presentViewController:NavigationControllerWithController(self.videoChatController)
-                                                                    animated:YES
-                                                                  completion:nil];
-        self.expectingCall = NO;
-    }
-    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.expectingCall) {
+            [ApplicationDelegate.window.rootViewController presentViewController:NavigationControllerWithController(self.videoChatController)
+                                                                        animated:YES
+                                                                      completion:nil];
+            self.expectingCall = NO;
+        }
+    });
 }
 
 - (IBAction)answerTapped{
@@ -139,21 +197,42 @@
 }
 
 - (IBAction)rejectTapped{
-    [ringPlayer stop];
-    NSString *calleeChannel = self.videoChatController.call[@"channel"];
-    NSNumber *senderID = [[CUser currentUser] isPatient] ? [CUser currentUser][@"patient_id"] : @-1;
-    NSDictionary *callRejectDict = @{@"description" : @"User busy.",
-                                     @"room_id" : self.videoChatController.call[@"room_id"],
-                                     @"sender_id" : senderID,
-                                     @"type" : @"v_call_end",
-                                     @"channel" : calleeChannel};
-    
-    [PubNubManager sendMessage:callRejectDict toChannel:calleeChannel];
-    
-    [self.navigationController dismissViewControllerAnimated:YES
-                                                  completion:nil];
-    
-//    [self reportMissedCall:self.videoChatController.call[@"caller"] withUUID:[NSUUID UUID]];
+    if (self.currentCallUUID != nil) {
+        [ringPlayer stop];
+        NSString *calleeChannel = self.videoChatController.call[@"channel"];
+        NSNumber *senderID = [[CUser currentUser] isPatient] ? [CUser currentUser][@"patient_id"] : @-1;
+        NSDictionary *callRejectDict = @{@"description" : @"User busy.",
+                                         @"room_id" : self.videoChatController.call[@"room_id"],
+                                         @"sender_id" : senderID,
+                                         @"type" : @"v_call_end",
+                                         @"channel" : calleeChannel};
+        
+        [PubNubManager sendMessage:callRejectDict toChannel:calleeChannel];
+        if (ApplicationDelegate.window.rootViewController == self.navigationController) {
+            [self.navigationController dismissViewControllerAnimated:YES
+                                                          completion:nil];
+        }
+        self.currentCallUUID = nil;
+        self.videoChatController = nil;
+    }
+}
+
+- (void)callEndTapped{
+    CXEndCallAction *action = [[CXEndCallAction alloc] initWithCallUUID:self.currentCallUUID];
+    CXTransaction *transaction = [[CXTransaction alloc] initWithAction:action];
+
+    [self.callKitCallController requestTransaction:transaction completion:^(NSError *error) {
+        if (error) {
+            self.currentCallUUID = nil;
+            self.videoChatController = nil;
+            NSLog(@"EndCallAction transaction request failed: %@", [error localizedDescription]);
+        }
+        else {
+            self.currentCallUUID = nil;
+            self.videoChatController = nil;
+            NSLog(@"EndCallAction transaction request successful");
+        }
+    }];
 }
 
 
@@ -170,85 +249,93 @@
     _callKitCallController = [[CXCallController alloc] init];
 }
 
-- (void)reportMissedCall:(NSString *) from withUUID:(NSUUID *)uuid {
-   
-    CXHandle *callHandle = [[CXHandle alloc] initWithType:CXHandleTypeGeneric value:from];
-    
-    CXCallUpdate *callUpdate = [[CXCallUpdate alloc] init];
-    callUpdate.remoteHandle = callHandle;
-    callUpdate.supportsDTMF = YES;
-    callUpdate.supportsHolding = NO;
-    callUpdate.supportsGrouping = NO;
-    callUpdate.supportsUngrouping = NO;
-    callUpdate.hasVideo = NO;
-    
-    [self.callKitProvider reportCallWithUUID:uuid
-                                     updated:callUpdate];
-    
-    
-    [self.callKitProvider reportCallWithUUID:uuid
-                                 endedAtDate:[NSDate date]
-                                      reason:CXCallEndedReasonUnanswered];
-    
-    CXEndCallAction *endCallAction = [[CXEndCallAction alloc] initWithCallUUID:uuid];
-    CXTransaction *transaction = [[CXTransaction alloc] initWithAction:endCallAction];
-    
-    [self.callKitCallController requestTransaction:transaction completion:^(NSError *error) {
-        if (error) {
-            NSLog(@"EndCallAction transaction request failed: %@", [error localizedDescription]);
-        }
-        else {
-            NSLog(@"EndCallAction transaction request successful");
-        }
-    }];
-}
-
-- (void)reportIncomingCallFrom:(NSString *) from withUUID:(NSUUID *)uuid {
-    return;
-    CXHandle *callHandle = [[CXHandle alloc] initWithType:CXHandleTypeGeneric value:from];
-    
-    CXCallUpdate *callUpdate = [[CXCallUpdate alloc] init];
-    callUpdate.remoteHandle = callHandle;
-    callUpdate.supportsDTMF = YES;
-    callUpdate.supportsHolding = NO;
-    callUpdate.supportsGrouping = NO;
-    callUpdate.supportsUngrouping = NO;
-    callUpdate.hasVideo = NO;
-    
-    [self.callKitProvider reportNewIncomingCallWithUUID:uuid update:callUpdate completion:^(NSError *error) {
-        if (!error) {
-            NSLog(@"Incoming call successfully reported.");
-        }
-        else {
-            NSLog(@"Failed to report incoming call successfully: %@.", [error localizedDescription]);
-        }
-    }];
-}
-
-- (void)performEndCallActionWithUUID:(NSUUID *)uuid {
-    if (uuid == nil) {
-        return;
+- (void)endCall:(NSDictionary *)callDict{
+    if (self.currentCallUUID != nil) {
+        [self.videoChatController hangupButtonPressed:nil];
     }
+}
+
+- (void)reportCall:(NSDictionary*)callDict{
+    if(self.videoChatController && [self.videoChatController.roomName isEqualToString:callDict[@"room_id"]])return;
+    self.currentCallUUID = [NSUUID UUID];
+    self.videoChatController = [ARTCVideoChatViewController controller];
+    self.videoChatController.delegate = self;
+    [self.videoChatController setRoomName:callDict[@"room_id"]];
+    self.videoChatController.call = callDict;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.callDetailLabel.text = callDict[@"description"];
+    });
     
-    CXEndCallAction *endCallAction = [[CXEndCallAction alloc] initWithCallUUID:uuid];
-    CXTransaction *transaction = [[CXTransaction alloc] initWithAction:endCallAction];
+    if ([[CUser currentUser] isPatient] && [callDict[@"sender_id"] isEqual:[CUser currentUser][@"patient_id"]]){
+        [self reportOutgoingCall:callDict withUUID:self.currentCallUUID];
+    }else if (![[CUser currentUser] isPatient] && [callDict[@"sender_id"] integerValue] == -1) {
+        [self reportOutgoingCall:callDict withUUID:self.currentCallUUID];
+    }else{
+        [self reportIncomingCall:callDict withUUID:self.currentCallUUID];
+    }
+}
+
+- (void)reportOutgoingCall:(NSDictionary *)callDict withUUID:(NSUUID *)uuid{
+    self.currentCallUUID = uuid;
+    NSString *from = callDict[@"caller"];
+    CXHandle *handle = [[CXHandle alloc] initWithType:CXHandleTypeGeneric value:from];
+
+    CXStartCallAction *startCallAction = [[CXStartCallAction alloc] initWithCallUUID:uuid handle:handle];
+    CXTransaction *transaction = [[CXTransaction alloc] initWithAction:startCallAction];
     
     [self.callKitCallController requestTransaction:transaction completion:^(NSError *error) {
         if (error) {
-            NSLog(@"EndCallAction transaction request failed: %@", [error localizedDescription]);
+            NSLog(@"StartCallAction transaction request failed: %@", [error localizedDescription]);
         }
-        else {
-            NSLog(@"EndCallAction transaction request successful");
+        
+        if (!error || IS_SIMULATOR) {
+            [self receiveAsCaller];
+            NSLog(@"StartCallAction transaction request successful");
         }
     }];
+}
+
+- (void)reportIncomingCall:(NSDictionary *)callDict withUUID:(NSUUID *)uuid{
+    if(IS_SIMULATOR){
+        [self showIncomingCall:callDict];
+    }else{
+        NSString *from = callDict[@"caller"];
+        CXHandle *callHandle = [[CXHandle alloc] initWithType:CXHandleTypeGeneric value:from];
+        
+        CXCallUpdate *update = [[CXCallUpdate alloc] init];
+        update.remoteHandle = callHandle;
+        update.supportsDTMF = NO;
+        update.supportsHolding = NO;
+        update.supportsGrouping = NO;
+        update.supportsUngrouping = NO;
+        update.hasVideo = YES;
+        NSLog(@"Registering with callkit");
+        [self.callKitProvider reportNewIncomingCallWithUUID:uuid update:update completion:^(NSError *error) {
+            if (!error) {
+                NSLog(@"Incoming call successfully reported.");
+            }
+            else {
+                NSLog(@"Failed to report incoming call successfully: %@.", [error localizedDescription]);
+            }
+        }];
+    }
 }
 
 - (void)provider:(CXProvider *)provider performStartCallAction:(CXStartCallAction *)action{
+    NSLog(@"Start Call");
     
 }
 
 - (void)provider:(CXProvider *)provider performAnswerCallAction:(CXAnswerCallAction *)action{
-    [self.navigationController pushViewController:self.videoChatController animated:YES];
+    NSLog(@"performAnswerCallAction");
+    self.scheduleAnswer = YES;
+    [action fulfill];
+}
+
+- (void)provider:(CXProvider *)provider performEndCallAction:(CXEndCallAction *)action{
+    NSLog(@"performEndCallAction");
+    [self rejectTapped];
+    [action fulfill];
 }
 
 - (void)providerDidReset:(CXProvider *)provider{

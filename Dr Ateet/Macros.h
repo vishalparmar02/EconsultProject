@@ -22,6 +22,13 @@
 #import "DeviceInfo.h"
 #import <JSQMessagesViewController/JSQMessage.h>
 #import "API_Defines.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
+
+static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
+
+
+#define PushNotificationDetailsKey  @"PushNotificationDetailsKey"
+#define DEVICE_TOKEN                @"DeviceToken"
 
 #define APP_BLUE [UIColor colorWithHex:0x3498DB]
 #define APP_GRAY [UIColor colorWithHex:0x464646]

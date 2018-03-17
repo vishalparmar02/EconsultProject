@@ -9,6 +9,7 @@
 #import "PubNubManager.h"
 #import "Macros.h"
 #import "Patient.h"
+#import "CallController.h"
 
 #define kDeviceToken defaults_object(@"DeviceToken")
 
@@ -147,27 +148,32 @@
     if ([JSON[@"type"] isEqualToString:@"v_call"]) {
         NSLog(@"Call: %@", JSON.description);
         if([UIApplication sharedApplication].applicationState != UIApplicationStateActive){
-            UILocalNotification *notification = [[UILocalNotification alloc]init];
-            notification.userInfo = JSON;
-            [notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:1]];
-            [notification setTimeZone:[NSTimeZone  defaultTimeZone]];
-            notification.soundName = @"ring.wav";
-            [notification setAlertBody:JSON[@"description"]];
+//            UILocalNotification *notification = [[UILocalNotification alloc]init];
+//            notification.userInfo = JSON;
+//            [notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:0.5]];
+//            [notification setTimeZone:[NSTimeZone  defaultTimeZone]];
+//            notification.soundName = @"ring.wav";
+//            [notification setAlertBody:JSON[@"description"]];
             NSString *type = JSON[@"type"];
             if ([type isEqualToString:@"v_call"]) {
-                [[UIApplication sharedApplication] setScheduledLocalNotifications:[NSArray arrayWithObject:notification]];
+                [[CallController sharedController] reportCall:JSON];
+//                [[UIApplication sharedApplication] setScheduledLocalNotifications:[NSArray arrayWithObject:notification]];
             }
         }else{
-            NSNotification *notification = [NSNotification notificationWithName:@"INCOMING_CALL_NOTIFICATION"
-                                                                         object:nil
-                                                                       userInfo:JSON];
-            [[NSNotificationCenter defaultCenter] postNotification:notification];
+            [[CallController sharedController] reportCall:JSON];
+//            NSNotification *notification = [NSNotification notificationWithName:@"INCOMING_CALL_NOTIFICATION"
+//                                                                         object:nil
+//                                                                       userInfo:JSON];
+//            [[NSNotificationCenter defaultCenter] postNotification:notification];
         }
     }else if([JSON[@"type"] isEqualToString:@"v_call_end"]){
-        NSNotification *notification = [NSNotification notificationWithName:@"CALL_END_NOTIFICATION"
-                                                                     object:nil
-                                                                   userInfo:JSON];
-        [[NSNotificationCenter defaultCenter] postNotification:notification];
+//        NSNotification *notification = [NSNotification notificationWithName:@"CALL_END_NOTIFICATION"
+//                                                                     object:nil
+//                                                                   userInfo:JSON];
+//        [[NSNotificationCenter defaultCenter] postNotification:notification];
+        
+        [[CallController sharedController] endCall:JSON];
+        
     }else if([JSON[@"type"] isEqualToString:@"v_call_reject"]){
         NSNotification *notification = [NSNotification notificationWithName:@"CALL_END_NOTIFICATION"
                                                                      object:nil

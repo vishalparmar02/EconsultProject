@@ -329,12 +329,12 @@ static NSInteger kARDAppClientErrorInvalidRoom = -7;
 
 - (void)peerConnection:(RTCPeerConnection *)peerConnection
     iceConnectionChanged:(RTCICEConnectionState)newState {
-  NSLog(@"ICE state changed: %d", newState);
+//  NSLog(@"ICE state changed: %d", newState);
 }
 
 - (void)peerConnection:(RTCPeerConnection *)peerConnection
     iceGatheringChanged:(RTCICEGatheringState)newState {
-  NSLog(@"ICE gathering state changed: %d", newState);
+//  NSLog(@"ICE gathering state changed: %d", newState);
 }
 
 - (void)peerConnection:(RTCPeerConnection *)peerConnection
@@ -588,7 +588,7 @@ static NSInteger kARDAppClientErrorInvalidRoom = -7;
       [NSString stringWithFormat:
           kARDRoomServerMessageFormat, self.serverHostUrl, _roomId, _clientId];
   NSURL *url = [NSURL URLWithString:urlString];
-  NSLog(@"C->RS POST: %@", message);
+//  NSLog(@"C->RS POST: %@", message);
   __weak ARDAppClient *weakSelf = self;
   [NSURLConnection sendAsyncPostToURL:url
                              withData:data
@@ -642,7 +642,7 @@ static NSInteger kARDAppClientErrorInvalidRoom = -7;
   NSString *urlString =
       [NSString stringWithFormat:kARDRoomServerByeFormat, self.serverHostUrl, _roomId, _clientId];
   NSURL *url = [NSURL URLWithString:urlString];
-  NSLog(@"C->RS: BYE");
+//  NSLog(@"C->RS: BYE");
     //Make sure to do a POST
     [NSURLConnection sendAsyncPostToURL:url withData:nil completionHandler:^(BOOL succeeded, NSData *data) {
         if (succeeded) {
