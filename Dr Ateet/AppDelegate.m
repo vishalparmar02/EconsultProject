@@ -31,7 +31,6 @@
 
 
 - (void)tryForPushNotification{
-    return;
     static BOOL tried = NO;
     if (tried) {
         return;
@@ -186,6 +185,7 @@
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    return;
     DDLogVerbose(@"deviceToken: %@", deviceToken);
     
     NSData *oldToken = [[NSUserDefaults standardUserDefaults] dataForKey:@"DeviceToken"];
@@ -231,7 +231,7 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler{
-    DDLogVerbose(@"Silent notification: %@", userInfo.description);
+    DDLogVerbose(@"Swilent notification: %@", userInfo.description);
     
     if([UIApplication sharedApplication].applicationState != UIApplicationStateActive){
         NSDictionary *JSON = userInfo[@"aps"][@"call_payload"];

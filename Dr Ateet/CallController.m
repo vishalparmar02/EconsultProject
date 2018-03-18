@@ -101,6 +101,14 @@
 
 - (void)pushRegistry:(PKPushRegistry *)registry didReceiveIncomingPushWithPayload:(PKPushPayload *)payload forType:(NSString *)type{
     NSLog(@"didReceiveIncomingPushWithPayload");
+    NSDictionary *callDict = payload.dictionaryPayload[@"aps"][@"call_payload"];
+    
+    NSString *payloadType = callDict[@"type"];
+    if ([payloadType isEqualToString:@"v_call"]) {
+        [self reportCall:callDict];
+    }else if ([payloadType isEqualToString:@"v_call_end"]) {
+        [self endCall:callDict];
+    }
 }
 
 - (void)viewDidLoad {
