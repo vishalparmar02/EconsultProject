@@ -20,6 +20,16 @@
     return ControllerFromStoryBoard(@"Consultation", @"ARTCVideoChatViewController");
 }
 
++ (void)load{
+    [super load];
+    ARDAppClient *client = [[ARDAppClient alloc] initWithDelegate:nil];
+    [client setServerHostUrl:SERVER_HOST_URL];
+    [client connectToRoomWithId:@"test" options:nil];
+    [client enableSpeaker];
+    [client disconnect];
+    client = nil;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -76,22 +86,22 @@
     [self.client connectToRoomWithId:self.roomName options:nil];
     
     [self.urlLabel setText:self.roomUrl];
-    
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(callEnded:) name:@"CALL_END_NOTIFICATION"
-                                               object:nil];
-    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(pauseVideo)
-                                                 name:UIApplicationWillResignActiveNotification
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(resumeVideo)
-                                                 name:UIApplicationDidBecomeActiveNotification
-                                               object:nil];
+//    
+//    
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(callEnded:) name:@"CALL_END_NOTIFICATION"
+//                                               object:nil];
+//    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+//    
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(pauseVideo)
+//                                                 name:UIApplicationWillResignActiveNotification
+//                                               object:nil];
+//    
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(resumeVideo)
+//                                                 name:UIApplicationDidBecomeActiveNotification
+//                                               object:nil];
 
 }
 
@@ -193,6 +203,8 @@
 
 - (IBAction)audioButtonPressed:(id)sender {
     //TODO: this change not work on simulator (it will crash)
+    [self.client reloadStream];
+    return;
     UIButton *audioButton = sender;
     if (self.isAudioMute) {
         [self.client unmuteAudioIn];
@@ -222,6 +234,7 @@
 
 - (IBAction)hangupButtonPressed:(id)sender {
     //Clean up
+    NSLog(@"hangupButtonPressed");
     NSString *calleeChannel = self.call[@"channel"];
     NSNumber *senderID = [[CUser currentUser] isPatient] ? [CUser currentUser][@"patient_id"] : @-1;
     NSDictionary *callDict = @{@"description" : @"Call ended.",
@@ -250,11 +263,11 @@
 
 - (void)hangUpCall:(NSDictionary*)callEndDict{
     [self disconnect];
-    [self.navigationController dismissViewControllerAnimated:YES completion:^{
-        if(callEndDict){
-            [ApplicationDelegate showNotificationWithTitle:callEndDict[@"description"] description:@""];
-        }
-    }];
+    if(callEndDict){
+        [ApplicationDelegate showNotificationWithTitle:callEndDict[@"description"] description:@""];
+    }
+    UIViewController *target = self.navigationController.viewControllers[self.navigationController.viewControllers.count - 3];
+    [self.navigationController popToViewController:target animated:YES];
 }
 
 

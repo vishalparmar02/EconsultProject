@@ -25,7 +25,7 @@
 
 
 - (void)viewDidLoad {
-    if (TARGET_OS_SIMULATOR) {
+    if (TARGET_OS_SIMULATOR || DEBUG) {
         self.OTPField.text = @"1234";
     }
     self.OTPField.delegate = self;

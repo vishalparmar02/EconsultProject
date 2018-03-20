@@ -515,6 +515,13 @@ static NSInteger kARDAppClientErrorInvalidRoom = -7;
     return localVideoTrack;
 }
 
+- (void)reloadStream{
+    RTCMediaStream *stream = _peerConnection.localStreams[0];
+    [_peerConnection removeStream:stream];
+    [_peerConnection addStream:[self createLocalMediaStream]];
+    
+}
+
 - (RTCMediaStream *)createLocalMediaStream {
     RTCMediaStream* localStream = [_factory mediaStreamWithLabel:@"ARDAMS"];
 
@@ -522,9 +529,12 @@ static NSInteger kARDAppClientErrorInvalidRoom = -7;
     if (localVideoTrack) {
         [localStream addVideoTrack:localVideoTrack];
         [_delegate appClient:self didReceiveLocalVideoTrack:localVideoTrack];
+    }else{
+        NSLog(@"Video stream not found");
     }
     
-    [localStream addAudioTrack:[_factory audioTrackWithID:@"ARDAMSa0"]];
+    RTCAudioTrack *localAudioTrack = [_factory audioTrackWithID:@"ARDAMSa0"];
+    [localStream addAudioTrack:localAudioTrack];
     if (_isSpeakerEnabled) [self enableSpeaker];
     return localStream;
 }
@@ -566,8 +576,6 @@ static NSInteger kARDAppClientErrorInvalidRoom = -7;
   [NSURLConnection sendAsyncPostToURL:roomURL
                              withData:nil
                     completionHandler:^(BOOL succeeded, NSData *data) {
-                        NSString *resp = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                        NSLog(resp);
     ARDAppClient *strongSelf = weakSelf;
     if (!succeeded) {
       NSError *error = [self roomServerNetworkError];

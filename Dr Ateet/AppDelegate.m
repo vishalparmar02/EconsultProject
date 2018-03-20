@@ -363,5 +363,9 @@
     
 }
 
+- (UINavigationController*)currentNavigationController{
+    return _drawerController.paneViewController;
+}
+
 
 @end

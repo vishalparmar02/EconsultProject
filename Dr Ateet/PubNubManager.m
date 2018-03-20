@@ -167,13 +167,7 @@
 //            [[NSNotificationCenter defaultCenter] postNotification:notification];
         }
     }else if([JSON[@"type"] isEqualToString:@"v_call_end"]){
-//        NSNotification *notification = [NSNotification notificationWithName:@"CALL_END_NOTIFICATION"
-//                                                                     object:nil
-//                                                                   userInfo:JSON];
-//        [[NSNotificationCenter defaultCenter] postNotification:notification];
-        
-        [[CallController sharedController] endCall:JSON];
-        
+        [[CallController sharedController] endCall:JSON];        
     }else if([JSON[@"type"] isEqualToString:@"v_call_reject"]){
         NSNotification *notification = [NSNotification notificationWithName:@"CALL_END_NOTIFICATION"
                                                                      object:nil

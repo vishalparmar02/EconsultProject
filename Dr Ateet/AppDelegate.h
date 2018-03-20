@@ -17,6 +17,7 @@
 - (void)setController;
 - (void)toggleMenu;
 - (void)showNotificationWithTitle:(NSString*)title description:(NSString*)description;
+- (UINavigationController*)currentNavigationController;
 
 @end
 

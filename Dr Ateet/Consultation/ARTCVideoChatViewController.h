@@ -59,6 +59,7 @@
 
 + (ARTCVideoChatViewController*)controller;
 
+- (void)disconnect;
 - (IBAction)audioButtonPressed:(id)sender;
 - (IBAction)videoButtonPressed:(id)sender;
 - (IBAction)hangupButtonPressed:(id)sender;

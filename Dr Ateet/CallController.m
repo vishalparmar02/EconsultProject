@@ -47,14 +47,8 @@
 
 - (void)awakeFromNib{
     [super awakeFromNib];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(callReceived:) name:@"INCOMING_CALL_NOTIFICATION"
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(applicationBecameActive)
-                                                 name:UIApplicationDidBecomeActiveNotification
                                                object:nil];
     
     NSURL *ringURL = [[NSBundle mainBundle] URLForResource:@"ring" withExtension:@"wav"];
@@ -132,15 +126,10 @@
     [self.view insertSubview:blurEffectView atIndex:0];
 }
 
-- (void)applicationBecameActive{
+- (void)viewDidAppear:(BOOL)animated{
     if (self.scheduleAnswer) {
         self.scheduleAnswer = NO;
-        UINavigationController *navVC = NavigationControllerWithController(self);
-        navVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-        [navVC pushViewController:self.videoChatController animated:NO];
-        [ApplicationDelegate.window.rootViewController presentViewController:navVC
-                                                                    animated:YES
-                                                                  completion:nil];
+        [self.navigationController pushViewController:self.videoChatController animated:NO];
     }
 }
 
@@ -191,9 +180,10 @@
 - (void)receiveAsCaller{
     dispatch_async(dispatch_get_main_queue(), ^{
         if (self.expectingCall) {
-            [ApplicationDelegate.window.rootViewController presentViewController:NavigationControllerWithController(self.videoChatController)
-                                                                        animated:YES
-                                                                      completion:nil];
+            [[ApplicationDelegate currentNavigationController] pushViewController:(self)
+                                                                         animated:NO];
+            [[ApplicationDelegate currentNavigationController] pushViewController:(self.videoChatController)
+                                     animated:YES];
             self.expectingCall = NO;
         }
     });
@@ -216,16 +206,13 @@
                                          @"channel" : calleeChannel};
         
         [PubNubManager sendMessage:callRejectDict toChannel:calleeChannel];
-        if (ApplicationDelegate.window.rootViewController == self.navigationController) {
-            [self.navigationController dismissViewControllerAnimated:YES
-                                                          completion:nil];
-        }
         self.currentCallUUID = nil;
         self.videoChatController = nil;
     }
 }
 
 - (void)callEndTapped{
+    if (!self.currentCallUUID)  return;
     CXEndCallAction *action = [[CXEndCallAction alloc] initWithCallUUID:self.currentCallUUID];
     CXTransaction *transaction = [[CXTransaction alloc] initWithAction:action];
 
@@ -245,11 +232,12 @@
 
 
 - (void)configureCallKit {
-    CXProviderConfiguration *configuration = [[CXProviderConfiguration alloc] initWithLocalizedName:@"Dr."];
+    CXProviderConfiguration *configuration = [[CXProviderConfiguration alloc] initWithLocalizedName:@"Dr. Ateet Sharma"];
     configuration.maximumCallGroups = 1;
+    configuration.supportsVideo = YES;
     configuration.maximumCallsPerCallGroup = 1;
-    UIImage *callkitIcon = [UIImage imageNamed:@"iconMask80"];
-    configuration.iconTemplateImageData = UIImagePNGRepresentation(callkitIcon);
+//    UIImage *callkitIcon = [UIImage imageNamed:@"Knee Icon"];
+//    configuration.iconTemplateImageData = UIImagePNGRepresentation(callkitIcon);
     
     _callKitProvider = [[CXProvider alloc] initWithConfiguration:configuration];
     [_callKitProvider setDelegate:self queue:nil];
@@ -259,7 +247,17 @@
 
 - (void)endCall:(NSDictionary *)callDict{
     if (self.currentCallUUID != nil) {
-        [self.videoChatController hangupButtonPressed:nil];
+        NSInteger controllerIndex = self.navigationController.viewControllers.count - 3;
+        UIViewController *target = self.navigationController.viewControllers[controllerIndex];
+        [self.navigationController popToViewController:target animated:YES];
+        
+        [self.videoChatController disconnect];
+        [ApplicationDelegate showNotificationWithTitle:callDict[@"description"] description:@""];
+        [self.callKitProvider reportCallWithUUID:self.currentCallUUID
+                                     endedAtDate:[NSDate date]
+                                          reason:CXCallEndedReasonRemoteEnded];
+        self.currentCallUUID = nil;
+        self.videoChatController = nil;
     }
 }
 
@@ -284,7 +282,6 @@
 }
 
 - (void)reportOutgoingCall:(NSDictionary *)callDict withUUID:(NSUUID *)uuid{
-    self.currentCallUUID = uuid;
     NSString *from = callDict[@"caller"];
     CXHandle *handle = [[CXHandle alloc] initWithType:CXHandleTypeGeneric value:from];
 
@@ -311,6 +308,7 @@
         CXHandle *callHandle = [[CXHandle alloc] initWithType:CXHandleTypeGeneric value:from];
         
         CXCallUpdate *update = [[CXCallUpdate alloc] init];
+        update.localizedCallerName = from;
         update.remoteHandle = callHandle;
         update.supportsDTMF = NO;
         update.supportsHolding = NO;
@@ -326,17 +324,20 @@
                 NSLog(@"Failed to report incoming call successfully: %@.", [error localizedDescription]);
             }
         }];
+        
     }
 }
 
 - (void)provider:(CXProvider *)provider performStartCallAction:(CXStartCallAction *)action{
     NSLog(@"Start Call");
-    
+    [action fulfill];
 }
 
 - (void)provider:(CXProvider *)provider performAnswerCallAction:(CXAnswerCallAction *)action{
     NSLog(@"performAnswerCallAction");
     self.scheduleAnswer = YES;
+    UINavigationController *navigationController = [ApplicationDelegate currentNavigationController];
+    [navigationController pushViewController:self animated:YES];
     [action fulfill];
 }
 

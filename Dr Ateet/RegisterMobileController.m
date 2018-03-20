@@ -22,6 +22,14 @@
 
 - (void)viewDidLoad {
     if (TARGET_OS_SIMULATOR) {
+        self.mobileNumberField.text = @"9574007979";
+        NSString *countryCode = @"IN";
+        NSString *imagePath = [NSString stringWithFormat:@"EMCCountryPickerController.bundle/%@", countryCode];
+        UIImage *image = [UIImage imageNamed:imagePath inBundle:[NSBundle bundleForClass:self.class] compatibleWithTraitCollection:nil];
+        
+        self.countryFlagView.image = image;
+        self.countryCodeField.text = @"+91";
+    }else if(DEBUG){
         self.mobileNumberField.text = @"7600660648";
         NSString *countryCode = @"IN";
         NSString *imagePath = [NSString stringWithFormat:@"EMCCountryPickerController.bundle/%@", countryCode];
