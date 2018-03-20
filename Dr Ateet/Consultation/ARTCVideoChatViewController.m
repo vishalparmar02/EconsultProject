@@ -22,12 +22,14 @@
 
 + (void)load{
     [super load];
-    ARDAppClient *client = [[ARDAppClient alloc] initWithDelegate:nil];
-    [client setServerHostUrl:SERVER_HOST_URL];
-    [client connectToRoomWithId:@"test" options:nil];
-    [client enableSpeaker];
-    [client disconnect];
-    client = nil;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        ARDAppClient *client = [[ARDAppClient alloc] initWithDelegate:nil];
+        [client setServerHostUrl:SERVER_HOST_URL];
+        [client connectToRoomWithId:@"test" options:nil];
+        [client enableSpeaker];
+        [client disconnect];
+        client = nil;
+    });
 }
 
 - (void)viewDidLoad {
