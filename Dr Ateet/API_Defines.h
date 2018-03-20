@@ -40,8 +40,8 @@
 #define PUBLISH_KEY     DEBUG ? DEBUG_PUBLISH_KEY : RELEASE_PUBLISH_KEY
 #define SUB_KEY         DEBUG ? DEBUG_SUB_KEY : RELEASE_SUB_KEY
 
-//#define PATIENT_CHANNEL(patientID) [NSString stringWithFormat:@"patient_%@", patientID]
-#define PATIENT_CHANNEL(patientID) [NSString stringWithFormat:@"test_patient_%@", patientID]
+#define PATIENT_CHANNEL(patientID) [NSString stringWithFormat:@"patient_%@", patientID]
+//#define PATIENT_CHANNEL(patientID) [NSString stringWithFormat:@"test_patient_%@", patientID]
 
 #define OUT_DATE_FORMAT             @"dd LLL yyyy HH:mm a"
 #define IN_DATE_FORMAT              @"yyyy-LL-dd'T'HH:mm:ssZ"

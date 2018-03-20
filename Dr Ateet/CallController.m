@@ -305,6 +305,9 @@
         [self showIncomingCall:callDict];
     }else{
         NSString *from = callDict[@"caller"];
+        if (![from isKindOfClass:[NSString class]]) {
+            from = @"Dr. Ateet Sharma";
+        }
         CXHandle *callHandle = [[CXHandle alloc] initWithType:CXHandleTypeGeneric value:from];
         
         CXCallUpdate *update = [[CXCallUpdate alloc] init];
