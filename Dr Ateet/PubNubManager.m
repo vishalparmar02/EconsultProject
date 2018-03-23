@@ -145,35 +145,16 @@
     }
     
     NSLog(@"isSimulator: %d, Type:%@", IS_SIMULATOR, JSON[@"type"]);
+    
     if ([JSON[@"type"] isEqualToString:@"v_call"]) {
-        NSLog(@"Call: %@", JSON.description);
-        if([UIApplication sharedApplication].applicationState != UIApplicationStateActive){
-//            UILocalNotification *notification = [[UILocalNotification alloc]init];
-//            notification.userInfo = JSON;
-//            [notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:0.5]];
-//            [notification setTimeZone:[NSTimeZone  defaultTimeZone]];
-//            notification.soundName = @"ring.wav";
-//            [notification setAlertBody:JSON[@"description"]];
-            NSString *type = JSON[@"type"];
-            if ([type isEqualToString:@"v_call"]) {
-                [[CallController sharedController] reportCall:JSON];
-//                [[UIApplication sharedApplication] setScheduledLocalNotifications:[NSArray arrayWithObject:notification]];
-            }
-        }else{
-            [[CallController sharedController] reportCall:JSON];
-//            NSNotification *notification = [NSNotification notificationWithName:@"INCOMING_CALL_NOTIFICATION"
-//                                                                         object:nil
-//                                                                       userInfo:JSON];
-//            [[NSNotificationCenter defaultCenter] postNotification:notification];
-        }
+        //        NSLog(@"Call: %@", JSON.description);
+        [[CallController sharedController] reportCall:JSON];
     }else if([JSON[@"type"] isEqualToString:@"v_call_end"]){
-        [[CallController sharedController] endCall:JSON];        
+        [[CallController sharedController] endCall:JSON];
     }else if([JSON[@"type"] isEqualToString:@"v_call_reject"]){
-        NSNotification *notification = [NSNotification notificationWithName:@"CALL_END_NOTIFICATION"
-                                                                     object:nil
-                                                                   userInfo:JSON];
-        [[NSNotificationCenter defaultCenter] postNotification:notification];
-    }else if([JSON[@"type"] isEqualToString:@"generic"] || [JSON[@"type"] isEqualToString:@"upload_report"]){
+        [[CallController sharedController] endCall:JSON];
+    }
+    else if([JSON[@"type"] isEqualToString:@"generic"] || [JSON[@"type"] isEqualToString:@"upload_report"]){
         if([UIApplication sharedApplication].applicationState != UIApplicationStateActive){
             UILocalNotification *notification = [[UILocalNotification alloc]init];
             notification.userInfo = JSON;
@@ -184,6 +165,7 @@
             [[UIApplication sharedApplication] setScheduledLocalNotifications:[NSArray arrayWithObject:notification]];
         }
     }
+    
 }
 
 - (void)client:(PubNub *)client didReceivePresenceEvent:(PNPresenceEventResult *)event{

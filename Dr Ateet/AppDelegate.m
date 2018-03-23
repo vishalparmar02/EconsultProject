@@ -22,7 +22,6 @@
 
 @interface AppDelegate ()
 
-@property (nonatomic, strong) NSNotification        *scheduledCallNotification;
 @property (nonatomic)           UIBackgroundTaskIdentifier bgTask;
 
 @end
@@ -263,14 +262,6 @@
         JSON = JSON[@"json_data"];
     }
     
-    if ([JSON[@"type"] isEqualToString:@"v_call"]) {
-        NSNotification *notification = [NSNotification notificationWithName:@"INCOMING_CALL_NOTIFICATION"
-                                                                     object:nil
-                                                                   userInfo:JSON];
-        self.scheduledCallNotification = notification;
-    }else if([JSON[@"type"] isEqualToString:@"v_call_end"]){        
-    }
-    
     DDLogVerbose(@"Notification:%@", [userInfo description]);
 }
 
@@ -281,16 +272,6 @@
     }else{
         JSON = userInfo;
     }
-    
-    if ([JSON[@"type"] isEqualToString:@"v_call"]) {
-        NSNotification *notification = [NSNotification notificationWithName:@"INCOMING_CALL_NOTIFICATION"
-                                                                     object:nil
-                                                                   userInfo:JSON];
-        self.scheduledCallNotification = notification;
-    }else if([JSON[@"type"] isEqualToString:@"v_call_end"]){
-        
-    }
-    
     DDLogVerbose(@"Local Notification:%@", [userInfo description]);
 }
 
@@ -336,10 +317,6 @@
         self.window.rootViewController = [RegisterMobileController navigationController];
     }
     [self tryForPushNotification];
-    if (self.scheduledCallNotification) {
-        [[CallController sharedController] callReceived:self.scheduledCallNotification];
-        self.scheduledCallNotification = nil;
-    }
 }
 
 

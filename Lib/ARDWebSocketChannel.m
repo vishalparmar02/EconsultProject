@@ -103,12 +103,12 @@ static NSString const *kARDWSSMessagePayloadKey = @"msg";
     NSString *messageString =
         [[NSString alloc] initWithData:messageJSONObject
                               encoding:NSUTF8StringEncoding];
-//    NSLog(@"C->WSS: %@", messageString);
+    NSLog(@"C->WSS: %@", messageString);
     [_socket send:messageString];
   } else {
-//    NSString *dataString =
-//        [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-//    NSLog(@"C->WSS POST: %@", dataString);
+    NSString *dataString =
+        [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"C->WSS POST: %@", dataString);
     NSString *urlString =
         [NSString stringWithFormat:@"%@/%@/%@",
             [_restURL absoluteString], _roomId, _clientId];
@@ -125,7 +125,7 @@ static NSString const *kARDWSSMessagePayloadKey = @"msg";
     return;
   }
   [_socket close];
-//  NSLog(@"C->WSS DELETE rid:%@ cid:%@", _roomId, _clientId);
+  NSLog(@"C->WSS DELETE rid:%@ cid:%@", _roomId, _clientId);
   NSString *urlString =
       [NSString stringWithFormat:@"%@/%@/%@",
           [_restURL absoluteString], _roomId, _clientId];

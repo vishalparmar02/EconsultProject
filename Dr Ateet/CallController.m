@@ -14,9 +14,7 @@
 #import <PushKit/PushKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface CallController ()<CXProviderDelegate, ARTCVideoChatDelegate,PKPushRegistryDelegate>{
-    AVAudioPlayer *ringPlayer;
-}
+@interface CallController ()<CXProviderDelegate, ARTCVideoChatDelegate,PKPushRegistryDelegate>
 
 @property (nonatomic, strong) IBOutlet  UIButton    *answerButton, *rejectButton;
 @property (nonatomic, strong) IBOutlet  UILabel     *callDetailLabel;
@@ -25,6 +23,7 @@
 @property (nonatomic, strong)           CXCallController        *callKitCallController;
 @property (nonatomic, strong)           PKPushRegistry          *voipRegistry;
 @property (nonatomic, strong)           NSUUID                  *currentCallUUID;
+@property (nonatomic, strong)           NSDictionary            *currentCallDict;
 @property (nonatomic)                   BOOL                    scheduleAnswer;
 
 @end
@@ -47,14 +46,6 @@
 
 - (void)awakeFromNib{
     [super awakeFromNib];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(callReceived:) name:@"INCOMING_CALL_NOTIFICATION"
-                                               object:nil];
-    
-    NSURL *ringURL = [[NSBundle mainBundle] URLForResource:@"ring" withExtension:@"wav"];
-    
-    ringPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:ringURL error:NULL];
-    
     [self configureCallKit];
     [self configurePushKit];
 }
@@ -107,6 +98,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[AVAudioSession sharedInstance] requestRecordPermission:^(BOOL granted) {
+        if (granted) {
+            NSLog(@"Permission granted");
+        }
+        else {
+            NSLog(@"Permission denied");
+        }
+    }];
     self.navigationController.navigationBarHidden = YES;
     
     self.answerButton.layer.cornerRadius = 50;
@@ -126,87 +125,82 @@
     [self.view insertSubview:blurEffectView atIndex:0];
 }
 
+- (void)record{
+    NSArray *pathComponents = [NSArray arrayWithObjects:
+                               [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
+                               @"MyAudioMemo.m4a",
+                               nil];
+    NSURL *outputFileURL = [NSURL fileURLWithPathComponents:pathComponents];
+    
+    // Setup audio session
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    [session setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+    
+    // Define the recorder setting
+    NSMutableDictionary *recordSetting = [[NSMutableDictionary alloc] init];
+    
+    [recordSetting setValue:[NSNumber numberWithInt:kAudioFormatMPEG4AAC] forKey:AVFormatIDKey];
+    [recordSetting setValue:[NSNumber numberWithFloat:44100.0] forKey:AVSampleRateKey];
+    [recordSetting setValue:[NSNumber numberWithInt: 2] forKey:AVNumberOfChannelsKey];
+    
+    // Initiate and prepare the recorder
+    AVAudioRecorder *recorder = [[AVAudioRecorder alloc] initWithURL:outputFileURL settings:recordSetting error:NULL];
+    recorder.delegate = self;
+    recorder.meteringEnabled = YES;
+    [recorder prepareToRecord];
+    
+    [session setActive:YES error:nil];
+    
+    // Start recording
+    [recorder record];
+}
+
 - (void)viewDidAppear:(BOOL)animated{
     if (self.scheduleAnswer) {
         self.scheduleAnswer = NO;
-        [self.navigationController pushViewController:self.videoChatController animated:NO];
-    }
-}
-
-- (void)callReceived:(NSNotification*)notification{
-    NSDictionary *callDict = notification.userInfo;
-    
-    if (self.isOnCall) {
-        NSString *calleeChannel = callDict[@"channel"];
-        NSNumber *senderID = [[CUser currentUser] isPatient] ? [CUser currentUser][@"patient_id"] : @-1;
-        NSString *message = [[CUser currentUser] isPatient] ? @"User busy" : @"Dr Ateet Sharma is busy with another call, please try later or He will call you.";
-        NSDictionary *callRejectDict = @{@"description" : message,
-                                         @"room_id" : callDict[@"room_id"],
-                                         @"sender_id" : senderID,
-                                         @"type" : @"v_call_end",
-                                         @"channel" : calleeChannel};
+//        [self record];
+        [self.callKitProvider reportOutgoingCallWithUUID:self.currentCallUUID connectedAtDate:nil];
+        [NSTimer scheduledTimerWithTimeInterval:3 repeats:NO block:^(NSTimer * _Nonnull timer) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.videoChatController = [ARTCVideoChatViewController controller];
+                self.videoChatController.delegate = self;
+                [self.videoChatController setRoomName:self.currentCallDict[@"room_id"]];
+                self.videoChatController.call = self.currentCallDict;
+                
+                [self.navigationController pushViewController:self.videoChatController animated:NO];
+            });
+            
+            
+        }];
         
-        [PubNubManager sendMessage:callRejectDict toChannel:calleeChannel];
-    }else{
-        self.videoChatController = [ARTCVideoChatViewController controller];
-        [self.videoChatController setRoomName:callDict[@"room_id"]];
-        self.videoChatController.call = callDict;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.callDetailLabel.text = callDict[@"description"];
-        });
-        
-        if ([[CUser currentUser] isPatient] &&
-            [callDict[@"sender_id"] isEqual:[CUser currentUser][@"patient_id"]]){
-            [self receiveAsCaller];
-        }else if (![[CUser currentUser] isPatient] && [callDict[@"sender_id"] integerValue] == -1) {
-            [self receiveAsCaller];
-        }else{
-            [self showIncomingCall:callDict];
-        }
     }
-}
-
-- (void)showIncomingCall:(NSDictionary*)callDict{
-    ringPlayer.numberOfLoops = 0;
-    [ringPlayer play];
-
-    UINavigationController *navVC = NavigationControllerWithController(self);
-    navVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    [ApplicationDelegate.window.rootViewController presentViewController:navVC
-                                                                animated:YES
-                                                              completion:nil];
 }
 
 - (void)receiveAsCaller{
     dispatch_async(dispatch_get_main_queue(), ^{
-        if (self.expectingCall) {
-            [[ApplicationDelegate currentNavigationController] pushViewController:(self)
-                                                                         animated:NO];
-            [[ApplicationDelegate currentNavigationController] pushViewController:(self.videoChatController)
-                                     animated:YES];
-            self.expectingCall = NO;
-        }
+        [[ApplicationDelegate currentNavigationController] pushViewController:(self)
+                                                                     animated:NO];
+        self.scheduleAnswer = YES;
     });
 }
 
 - (IBAction)answerTapped{
-    [ringPlayer stop];
     [self.navigationController pushViewController:self.videoChatController animated:YES];
 }
 
 - (IBAction)rejectTapped{
     if (self.currentCallUUID != nil) {
-        [ringPlayer stop];
-        NSString *calleeChannel = self.videoChatController.call[@"channel"];
+        NSString *calleeChannel = self.currentCallDict[@"channel"];
         NSNumber *senderID = [[CUser currentUser] isPatient] ? [CUser currentUser][@"patient_id"] : @-1;
         NSDictionary *callRejectDict = @{@"description" : @"User busy.",
-                                         @"room_id" : self.videoChatController.call[@"room_id"],
+                                         @"room_id" : self.currentCallDict[@"room_id"],
                                          @"sender_id" : senderID,
                                          @"type" : @"v_call_end",
                                          @"channel" : calleeChannel};
         
         [PubNubManager sendMessage:callRejectDict toChannel:calleeChannel];
         self.currentCallUUID = nil;
+        self.currentCallDict = nil;
         self.videoChatController = nil;
     }
 }
@@ -246,7 +240,8 @@
 }
 
 - (void)endCall:(NSDictionary *)callDict{
-    if (self.currentCallUUID != nil) {
+    if (self.currentCallUUID != nil &&
+        [callDict[@"room_id"] isEqualToString:self.currentCallDict[@"room_id"]]) {
         NSInteger controllerIndex = self.navigationController.viewControllers.count - 3;
         UIViewController *target = self.navigationController.viewControllers[controllerIndex];
         [self.navigationController popToViewController:target animated:YES];
@@ -262,30 +257,48 @@
 }
 
 - (void)reportCall:(NSDictionary*)callDict{
-    if(self.videoChatController && [self.videoChatController.roomName isEqualToString:callDict[@"room_id"]])return;
-    self.currentCallUUID = [NSUUID UUID];
-    self.videoChatController = [ARTCVideoChatViewController controller];
-    self.videoChatController.delegate = self;
-    [self.videoChatController setRoomName:callDict[@"room_id"]];
-    self.videoChatController.call = callDict;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        self.callDetailLabel.text = callDict[@"description"];
-    });
+    if([callDict[@"room_id"] isEqualToString:self.currentCallDict[@"room_id"]])return;
     
-    if ([[CUser currentUser] isPatient] && [callDict[@"sender_id"] isEqual:[CUser currentUser][@"patient_id"]]){
-        [self reportOutgoingCall:callDict withUUID:self.currentCallUUID];
-    }else if (![[CUser currentUser] isPatient] && [callDict[@"sender_id"] integerValue] == -1) {
-        [self reportOutgoingCall:callDict withUUID:self.currentCallUUID];
-    }else{
-        [self reportIncomingCall:callDict withUUID:self.currentCallUUID];
-    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.currentCallUUID = [NSUUID UUID];
+        self.currentCallDict = [callDict copy];
+        self.callDetailLabel.text = callDict[@"description"];
+        
+        NSError *err;
+        AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+        [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord error:&err];
+        if (err) {
+            NSLog(@"error setting audio category %@",err);
+        }
+        [[AVAudioSession sharedInstance] setMode:AVAudioSessionModeVideoChat error:&err];
+        if (err) {
+            NSLog(@"error setting audio Mode %@",err);
+        }
+        double sampleRate = 44100.0;
+        [audioSession setPreferredSampleRate:sampleRate error:&err];
+        if (err) {
+            NSLog(@"Error %ld, %@",(long)err.code, err.localizedDescription);
+        }
+        
+        NSTimeInterval bufferDuration = .005;
+        [audioSession setPreferredIOBufferDuration:bufferDuration error:&err];
+        
+        if ([[CUser currentUser] isPatient] && [callDict[@"sender_id"] isEqual:[CUser currentUser][@"patient_id"]]){
+            [self reportOutgoingCall];
+        }else if (![[CUser currentUser] isPatient] && [callDict[@"sender_id"] integerValue] == -1) {
+            [self reportOutgoingCall];
+        }else{
+            [self reportIncomingCall];
+        }
+    });
 }
 
-- (void)reportOutgoingCall:(NSDictionary *)callDict withUUID:(NSUUID *)uuid{
-    NSString *from = callDict[@"caller"];
+- (void)reportOutgoingCall{
+    NSString *from = self.currentCallDict[@"caller"];
     CXHandle *handle = [[CXHandle alloc] initWithType:CXHandleTypeGeneric value:from];
 
-    CXStartCallAction *startCallAction = [[CXStartCallAction alloc] initWithCallUUID:uuid handle:handle];
+    CXStartCallAction *startCallAction = [[CXStartCallAction alloc] initWithCallUUID:self.currentCallUUID
+                                                                              handle:handle];
     CXTransaction *transaction = [[CXTransaction alloc] initWithAction:startCallAction];
     
     [self.callKitCallController requestTransaction:transaction completion:^(NSError *error) {
@@ -300,11 +313,12 @@
     }];
 }
 
-- (void)reportIncomingCall:(NSDictionary *)callDict withUUID:(NSUUID *)uuid{
+- (void)reportIncomingCall{
     if(IS_SIMULATOR){
-        [self showIncomingCall:callDict];
+        //Do something for simulator
+//        [self showIncomingCall:callDict];
     }else{
-        NSString *from = callDict[@"caller"];
+        NSString *from = self.currentCallDict[@"caller"];
         if (![from isKindOfClass:[NSString class]]) {
             from = @"Dr. Ateet Sharma";
         }
@@ -319,14 +333,17 @@
         update.supportsUngrouping = NO;
         update.hasVideo = YES;
         NSLog(@"Registering with callkit");
-        [self.callKitProvider reportNewIncomingCallWithUUID:uuid update:update completion:^(NSError *error) {
-            if (!error) {
-                NSLog(@"Incoming call successfully reported.");
-            }
-            else {
-                NSLog(@"Failed to report incoming call successfully: %@.", [error localizedDescription]);
-            }
-        }];
+        
+        [self.callKitProvider reportNewIncomingCallWithUUID:self.currentCallUUID
+                                                     update:update
+                                                 completion:^(NSError *error) {
+                                                     if (!error) {
+                                                         NSLog(@"Incoming call successfully reported.");
+                                                     }
+                                                     else {
+                                                         NSLog(@"Failed to report incoming call successfully: %@.", [error localizedDescription]);
+                                                     }
+                                                 }];
         
     }
 }
@@ -341,6 +358,7 @@
     self.scheduleAnswer = YES;
     UINavigationController *navigationController = [ApplicationDelegate currentNavigationController];
     [navigationController pushViewController:self animated:YES];
+    [self.callKitProvider reportOutgoingCallWithUUID:self.currentCallUUID startedConnectingAtDate:nil];
     [action fulfill];
 }
 
@@ -349,6 +367,15 @@
     [self rejectTapped];
     [action fulfill];
 }
+
+- (void)provider:(CXProvider *)provider didActivateAudioSession:(AVAudioSession *)audioSession{
+    NSLog(@"didActivateAudioSession");
+}
+
+- (void)provider:(CXProvider *)provider didDeactivateAudioSession:(AVAudioSession *)audioSession{
+    NSLog(@"didDeactivateAudioSession");
+}
+
 
 - (void)providerDidReset:(CXProvider *)provider{
     

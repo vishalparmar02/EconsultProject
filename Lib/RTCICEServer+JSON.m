@@ -48,8 +48,8 @@ static NSString const *kRTCICEServerCredentialKey = @"credential";
 
 + (NSArray *)serversFromCEODJSONDictionary:(NSDictionary *)dictionary {
   NSString *username = dictionary[kRTCICEServerUsernameKey];
-  NSString *password = dictionary[kRTCICEServerPasswordKey];
-  NSArray *uris = dictionary[kRTCICEServerUrisKey];
+  NSString *password = dictionary[kRTCICEServerCredentialKey];
+  NSArray *uris = dictionary[kRTCICEServerUrlKey];
   NSMutableArray *servers = [NSMutableArray arrayWithCapacity:uris.count];
   for (NSString *uri in uris) {
     RTCICEServer *server =

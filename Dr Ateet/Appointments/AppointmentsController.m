@@ -337,7 +337,6 @@
                                    @"caller" : @"Dr.",
                                    @"callee" : appointment[@"name"]};
         
-        [CallController sharedController].expectingCall = YES;
         [PubNubManager sendMessage:callDict toChannel:calleeChannel];
     }
 }

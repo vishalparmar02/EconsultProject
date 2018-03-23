@@ -353,7 +353,6 @@ static NSDateFormatter *inFormatter, *outFormatter, *appointmentDF;
                                @"channel" : calleeChannel,
                                @"caller" : [[CUser currentUser] fullName],
                                @"callee" : @"Dr."};
-    [CallController sharedController].expectingCall = YES;
     [PubNubManager sendMessage:callDict toChannel:calleeChannel];
 }
 

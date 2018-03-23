@@ -20,18 +20,6 @@
     return ControllerFromStoryBoard(@"Consultation", @"ARTCVideoChatViewController");
 }
 
-+ (void)load{
-    [super load];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        ARDAppClient *client = [[ARDAppClient alloc] initWithDelegate:nil];
-        [client setServerHostUrl:SERVER_HOST_URL];
-        [client connectToRoomWithId:@"test" options:nil];
-        [client enableSpeaker];
-        [client disconnect];
-        client = nil;
-    });
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -72,8 +60,6 @@
     
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
     
-    [CallController sharedController].isOnCall = YES;
-    
     //Display the Local View full screen while connecting to Room
     [self.localViewBottomConstraint setConstant:0.0f];
     [self.localViewRightConstraint setConstant:0.0f];
@@ -88,52 +74,16 @@
     [self.client connectToRoomWithId:self.roomName options:nil];
     
     [self.urlLabel setText:self.roomUrl];
-//    
-//    
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(callEnded:) name:@"CALL_END_NOTIFICATION"
-//                                               object:nil];
-//    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
-//    
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(pauseVideo)
-//                                                 name:UIApplicationWillResignActiveNotification
-//                                               object:nil];
-//    
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(resumeVideo)
-//                                                 name:UIApplicationDidBecomeActiveNotification
-//                                               object:nil];
-
 }
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
 }
 
-- (void)pauseVideo{
-    NSLog(@"Muting video");
-    [self.client muteVideoIn];
-}
-
-- (void)resumeVideo{
-    NSLog(@"Resuming video");
-    @try{
-        NSLog(@"In Try");
-        [self.client swapCameraToFront];
-        [self.client unmuteVideoIn];
-    }@catch(NSException *ex){
-        NSLog(@"Exception: %@", ex.description);
-        NSLog(@"Swapping to front");
-        [self.client swapCameraToFront];
-    }
-    
-//    [self.client connectToRoomWithId:self.roomName options:nil];
-}
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [CallController sharedController].isOnCall = NO;
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"UIDeviceOrientationDidChangeNotification" object:nil];
     [self disconnect];
     [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
@@ -204,9 +154,6 @@
 }
 
 - (IBAction)audioButtonPressed:(id)sender {
-    //TODO: this change not work on simulator (it will crash)
-    [self.client reloadStream];
-    return;
     UIButton *audioButton = sender;
     if (self.isAudioMute) {
         [self.client unmuteAudioIn];
@@ -252,22 +199,8 @@
     [self hangUpCall];
 }
 
-- (IBAction)callEnded:(NSNotification*)notification{
-    NSDictionary *callEndDict = notification.userInfo;
-    if ([callEndDict[@"room_id"] isEqualToString:self.call[@"room_id"]]) {
-        [self hangUpCall:callEndDict];
-    }
-}
-
 - (void)hangUpCall{
-    [self hangUpCall:nil];
-}
-
-- (void)hangUpCall:(NSDictionary*)callEndDict{
     [self disconnect];
-    if(callEndDict){
-        [ApplicationDelegate showNotificationWithTitle:callEndDict[@"description"] description:@""];
-    }
     UIViewController *target = self.navigationController.viewControllers[self.navigationController.viewControllers.count - 3];
     [self.navigationController popToViewController:target animated:YES];
 }
