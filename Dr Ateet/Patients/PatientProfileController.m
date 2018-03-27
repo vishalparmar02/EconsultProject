@@ -38,6 +38,7 @@
     [super viewDidLoad];
     self.title = @"My Profile";
     NSURL *profileURLString = [[CUser currentUser] profileImageURL];
+    self.profileImageButton.imageView.contentMode = UIViewContentModeScaleAspectFill;
     [self.profileImageButton sd_setImageWithURL:profileURLString
                                   forState:UIControlStateNormal
                           placeholderImage:nil

@@ -30,6 +30,7 @@
     [self.audioButton.layer setCornerRadius:20.0f];
     [self.videoButton.layer setCornerRadius:20.0f];
     [self.hangupButton.layer setCornerRadius:20.0f];
+    [self.speakerButton.layer setCornerRadius:20.0f];
     
     //Add Tap to hide/show controls
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toggleButtonContainer)];
@@ -89,6 +90,7 @@
     [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
 
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self speakerButtonPressed:nil];
 }
 
 - (void)applicationWillResignActive:(UIApplication*)application {
@@ -197,6 +199,10 @@
         [self.delegate callEndTapped];
     }
     [self hangUpCall];
+}
+
+- (IBAction)speakerButtonPressed:(id)sender {
+    [[AVAudioSession sharedInstance] overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:nil];
 }
 
 - (void)hangUpCall{

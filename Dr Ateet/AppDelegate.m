@@ -16,6 +16,7 @@
 #import "PubNubManager.h"
 #import "CallController.h"
 #import "Notification.h"
+#import "APIManager.h"
 
 @import LNRSimpleNotifications;
 
@@ -23,6 +24,7 @@
 @interface AppDelegate ()
 
 @property (nonatomic)           UIBackgroundTaskIdentifier bgTask;
+@property (nonatomic, strong) UIViewController    *loadingController;
 
 @end
 
@@ -141,6 +143,7 @@
         DDLogVerbose(@"app did not recieve notification");
     }
     
+    self.loadingController = ControllerFromStoryBoard(@"Main", @"LoadingController");
     [self makeDrawer];
     [RTCPeerConnectionFactory initializeSSL];
     
@@ -303,6 +306,13 @@
 }
 
 - (void)setController{
+    if (![APIManager sharedManager].ready) {
+      self.window.rootViewController = self.loadingController;
+        [NSTimer scheduledTimerWithTimeInterval:0.5 repeats:NO block:^(NSTimer * _Nonnull timer) {
+            [self setController];
+        }];
+        return;
+    }
     if ([CUser currentUser]) {
         self.window.rootViewController = self.drawerController;
     }else{

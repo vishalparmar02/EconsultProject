@@ -29,6 +29,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *audioButton;
 @property (strong, nonatomic) IBOutlet UIButton *videoButton;
 @property (strong, nonatomic) IBOutlet UIButton *hangupButton;
+@property (strong, nonatomic) IBOutlet UIButton *speakerButton;
 
 //Auto Layout Constraints used for animations
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *remoteViewTopConstraint;

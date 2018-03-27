@@ -195,6 +195,12 @@
 		6961563B1F4C1E9E005B7A87 /* PatientInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6961563A1F4C1E9E005B7A87 /* PatientInfoController.m */; };
 		6961563E1F4C2388005B7A87 /* Appointment.m in Sources */ = {isa = PBXBuildFile; fileRef = 6961563D1F4C2388005B7A87 /* Appointment.m */; };
 		696156411F4C2543005B7A87 /* AppointmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 696156401F4C2543005B7A87 /* AppointmentCell.m */; };
+		697163C4206A625F00FE1471 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 697163C3206A625F00FE1471 /* APIManager.m */; };
+		697163C5206A625F00FE1471 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 697163C3206A625F00FE1471 /* APIManager.m */; };
+		697163C6206A625F00FE1471 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 697163C3206A625F00FE1471 /* APIManager.m */; };
+		697163CC206A62E300FE1471 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 697163CB206A62E200FE1471 /* NetworkManager.m */; };
+		697163CD206A62E300FE1471 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 697163CB206A62E200FE1471 /* NetworkManager.m */; };
+		697163CE206A62E300FE1471 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 697163CB206A62E200FE1471 /* NetworkManager.m */; };
 		697DBA4F1F3ACB4300241776 /* ScheduleListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 697DBA4E1F3ACB4300241776 /* ScheduleListController.m */; };
 		697DBA521F3ACB6F00241776 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 697DBA511F3ACB6F00241776 /* Schedule.m */; };
 		69981F571F56AAAF00915518 /* CallController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69981F561F56AAAF00915518 /* CallController.m */; };
@@ -426,6 +432,10 @@
 		6961563D1F4C2388005B7A87 /* Appointment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appointment.m; sourceTree = "<group>"; };
 		6961563F1F4C2543005B7A87 /* AppointmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppointmentCell.h; path = ../AppointmentCell.h; sourceTree = "<group>"; };
 		696156401F4C2543005B7A87 /* AppointmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppointmentCell.m; path = ../AppointmentCell.m; sourceTree = "<group>"; };
+		697163C2206A625F00FE1471 /* APIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
+		697163C3206A625F00FE1471 /* APIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
+		697163CA206A62E200FE1471 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		697163CB206A62E200FE1471 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		697DBA4D1F3ACB4300241776 /* ScheduleListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleListController.h; sourceTree = "<group>"; };
 		697DBA4E1F3ACB4300241776 /* ScheduleListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleListController.m; sourceTree = "<group>"; };
 		697DBA501F3ACB6A00241776 /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
@@ -702,6 +712,10 @@
 		69EE2FC01F3995020083E929 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				697163CA206A62E200FE1471 /* NetworkManager.h */,
+				697163CB206A62E200FE1471 /* NetworkManager.m */,
+				697163C2206A625F00FE1471 /* APIManager.h */,
+				697163C3206A625F00FE1471 /* APIManager.m */,
 				694C9F442005E88E009A7C69 /* NSDictionary+Status.h */,
 				694C9F462005E88F009A7C69 /* NSDictionary+Status.m */,
 				69EE2FC71F39955F0083E929 /* API_Defines.h */,
@@ -1436,6 +1450,7 @@
 				6923B4671FCD7CFF005039BB /* HomeController.m in Sources */,
 				6923B4681FCD7CFF005039BB /* AddScheduleController.m in Sources */,
 				694C9F492005E88F009A7C69 /* NSDictionary+Status.m in Sources */,
+				697163C6206A625F00FE1471 /* APIManager.m in Sources */,
 				6923B4691FCD7CFF005039BB /* ClinicViewController.m in Sources */,
 				6923B46A1FCD7CFF005039BB /* PDFController.m in Sources */,
 				6923B46B1FCD7CFF005039BB /* Vacation.m in Sources */,
@@ -1456,6 +1471,7 @@
 				6923B47A1FCD7CFF005039BB /* StaffListController.m in Sources */,
 				6923B47B1FCD7CFF005039BB /* NSDictionary+JSON.m in Sources */,
 				6923B47C1FCD7CFF005039BB /* DoctorProfileController.m in Sources */,
+				697163CE206A62E300FE1471 /* NetworkManager.m in Sources */,
 				6923B47D1FCD7CFF005039BB /* NSString+JSON.m in Sources */,
 				6923B47E1FCD7CFF005039BB /* Patient.m in Sources */,
 				6923B47F1FCD7CFF005039BB /* NSUserDefaults+DemoSettings.m in Sources */,
@@ -1501,6 +1517,7 @@
 				6956CAB71F5A89E700B66EB8 /* HomeController.m in Sources */,
 				6956CAB81F5A89E700B66EB8 /* AddScheduleController.m in Sources */,
 				694C9F482005E88F009A7C69 /* NSDictionary+Status.m in Sources */,
+				697163C5206A625F00FE1471 /* APIManager.m in Sources */,
 				6956CAB91F5A89E700B66EB8 /* ClinicViewController.m in Sources */,
 				69D13FCA1F84C8CE00B32ADD /* PDFController.m in Sources */,
 				69BA7E111FA8B5560030ECF1 /* Vacation.m in Sources */,
@@ -1521,6 +1538,7 @@
 				69D13FFC1F84E3C200B32ADD /* StaffListController.m in Sources */,
 				6956CAC61F5A89E700B66EB8 /* NSDictionary+JSON.m in Sources */,
 				6956CAC71F5A89E700B66EB8 /* DoctorProfileController.m in Sources */,
+				697163CD206A62E300FE1471 /* NetworkManager.m in Sources */,
 				6956CAC81F5A89E700B66EB8 /* NSString+JSON.m in Sources */,
 				6956CAC91F5A89E700B66EB8 /* Patient.m in Sources */,
 				6956CACA1F5A89E700B66EB8 /* NSUserDefaults+DemoSettings.m in Sources */,
@@ -1566,6 +1584,7 @@
 				69FAE86D1EDBCC130099141C /* HomeController.m in Sources */,
 				6914ACD31F46A2C8001131DE /* AddScheduleController.m in Sources */,
 				694C9F472005E88F009A7C69 /* NSDictionary+Status.m in Sources */,
+				697163C4206A625F00FE1471 /* APIManager.m in Sources */,
 				69BBCADC1F39E08D0065083B /* ClinicViewController.m in Sources */,
 				69D13FC91F84C8CE00B32ADD /* PDFController.m in Sources */,
 				69BA7E101FA8B5560030ECF1 /* Vacation.m in Sources */,
@@ -1586,6 +1605,7 @@
 				69D13FFB1F84E3C200B32ADD /* StaffListController.m in Sources */,
 				69FAE8C81EDD1B8C0099141C /* NSDictionary+JSON.m in Sources */,
 				69BBCAD01F39A5CA0065083B /* DoctorProfileController.m in Sources */,
+				697163CC206A62E300FE1471 /* NetworkManager.m in Sources */,
 				69FAE8CA1EDD1B8C0099141C /* NSString+JSON.m in Sources */,
 				696156381F4C18FD005B7A87 /* Patient.m in Sources */,
 				69FAE8ED1EDD31B40099141C /* NSUserDefaults+DemoSettings.m in Sources */,

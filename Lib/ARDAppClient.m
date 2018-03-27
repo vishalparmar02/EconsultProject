@@ -333,6 +333,7 @@ static NSInteger kARDAppClientErrorInvalidRoom = -7;
 - (void)peerConnection:(RTCPeerConnection *)peerConnection
     iceConnectionChanged:(RTCICEConnectionState)newState {
   NSLog(@"ICE state changed: %d", newState);
+    [[AVAudioSession sharedInstance] overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:nil];
 }
 
 - (void)peerConnection:(RTCPeerConnection *)peerConnection

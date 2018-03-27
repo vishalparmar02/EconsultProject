@@ -7,6 +7,7 @@
 //
 
 #import "PDFController.h"
+#import "APIManager.h"
 
 @interface PDFController ()
 
@@ -37,7 +38,14 @@
 }
 
 - (void)downloadFileAt:(NSURL *)fileURL{
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.report[@"upload_path"]]];
+    NSURL *remoteURL;
+    if (![self.report[@"upload_path"] hasPrefix:@"http"]) {
+        NSString *remoteURLString = [[[APIManager sharedManager] baseURL] stringByAppendingPathComponent:self.report[@"upload_path"]];
+        remoteURL = [NSURL URLWithString:remoteURLString];
+    }else{
+        remoteURL = [NSURL URLWithString:self.report[@"upload_path"]];
+    }
+    NSURLRequest *request = [NSURLRequest requestWithURL:remoteURL];
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -54,7 +62,7 @@
     }
                                                             completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
                                                                 [HUD hideAnimated:YES];
-                                                                [self loadFile];
+                                                                if(!error)[self loadFile];
     }];
     
     [downloadTask resume];

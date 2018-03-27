@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
         <array key="Roboto-Light.ttf">
             <string>Roboto-Light</string>
         </array>
@@ -168,12 +170,14 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzD-bt-1oC" userLabel="Button Container View">
-                                <rect key="frame" x="20" y="253.5" width="40" height="160"/>
+                                <rect key="frame" x="20" y="223.5" width="40" height="220"/>
                                 <subviews>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fle-i9-EXB" userLabel="Audio Button">
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fle-i9-EXB" userLabel="Audio Button">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Fle-i9-EXB" secondAttribute="height" multiplier="1:1" id="vNq-x9-6pc"/>
+                                        </constraints>
                                         <state key="normal" image="audioOn">
                                             <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -181,9 +185,8 @@
                                             <action selector="audioButtonPressed:" destination="Vbs-8b-dd5" eventType="touchUpInside" id="EfO-g1-1rP"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z8y-85-uFN" userLabel="Video Button">
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z8y-85-uFN" userLabel="Video Button">
                                         <rect key="frame" x="0.0" y="60" width="40" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="videoOn">
                                             <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -192,22 +195,46 @@
                                             <action selector="videoButtonPressed:" destination="Vbs-8b-dd5" eventType="touchUpInside" id="JJ4-XN-FlF"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oxP-1n-IVo" userLabel="Hangup Button">
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oxP-1n-IVo" userLabel="Hangup Button">
                                         <rect key="frame" x="0.0" y="120" width="40" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="hangup">
-                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" red="0.50196078431372548" green="0.49803921568627452" blue="0.49803921568627452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="hangupButtonPressed:" destination="Vbs-8b-dd5" eventType="touchUpInside" id="Gv1-TI-vxs"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Z6-au-jae">
+                                        <rect key="frame" x="0.5" y="180" width="40" height="40"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="speaker_icon">
+                                            <color key="titleShadowColor" red="0.50196078431372548" green="0.49803921568627452" blue="0.49803921568627452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="speakerButtonPressed:" destination="Vbs-8b-dd5" eventType="touchUpInside" id="8rA-Sw-56H"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="160" id="GJS-Lv-MxK"/>
+                                    <constraint firstItem="Fle-i9-EXB" firstAttribute="centerX" secondItem="bzD-bt-1oC" secondAttribute="centerX" id="2wN-dA-05m"/>
+                                    <constraint firstItem="oxP-1n-IVo" firstAttribute="height" secondItem="z8y-85-uFN" secondAttribute="height" id="99X-5h-lhY"/>
+                                    <constraint firstItem="z8y-85-uFN" firstAttribute="height" secondItem="Fle-i9-EXB" secondAttribute="height" id="Brc-Yt-3MZ"/>
+                                    <constraint firstAttribute="height" constant="220" id="GJS-Lv-MxK"/>
+                                    <constraint firstItem="z8y-85-uFN" firstAttribute="width" secondItem="Fle-i9-EXB" secondAttribute="width" id="J0h-63-d0b"/>
+                                    <constraint firstItem="2Z6-au-jae" firstAttribute="height" secondItem="oxP-1n-IVo" secondAttribute="height" id="Pry-uI-dzH"/>
+                                    <constraint firstItem="z8y-85-uFN" firstAttribute="centerX" secondItem="Fle-i9-EXB" secondAttribute="centerX" id="UBu-55-fue"/>
+                                    <constraint firstItem="z8y-85-uFN" firstAttribute="top" secondItem="Fle-i9-EXB" secondAttribute="bottom" constant="20" id="Y0M-RG-yT5"/>
+                                    <constraint firstItem="oxP-1n-IVo" firstAttribute="width" secondItem="z8y-85-uFN" secondAttribute="width" id="Yge-1h-zOE"/>
+                                    <constraint firstItem="2Z6-au-jae" firstAttribute="width" secondItem="oxP-1n-IVo" secondAttribute="width" id="Zwi-lH-qtO"/>
+                                    <constraint firstItem="Fle-i9-EXB" firstAttribute="width" secondItem="bzD-bt-1oC" secondAttribute="width" id="bMZ-t2-4Vv"/>
                                     <constraint firstAttribute="width" constant="40" id="gJA-gC-tC6"/>
+                                    <constraint firstItem="2Z6-au-jae" firstAttribute="centerX" secondItem="oxP-1n-IVo" secondAttribute="centerX" id="qxn-FC-XX3"/>
+                                    <constraint firstItem="Fle-i9-EXB" firstAttribute="top" secondItem="bzD-bt-1oC" secondAttribute="top" id="sSs-Cz-LP1"/>
+                                    <constraint firstItem="oxP-1n-IVo" firstAttribute="top" secondItem="z8y-85-uFN" secondAttribute="bottom" constant="20" id="sp9-4X-tUK"/>
+                                    <constraint firstItem="2Z6-au-jae" firstAttribute="top" secondItem="oxP-1n-IVo" secondAttribute="bottom" constant="20" id="xhy-sQ-CU2"/>
+                                    <constraint firstItem="oxP-1n-IVo" firstAttribute="centerX" secondItem="z8y-85-uFN" secondAttribute="centerX" id="zGW-Pp-Kwc"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -244,6 +271,7 @@
                         <outlet property="remoteViewLeftConstraint" destination="VRE-vf-a6h" id="twE-kG-9IN"/>
                         <outlet property="remoteViewRightConstraint" destination="Ha6-P9-a9b" id="EXJ-al-Mp6"/>
                         <outlet property="remoteViewTopConstraint" destination="MQu-er-e3j" id="rPr-o2-WTe"/>
+                        <outlet property="speakerButton" destination="2Z6-au-jae" id="rM4-zT-ygI"/>
                         <outlet property="urlLabel" destination="vD3-hC-fjZ" id="PME-l3-2YJ"/>
                         <outlet property="videoButton" destination="z8y-85-uFN" id="dRG-8I-Y2y"/>
                     </connections>
@@ -256,6 +284,7 @@
     <resources>
         <image name="audioOn" width="13" height="17"/>
         <image name="hangup" width="25" height="9"/>
+        <image name="speaker_icon" width="128" height="128"/>
         <image name="videoOn" width="18" height="14"/>
     </resources>
 </document>

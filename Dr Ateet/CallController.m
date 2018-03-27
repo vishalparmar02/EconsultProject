@@ -158,21 +158,8 @@
 - (void)viewDidAppear:(BOOL)animated{
     if (self.scheduleAnswer) {
         self.scheduleAnswer = NO;
-//        [self record];
+        [self.navigationController pushViewController:self.videoChatController animated:NO];
         [self.callKitProvider reportOutgoingCallWithUUID:self.currentCallUUID connectedAtDate:nil];
-        [NSTimer scheduledTimerWithTimeInterval:3 repeats:NO block:^(NSTimer * _Nonnull timer) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.videoChatController = [ARTCVideoChatViewController controller];
-                self.videoChatController.delegate = self;
-                [self.videoChatController setRoomName:self.currentCallDict[@"room_id"]];
-                self.videoChatController.call = self.currentCallDict;
-                
-                [self.navigationController pushViewController:self.videoChatController animated:NO];
-            });
-            
-            
-        }];
-        
     }
 }
 
@@ -264,6 +251,11 @@
         self.currentCallDict = [callDict copy];
         self.callDetailLabel.text = callDict[@"description"];
         
+        self.videoChatController = [ARTCVideoChatViewController controller];
+        self.videoChatController.delegate = self;
+        [self.videoChatController setRoomName:self.currentCallDict[@"room_id"]];
+        self.videoChatController.call = self.currentCallDict;
+        
         NSError *err;
         AVAudioSession *audioSession = [AVAudioSession sharedInstance];
         [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord error:&err];
@@ -315,8 +307,7 @@
 
 - (void)reportIncomingCall{
     if(IS_SIMULATOR){
-        //Do something for simulator
-//        [self showIncomingCall:callDict];
+        [self receiveAsCaller];
     }else{
         NSString *from = self.currentCallDict[@"caller"];
         if (![from isKindOfClass:[NSString class]]) {
@@ -357,7 +348,7 @@
     NSLog(@"performAnswerCallAction");
     self.scheduleAnswer = YES;
     UINavigationController *navigationController = [ApplicationDelegate currentNavigationController];
-    [navigationController pushViewController:self animated:YES];
+    [navigationController pushViewController:self animated:NO];
     [self.callKitProvider reportOutgoingCallWithUUID:self.currentCallUUID startedConnectingAtDate:nil];
     [action fulfill];
 }

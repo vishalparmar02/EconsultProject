@@ -47,6 +47,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.profileImageButton.imageView.contentMode = UIViewContentModeScaleAspectFill;
     [self.profileImageButton setImage:nil forState:UIControlStateNormal];
     [self fetchProfile];
     self.title = [[CUser currentUser] isPatient] ? @"About Dr. Ateet Sharma" : @"My Profile";

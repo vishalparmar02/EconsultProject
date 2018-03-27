@@ -519,7 +519,7 @@
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="rLW-XT-T7k" secondAttribute="height" multiplier="1:1" id="Rdw-K0-Ckd"/>
                                     </constraints>
-                                    <state key="normal" image="doctor_photo"/>
+                                    <state key="normal" image="person_placeholder"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                             <integer key="value" value="40"/>
@@ -1125,6 +1125,45 @@
             </objects>
             <point key="canvasLocation" x="927" y="-1480"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="qlk-Ti-W1O">
+            <objects>
+                <viewController storyboardIdentifier="LoadingController" id="cuh-WB-zUd" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7F0-9z-Ilp"/>
+                        <viewControllerLayoutGuide type="bottom" id="LK0-wj-Gx2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="odT-qu-8EG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="jEU-F4-sxe">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVV-D7-lHW">
+                                <rect key="frame" x="-0.5" y="376" width="375" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="NYZ-hh-uK4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="eVV-D7-lHW" firstAttribute="top" secondItem="jEU-F4-sxe" secondAttribute="bottom" constant="24" id="QKp-6j-zod"/>
+                            <constraint firstItem="eVV-D7-lHW" firstAttribute="width" secondItem="odT-qu-8EG" secondAttribute="width" id="Xo4-yb-RPw"/>
+                            <constraint firstItem="jEU-F4-sxe" firstAttribute="centerX" secondItem="odT-qu-8EG" secondAttribute="centerX" id="ZdO-SK-9Y8"/>
+                            <constraint firstItem="jEU-F4-sxe" firstAttribute="centerY" secondItem="odT-qu-8EG" secondAttribute="centerY" id="bEk-3o-50Z"/>
+                            <constraint firstItem="eVV-D7-lHW" firstAttribute="centerX" secondItem="odT-qu-8EG" secondAttribute="centerX" id="hrj-kT-JjV"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cSe-gB-G6o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1710" y="-1659"/>
+        </scene>
         <!--About Dr. Ateet Sharama-->
         <scene sceneID="jqF-pd-GTT">
             <objects>
@@ -1152,7 +1191,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="zkg-yE-QzQ" secondAttribute="height" multiplier="1:1" id="l1B-U9-FQc"/>
                                             </constraints>
-                                            <state key="normal" image="doctor_photo"/>
+                                            <state key="normal" image="person_placeholder"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                     <integer key="value" value="40"/>
@@ -1314,6 +1353,6 @@
     <resources>
         <image name="Knee Icon" width="341" height="341"/>
         <image name="default_photo" width="333" height="333"/>
-        <image name="doctor_photo" width="156" height="181"/>
+        <image name="person_placeholder" width="112" height="112"/>
     </resources>
 </document>
