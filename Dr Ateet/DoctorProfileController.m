@@ -50,7 +50,7 @@
     self.profileImageButton.imageView.contentMode = UIViewContentModeScaleAspectFill;
     [self.profileImageButton setImage:nil forState:UIControlStateNormal];
     [self fetchProfile];
-    self.title = [[CUser currentUser] isPatient] ? @"About Dr. Ateet Sharma" : @"My Profile";
+    self.title = [[CUser currentUser] isPatient] ? ABOUT_STRING : @"My Profile";
     self.tableView.tableHeaderView = _headerView;
     [self applyTheme];
     if(self.navigationController.viewControllers[0] == self)[self addNavigationButtons];
@@ -71,7 +71,7 @@
 
 - (void)fetchProfile{
     if ([[CUser currentUser] isPatient]) {
-        self.title = @"About Dr. Ateet Sharma";
+        self.title = ABOUT_STRING;
         
         [CUser fetchDoctorProfileInBackgroundWithBlock:^(NSDictionary * _Nullable object, NSError * _Nullable error) {
             NSURL *profileURL = [NSURL URLWithString:object[@"profile_pic"]];

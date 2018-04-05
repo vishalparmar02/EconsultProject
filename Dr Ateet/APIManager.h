@@ -18,5 +18,8 @@
 - (NSString*)pubnubPublishKey;
 - (NSString*)pubnubSubscribeKey;
 - (NSString*)paymentURL;
+- (BOOL)videoConsultationEnabled;
+- (BOOL)appointmentsEnabled;
+- (BOOL)patientReportsEnabled;
     
 @end

@@ -20,6 +20,4 @@
 
 #define API_URL                             @"https://econsult.jshealthtech.com/api/v2"
 
-#define APP_NAME                            @"Consult"
-
 #endif /* Dr_Ateet_Sharma_keys_h */

@@ -80,50 +80,6 @@
     
 }
 
-- (void)checkUpdate{
-    NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleShortVersionString"];
-    NSDictionary *params = @{@"device_type" : @"iOS",
-                             @"version_name" : version};
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-    
-    AFHTTPRequestSerializer *reqSerializer = [AFHTTPRequestSerializer serializer];
-    NSString *URLString          = [API_BASE_URL stringByAppendingPathComponent:CHECK_UPDATE];
-    URLString = @"https://app.drateetsharma.com/api/v2/app/check-update";
-    NSMutableURLRequest *request = [reqSerializer requestWithMethod:@"POST"
-                                                          URLString:URLString
-                                                         parameters:params
-                                                              error:nil];
-    
-    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        if (error) {
-            [error printHTMLError];
-        } else {
-            if([responseObject[@"is_mandatory"] boolValue]){
-                NSString *urlString = @"https://itunes.apple.com/app/dr-ateet-sharma/id1305665664";
-                if ([responseObject[@"url"] isKindOfClass:[NSString class]] &&
-                    [responseObject[@"url"] length]) {
-                    urlString = responseObject[@"url"];
-                }
-                [self forceUpdate:urlString];
-            }
-        }
-    }];
-    [dataTask resume];
-}
-
-- (void)forceUpdate:(NSString*)urlString{
-    [UIAlertController showAlertInViewController:self.window.rootViewController
-                                       withTitle:@"Please update your app"
-                                         message:@"Current version is no more supported. Please tap 'Update App' button to continue"
-                               cancelButtonTitle:nil
-                          destructiveButtonTitle:nil
-                               otherButtonTitles:@[@"Update App"]
-                                        tapBlock:^(UIAlertController * _Nonnull controller, UIAlertAction * _Nonnull action, NSInteger buttonIndex) {
-                                            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
-                                        }];
-}
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSLog(@"API: %@", API_URL);
     
@@ -175,7 +131,6 @@
     DDLogVerbose(@"Ateet:Become Active");
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     [self setController];
-    [self performSelectorInBackground:@selector(checkUpdate) withObject:nil];
 }
 
 

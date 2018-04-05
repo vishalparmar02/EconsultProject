@@ -97,19 +97,37 @@
     layout.minimumLineSpacing = 0.0;
     layout.minimumInteritemSpacing = 0.0;
     self.collectionView.collectionViewLayout = layout;
+    
     if ([[CUser currentUser] isPatient]) {
-        self.menuItems = @[@{@"image" : @"appointment", @"title" : @"Book an Appointment"},
-                           @{@"image" : @"consultation", @"title" : @"Online Consultation"},
-                           @{@"image" : @"reports", @"title" : @"Reports"},
-                           @{@"image" : @"appointment", @"title" : @"My Appointments"},
-                           @{@"image" : @"", @"title" : @"About Dr. Ateet Sharma"}];
+        self.menuItems = @[@{@"image" : @"appointment", @"title" : @"Book an Appointment",
+                             @"enabled" : @([[APIManager sharedManager] appointmentsEnabled])},
+                           
+                           @{@"image" : @"consultation", @"title" : @"Online Consultation",
+                             @"enabled" : @([[APIManager sharedManager] videoConsultationEnabled])},
+                           
+                           @{@"image" : @"reports", @"title" : @"Reports",
+                             @"enabled" : @([[APIManager sharedManager] patientReportsEnabled])},
+                           
+                           @{@"image" : @"appointment", @"title" : @"My Appointments",
+                             @"enabled" : @([[APIManager sharedManager] appointmentsEnabled])},
+                           
+                           @{@"image" : @"", @"title" : ABOUT_STRING,
+                             @"enabled" : @1}];
 //        self.collectionViewPadding.constant = -10;
 
     }else{
-        self.menuItems = @[@{@"image" : @"appointment", @"title" : @"Appointments"},
-                           @{@"image" : @"give_appointment", @"title" : @"Give Appointment"},
-                           @{@"image" : @"patients", @"title" : @"Patient Info"},
-                           @{@"image" : @"appointment", @"title" : @"Clashing Appointments"}];
+        self.menuItems = @[@{@"image" : @"appointment", @"title" : @"Appointments",
+                             @"enabled" : @([[APIManager sharedManager] appointmentsEnabled])},
+                           
+                           @{@"image" : @"give_appointment", @"title" : @"Give Appointment",
+                             @"enabled" : @([[APIManager sharedManager] appointmentsEnabled])},
+                           
+                           @{@"image" : @"patients", @"title" : @"Patient Info",
+                             @"enabled" : @1
+                             },
+                           
+                           @{@"image" : @"appointment", @"title" : @"Clashing Appointments",
+                             @"enabled" : @([[APIManager sharedManager] appointmentsEnabled])}];
 //        self.collectionViewPadding.constant = 0;
     }
 }
@@ -212,7 +230,7 @@
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"AboutMenuCell"
                                                          forIndexPath:indexPath];
     }else{
-         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MenuCell"
+         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MenuCellLong"
                                                           forIndexPath:indexPath];
     }
     
@@ -221,9 +239,12 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSDictionary *menuItem = self.menuItems[indexPath.row];
+    if (![menuItem[@"enabled"] boolValue]) return CGSizeZero;
     if (indexPath.row == 4 && [[CUser currentUser] isPatient]) {
         return CGSizeMake(kCellWidth * 2, kCellWidth / 3);
     }
+    return CGSizeMake(kCellWidth * 2, kCellWidth / 2 - 10);
     return CGSizeMake(kCellWidth, kCellWidth - 30);
 }
 

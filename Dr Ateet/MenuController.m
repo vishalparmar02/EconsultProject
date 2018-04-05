@@ -81,22 +81,51 @@
                                   forState:UIControlStateNormal
                           placeholderImage:nil
                                    options:SDWebImageProgressiveDownload];
-    
+    APIManager *manager = [APIManager sharedManager];
     if ([[CUser currentUser] isPatient]) {
-        self.menu = @[@[@"Home", @"Book Appointment", @"My Appointments"],
-                      @[@"Online Consultation", @"Reports", @"My Profile"],
-                      @[@"About Dr. Ateet Sharma", @"Logout"]];
+        NSArray *section0 = @[@{@"title" : @"Home", @"enabled" : @1},
+                              @{@"title" : @"Book Appointment", @"enabled" : @([manager appointmentsEnabled])},
+                              @{@"title" : @"My Appointments", @"enabled" : @([manager appointmentsEnabled])}];
+        NSArray *section1 = @[@{@"title" : @"Online Consultation", @"enabled" : @([manager videoConsultationEnabled])},
+                              @{@"title" : @"Reports", @"enabled" : @([manager patientReportsEnabled])},
+                              @{@"title" : @"My Profile", @"enabled" : @1}];
+        NSArray *section2 = @[@{@"title" : ABOUT_STRING, @"enabled" : @1},
+                              @{@"title" : @"Logout", @"enabled" : @1}];
+        self.menu = @[section0,
+                      section1,
+                      section2];
     }else if([[CUser currentUser] isDoctor]){
         [self fetchConflictCount];
-        self.menu = @[@[@"Home"],
-                      @[@"Appointments", @"Give Appointment", @"Clashing Appointments"],
-                      @[@"Patient Info", @"My Schedules", @"My Clinics", @"My Staff", @"Profile", @"Professional Profile", @"My Vacation"],
-                      @[@"Logout"]];
+        NSArray *section0 = @[@{@"title" : @"Home", @"enabled" : @1}];
+        NSArray *section1 = @[@{@"title" : @"Appointments", @"enabled" : @([manager appointmentsEnabled])},
+                              @{@"title" : @"Give Appointment", @"enabled" : @([manager appointmentsEnabled])},
+                              @{@"title" : @"Clashing Appointments", @"enabled" : @([manager appointmentsEnabled])}];
+        NSArray *section2 = @[@{@"title" : @"Patient Info", @"enabled" : @1},
+                              @{@"title" : @"My Schedules", @"enabled" : @1},
+                              @{@"title" : @"My Clinics", @"enabled" : @1},
+                              @{@"title" : @"My Staff", @"enabled" : @1},
+                              @{@"title" : @"Profile", @"enabled" : @1},
+                              @{@"title" : @"Professional Profile", @"enabled" : @1},
+                              @{@"title" : @"My Vacation", @"enabled" : @1}];
+        NSArray *section3 = @[@{@"title" : @"Logout", @"enabled" : @1}];
+        self.menu = @[section0,
+                      section1,
+                      section2,
+                      section3];
     }else{
-        self.menu = @[@[@"Home"],
-                      @[@"Appointments", @"Give Appointment", @"Clashing Appointments"],
-                      @[@"Patient Info", @"Profile", @"Professional Profile"],
-                      @[@"Logout"]];
+        NSArray *section0 = @[@{@"title" : @"Home", @"enabled" : @1}];
+        NSArray *section1 = @[@{@"title" : @"Appointments", @"enabled" : @([manager appointmentsEnabled])},
+                              @{@"title" : @"Give Appointment", @"enabled" : @([manager appointmentsEnabled])},
+                              @{@"title" : @"Clashing Appointments", @"enabled" : @([manager appointmentsEnabled])}];
+        NSArray *section2 = @[@{@"title" : @"Patient Info", @"enabled" : @1},
+                              @{@"title" : @"Profile", @"enabled" : @1},
+                              @{@"title" : @"Professional Profile", @"enabled" : @1},
+                              ];
+        NSArray *section3 = @[@{@"title" : @"Logout", @"enabled" : @1}];
+        self.menu = @[section0,
+                      section1,
+                      section2,
+                      section3];
     }
     [self.tableView reloadData];
 }
@@ -260,8 +289,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     SideMenuCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SideMenuCell" forIndexPath:indexPath];
     NSArray *subMenu = _menu[indexPath.section];
-    NSString *menuText = subMenu[indexPath.row];
-
+    NSDictionary *menuDetails = subMenu[indexPath.row];
+    NSString *menuText = menuDetails[@"title"];
     NSInteger badge = 0;
     if ([menuText isEqualToString:@"Clashing Appointments"]) {
         badge = self.conflictCount;
@@ -448,6 +477,15 @@
         return 0;
     }
     return 10;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSArray *subMenu = _menu[indexPath.section];
+    NSDictionary *menuDetails = subMenu[indexPath.row];
+    if ([menuDetails[@"enabled"] boolValue]) {
+        return 44;
+    }
+    return 0;
 }
 
 @end

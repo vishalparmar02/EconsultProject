@@ -30,7 +30,6 @@
 
 - (instancetype)init{
     if (self = [super init]) {
-        [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
         [self initLocally];
         [self updateInBackground];
     }
@@ -48,11 +47,18 @@
 }
 
 - (void)updateInBackground{
+    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
     NSString *isDebug = @"false";
     NSString *bundleID = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"];
+#ifdef RELEASE
+    NSLog(@"I am release");
+#endif
 #ifdef DEBUG
-    isDebug = @"true";
-    bundleID = [bundleID stringByAppendingString:@".debug"];
+    if (DEBUG) {
+        NSLog(@"I am debug");
+        isDebug = @"true";
+        bundleID = [bundleID stringByAppendingString:@".debug"];
+    }
 #endif
     NSDictionary *headers = @{@"debug" : isDebug,
                               @"platform" : @"iPhone",
@@ -67,6 +73,7 @@
                         success:^(id  _Nonnull responseObject) {
                             self.ready = YES;
                             NSDictionary *api = responseObject[@"data"];
+                            NSLog(@"api:%@", api.description);
                             for (NSString *key in api.allKeys) {
                                 self[key] = api[key];
                                 [self setCurrent];
@@ -84,6 +91,7 @@
         [self paymentURL].length) {
         self.ready = YES;
         [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+        [self performSelectorInBackground:@selector(checkUpdate) withObject:nil];
     }else{
         self.ready = NO;
     }
@@ -113,5 +121,60 @@
     return [NSString stringWithFormat:@"%@%%@", self[@"payment_url"]];
 }
 
+- (BOOL)videoConsultationEnabled{
+    return [self[@"f_video_consult"] boolValue];
+}
+
+- (BOOL)appointmentsEnabled{
+    return [self[@"f_appointment"] boolValue];
+}
+
+- (BOOL)patientReportsEnabled{
+    return [self[@"f_patient_report"] boolValue];
+}
+
+
+- (void)checkUpdate{
+    NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleShortVersionString"];
+    NSDictionary *params = @{@"device_type" : @"iOS",
+                             @"version_name" : version};
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    AFHTTPRequestSerializer *reqSerializer = [AFHTTPRequestSerializer serializer];
+    NSString *URLString          = [API_BASE_URL stringByAppendingPathComponent:CHECK_UPDATE];
+    NSMutableURLRequest *request = [reqSerializer requestWithMethod:@"POST"
+                                                          URLString:URLString
+                                                         parameters:params
+                                                              error:nil];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            [error printHTMLError];
+        } else {
+            if([responseObject[@"is_mandatory"] boolValue]){
+                NSString *urlString = @"https://itunes.apple.com/app/dr-ateet-sharma/id1305665664";
+                if ([responseObject[@"url"] isKindOfClass:[NSString class]] &&
+                    [responseObject[@"url"] length]) {
+                    urlString = responseObject[@"url"];
+                }
+                [self forceUpdate:urlString];
+            }
+        }
+    }];
+    [dataTask resume];
+}
+
+- (void)forceUpdate:(NSString*)urlString{
+    [UIAlertController showAlertInViewController:ApplicationDelegate.window.rootViewController
+                                       withTitle:@"Please update your app"
+                                         message:@"Current version is no more supported. Please tap 'Update App' button to continue"
+                               cancelButtonTitle:nil
+                          destructiveButtonTitle:nil
+                               otherButtonTitles:@[@"Update App"]
+                                        tapBlock:^(UIAlertController * _Nonnull controller, UIAlertAction * _Nonnull action, NSInteger buttonIndex) {
+                                            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
+                                        }];
+}
 
 @end

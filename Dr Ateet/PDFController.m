@@ -23,6 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.webView.scalesPageToFit = YES;
     [self loadFile];
 }
 

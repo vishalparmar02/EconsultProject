@@ -23,9 +23,12 @@
 #import <JSQMessagesViewController/JSQMessage.h>
 #import "API_Defines.h"
 #import <CocoaLumberjack/CocoaLumberjack.h>
+#import "API_Defines.h"
 
 static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
+#define APP_NAME [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"]
+#define ABOUT_STRING [NSString stringWithFormat:@"About %@", DOCTOR_NAME]
 
 #define PushNotificationDetailsKey  @"PushNotificationDetailsKey"
 #define DEVICE_TOKEN                @"DeviceToken"

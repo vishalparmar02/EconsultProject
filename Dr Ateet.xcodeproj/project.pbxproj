@@ -228,6 +228,99 @@
 		69C9A3A41FFE1C7E00231853 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C9A3A31FFE1C7E00231853 /* Notification.m */; };
 		69C9A3A51FFE1C7E00231853 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C9A3A31FFE1C7E00231853 /* Notification.m */; };
 		69C9A3A61FFE1C7E00231853 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C9A3A31FFE1C7E00231853 /* Notification.m */; };
+		69C9D6AC2076049200F64B02 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 697DBA511F3ACB6F00241776 /* Schedule.m */; };
+		69C9D6AD2076049200F64B02 /* ScheduleListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 697DBA4E1F3ACB4300241776 /* ScheduleListController.m */; };
+		69C9D6AE2076049200F64B02 /* Slot.m in Sources */ = {isa = PBXBuildFile; fileRef = 692569671F4ED74D007DC450 /* Slot.m */; };
+		69C9D6AF2076049200F64B02 /* ReportsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 692569561F4EB741007DC450 /* ReportsController.m */; };
+		69C9D6B02076049200F64B02 /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FAE86C1EDBCC130099141C /* HomeController.m */; };
+		69C9D6B12076049200F64B02 /* AddScheduleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6914ACD21F46A2C8001131DE /* AddScheduleController.m */; };
+		69C9D6B22076049200F64B02 /* NSDictionary+Status.m in Sources */ = {isa = PBXBuildFile; fileRef = 694C9F462005E88F009A7C69 /* NSDictionary+Status.m */; };
+		69C9D6B32076049200F64B02 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 697163C3206A625F00FE1471 /* APIManager.m */; };
+		69C9D6B42076049200F64B02 /* ClinicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BBCADB1F39E08D0065083B /* ClinicViewController.m */; };
+		69C9D6B52076049200F64B02 /* PDFController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D13FC81F84C8CE00B32ADD /* PDFController.m */; };
+		69C9D6B62076049200F64B02 /* Vacation.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BA7E0F1FA8B5560030ECF1 /* Vacation.m */; };
+		69C9D6B72076049200F64B02 /* VerifyMobileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EE2FD11F399B190083E929 /* VerifyMobileController.m */; };
+		69C9D6B82076049200F64B02 /* ClinicsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BBCAD51F39CEE30065083B /* ClinicsListController.m */; };
+		69C9D6B92076049200F64B02 /* SlotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 695D771B1F5EA5070011E666 /* SlotCell.m */; };
+		69C9D6BA2076049200F64B02 /* ARTCVideoChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6925696F1F4EEAB7007DC450 /* ARTCVideoChatViewController.m */; };
+		69C9D6BB2076049200F64B02 /* SlotManagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A035131EFB87EC00044F47 /* SlotManagerController.m */; };
+		69C9D6BC2076049200F64B02 /* DoctorProDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BBCAD21F39C5300065083B /* DoctorProDetailsController.m */; };
+		69C9D6BD2076049200F64B02 /* MyVacationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BA7E0B1FA8B5310030ECF1 /* MyVacationController.m */; };
+		69C9D6BE2076049200F64B02 /* NSArray+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FAE8BD1EDD1B8C0099141C /* NSArray+JSON.m */; };
+		69C9D6BF2076049200F64B02 /* CUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EE2FC41F3995530083E929 /* CUser.m */; };
+		69C9D6C02076049200F64B02 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FAE8691EDBCC130099141C /* AppDelegate.m */; };
+		69C9D6C12076049200F64B02 /* DemoMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FAE8E61EDD31930099141C /* DemoMessagesViewController.m */; };
+		69C9D6C22076049200F64B02 /* BaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EE2FD51F399B400083E929 /* BaseController.m */; };
+		69C9D6C32076049200F64B02 /* PatientsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 696156341F4C1812005B7A87 /* PatientsListController.m */; };
+		69C9D6C42076049200F64B02 /* Report.m in Sources */ = {isa = PBXBuildFile; fileRef = 692569581F4EB7DE007DC450 /* Report.m */; };
+		69C9D6C52076049200F64B02 /* StaffListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D13FFA1F84E3C200B32ADD /* StaffListController.m */; };
+		69C9D6C62076049200F64B02 /* NSDictionary+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FAE8BF1EDD1B8C0099141C /* NSDictionary+JSON.m */; };
+		69C9D6C72076049200F64B02 /* DoctorProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BBCACF1F39A5CA0065083B /* DoctorProfileController.m */; };
+		69C9D6C82076049200F64B02 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 697163CB206A62E200FE1471 /* NetworkManager.m */; };
+		69C9D6C92076049200F64B02 /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FAE8C31EDD1B8C0099141C /* NSString+JSON.m */; };
+		69C9D6CA2076049200F64B02 /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = 696156371F4C18FD005B7A87 /* Patient.m */; };
+		69C9D6CB2076049200F64B02 /* NSUserDefaults+DemoSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FAE8EC1EDD31B40099141C /* NSUserDefaults+DemoSettings.m */; };
+		69C9D6CC2076049200F64B02 /* Appointment.m in Sources */ = {isa = PBXBuildFile; fileRef = 6961563D1F4C2388005B7A87 /* Appointment.m */; };
+		69C9D6CD2076049200F64B02 /* PatientSelectorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 695D771F1F5EA5D60011E666 /* PatientSelectorController.m */; };
+		69C9D6CE2076049200F64B02 /* UIButton+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 6961562C1F4C13F0005B7A87 /* UIButton+Blocks.m */; };
+		69C9D6CF2076049200F64B02 /* NotificationsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 699841372000CC00007DD7C6 /* NotificationsController.m */; };
+		69C9D6D02076049200F64B02 /* CallController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69981F561F56AAAF00915518 /* CallController.m */; };
+		69C9D6D12076049200F64B02 /* PatientAppointmentsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6925696A1F4EE27E007DC450 /* PatientAppointmentsController.m */; };
+		69C9D6D22076049200F64B02 /* ChatThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FAE8D91EDD29620099141C /* ChatThread.m */; };
+		69C9D6D32076049200F64B02 /* MenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EE2FCB1F3999AB0083E929 /* MenuController.m */; };
+		69C9D6D42076049200F64B02 /* RegisterMobileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EE2FCF1F399B190083E929 /* RegisterMobileController.m */; };
+		69C9D6D52076049200F64B02 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C9A3A31FFE1C7E00231853 /* Notification.m */; };
+		69C9D6D62076049200F64B02 /* NSError+PrintHTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FAE8C11EDD1B8C0099141C /* NSError+PrintHTML.m */; };
+		69C9D6D72076049200F64B02 /* BookAppointmentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 692569641F4ECE2E007DC450 /* BookAppointmentController.m */; };
+		69C9D6D82076049200F64B02 /* UIView+Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FAE8C61EDD1B8C0099141C /* UIView+Theme.m */; };
+		69C9D6D92076049200F64B02 /* Clinic.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BBCAD81F39CF510065083B /* Clinic.m */; };
+		69C9D6DA2076049200F64B02 /* AppointmentsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FAE9691EDD4AEA0099141C /* AppointmentsController.m */; };
+		69C9D6DB2076049200F64B02 /* GiveAppointmentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 695D77171F5EA4220011E666 /* GiveAppointmentController.m */; };
+		69C9D6DC2076049200F64B02 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FAE8661EDBCC130099141C /* main.m */; };
+		69C9D6DD2076049200F64B02 /* UIPickerView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 6961562F1F4C13F0005B7A87 /* UIPickerView+Blocks.m */; };
+		69C9D6DE2076049200F64B02 /* ReportUploadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 692569611F4EC446007DC450 /* ReportUploadController.m */; };
+		69C9D6DF2076049200F64B02 /* UIImage+FixRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6925695E1F4EC39A007DC450 /* UIImage+FixRotation.m */; };
+		69C9D6E02076049200F64B02 /* AppointmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 696156401F4C2543005B7A87 /* AppointmentCell.m */; };
+		69C9D6E12076049200F64B02 /* MonthSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 699841312000B68B007DD7C6 /* MonthSelector.m */; };
+		69C9D6E22076049200F64B02 /* DemoModelData.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FAE8E81EDD31930099141C /* DemoModelData.m */; };
+		69C9D6E32076049200F64B02 /* PubNubManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 695000EF1F55705C00B5A0B1 /* PubNubManager.m */; };
+		69C9D6E42076049200F64B02 /* PatientInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6961563A1F4C1E9E005B7A87 /* PatientInfoController.m */; };
+		69C9D6E52076049200F64B02 /* ThreadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FAE8D41EDD26610099141C /* ThreadController.m */; };
+		69C9D6E62076049200F64B02 /* PatientProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 692569531F4EB3D3007DC450 /* PatientProfileController.m */; };
+		69C9D6E72076049200F64B02 /* CObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EE2FC21F3995530083E929 /* CObject.m */; };
+		69C9D6E92076049200F64B02 /* PushKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69CF7346205D7C70006B8264 /* PushKit.framework */; };
+		69C9D6EA2076049200F64B02 /* ImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69D13FF51F84DBE800B32ADD /* ImagePicker.framework */; };
+		69C9D6EB2076049200F64B02 /* libPods-Dr Ateet Sharma.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 618AD42A7691C8DA11A121E9 /* libPods-Dr Ateet Sharma.a */; };
+		69C9D6EC2076049200F64B02 /* LNRSimpleNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 699B3050205820E90025906B /* LNRSimpleNotifications.framework */; };
+		69C9D6EE2076049200F64B02 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE8831EDBF2A80099141C /* Roboto-Bold.ttf */; };
+		69C9D6EF2076049200F64B02 /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE8871EDBF2A80099141C /* Roboto-LightItalic.ttf */; };
+		69C9D6F02076049200F64B02 /* RobotoCondensed-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE88F1EDBF2A80099141C /* RobotoCondensed-Italic.ttf */; };
+		69C9D6F22076049200F64B02 /* RobotoCondensed-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE88E1EDBF2A80099141C /* RobotoCondensed-BoldItalic.ttf */; };
+		69C9D6F32076049200F64B02 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE8891EDBF2A80099141C /* Roboto-MediumItalic.ttf */; };
+		69C9D6F42076049200F64B02 /* jsq_messages_sample.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE8EE1EDD335B0099141C /* jsq_messages_sample.m4a */; };
+		69C9D6F52076049200F64B02 /* ring.wav in Resources */ = {isa = PBXBuildFile; fileRef = 692460571F5FF70500067981 /* ring.wav */; };
+		69C9D6F62076049200F64B02 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE8851EDBF2A80099141C /* Roboto-Italic.ttf */; };
+		69C9D6F72076049200F64B02 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE8861EDBF2A80099141C /* Roboto-Light.ttf */; };
+		69C9D6F82076049200F64B02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE8731EDBCC130099141C /* LaunchScreen.storyboard */; };
+		69C9D6F92076049200F64B02 /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE8841EDBF2A80099141C /* Roboto-BoldItalic.ttf */; };
+		69C9D6FA2076049200F64B02 /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE8821EDBF2A80099141C /* Roboto-BlackItalic.ttf */; };
+		69C9D6FB2076049200F64B02 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE88B1EDBF2A80099141C /* Roboto-Thin.ttf */; };
+		69C9D6FD2076049200F64B02 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE88A1EDBF2A80099141C /* Roboto-Regular.ttf */; };
+		69C9D6FE2076049200F64B02 /* RobotoCondensed-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE8911EDBF2A80099141C /* RobotoCondensed-LightItalic.ttf */; };
+		69C9D6FF2076049200F64B02 /* Apache License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE8801EDBF2A80099141C /* Apache License.txt */; };
+		69C9D7002076049200F64B02 /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE8921EDBF2A80099141C /* RobotoCondensed-Regular.ttf */; };
+		69C9D7012076049200F64B02 /* Appointments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE9671EDD4AEA0099141C /* Appointments.storyboard */; };
+		69C9D7022076049200F64B02 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE8881EDBF2A80099141C /* Roboto-Medium.ttf */; };
+		69C9D7032076049200F64B02 /* RobotoCondensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE8901EDBF2A80099141C /* RobotoCondensed-Light.ttf */; };
+		69C9D7042076049200F64B02 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE88C1EDBF2A80099141C /* Roboto-ThinItalic.ttf */; };
+		69C9D7052076049200F64B02 /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE88D1EDBF2A80099141C /* RobotoCondensed-Bold.ttf */; };
+		69C9D7062076049200F64B02 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE8811EDBF2A80099141C /* Roboto-Black.ttf */; };
+		69C9D7072076049200F64B02 /* Slot.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69A035151EFB882B00044F47 /* Slot.storyboard */; };
+		69C9D7082076049200F64B02 /* Consultation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE8D61EDD266C0099141C /* Consultation.storyboard */; };
+		69C9D7092076049200F64B02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE8711EDBCC130099141C /* Assets.xcassets */; };
+		69C9D70A2076049200F64B02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE86E1EDBCC130099141C /* Main.storyboard */; };
+		69C9D70E2076049200F64B02 /* LNRSimpleNotifications.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 699B3050205820E90025906B /* LNRSimpleNotifications.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		69C9D70F2076049200F64B02 /* ImagePicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69D13FF51F84DBE800B32ADD /* ImagePicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69CF7347205D7C70006B8264 /* PushKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69CF7346205D7C70006B8264 /* PushKit.framework */; };
 		69D13FC91F84C8CE00B32ADD /* PDFController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D13FC81F84C8CE00B32ADD /* PDFController.m */; };
 		69D13FCA1F84C8CE00B32ADD /* PDFController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D13FC81F84C8CE00B32ADD /* PDFController.m */; };
@@ -315,6 +408,20 @@
 			remoteGlobalIDString = D5DC598A1C201BE1003BD79B;
 			remoteInfo = "ImagePicker-iOS";
 		};
+		69C9D6A62076049200F64B02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69D13FEF1F84DBE800B32ADD /* ImagePicker.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D5DC598A1C201BE1003BD79B;
+			remoteInfo = "ImagePicker-iOS";
+		};
+		69C9D6A82076049200F64B02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 699B304A205820E90025906B /* LNRSimpleNotifications.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = FCF2A49A1D9D978000C13050;
+			remoteInfo = LNRSimpleNotifications;
+		};
 		69D13FF41F84DBE800B32ADD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 69D13FEF1F84DBE800B32ADD /* ImagePicker.xcodeproj */;
@@ -358,6 +465,18 @@
 			files = (
 				699B3052205820F20025906B /* LNRSimpleNotifications.framework in Embed Frameworks */,
 				69AB82791FA9BC6C0086AE84 /* ImagePicker.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69C9D70D2076049200F64B02 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				69C9D70E2076049200F64B02 /* LNRSimpleNotifications.framework in Embed Frameworks */,
+				69C9D70F2076049200F64B02 /* ImagePicker.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,6 +585,10 @@
 		69BBCADB1F39E08D0065083B /* ClinicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClinicViewController.m; sourceTree = "<group>"; };
 		69C9A3A21FFE1C7E00231853 /* Notification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
 		69C9A3A31FFE1C7E00231853 /* Notification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
+		69C9D7132076049200F64B02 /* MatulyaENT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatulyaENT.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		69C9D7172076146C00F64B02 /* MatulyaENT-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MatulyaENT-Info.plist"; sourceTree = "<group>"; };
+		69C9D7192076148000F64B02 /* MatulyaENT-keys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MatulyaENT-keys.h"; sourceTree = "<group>"; };
+		69C9D71A207618DC00F64B02 /* MatulyaENT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MatulyaENT.entitlements; sourceTree = "<group>"; };
 		69CF7346205D7C70006B8264 /* PushKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PushKit.framework; path = System/Library/Frameworks/PushKit.framework; sourceTree = SDKROOT; };
 		69D13FC71F84C8CE00B32ADD /* PDFController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDFController.h; sourceTree = "<group>"; };
 		69D13FC81F84C8CE00B32ADD /* PDFController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDFController.m; sourceTree = "<group>"; };
@@ -576,6 +699,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		69C9D6E82076049200F64B02 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69C9D6E92076049200F64B02 /* PushKit.framework in Frameworks */,
+				69C9D6EA2076049200F64B02 /* ImagePicker.framework in Frameworks */,
+				69C9D6EB2076049200F64B02 /* libPods-Dr Ateet Sharma.a in Frameworks */,
+				69C9D6EC2076049200F64B02 /* LNRSimpleNotifications.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		69FAE85F1EDBCC130099141C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -663,6 +797,16 @@
 			name = Vacation;
 			sourceTree = "<group>";
 		};
+		69C9D716207604BE00F64B02 /* MatulyaENT */ = {
+			isa = PBXGroup;
+			children = (
+				69C9D7172076146C00F64B02 /* MatulyaENT-Info.plist */,
+				69C9D7192076148000F64B02 /* MatulyaENT-keys.h */,
+			);
+			name = MatulyaENT;
+			path = Apps/MatulyaENT;
+			sourceTree = SOURCE_ROOT;
+		};
 		69D13FF01F84DBE800B32ADD /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -675,6 +819,7 @@
 		69DF5CDE1FD7D6F00015132A /* Apps */ = {
 			isa = PBXGroup;
 			children = (
+				69C9D716207604BE00F64B02 /* MatulyaENT */,
 				69DF5CDF1FD7D6F00015132A /* Consult */,
 				69DF5CE21FD7D6F00015132A /* Dr Ateet Sharma */,
 				69DF5CE51FD7D6F00015132A /* Dr Jinesh Shah */,
@@ -768,6 +913,7 @@
 		69FAE8591EDBCC130099141C = {
 			isa = PBXGroup;
 			children = (
+				69C9D71A207618DC00F64B02 /* MatulyaENT.entitlements */,
 				699B304A205820E90025906B /* LNRSimpleNotifications.xcodeproj */,
 				69D13FEF1F84DBE800B32ADD /* ImagePicker.xcodeproj */,
 				69FAE8641EDBCC130099141C /* Dr Ateet */,
@@ -785,6 +931,7 @@
 				69FAE8621EDBCC130099141C /* Dr Ateet Sharma.app */,
 				6956CB041F5A89E700B66EB8 /* Consult.app */,
 				6923B4BF1FCD7CFF005039BB /* Dr Jinesh Shah.app */,
+				69C9D7132076049200F64B02 /* MatulyaENT.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1000,12 +1147,36 @@
 			productReference = 6956CB041F5A89E700B66EB8 /* Consult.app */;
 			productType = "com.apple.product-type.application";
 		};
+		69C9D6A42076049200F64B02 /* MatulyaENT */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69C9D7102076049200F64B02 /* Build configuration list for PBXNativeTarget "MatulyaENT" */;
+			buildPhases = (
+				69C9D6A92076049200F64B02 /* Bump Up Build Number */,
+				69C9D6AA2076049200F64B02 /* [CP] Check Pods Manifest.lock */,
+				69C9D6AB2076049200F64B02 /* Sources */,
+				69C9D6E82076049200F64B02 /* Frameworks */,
+				69C9D6ED2076049200F64B02 /* Resources */,
+				69C9D70B2076049200F64B02 /* [CP] Embed Pods Frameworks */,
+				69C9D70C2076049200F64B02 /* [CP] Copy Pods Resources */,
+				69C9D70D2076049200F64B02 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				69C9D6A52076049200F64B02 /* PBXTargetDependency */,
+				69C9D6A72076049200F64B02 /* PBXTargetDependency */,
+			);
+			name = MatulyaENT;
+			productName = "Dr Ateet";
+			productReference = 69C9D7132076049200F64B02 /* MatulyaENT.app */;
+			productType = "com.apple.product-type.application";
+		};
 		69FAE8611EDBCC130099141C /* Dr Ateet Sharma */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 69FAE8791EDBCC130099141C /* Build configuration list for PBXNativeTarget "Dr Ateet Sharma" */;
 			buildPhases = (
-				3699E59E997CCAB8471AF2A3 /* [CP] Check Pods Manifest.lock */,
 				6914146D1F6F942F00B730BE /* Bump Up Build Number */,
+				3699E59E997CCAB8471AF2A3 /* [CP] Check Pods Manifest.lock */,
 				69FAE85E1EDBCC130099141C /* Sources */,
 				69FAE85F1EDBCC130099141C /* Frameworks */,
 				69FAE8601EDBCC130099141C /* Resources */,
@@ -1039,6 +1210,14 @@
 					6956CAB01F5A89E700B66EB8 = {
 						DevelopmentTeam = 4U5KNE4PJF;
 						LastSwiftMigration = 0900;
+					};
+					69C9D6A42076049200F64B02 = {
+						DevelopmentTeam = RJN8Y2VRZC;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					69FAE8611EDBCC130099141C = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -1082,6 +1261,7 @@
 				69FAE8611EDBCC130099141C /* Dr Ateet Sharma */,
 				6956CAB01F5A89E700B66EB8 /* Consult */,
 				6923B45E1FCD7CFF005039BB /* Dr Jinesh Shah */,
+				69C9D6A42076049200F64B02 /* MatulyaENT */,
 			);
 		};
 /* End PBXProject section */
@@ -1178,6 +1358,40 @@
 				6956CAFC1F5A89E700B66EB8 /* Consultation.storyboard in Resources */,
 				6956CAFD1F5A89E700B66EB8 /* Assets.xcassets in Resources */,
 				6956CAFE1F5A89E700B66EB8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69C9D6ED2076049200F64B02 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69C9D6EE2076049200F64B02 /* Roboto-Bold.ttf in Resources */,
+				69C9D6EF2076049200F64B02 /* Roboto-LightItalic.ttf in Resources */,
+				69C9D6F02076049200F64B02 /* RobotoCondensed-Italic.ttf in Resources */,
+				69C9D6F22076049200F64B02 /* RobotoCondensed-BoldItalic.ttf in Resources */,
+				69C9D6F32076049200F64B02 /* Roboto-MediumItalic.ttf in Resources */,
+				69C9D6F42076049200F64B02 /* jsq_messages_sample.m4a in Resources */,
+				69C9D6F52076049200F64B02 /* ring.wav in Resources */,
+				69C9D6F62076049200F64B02 /* Roboto-Italic.ttf in Resources */,
+				69C9D6F72076049200F64B02 /* Roboto-Light.ttf in Resources */,
+				69C9D6F82076049200F64B02 /* LaunchScreen.storyboard in Resources */,
+				69C9D6F92076049200F64B02 /* Roboto-BoldItalic.ttf in Resources */,
+				69C9D6FA2076049200F64B02 /* Roboto-BlackItalic.ttf in Resources */,
+				69C9D6FB2076049200F64B02 /* Roboto-Thin.ttf in Resources */,
+				69C9D6FD2076049200F64B02 /* Roboto-Regular.ttf in Resources */,
+				69C9D6FE2076049200F64B02 /* RobotoCondensed-LightItalic.ttf in Resources */,
+				69C9D6FF2076049200F64B02 /* Apache License.txt in Resources */,
+				69C9D7002076049200F64B02 /* RobotoCondensed-Regular.ttf in Resources */,
+				69C9D7012076049200F64B02 /* Appointments.storyboard in Resources */,
+				69C9D7022076049200F64B02 /* Roboto-Medium.ttf in Resources */,
+				69C9D7032076049200F64B02 /* RobotoCondensed-Light.ttf in Resources */,
+				69C9D7042076049200F64B02 /* Roboto-ThinItalic.ttf in Resources */,
+				69C9D7052076049200F64B02 /* RobotoCondensed-Bold.ttf in Resources */,
+				69C9D7062076049200F64B02 /* Roboto-Black.ttf in Resources */,
+				69C9D7072076049200F64B02 /* Slot.storyboard in Resources */,
+				69C9D7082076049200F64B02 /* Consultation.storyboard in Resources */,
+				69C9D7092076049200F64B02 /* Assets.xcassets in Resources */,
+				69C9D70A2076049200F64B02 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1406,6 +1620,83 @@
 			shellPath = /bin/sh;
 			shellScript = "if [ $CONFIGURATION == Release ]; then\necho \"Bumping build number...\"\nplist=${PROJECT_DIR}/${INFOPLIST_FILE}\n\n# increment the build number (ie 115 to 116)\nbuildnum=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${plist}\")\nif [[ \"${buildnum}\" == \"\" ]]; then\necho \"No build number in $plist\"\nexit 2\nfi\n\nbuildnum=$(expr $buildnum + 1)\n/usr/libexec/Plistbuddy -c \"Set CFBundleVersion $buildnum\" \"${plist}\"\necho \"Bumped build number to $buildnum\"\n\nelse\necho $CONFIGURATION \" build - Not bumping build number.\"\nfi";
 		};
+		69C9D6A92076049200F64B02 /* Bump Up Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bump Up Build Number";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ $CONFIGURATION == Release ]; then\necho \"Bumping build number...\"\nplist=${PROJECT_DIR}/${INFOPLIST_FILE}\n\n# increment the build number (ie 115 to 116)\nbuildnum=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${plist}\")\nif [[ \"${buildnum}\" == \"\" ]]; then\necho \"No build number in $plist\"\nexit 2\nfi\n\nbuildnum=$(expr $buildnum + 1)\n/usr/libexec/Plistbuddy -c \"Set CFBundleVersion $buildnum\" \"${plist}\"\necho \"Bumped build number to $buildnum\"\n\nelse\necho $CONFIGURATION \" build - Not bumping build number.\"\nfi";
+		};
+		69C9D6AA2076049200F64B02 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Dr Ateet Sharma-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		69C9D70B2076049200F64B02 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dr Ateet Sharma/Pods-Dr Ateet Sharma-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		69C9D70C2076049200F64B02 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Dr Ateet Sharma/Pods-Dr Ateet Sharma-resources.sh",
+				"${PODS_ROOT}/EMCCountryPickerController+DialingCodes/EMCCountryPickerController/EMCCountryPickerController.bundle",
+				"${PODS_ROOT}/IDMPhotoBrowser/Classes/IDMPhotoBrowser.bundle",
+				"${PODS_ROOT}/IDMPhotoBrowser/Classes/IDMPBLocalizations.bundle",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/JSQMessagesViewController/JSQMessagesViewController/Assets/JSQMessagesAssets.bundle",
+				"${PODS_ROOT}/JSQMessagesViewController/JSQMessagesViewController/Controllers/JSQMessagesViewController.xib",
+				"${PODS_ROOT}/JSQMessagesViewController/JSQMessagesViewController/Views/JSQMessagesCollectionViewCellIncoming.xib",
+				"${PODS_ROOT}/JSQMessagesViewController/JSQMessagesViewController/Views/JSQMessagesCollectionViewCellOutgoing.xib",
+				"${PODS_ROOT}/JSQMessagesViewController/JSQMessagesViewController/Views/JSQMessagesLoadEarlierHeaderView.xib",
+				"${PODS_ROOT}/JSQMessagesViewController/JSQMessagesViewController/Views/JSQMessagesToolbarContentView.xib",
+				"${PODS_ROOT}/JSQMessagesViewController/JSQMessagesViewController/Views/JSQMessagesTypingIndicatorFooterView.xib",
+				"${PODS_ROOT}/NSDate+TimeAgo/NSDateTimeAgo.bundle",
+				"${PODS_ROOT}/XLForm/XLForm/XLForm.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dr Ateet Sharma/Pods-Dr Ateet Sharma-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DFFB34403280A24E2F84BCE1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1573,6 +1864,73 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		69C9D6AB2076049200F64B02 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69C9D6AC2076049200F64B02 /* Schedule.m in Sources */,
+				69C9D6AD2076049200F64B02 /* ScheduleListController.m in Sources */,
+				69C9D6AE2076049200F64B02 /* Slot.m in Sources */,
+				69C9D6AF2076049200F64B02 /* ReportsController.m in Sources */,
+				69C9D6B02076049200F64B02 /* HomeController.m in Sources */,
+				69C9D6B12076049200F64B02 /* AddScheduleController.m in Sources */,
+				69C9D6B22076049200F64B02 /* NSDictionary+Status.m in Sources */,
+				69C9D6B32076049200F64B02 /* APIManager.m in Sources */,
+				69C9D6B42076049200F64B02 /* ClinicViewController.m in Sources */,
+				69C9D6B52076049200F64B02 /* PDFController.m in Sources */,
+				69C9D6B62076049200F64B02 /* Vacation.m in Sources */,
+				69C9D6B72076049200F64B02 /* VerifyMobileController.m in Sources */,
+				69C9D6B82076049200F64B02 /* ClinicsListController.m in Sources */,
+				69C9D6B92076049200F64B02 /* SlotCell.m in Sources */,
+				69C9D6BA2076049200F64B02 /* ARTCVideoChatViewController.m in Sources */,
+				69C9D6BB2076049200F64B02 /* SlotManagerController.m in Sources */,
+				69C9D6BC2076049200F64B02 /* DoctorProDetailsController.m in Sources */,
+				69C9D6BD2076049200F64B02 /* MyVacationController.m in Sources */,
+				69C9D6BE2076049200F64B02 /* NSArray+JSON.m in Sources */,
+				69C9D6BF2076049200F64B02 /* CUser.m in Sources */,
+				69C9D6C02076049200F64B02 /* AppDelegate.m in Sources */,
+				69C9D6C12076049200F64B02 /* DemoMessagesViewController.m in Sources */,
+				69C9D6C22076049200F64B02 /* BaseController.m in Sources */,
+				69C9D6C32076049200F64B02 /* PatientsListController.m in Sources */,
+				69C9D6C42076049200F64B02 /* Report.m in Sources */,
+				69C9D6C52076049200F64B02 /* StaffListController.m in Sources */,
+				69C9D6C62076049200F64B02 /* NSDictionary+JSON.m in Sources */,
+				69C9D6C72076049200F64B02 /* DoctorProfileController.m in Sources */,
+				69C9D6C82076049200F64B02 /* NetworkManager.m in Sources */,
+				69C9D6C92076049200F64B02 /* NSString+JSON.m in Sources */,
+				69C9D6CA2076049200F64B02 /* Patient.m in Sources */,
+				69C9D6CB2076049200F64B02 /* NSUserDefaults+DemoSettings.m in Sources */,
+				69C9D6CC2076049200F64B02 /* Appointment.m in Sources */,
+				69C9D6CD2076049200F64B02 /* PatientSelectorController.m in Sources */,
+				69C9D6CE2076049200F64B02 /* UIButton+Blocks.m in Sources */,
+				69C9D6CF2076049200F64B02 /* NotificationsController.m in Sources */,
+				69C9D6D02076049200F64B02 /* CallController.m in Sources */,
+				69C9D6D12076049200F64B02 /* PatientAppointmentsController.m in Sources */,
+				69C9D6D22076049200F64B02 /* ChatThread.m in Sources */,
+				69C9D6D32076049200F64B02 /* MenuController.m in Sources */,
+				69C9D6D42076049200F64B02 /* RegisterMobileController.m in Sources */,
+				69C9D6D52076049200F64B02 /* Notification.m in Sources */,
+				69C9D6D62076049200F64B02 /* NSError+PrintHTML.m in Sources */,
+				69C9D6D72076049200F64B02 /* BookAppointmentController.m in Sources */,
+				69C9D6D82076049200F64B02 /* UIView+Theme.m in Sources */,
+				69C9D6D92076049200F64B02 /* Clinic.m in Sources */,
+				69C9D6DA2076049200F64B02 /* AppointmentsController.m in Sources */,
+				69C9D6DB2076049200F64B02 /* GiveAppointmentController.m in Sources */,
+				69C9D6DC2076049200F64B02 /* main.m in Sources */,
+				69C9D6DD2076049200F64B02 /* UIPickerView+Blocks.m in Sources */,
+				69C9D6DE2076049200F64B02 /* ReportUploadController.m in Sources */,
+				69C9D6DF2076049200F64B02 /* UIImage+FixRotation.m in Sources */,
+				69C9D6E02076049200F64B02 /* AppointmentCell.m in Sources */,
+				69C9D6E12076049200F64B02 /* MonthSelector.m in Sources */,
+				69C9D6E22076049200F64B02 /* DemoModelData.m in Sources */,
+				69C9D6E32076049200F64B02 /* PubNubManager.m in Sources */,
+				69C9D6E42076049200F64B02 /* PatientInfoController.m in Sources */,
+				69C9D6E52076049200F64B02 /* ThreadController.m in Sources */,
+				69C9D6E62076049200F64B02 /* PatientProfileController.m in Sources */,
+				69C9D6E72076049200F64B02 /* CObject.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		69FAE85E1EDBCC130099141C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1657,6 +2015,16 @@
 			isa = PBXTargetDependency;
 			name = "ImagePicker-iOS";
 			targetProxy = 69AB827A1FA9BC6C0086AE84 /* PBXContainerItemProxy */;
+		};
+		69C9D6A52076049200F64B02 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "ImagePicker-iOS";
+			targetProxy = 69C9D6A62076049200F64B02 /* PBXContainerItemProxy */;
+		};
+		69C9D6A72076049200F64B02 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LNRSimpleNotifications;
+			targetProxy = 69C9D6A82076049200F64B02 /* PBXContainerItemProxy */;
 		};
 		69D1400B1F85004D00B32ADD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1807,6 +2175,69 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.shashankpatel.consult;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Consult-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		69C9D7112076049200F64B02 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A248BD0E3F58E525A20BE10A /* Pods-Dr Ateet Sharma.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconMatulyaENT;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = MatulyaENT.entitlements;
+				DEVELOPMENT_TEAM = RJN8Y2VRZC;
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "./Dr Ateet/app.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"PRODUCT_NAME=\"MatulyaENT\"",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Apps/MatulyaENT/MatulyaENT-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Lib",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.matulyaent.ios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Dr Ateet Sharma-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		69C9D7122076049200F64B02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48D29B1721D02BEED7ECC881 /* Pods-Dr Ateet Sharma.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconMatulyaENT;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = MatulyaENT.entitlements;
+				DEVELOPMENT_TEAM = RJN8Y2VRZC;
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "./Dr Ateet/app.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"PRODUCT_NAME=\"MatulyaENT\"",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Apps/MatulyaENT/MatulyaENT-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Lib",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.matulyaent.ios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Dr Ateet Sharma-Bridging-Header.h";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -1994,6 +2425,15 @@
 			buildConfigurations = (
 				6956CB021F5A89E700B66EB8 /* Debug */,
 				6956CB031F5A89E700B66EB8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69C9D7102076049200F64B02 /* Build configuration list for PBXNativeTarget "MatulyaENT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69C9D7112076049200F64B02 /* Debug */,
+				69C9D7122076049200F64B02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

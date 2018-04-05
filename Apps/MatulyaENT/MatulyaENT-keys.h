@@ -40,5 +40,5 @@
 
 
 #define API_URL                             DEBUG ? DEBUG_API_URL : RELEASE_API_URL
-
+#define DOCTOR_NAME                         @"Dr. Shaishav Sakhidas"
 #endif /* Dr_Ateet_Sharma_keys_h */
