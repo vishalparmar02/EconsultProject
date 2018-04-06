@@ -85,13 +85,15 @@
 }
 
 - (IBAction)reportsTapped{
-    ReportsController *vc = [ReportsController controller];
-    vc.patient = self.patient;
-    vc.isChild = YES;
-    UINavigationController *navVC = NavigationControllerWithController(vc);
-    [self.navigationController presentViewController:navVC
-                                            animated:YES
-                                          completion:nil];
+    if ([[APIManager sharedManager] patientReportsEnabled]) {
+        ReportsController *vc = [ReportsController controller];
+        vc.patient = self.patient;
+        vc.isChild = YES;
+        UINavigationController *navVC = NavigationControllerWithController(vc);
+        [self.navigationController presentViewController:navVC
+                                                animated:YES
+                                              completion:nil];
+    }
 }
 
 

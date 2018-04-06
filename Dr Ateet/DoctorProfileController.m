@@ -254,7 +254,7 @@
     
     // Website
     row = [XLFormRowDescriptor formRowDescriptorWithTag:@"website" rowType:XLFormRowDescriptorTypeTextView];
-    row.value = @"http://drateetsharma.com";
+    row.value = profile[row.tag];
     row.height = 80;
     [row.cellConfig setObject:font forKey:@"textLabel.font"];
     [row.cellConfig setObject:detailFont forKey:@"textView.font"];

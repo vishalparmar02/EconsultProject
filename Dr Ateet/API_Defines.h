@@ -19,10 +19,6 @@
 #import "NSString+JSON.h"
 #import "NSDictionary+Status.h"
 
-//NSArray *API_URLs = @[@"https://econsult.jshealthtech.com/api/v2",
-//                      @"https://app.drateetsharma.com/api",
-//                      @"http://api.drjineshshah.com/api/v2"];
-
 #ifndef DEBUG
 #define DEBUG 0
 #endif

@@ -692,7 +692,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Knee Icon" translatesAutoresizingMaskIntoConstraints="NO" id="jhK-VV-TeF">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="jhK-VV-TeF">
                                 <rect key="frame" x="138" y="95" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="jhK-VV-TeF" secondAttribute="height" multiplier="1:1" id="aN4-W7-0gC"/>
@@ -865,7 +865,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Knee Icon" translatesAutoresizingMaskIntoConstraints="NO" id="Sz5-3j-D14">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Sz5-3j-D14">
                                 <rect key="frame" x="138" y="95" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="25G-TT-guQ"/>
@@ -1173,10 +1173,10 @@
             </objects>
             <point key="canvasLocation" x="927" y="-1480"/>
         </scene>
-        <!--View Controller-->
+        <!--Loading Controller-->
         <scene sceneID="qlk-Ti-W1O">
             <objects>
-                <viewController storyboardIdentifier="LoadingController" id="cuh-WB-zUd" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoadingController" id="cuh-WB-zUd" customClass="LoadingController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7F0-9z-Ilp"/>
                         <viewControllerLayoutGuide type="bottom" id="LK0-wj-Gx2"/>
@@ -1185,9 +1185,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading" translatesAutoresizingMaskIntoConstraints="NO" id="hup-Dv-KFQ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hup-Dv-KFQ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" red="0.81953555345535278" green="0.81965416669845581" blue="0.81950962543487549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.81960784313725488" green="0.81960784313725488" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="jEU-F4-sxe">
                                 <rect key="frame" x="178" y="592" width="20" height="20"/>
@@ -1214,6 +1214,9 @@
                             <constraint firstItem="hup-Dv-KFQ" firstAttribute="width" secondItem="odT-qu-8EG" secondAttribute="width" id="ycX-3j-GLW"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loadingImageView" destination="hup-Dv-KFQ" id="cS5-bl-Ejw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cSe-gB-G6o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1406,9 +1409,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Knee Icon" width="341" height="341"/>
         <image name="default_photo" width="333" height="333"/>
-        <image name="loading" width="341" height="341"/>
+        <image name="logo" width="341" height="341"/>
         <image name="person_placeholder" width="112" height="112"/>
     </resources>
 </document>

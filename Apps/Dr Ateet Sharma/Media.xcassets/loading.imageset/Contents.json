@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "loading.jpg",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "webrtc-icon-192x192.png"
+      "filename" : "loading@2x.jpg",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "loading@3x.jpg",
       "scale" : "3x"
     }
   ],

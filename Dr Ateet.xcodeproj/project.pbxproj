@@ -91,7 +91,6 @@
 		6923B4B31FCD7CFF005039BB /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE8811EDBF2A80099141C /* Roboto-Black.ttf */; };
 		6923B4B41FCD7CFF005039BB /* Slot.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69A035151EFB882B00044F47 /* Slot.storyboard */; };
 		6923B4B51FCD7CFF005039BB /* Consultation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE8D61EDD266C0099141C /* Consultation.storyboard */; };
-		6923B4B61FCD7CFF005039BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE8711EDBCC130099141C /* Assets.xcassets */; };
 		6923B4B71FCD7CFF005039BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE86E1EDBCC130099141C /* Main.storyboard */; };
 		6923B4BB1FCD7CFF005039BB /* ImagePicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69D13FF51F84DBE800B32ADD /* ImagePicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		692460581F5FF70500067981 /* ring.wav in Resources */ = {isa = PBXBuildFile; fileRef = 692460571F5FF70500067981 /* ring.wav */; };
@@ -180,7 +179,6 @@
 		6956CAFA1F5A89E700B66EB8 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE8811EDBF2A80099141C /* Roboto-Black.ttf */; };
 		6956CAFB1F5A89E700B66EB8 /* Slot.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69A035151EFB882B00044F47 /* Slot.storyboard */; };
 		6956CAFC1F5A89E700B66EB8 /* Consultation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE8D61EDD266C0099141C /* Consultation.storyboard */; };
-		6956CAFD1F5A89E700B66EB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE8711EDBCC130099141C /* Assets.xcassets */; };
 		6956CAFE1F5A89E700B66EB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE86E1EDBCC130099141C /* Main.storyboard */; };
 		695D77181F5EA4220011E666 /* GiveAppointmentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 695D77171F5EA4220011E666 /* GiveAppointmentController.m */; };
 		695D77191F5EA4220011E666 /* GiveAppointmentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 695D77171F5EA4220011E666 /* GiveAppointmentController.m */; };
@@ -201,6 +199,15 @@
 		697163CC206A62E300FE1471 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 697163CB206A62E200FE1471 /* NetworkManager.m */; };
 		697163CD206A62E300FE1471 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 697163CB206A62E200FE1471 /* NetworkManager.m */; };
 		697163CE206A62E300FE1471 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 697163CB206A62E200FE1471 /* NetworkManager.m */; };
+		697AB60620774FD9006EA8F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE8711EDBCC130099141C /* Assets.xcassets */; };
+		697AB60720774FDA006EA8F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE8711EDBCC130099141C /* Assets.xcassets */; };
+		697AB60820774FDB006EA8F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE8711EDBCC130099141C /* Assets.xcassets */; };
+		697AB60B20775003006EA8F0 /* LoadingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 697AB60A20775003006EA8F0 /* LoadingController.m */; };
+		697AB60C20775003006EA8F0 /* LoadingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 697AB60A20775003006EA8F0 /* LoadingController.m */; };
+		697AB60D20775003006EA8F0 /* LoadingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 697AB60A20775003006EA8F0 /* LoadingController.m */; };
+		697AB60E20775003006EA8F0 /* LoadingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 697AB60A20775003006EA8F0 /* LoadingController.m */; };
+		697AB61020775179006EA8F0 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 697AB60F20775179006EA8F0 /* Media.xcassets */; };
+		697AB612207751AC006EA8F0 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 697AB611207751AC006EA8F0 /* Media.xcassets */; };
 		697DBA4F1F3ACB4300241776 /* ScheduleListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 697DBA4E1F3ACB4300241776 /* ScheduleListController.m */; };
 		697DBA521F3ACB6F00241776 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 697DBA511F3ACB6F00241776 /* Schedule.m */; };
 		69981F571F56AAAF00915518 /* CallController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69981F561F56AAAF00915518 /* CallController.m */; };
@@ -317,7 +324,6 @@
 		69C9D7062076049200F64B02 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE8811EDBF2A80099141C /* Roboto-Black.ttf */; };
 		69C9D7072076049200F64B02 /* Slot.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69A035151EFB882B00044F47 /* Slot.storyboard */; };
 		69C9D7082076049200F64B02 /* Consultation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE8D61EDD266C0099141C /* Consultation.storyboard */; };
-		69C9D7092076049200F64B02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE8711EDBCC130099141C /* Assets.xcassets */; };
 		69C9D70A2076049200F64B02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69FAE86E1EDBCC130099141C /* Main.storyboard */; };
 		69C9D70E2076049200F64B02 /* LNRSimpleNotifications.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 699B3050205820E90025906B /* LNRSimpleNotifications.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69C9D70F2076049200F64B02 /* ImagePicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69D13FF51F84DBE800B32ADD /* ImagePicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -555,6 +561,10 @@
 		697163C3206A625F00FE1471 /* APIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
 		697163CA206A62E200FE1471 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		697163CB206A62E200FE1471 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		697AB60920775003006EA8F0 /* LoadingController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadingController.h; sourceTree = "<group>"; };
+		697AB60A20775003006EA8F0 /* LoadingController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadingController.m; sourceTree = "<group>"; };
+		697AB60F20775179006EA8F0 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		697AB611207751AC006EA8F0 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		697DBA4D1F3ACB4300241776 /* ScheduleListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleListController.h; sourceTree = "<group>"; };
 		697DBA4E1F3ACB4300241776 /* ScheduleListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleListController.m; sourceTree = "<group>"; };
 		697DBA501F3ACB6A00241776 /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
@@ -802,6 +812,7 @@
 			children = (
 				69C9D7172076146C00F64B02 /* MatulyaENT-Info.plist */,
 				69C9D7192076148000F64B02 /* MatulyaENT-keys.h */,
+				697AB60F20775179006EA8F0 /* Media.xcassets */,
 			);
 			name = MatulyaENT;
 			path = Apps/MatulyaENT;
@@ -839,6 +850,7 @@
 		69DF5CE21FD7D6F00015132A /* Dr Ateet Sharma */ = {
 			isa = PBXGroup;
 			children = (
+				697AB611207751AC006EA8F0 /* Media.xcassets */,
 				69DF5CE31FD7D6F00015132A /* Dr Ateet Sharma-Info.plist */,
 				69DF5CE41FD7D6F00015132A /* Dr Ateet Sharma-keys.h */,
 			);
@@ -967,6 +979,8 @@
 				69D13FFA1F84E3C200B32ADD /* StaffListController.m */,
 				69D13FC71F84C8CE00B32ADD /* PDFController.h */,
 				69D13FC81F84C8CE00B32ADD /* PDFController.m */,
+				697AB60920775003006EA8F0 /* LoadingController.h */,
+				697AB60A20775003006EA8F0 /* LoadingController.m */,
 				69FAE86E1EDBCC130099141C /* Main.storyboard */,
 				69FAE8711EDBCC130099141C /* Assets.xcassets */,
 				69FAE8731EDBCC130099141C /* LaunchScreen.storyboard */,
@@ -1320,7 +1334,7 @@
 				6923B4B31FCD7CFF005039BB /* Roboto-Black.ttf in Resources */,
 				6923B4B41FCD7CFF005039BB /* Slot.storyboard in Resources */,
 				6923B4B51FCD7CFF005039BB /* Consultation.storyboard in Resources */,
-				6923B4B61FCD7CFF005039BB /* Assets.xcassets in Resources */,
+				697AB60720774FDA006EA8F0 /* Assets.xcassets in Resources */,
 				6923B4B71FCD7CFF005039BB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1355,8 +1369,8 @@
 				6956CAF91F5A89E700B66EB8 /* RobotoCondensed-Bold.ttf in Resources */,
 				6956CAFA1F5A89E700B66EB8 /* Roboto-Black.ttf in Resources */,
 				6956CAFB1F5A89E700B66EB8 /* Slot.storyboard in Resources */,
+				697AB60620774FD9006EA8F0 /* Assets.xcassets in Resources */,
 				6956CAFC1F5A89E700B66EB8 /* Consultation.storyboard in Resources */,
-				6956CAFD1F5A89E700B66EB8 /* Assets.xcassets in Resources */,
 				6956CAFE1F5A89E700B66EB8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1367,6 +1381,7 @@
 			files = (
 				69C9D6EE2076049200F64B02 /* Roboto-Bold.ttf in Resources */,
 				69C9D6EF2076049200F64B02 /* Roboto-LightItalic.ttf in Resources */,
+				697AB61020775179006EA8F0 /* Media.xcassets in Resources */,
 				69C9D6F02076049200F64B02 /* RobotoCondensed-Italic.ttf in Resources */,
 				69C9D6F22076049200F64B02 /* RobotoCondensed-BoldItalic.ttf in Resources */,
 				69C9D6F32076049200F64B02 /* Roboto-MediumItalic.ttf in Resources */,
@@ -1390,7 +1405,7 @@
 				69C9D7062076049200F64B02 /* Roboto-Black.ttf in Resources */,
 				69C9D7072076049200F64B02 /* Slot.storyboard in Resources */,
 				69C9D7082076049200F64B02 /* Consultation.storyboard in Resources */,
-				69C9D7092076049200F64B02 /* Assets.xcassets in Resources */,
+				697AB60820774FDB006EA8F0 /* Assets.xcassets in Resources */,
 				69C9D70A2076049200F64B02 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1409,6 +1424,7 @@
 				692460581F5FF70500067981 /* ring.wav in Resources */,
 				69FAE8981EDBF2A80099141C /* Roboto-Italic.ttf in Resources */,
 				69FAE8991EDBF2A80099141C /* Roboto-Light.ttf in Resources */,
+				697AB612207751AC006EA8F0 /* Media.xcassets in Resources */,
 				69FAE8751EDBCC130099141C /* LaunchScreen.storyboard in Resources */,
 				69FAE8971EDBF2A80099141C /* Roboto-BoldItalic.ttf in Resources */,
 				69FAE8951EDBF2A80099141C /* Roboto-BlackItalic.ttf in Resources */,
@@ -1734,6 +1750,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				697AB60D20775003006EA8F0 /* LoadingController.m in Sources */,
 				6923B4631FCD7CFF005039BB /* Schedule.m in Sources */,
 				6923B4641FCD7CFF005039BB /* ScheduleListController.m in Sources */,
 				6923B4651FCD7CFF005039BB /* Slot.m in Sources */,
@@ -1801,6 +1818,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				697AB60C20775003006EA8F0 /* LoadingController.m in Sources */,
 				6956CAB31F5A89E700B66EB8 /* Schedule.m in Sources */,
 				6956CAB41F5A89E700B66EB8 /* ScheduleListController.m in Sources */,
 				6956CAB51F5A89E700B66EB8 /* Slot.m in Sources */,
@@ -1868,6 +1886,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				697AB60E20775003006EA8F0 /* LoadingController.m in Sources */,
 				69C9D6AC2076049200F64B02 /* Schedule.m in Sources */,
 				69C9D6AD2076049200F64B02 /* ScheduleListController.m in Sources */,
 				69C9D6AE2076049200F64B02 /* Slot.m in Sources */,
@@ -1935,6 +1954,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				697AB60B20775003006EA8F0 /* LoadingController.m in Sources */,
 				697DBA521F3ACB6F00241776 /* Schedule.m in Sources */,
 				697DBA4F1F3ACB4300241776 /* ScheduleListController.m in Sources */,
 				692569681F4ED74D007DC450 /* Slot.m in Sources */,

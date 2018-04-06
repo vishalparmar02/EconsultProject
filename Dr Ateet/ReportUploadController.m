@@ -31,6 +31,7 @@
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"TypeCell"];
     self.reportTypes = @[@"X-Ray", @"Other"];
     self.reportTypes = @[];
+    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Upload"
                                                                               style:UIBarButtonItemStylePlain
                                                                              target:self

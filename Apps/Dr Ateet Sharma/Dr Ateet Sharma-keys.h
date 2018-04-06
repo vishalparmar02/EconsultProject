@@ -40,5 +40,7 @@
 
 
 #define API_URL                             DEBUG ? DEBUG_API_URL : RELEASE_API_URL
+#define DOCTOR_NAME                         @"Dr. Ateet Sharma"
+#define BACKGROUND_COLOR                    [UIColor colorWithHex:0xD1D1D1]
 
 #endif /* Dr_Ateet_Sharma_keys_h */
