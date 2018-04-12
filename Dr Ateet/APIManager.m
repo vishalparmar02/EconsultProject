@@ -41,6 +41,9 @@
     if(currentAPI){
         for (NSString *key in currentAPI.allKeys) {
             self[key] = currentAPI[key];
+            if([currentAPI[key] isKindOfClass:[NSNull class]]){
+                self[key] = @0;
+            }
             [self setCurrent];
         }
     }

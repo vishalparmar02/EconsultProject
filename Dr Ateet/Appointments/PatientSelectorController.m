@@ -116,6 +116,12 @@
         if ([object[@"status"] boolValue]) {
             self.searchBar.text = mobile;
             [weakSelf searchBar:self.searchBar textDidChange:self.searchBar.text];
+        }else{
+            if (object[@"patient_id"]) {
+                self.searchBar.text = mobile;
+                [weakSelf searchBar:self.searchBar textDidChange:self.searchBar.text];
+            }
+            
         }
     }];
 }

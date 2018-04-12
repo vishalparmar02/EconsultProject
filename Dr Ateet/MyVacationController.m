@@ -21,7 +21,7 @@
 - (void)setVacation:(Vacation *)vacation{
     _vacation = vacation;
     NSDateFormatter *df = [NSDateFormatter new];
-    [df setDateFormat:@"dd-MM-YYYY"];
+    [df setDateFormat:@"dd-MM-yyyy"];
     NSDate *startDate = [df dateFromString:vacation[@"start_date"]];
     NSDate *endDate = [df dateFromString:vacation[@"end_date"]];
     
@@ -46,6 +46,7 @@
 @property (nonatomic, strong)           NSArray         *vacations;
 @property (nonatomic, strong)           UIDatePicker    *startDatePicker, *endDatePicker;
 @property (nonatomic, strong)           UITextField     *startDateField, *endDateField, *descriptionField;
+@property (nonatomic, strong)           UIAlertAction   *addAlertAction;
 
 @end
 
@@ -112,12 +113,14 @@
     NSDateFormatter *timeFormatter = [NSDateFormatter new];
     timeFormatter.dateFormat = @"dd LLLL, YYYY";
     self.startDateField.text = [timeFormatter stringFromDate:self.startDatePicker.date];
+    self.addAlertAction.enabled = self.startDateField.text.length && self.endDateField.text.length;
 }
 
 - (void)endDateChanged{
     NSDateFormatter *timeFormatter = [NSDateFormatter new];
     timeFormatter.dateFormat = @"dd LLLL, YYYY";
     self.endDateField.text = [timeFormatter stringFromDate:self.endDatePicker.date];
+    self.addAlertAction.enabled = self.startDateField.text.length && self.endDateField.text.length;
 }
 
 - (void)addVacationTapped{
@@ -160,13 +163,15 @@
                                                     handler:^(UIAlertAction * _Nonnull action) {
                                                         
                                                     }];
-    UIAlertAction *add = [UIAlertAction actionWithTitle:@"Add"
+    self.addAlertAction = [UIAlertAction actionWithTitle:@"Add"
                                                       style:UIAlertActionStyleDefault
                                                     handler:^(UIAlertAction * _Nonnull action) {
-                                                        [self addVacation];
+                                                        if (_startDateField.text.length && _endDateField.text.length) {
+                                                            [self addVacation];
+                                                        }
                                                     }];
     [addVacation addAction:cancel];
-    [addVacation addAction:add];
+    [addVacation addAction:self.addAlertAction];
     [self.navigationController presentViewController:addVacation
                                             animated:YES
                                           completion:nil];
@@ -191,42 +196,24 @@
 }
 
 - (void)deleteVacation:(Vacation*)vacation{
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [vacation deleteInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        [self confirmConflictVacation:vacation error:error];
-    }];
-}
-
-- (void)confirmConflictVacation:(Vacation*)vacation error:(NSError*)error{
-    NSString *message;
-    if (error) {
-        message = [NSString stringWithFormat:@"%ld clashing appointments. Are you sure you want to delete this vacation?",[error.userInfo[@"total"] integerValue]];
-    }else{
-        message = @"Are you sure you want to delete this vacation?";
-    }
-    
     [UIAlertController showAlertInViewController:self
                                        withTitle:@"Confirm"
-                                         message:message
-                               cancelButtonTitle:nil
-                          destructiveButtonTitle:@"Cancel"
-                               otherButtonTitles:@[@"Confirm"]
+                                         message:@"Are you sure you want to delete this vacation?"
+                               cancelButtonTitle:@"Cancel"
+                          destructiveButtonTitle:@"Confirm"
+                               otherButtonTitles:nil
                                         tapBlock:^(UIAlertController * _Nonnull controller, UIAlertAction * _Nonnull action, NSInteger buttonIndex) {
-                                            if(controller.destructiveButtonIndex != buttonIndex) {
-                                                [self confirmDeleteVacation:vacation];
+                                            if(controller.destructiveButtonIndex == buttonIndex) {
+                                                [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                                                [vacation deleteInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                                                    [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                                    [self fetchVacations];
+                                                }];
                                             }
                                         }];
+    
+    
 }
-
-- (void)confirmDeleteVacation:(Vacation*)vacation{
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-//    [vacation forceDeleteInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-//        [MBProgressHUD hideHUDForView:self.view animated:YES];
-//        [self fetchVacations];
-//    }];
-}
-
 
 @end
 

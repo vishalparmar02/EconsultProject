@@ -232,6 +232,8 @@
 		69BBCAD61F39CEE30065083B /* ClinicsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BBCAD51F39CEE30065083B /* ClinicsListController.m */; };
 		69BBCAD91F39CF510065083B /* Clinic.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BBCAD81F39CF510065083B /* Clinic.m */; };
 		69BBCADC1F39E08D0065083B /* ClinicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BBCADB1F39E08D0065083B /* ClinicViewController.m */; };
+		69C40201207F47D4008FC01A /* LNRSimpleNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 699B3050205820E90025906B /* LNRSimpleNotifications.framework */; };
+		69C40202207F47D4008FC01A /* LNRSimpleNotifications.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 699B3050205820E90025906B /* LNRSimpleNotifications.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69C9A3A41FFE1C7E00231853 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C9A3A31FFE1C7E00231853 /* Notification.m */; };
 		69C9A3A51FFE1C7E00231853 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C9A3A31FFE1C7E00231853 /* Notification.m */; };
 		69C9A3A61FFE1C7E00231853 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C9A3A31FFE1C7E00231853 /* Notification.m */; };
@@ -414,6 +416,13 @@
 			remoteGlobalIDString = D5DC598A1C201BE1003BD79B;
 			remoteInfo = "ImagePicker-iOS";
 		};
+		69C40203207F47D4008FC01A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 699B304A205820E90025906B /* LNRSimpleNotifications.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = FCF2A49A1D9D978000C13050;
+			remoteInfo = LNRSimpleNotifications;
+		};
 		69C9D6A62076049200F64B02 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 69D13FEF1F84DBE800B32ADD /* ImagePicker.xcodeproj */;
@@ -493,6 +502,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				69C40202207F47D4008FC01A /* LNRSimpleNotifications.framework in Embed Frameworks */,
 				69D140091F85004D00B32ADD /* ImagePicker.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -706,6 +716,7 @@
 			files = (
 				69D13FF81F84DBF300B32ADD /* ImagePicker.framework in Frameworks */,
 				0046473B0EAF2418BADFA05F /* libPods-Consult.a in Frameworks */,
+				69C40201207F47D4008FC01A /* LNRSimpleNotifications.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1155,6 +1166,7 @@
 			);
 			dependencies = (
 				69D1400B1F85004D00B32ADD /* PBXTargetDependency */,
+				69C40204207F47D4008FC01A /* PBXTargetDependency */,
 			);
 			name = Consult;
 			productName = "Dr Ateet";
@@ -2035,6 +2047,11 @@
 			isa = PBXTargetDependency;
 			name = "ImagePicker-iOS";
 			targetProxy = 69AB827A1FA9BC6C0086AE84 /* PBXContainerItemProxy */;
+		};
+		69C40204207F47D4008FC01A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LNRSimpleNotifications;
+			targetProxy = 69C40203207F47D4008FC01A /* PBXContainerItemProxy */;
 		};
 		69C9D6A52076049200F64B02 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

@@ -63,4 +63,26 @@
     [dataTask resume];
 }
 
+- (void)deleteInBackgroundWithBlock:(BooleanResultBlock)block{
+    NSString *endPoint = [NSString stringWithFormat:DELETE_VACATIONS, self.objectId];
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    AFJSONRequestSerializer *reqSerializer = [AFJSONRequestSerializer serializer];
+    [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"api-token"];
+    NSString *URLString          = [API_BASE_URL stringByAppendingPathComponent:endPoint];
+    NSMutableURLRequest *request = [reqSerializer requestWithMethod:@"DELETE"
+                                                          URLString:URLString
+                                                         parameters:nil
+                                                              error:nil];
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            [error printHTMLError];
+            if(block)block(nil, error);
+        }
+        if(block)block(error == nil, error);
+    }];
+    [dataTask resume];
+}
+
 @end

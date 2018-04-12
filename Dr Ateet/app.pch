@@ -13,5 +13,6 @@
 #import "Macros.h"
 #import "CUser.h"
 #import "CObject.h"
+#import "APIManager.h"
 
 #endif /* app_h */

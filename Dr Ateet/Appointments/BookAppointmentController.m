@@ -460,4 +460,18 @@ static NSDateFormatter *timeFormatter;
                                           completion:nil];
 }
 
+- (IBAction)infoTapped{
+    if (!self.selectedClinic ||
+        [self.selectedClinic.objectId integerValue] == -1) return;
+    NSString *addressString = [NSString stringWithFormat:@"%@, %@\n Contact Number: %@", self.selectedClinic[@"address"],
+                               self.selectedClinic[@"city"], self.selectedClinic[@"contact_number"]];
+    [UIAlertController showAlertInViewController:self
+                                       withTitle:self.selectedClinic[@"clinic_name"]
+                                         message:addressString
+                               cancelButtonTitle:@"OK"
+                          destructiveButtonTitle:nil
+                               otherButtonTitles:nil
+                                        tapBlock:nil];
+}
+
 @end

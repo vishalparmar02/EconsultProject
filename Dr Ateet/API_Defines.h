@@ -64,6 +64,7 @@
 
 #define GET_VACATIONS               @"doctor/getVacation"
 #define ADD_VACATION                @"doctor/addVacation"
+#define DELETE_VACATIONS            @"doctor/getVacation/%@"
 
 #define GET_SLOTS                   @"slots"
 #define ADD_SLOT                    @"customSlot"

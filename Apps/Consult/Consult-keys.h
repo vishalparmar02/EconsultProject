@@ -20,4 +20,6 @@
 
 #define API_URL                             @"https://econsult.jshealthtech.com/api/v2"
 
-#endif /* Dr_Ateet_Sharma_keys_h */
+#endif
+#define DOCTOR_NAME                         @"eConsult"
+#define BACKGROUND_COLOR                    [UIColor colorWithHex:0xFFFFFF]

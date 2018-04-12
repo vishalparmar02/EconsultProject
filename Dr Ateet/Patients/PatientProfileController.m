@@ -257,7 +257,7 @@
     
     //Refered By
     row = [XLFormRowDescriptor formRowDescriptorWithTag:@"refer_by" rowType:XLFormRowDescriptorTypeNumber title:@"Referred By"];
-    [row.cellConfigAtConfigure setObject:@"e.g. Dr. Ateet Sharma" forKey:@"textField.placeholder"];
+    [row.cellConfigAtConfigure setObject:@"e.g. Dr. ABC" forKey:@"textField.placeholder"];
     [row.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
     [row.cellConfig setObject:font forKey:@"textLabel.font"];
     [row.cellConfig setObject:detailFont forKey:@"textField.font"];
