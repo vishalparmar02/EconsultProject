@@ -164,6 +164,10 @@ static NSDateFormatter *timeFormatter;
     SlotCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SlotCell" forIndexPath:indexPath];
     cell.date = self.datePicker.date;
     cell.slot = self.slots[indexPath.row];
+    
+    NSLog(@"%@",_slots);
+    
+    
     return cell;
 }
 
@@ -315,6 +319,7 @@ static NSDateFormatter *timeFormatter;
             if (self.selectedClinic.objectId.integerValue != -1){
                 clinicText = [NSString stringWithFormat:@"Walk In, %@", self.selectedClinic[@"clinic_name"]];
             }
+            
             
             NSString *message = [NSString stringWithFormat:@"Appointment booked successfully on %@ at %@, %@", [dateF stringFromDate:self.datePicker.date],
                                  [slot startTime],

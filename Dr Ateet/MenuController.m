@@ -29,26 +29,38 @@
 
 @implementation SideMenuCell
 
-- (void)setMenuText:(NSString*)text badge:(NSInteger)badge{
+- (void)setMenuText:(NSString*)text badge:(NSInteger)badge
+{
+    
     self.badgeLabel.alpha = badge;
     self.badgeLabel.clipsToBounds = YES;
     [self.badgeLabel applyShadow];
     
     self.badgeLabel.text = [NSString stringWithFormat:@"%ld", badge];
+    
     self.menuLabel.text = text;
+    
+    
 }
 
-- (void)layoutSubviews{
+- (void)layoutSubviews
+{
+    
+    
     [super layoutSubviews];
     CGFloat revealWidth = [ApplicationDelegate.drawerController revealWidthForDirection:MSDynamicsDrawerDirectionLeft];
     self.badgePaddingConstraint.constant = self.contentView.frame.size.width - revealWidth;
     self.badgeLabel.layer.cornerRadius = self.badgeLabel.frame.size.height / 2;
     self.badgeLabel.clipsToBounds = YES;
+    
+    
 }
 
 @end
 
 @interface MenuController ()<UITableViewDataSource ,UITableViewDelegate>
+
+
 
 @property (nonatomic, strong)   NSArray     *menu;
 @property (nonatomic, strong)   IBOutlet    UITableView         *tableView;
@@ -60,7 +72,10 @@
 
 @implementation MenuController
 
+
+
 + (id)controller{
+    
     static MenuController *sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -69,7 +84,8 @@
     return sharedInstance;
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
 }
 
@@ -78,7 +94,12 @@
     [self reload];
 }
 
-- (void)reload{
+
+
+- (void)reload
+{
+    
+    
     self.profileButton.imageView.contentMode = UIViewContentModeScaleAspectFill;
     NSURL *profileURLString = [[CUser currentUser] profileImageURL];
     [self.profileButton sd_setImageWithURL:profileURLString
@@ -141,7 +162,10 @@
     }];
 }
 
-- (void)viewDidLayoutSubviews{
+- (void)viewDidLayoutSubviews
+{
+    
+    
     [super viewDidLayoutSubviews];
     self.profileButton.backgroundColor = [UIColor whiteColor];
     self.profileButton.layer.cornerRadius = self.profileButton.frame.size.width / 2;
@@ -150,7 +174,9 @@
     self.profileButtonCenterConstraint.constant =  (revealWidth - self.view.frame.size.width) / 2;
 }
 
-- (void)homeTapped{
+- (void)homeTapped
+{
+    
     [ApplicationDelegate.drawerController setPaneViewController:[HomeController navigationController]];
     [ApplicationDelegate.drawerController setPaneState:MSDynamicsDrawerPaneStateClosed animated:YES allowUserInterruption:NO completion:^{
         
@@ -264,6 +290,7 @@
 }
 
 - (void)onlineConsultationTapped{
+    
     PatientAppointmentsController *vc = [PatientAppointmentsController controller];
     vc.consultation = YES;
     UINavigationController *navVC = NavigationControllerWithController(vc);
@@ -282,13 +309,20 @@
     }];
 }
 
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    
+    
     return [_menu count];
+    
+    
 }
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [_menu[section] count];
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     SideMenuCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SideMenuCell" forIndexPath:indexPath];
@@ -301,10 +335,25 @@
     }
     [cell setMenuText:menuText badge:badge];
     return cell;
+    
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSLog(@"%ld",(long)indexPath.row);
+    NSLog(@"%ld",(long)indexPath.section);
+    
+    if (indexPath.section == 1 && indexPath.row == 2)
+    {
+        [[NSUserDefaults standardUserDefaults]setObject:@"YES" forKey:@"FROMSIDEBAR"];
+    }
+    else
+    {
+        [[NSUserDefaults standardUserDefaults]setObject:@"NO" forKey:@"FROMSIDEBAR"];
+    }
+    
+    
     if ([[CUser currentUser] isPatient]) {
         [self patientMenuTapped:indexPath];
     }else if ([[CUser currentUser] isDoctor]) {
@@ -455,11 +504,17 @@
                 break;
         }
     }
-    else if(indexPath.section == 3){
+    else if(indexPath.section == 3)
+    {
+        
         [CUser logOut];
         [ApplicationDelegate setController];
+        
+        
     }
 }
+
+
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if (section == 0) {

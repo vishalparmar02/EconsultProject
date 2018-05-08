@@ -21,21 +21,31 @@
 #import "PatientSelectorController.h"
 #import "NotificationsController.h"
 
+
+
 #define kCellWidth ((CGRectGetWidth(collectionView.frame) / 2) - 0)
 
 @implementation MenuCell
 
-- (void)awakeFromNib{
+
+- (void)awakeFromNib
+{
     [super awakeFromNib];
     [self.container applyShadow];
     self.container.layer.cornerRadius = 10;
 }
 
-- (void)layoutSubviews{
+
+- (void)layoutSubviews
+{
+    
     [super layoutSubviews];
+    
 }
 
-- (void)setMenuDetails:(NSDictionary *)menuDetails{
+- (void)setMenuDetails:(NSDictionary *)menuDetails
+{
+    
     _menuDetails = menuDetails;
     UIImage *menuImage = [[UIImage imageNamed:menuDetails[@"image"]] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     self.menuImageView.image = menuImage;
@@ -57,22 +67,31 @@
 @property (nonatomic, strong)   IBOutlet    UILabel             *userNameLabel;
 @property (nonatomic, strong)               NSArray             *menuItems;
 @property (nonatomic, strong)   IBOutlet    NSLayoutConstraint  *userImageViewTopPadding, *collectionViewPadding;
-
 @end
 
 @implementation HomeController
 
-+ (id)controller{
++ (id)controller
+{
     return ControllerFromStoryBoard(@"Main", [self description]);
 }
 
-+ (id)navigationController{
++ (id)navigationController
+{
     return [[UINavigationController alloc] initWithRootViewController:[self controller]];
 }
 
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
+    
     [super viewDidLoad];
+    
+    
+  
+    
+    [[NSUserDefaults standardUserDefaults]setObject:@"NO" forKey:@"FROMSIDEBAR"];
+    
     
     UIButton *notificationIcon = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
     [notificationIcon setImage:[UIImage imageNamed:@"bell.png"] forState:UIControlStateNormal];
@@ -132,8 +151,21 @@
     }
 }
 
+
+
+
 - (void)viewWillAppear:(BOOL)animated{
-//    [self.navigationController setNavigationBarHidden:YES animated:YES];
+
+    
+    if (@available(iOS 9, *)) {
+    }
+    
+    self.userNameLabel.text = [[CUser currentUser] fullName];
+    NSURL *profileURLString = [[CUser currentUser] profileImageURL];
+    [self.userImageView sd_setImageWithURL:profileURLString
+                          placeholderImage:nil
+                                   options:SDWebImageProgressiveDownload];///vedited
+
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -148,6 +180,8 @@
 }
 
 - (void)checkProfileCompletion{
+    
+    
     if([CUser currentUser] &&
        (![[CUser currentUser][@"first_name"] length] ||
        ![[CUser currentUser][@"last_name"] length])){
@@ -158,6 +192,7 @@
         [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
             fNameField = textField;
             textField.placeholder = @"First Name";
+            
         }];
         
         [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
@@ -175,7 +210,12 @@
     }
 }
 
-- (void)updateProfileWithFirstName:(NSString*)fName lastName:(NSString*)lName{
+
+
+- (void)updateProfileWithFirstName:(NSString*)fName lastName:(NSString*)lName
+{
+    
+    
     NSMutableDictionary *currentUserDict = [[defaults_object(CURRENT_USER_KEY) JSONObject] mutableCopy];
     currentUserDict[@"first_name"] = fName;
     currentUserDict[@"last_name"] = lName;
@@ -248,6 +288,8 @@
     return CGSizeMake(kCellWidth, kCellWidth - 30);
 }
 
+
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     
@@ -275,6 +317,7 @@
             DoctorProfileController *vc = [DoctorProfileController fullProfileController];
             [self.navigationController pushViewController:vc animated:YES];
         }
+        
     }else{         
         if (indexPath.row == 0) {
             AppointmentsController *vc = [AppointmentsController controller];

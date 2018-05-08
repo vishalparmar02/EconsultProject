@@ -11,7 +11,11 @@
 
 @implementation Patient
 
-+ (void)fetchPatientsInBackgroundWithBlock:(nullable ArrayResultBlock)block{
+
++ (void)fetchPatientsInBackgroundWithBlock:(nullable ArrayResultBlock)block
+{
+    
+    
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
@@ -40,7 +44,10 @@
     [dataTask resume];
 }
 
+
+
 + (void)searchPatientsFor:(NSString*)search inBackgroundWithBlock:(nullable ArrayResultBlock)block{
+    
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
@@ -69,6 +76,9 @@
 }
 
 + (void)addPatient:(NSDictionary*)dict inBackgroundWithBlock:(nullable DictionaryResultBlock)block{
+    
+    
+    
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
@@ -92,6 +102,8 @@
 }
 
 - (void)fetchBookedAppointmentsInBackgroundWithBlock:(nullable ArrayResultBlock)block{
+    
+    
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
@@ -123,13 +135,15 @@
 }
 
 
-+ (id)patientFromDictionary:(NSDictionary*)dict{
++ (id)patientFromDictionary:(NSDictionary*)dict
+{
     Patient *aPatient = [[Patient alloc] initWithDictionary:dict];
     return aPatient;
 }
 
 - (NSString*)objectId{
-    if (![[super objectId] length]) {
+    if (![[super objectId] length])
+    {
         return self[@"patient_id"];
     }
     
@@ -146,6 +160,7 @@
 }
 
 - (NSURL*)imageURL{
+    
     return [NSURL URLWithString:self[@"profile_pic"]];
 }
 

@@ -52,6 +52,9 @@
 @implementation ReportsController
 
 - (void)viewDidLoad {
+    
+    
+    
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.title = [NSString stringWithFormat:@"%@ Reports", self.patient.fullName];
@@ -262,6 +265,7 @@
     [self.collectionView reloadData];
 }
 
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return self.reports.count;
 }
@@ -282,6 +286,8 @@
     PDFController *vc = [PDFController controller];
     vc.report = self.reports[indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
+    
+    
 }
 
 

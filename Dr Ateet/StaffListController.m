@@ -46,6 +46,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     self.title = @"My Staff";
     self.tableView.editing = YES;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Add"

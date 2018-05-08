@@ -11,6 +11,9 @@
 @implementation VacationCell
 
 - (void)awakeFromNib{
+    
+    
+    
     [super awakeFromNib];
     [self.container applyShadow];
     [self.container addBorder];
@@ -47,6 +50,7 @@
 @property (nonatomic, strong)           UIDatePicker    *startDatePicker, *endDatePicker;
 @property (nonatomic, strong)           UITextField     *startDateField, *endDateField, *descriptionField;
 @property (nonatomic, strong)           UIAlertAction   *addAlertAction;
+
 
 @end
 
@@ -112,13 +116,41 @@
 - (void)startDateChanged{
     NSDateFormatter *timeFormatter = [NSDateFormatter new];
     timeFormatter.dateFormat = @"dd LLLL, YYYY";
+    
+    NSDateComponents *dayComponent = [[NSDateComponents alloc] init];
+    dayComponent.day = 1;
+    
+    NSCalendar *theCalendar = [NSCalendar currentCalendar];
+    NSDate *nextDate = [theCalendar dateByAddingComponents:dayComponent toDate:[NSDate date] options:0];
+    
+    NSLog(@"nextDate: %@ ...", nextDate);
+    
+    
+    self.startDatePicker.minimumDate = nextDate;
+    
+    
     self.startDateField.text = [timeFormatter stringFromDate:self.startDatePicker.date];
     self.addAlertAction.enabled = self.startDateField.text.length && self.endDateField.text.length;
 }
 
+
 - (void)endDateChanged{
     NSDateFormatter *timeFormatter = [NSDateFormatter new];
     timeFormatter.dateFormat = @"dd LLLL, YYYY";
+    
+    NSLog(@"%@",self.startDateField.text);
+    
+    NSDateComponents *dayComponent = [[NSDateComponents alloc] init];
+    dayComponent.day = 1;
+    
+    NSCalendar *theCalendar = [NSCalendar currentCalendar];
+    NSDate *nextDate = [theCalendar dateByAddingComponents:dayComponent toDate:_startDatePicker.date options:0];
+    
+    NSLog(@"nextDate: %@ ...", nextDate);
+    
+    self.endDatePicker.minimumDate = nextDate;
+    
+    
     self.endDateField.text = [timeFormatter stringFromDate:self.endDatePicker.date];
     self.addAlertAction.enabled = self.startDateField.text.length && self.endDateField.text.length;
 }
@@ -138,6 +170,11 @@
                                  action:@selector(startDateChanged)
                        forControlEvents:UIControlEventValueChanged];
         self.startDateField.inputView = self.startDatePicker;
+        
+        
+        
+        
+        
     }];
     
     [addVacation addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
@@ -177,7 +214,10 @@
                                           completion:nil];
 }
 
-- (void)addVacation{
+- (void)addVacation
+{
+    
+    
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     dateFormatter.dateFormat = @"YYYY-MM-dd";
     
@@ -188,6 +228,12 @@
                           @"end_date" : [dateFormatter stringFromDate:self.endDatePicker.date]};
     [MBProgressHUD showHUDAddedTo:self.view
                          animated:YES];
+    NSLog(@"%@",[dateFormatter stringFromDate:self.startDatePicker.date]);
+    NSLog(@"%@",[dateFormatter stringFromDate:self.endDatePicker.date]);
+    
+
+    
+    
     [vacation saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         [MBProgressHUD hideHUDForView:self.view
                              animated:YES];

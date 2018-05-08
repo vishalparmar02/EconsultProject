@@ -14,6 +14,7 @@
 #import "PubNubManager.h"
 #import "Patient.h"
 
+
 @interface CUser ()
 
 @end
@@ -47,10 +48,15 @@
     updateObject[key] = object;
 }
 
+
 static CUser *currentUser;
 
-+ (CUser*)currentUser{
-    if (currentUser) {
+
++ (CUser*)currentUser
+{
+    
+    if (currentUser)
+    {
         return currentUser;
     }
     
@@ -73,6 +79,7 @@ static CUser *currentUser;
 }
 
 + (void)logOut{
+    
     defaults_remove(CURRENT_USER_KEY);
     defaults_save();
     currentUser = nil;
@@ -83,6 +90,7 @@ static CUser *currentUser;
     
     [PubNubManager updateChannels];
 }
+
 
 + (void)registerMobile:(nonnull NSString *)phone
                country:(NSString*)country
@@ -109,18 +117,24 @@ static CUser *currentUser;
     [dataTask resume];
 }
 
+
+
 + (void)verifyMobile:(nonnull NSString *)phone country:(NSString*)country
                  OTP:(NSString*)OTP inBackgroundWithBlock:(nullable UserResultBlock)block{
+    
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     NSDictionary *params = @{@"mobile_number" : phone,
                              @"otp" : OTP};
+    
+    
     NSString *URLString             = [API_BASE_URL stringByAppendingPathComponent:VERIFY_PHONE_END_POINT];
     NSMutableURLRequest *request    = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST"
                                                                                     URLString:URLString
                                                                                    parameters:params
                                                                                         error:nil];
 
+    
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error) {
             block(nil, error);
@@ -140,15 +154,19 @@ static CUser *currentUser;
 }
 
 + (void)fetchDoctorProfileInBackgroundWithBlock:(DictionaryResultBlock)block{
+    
+    
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     AFJSONRequestSerializer *reqSerializer = [AFJSONRequestSerializer serializer];
+    
     
     NSString *URLString             = [API_BASE_URL stringByAppendingPathComponent:DOCTOR_PROFILE_END_POINT];
     NSMutableURLRequest *request    = [reqSerializer requestWithMethod:@"GET"
                                                              URLString:URLString
                                                             parameters:nil
                                                                  error:nil];
+    
     
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error) {
@@ -174,6 +192,7 @@ static CUser *currentUser;
                                                             parameters:nil
                                                                  error:nil];
     
+    
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error) {
             
@@ -185,6 +204,7 @@ static CUser *currentUser;
     }];
     [dataTask resume];
 }
+
 
 - (void)updateTokenInBackground{
     if ([defaults_object(@"one_signal_user_id") isKindOfClass:[NSString class]] &&
@@ -213,6 +233,7 @@ static CUser *currentUser;
     }
 }
 
+
 - (void)setCurrent{
     for (NSString *key in updateObject.allKeys) {
         internalObject[key] = updateObject[key];
@@ -220,6 +241,7 @@ static CUser *currentUser;
     updateObject = [[NSMutableDictionary alloc] init];
     defaults_set_object(CURRENT_USER_KEY, [internalObject JSONString]);
 }
+
 
 - (void)saveInBackgroundWithBlock:(nullable BooleanResultBlock)block{
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -306,6 +328,7 @@ static CUser *currentUser;
                                                          parameters:self[@"update"]
                                                               error:nil];
     
+    
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         [updateObject removeObjectForKey:@"update"];
         if (error) {
@@ -318,12 +341,18 @@ static CUser *currentUser;
     [dataTask resume];
 }
 
+
 - (void)updateProfileImageInBackgroundWithBlock:(nullable BooleanResultBlock)block{
+    
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
+    
+    
     AFJSONRequestSerializer *reqSerializer = [AFJSONRequestSerializer serializer];
     [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"api-token"];
+    NSLog(@"%@",[CUser currentUser].authHeader);
+    
     NSString *URLString          = [API_BASE_URL stringByAppendingPathComponent:UPDATE_PROFILE_PIC];
     NSDictionary *params = @{@"users_id" : [CUser currentUser].objectId};
     NSMutableURLRequest *request = [reqSerializer multipartFormRequestWithMethod:@"POST"
@@ -352,7 +381,10 @@ static CUser *currentUser;
     [dataTask resume];
 }
 
+
 - (void)fetchMyPatientsInBackgroundWithBlock:(nullable ArrayResultBlock)block{
+    
+    
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     NSString *endPoint = [NSString stringWithFormat:GET_MY_PATIENTS, self.objectId];
@@ -364,7 +396,8 @@ static CUser *currentUser;
                                                          parameters:nil
                                                               error:nil];
     
-    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error)
+                                      {
         if (error) {
             NSLog(@"Error: %@", error);
             if(block)block(nil, error);
@@ -382,7 +415,9 @@ static CUser *currentUser;
     [dataTask resume];
 }
 
-- (void)fetchMyStaffInBackgroundWithBlock:(nullable ArrayResultBlock)block{
+
+- (void)fetchMyStaffInBackgroundWithBlock:(nullable ArrayResultBlock)block
+{
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     AFJSONRequestSerializer *reqSerializer = [AFJSONRequestSerializer serializer];
@@ -430,6 +465,8 @@ static CUser *currentUser;
     [dataTask resume];
 }
 
+
+
 - (void)addStaff:(NSDictionary*) staff withBlock:(nullable BooleanResultBlock)block{
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
@@ -452,15 +489,23 @@ static CUser *currentUser;
 }
 
 - (Patient*)patient{
+    
+    
     NSString *myFirstName = [NSString stringWithFormat:@"Self - %@",self[@"first_name"]];
     return [Patient patientFromDictionary:@{@"id" : self[@"patient_id"],
                                             @"mobile_number" : self.mobile,
                                             @"patient_id" : self[@"patient_id"],
                                             @"first_name" : myFirstName,
                                             @"last_name" : self[@"last_name"]}];
+    
+    
+    
+    
 }
 
-- (NSComparisonResult)compare:(CUser*)other{
+- (NSComparisonResult)compare:(CUser*)other
+{
+    
     return [self.fullName.lowercaseString compare:other.fullName.lowercaseString];
 }
 

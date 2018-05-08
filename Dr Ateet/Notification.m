@@ -16,6 +16,8 @@
 }
 
 + (void)fetchNotificationsInBackgroundWithBlock:(ArrayResultBlock)block{
+    
+    
     NSString *endPoint = [NSString stringWithFormat:GET_NOTIFICATIONS, [CUser currentUser].objectId];
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];

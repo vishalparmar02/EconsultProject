@@ -49,6 +49,17 @@
 
 #define CHECK_UPDATE                @"app/check-update"
 
+
+
+#define VERIFY_PHONE_END_POINT      @"verify"
+#define GET_CLINICS                 @"getAllClinics"
+#define ADD_CLINICS                 @"addClinic"
+#define UPDATE_CLINICS              @"updateClinicById/%@"
+#define CHANGE_PHONE_END_POINT      @"changeMobile"
+#define VERIFY_OTP_END              @"changeMobile/verify"
+
+
+
 #define REGISTER_PHONE_END_POINT    @"login"
 #define VERIFY_PHONE_END_POINT      @"verify"
 #define GET_CLINICS                 @"getAllClinics"

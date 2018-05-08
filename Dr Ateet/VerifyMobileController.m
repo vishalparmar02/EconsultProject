@@ -11,13 +11,13 @@
 #import "MenuController.h"
 #import "PubNubManager.h"
 
-@interface VerifyMobileController ()
+@interface VerifyMobileController ()<UITextFieldDelegate>
 
 @property (nonatomic, strong)   IBOutlet    UITextField     *OTPField;
 @property (nonatomic, strong)   IBOutlet    UIButton        *resendButton;
 @property (nonatomic, strong)   IBOutlet    NSTimer         *timer;
 @property (nonatomic, strong)   IBOutlet    UILabel         *phoneNumberLabel;
-@property (nonatomic)                       NSInteger       timerCounter;
+@property (nonatomic)NSInteger       timerCounter;
 
 @end
 
@@ -69,7 +69,10 @@
 }
 
 - (IBAction)resendTapped{
+
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    
     [CUser registerMobile:self.mobileNumber country:self.countryCode
     inBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -88,6 +91,7 @@
 }
 
 - (IBAction)verifyTapped{
+    
     if (self.OTPField.text.length < 4) {
         [UIAlertController showAlertInViewController:self
                                            withTitle:@"Error"

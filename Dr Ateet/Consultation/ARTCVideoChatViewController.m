@@ -10,7 +10,11 @@
 #import <AVFoundation/AVFoundation.h>
 #import "PubNubManager.h"
 #import "CallController.h"
+
+
 @import LNRSimpleNotifications;
+
+
 //#define SERVER_HOST_URL @"https://appr.tc"
 #define SERVER_HOST_URL @"https://konecthealth-177004.appspot.com"
 
@@ -20,7 +24,9 @@
     return ControllerFromStoryBoard(@"Consultation", @"ARTCVideoChatViewController");
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
+    
     [super viewDidLoad];
     
     self.isZoom = NO;
@@ -57,6 +63,8 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    
+    
     [super viewWillAppear:animated];
     
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
@@ -75,6 +83,9 @@
     [self.client connectToRoomWithId:self.roomName options:nil];
     
     [self.urlLabel setText:self.roomUrl];
+    
+    
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated{

@@ -39,9 +39,13 @@
 }
 
 - (IBAction)deleteTapped{
+    
+    
     if ([self.delegate respondsToSelector:@selector(deleteClinic:)]) {
         [self.delegate deleteClinic:self.clinic];
     }
+    
+    
 }
 
 @end
@@ -90,12 +94,14 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
     return self.clinics.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     ClinicCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ClinicCell"
                                                        forIndexPath:indexPath];
+    
     cell.clinic = self.clinics[indexPath.row];
     cell.delegate = self;
     return cell;

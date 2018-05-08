@@ -144,6 +144,8 @@
     
     self.form = form;
     [self setFormState:NO];
+    
+    
 }
 
 - (void)setFormState:(BOOL)enabled{
@@ -161,6 +163,9 @@
 }
 
 - (void)updateTapped{
+    
+    
+    
     NSMutableDictionary *currentUserDict = [[defaults_object(CURRENT_USER_KEY) JSONObject] mutableCopy];
     NSDictionary *formValues = self.form.formValues;
     for (NSString *aKey in formValues.allKeys){

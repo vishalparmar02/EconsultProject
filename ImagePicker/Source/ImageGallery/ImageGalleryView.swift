@@ -1,24 +1,34 @@
 import UIKit
 import Photos
-private func < <T: Comparable>(lhs: T?, rhs: T?) -> Bool {
+
+
+private func < <T: Comparable>(lhs: T?, rhs: T?) -> Bool
+{
+  
   switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
+  case let (abc?, xyz?):
+    return abc < xyz
   case (nil, _?):
     return true
   default:
     return false
+    
+    
   }
 }
 
-protocol ImageGalleryPanGestureDelegate: class {
+protocol ImageGalleryPanGestureDelegate: class
+{
 
   func panGestureDidStart()
   func panGestureDidChange(_ translation: CGPoint)
   func panGestureDidEnd(_ translation: CGPoint, velocity: CGPoint)
+  
+  
 }
 
-open class ImageGalleryView: UIView {
+open class ImageGalleryView: UIView
+{
 
   struct Dimensions {
     static let galleryHeight: CGFloat = 160
@@ -27,7 +37,8 @@ open class ImageGalleryView: UIView {
 
   var configuration = Configuration()
 
-  lazy open var collectionView: UICollectionView = { [unowned self] in
+  lazy open var collectionView: UICollectionView = {
+    [unowned self] in
     let collectionView = UICollectionView(frame: CGRect.zero,
       collectionViewLayout: self.collectionViewLayout)
     collectionView.translatesAutoresizingMaskIntoConstraints = false

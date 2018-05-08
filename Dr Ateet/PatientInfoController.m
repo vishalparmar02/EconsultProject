@@ -21,10 +21,13 @@
 @implementation PatientInfoController
 
 + (id)controller{
+    
     return ControllerFromStoryBoard(@"Slot", [self description]);
 }
 
 - (void)viewDidLoad {
+    
+    
     [super viewDidLoad];
     
     [self.logButton applyShadow];
@@ -45,9 +48,14 @@
     self.fieldTitles = [fieldTitlesString componentsSeparatedByString:@","];
 }
 
+
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.fieldNames.count;
 }
+
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DetailCell"];
@@ -55,12 +63,16 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"DetailCell"];
     }
     
+    
     NSString *field = self.fieldNames[indexPath.row];
     NSString *fieldTitle = self.fieldTitles[indexPath.row];
     NSString *fieldValue = self.patient[field];
     
     cell.textLabel.text = fieldTitle;
     cell.detailTextLabel.text = fieldValue;
+    
+    
+    
     
     return cell;
 }

@@ -11,15 +11,20 @@
 #import "DeviceInfo.h"
 
 @interface CObject : NSObject{
+    
     NSMutableDictionary *internalObject, *updateObject;
 }
 
+
 @property (nullable, nonatomic, strong) NSString *objectId;
+
 
 typedef void (^BooleanResultBlock)(BOOL succeeded, NSError *_Nullable error);
 typedef void (^StringResultBlock)(NSString *responseString, NSError *_Nullable error);
 typedef void (^ArrayResultBlock)(NSArray *_Nullable objects, NSError *_Nullable error);
 typedef void (^DictionaryResultBlock)(NSDictionary *_Nullable object, NSError *_Nullable error);
+
+
 
 - (nullable instancetype)initWithDictionary:(nonnull NSDictionary*)dict;
 - (void)resetDetails:(nonnull NSDictionary*)dict;
@@ -31,5 +36,6 @@ typedef void (^DictionaryResultBlock)(NSDictionary *_Nullable object, NSError *_
 - (void)saveInBackgroundWithBlock:(nullable BooleanResultBlock)block;
 - (void)saveInBackground;
 - (void)deleteInBackgroundWithBlock:(nullable BooleanResultBlock)block;
+
 
 @end

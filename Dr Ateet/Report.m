@@ -8,21 +8,39 @@
 
 #import "Report.h"
 
+
 @implementation Report
 
 + (id)reportFromDictionary:(NSDictionary*)dict{
+    
+    
     Report *clinic = [[Report alloc] initWithDictionary:dict];
     return clinic;
+    
+    
 }
 
-- (instancetype)initWithDictionary:(NSDictionary*)dict{
+- (instancetype)initWithDictionary:(NSDictionary*)dict
+{
+    
+    
 //    NSLog(dict.description);
-    if (self = [super initWithDictionary:dict]) {
+    if (self = [super initWithDictionary:dict])
+    {
+        
     }
     return self;
+    
+    
+    
 }
 
+
+
 + (void)fetchReportsForPatientID:(NSString*)patientID
+
+
+
            inBackgroundWithBlock:(nullable ReportsResultBlock)block{
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
@@ -62,6 +80,8 @@
 }
 
 - (void)saveInBackgroundWithBlock:(BooleanResultBlock)block{
+    
+    
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
@@ -100,9 +120,17 @@
         }
     }];
     [dataTask resume];
+    
+    
+    
 }
 
-- (UIImage*)reportThumb{
+
+
+- (UIImage*)reportThumb
+{
+    
+    
     NSString *fileName = self[@"file_title"];
     NSURL *documentsURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
     NSURL *fileURL = [documentsURL URLByAppendingPathComponent:fileName];

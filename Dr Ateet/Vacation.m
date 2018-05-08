@@ -11,6 +11,8 @@
 @implementation Vacation
 
 + (void)fetchVacationsInBackgroundWithBlock:(nullable ArrayResultBlock)block{
+
+    
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
@@ -62,6 +64,7 @@
     }];
     [dataTask resume];
 }
+
 
 - (void)deleteInBackgroundWithBlock:(BooleanResultBlock)block{
     NSString *endPoint = [NSString stringWithFormat:DELETE_VACATIONS, self.objectId];

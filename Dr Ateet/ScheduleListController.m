@@ -147,12 +147,15 @@
     return [schedule height];
 }
 
+
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     NSString *clinicName = self.clinicNames[section];
     CGFloat width = tableView.frame.size.width;
     UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, 50)];
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, width - 10, 40)];
     titleLabel.text = [NSString stringWithFormat:@" Clinic: %@", clinicName];
+   
+    
     titleLabel.font = [UIFont fontWithName:@"Roboto-Medium" size:16];
     titleLabel.backgroundColor = [UIColor colorWithWhite:0.7 alpha:1];
     titleLabel.layer.cornerRadius = 5;

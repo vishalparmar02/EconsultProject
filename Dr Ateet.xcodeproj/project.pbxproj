@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		0046473B0EAF2418BADFA05F /* libPods-Consult.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CC5FF7B13DCA1F10089703 /* libPods-Consult.a */; };
 		1DA3B50238A6806E22A421C7 /* libPods-Dr Ateet Sharma.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 618AD42A7691C8DA11A121E9 /* libPods-Dr Ateet Sharma.a */; };
+		57C3D2072099E7120083E052 /* OTPVerificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C3D2062099E7120083E052 /* OTPVerificationController.m */; };
+		57C3D20A2099EBCD0083E052 /* SubmitOTPController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C3D2092099EBCD0083E052 /* SubmitOTPController.m */; };
+		57C3D20B2099EDDD0083E052 /* OTPVerificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C3D2062099E7120083E052 /* OTPVerificationController.m */; };
+		57C3D20C2099EDDD0083E052 /* OTPVerificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C3D2062099E7120083E052 /* OTPVerificationController.m */; };
+		57C3D20D2099EDDD0083E052 /* OTPVerificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C3D2062099E7120083E052 /* OTPVerificationController.m */; };
+		57C3D20E2099EDDD0083E052 /* SubmitOTPController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C3D2092099EBCD0083E052 /* SubmitOTPController.m */; };
+		57C3D20F2099EDDD0083E052 /* SubmitOTPController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C3D2092099EBCD0083E052 /* SubmitOTPController.m */; };
+		57C3D2102099EDDD0083E052 /* SubmitOTPController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C3D2092099EBCD0083E052 /* SubmitOTPController.m */; };
 		67078B79EDA22BEC6BE15D2F /* libPods-Dr Jinesh Shah.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 245C8041168311DD2846FEC2 /* libPods-Dr Jinesh Shah.a */; };
 		6914ACD31F46A2C8001131DE /* AddScheduleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6914ACD21F46A2C8001131DE /* AddScheduleController.m */; };
 		6923B4631FCD7CFF005039BB /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 697DBA511F3ACB6F00241776 /* Schedule.m */; };
@@ -517,6 +525,10 @@
 		37924059889E3058A26BA967 /* Pods-Dr Jinesh Shah.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dr Jinesh Shah.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dr Jinesh Shah/Pods-Dr Jinesh Shah.debug.xcconfig"; sourceTree = "<group>"; };
 		46D21AB3736DCD45FCA6DA01 /* Pods-Consult.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Consult.release.xcconfig"; path = "Pods/Target Support Files/Pods-Consult/Pods-Consult.release.xcconfig"; sourceTree = "<group>"; };
 		48D29B1721D02BEED7ECC881 /* Pods-Dr Ateet Sharma.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dr Ateet Sharma.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dr Ateet Sharma/Pods-Dr Ateet Sharma.release.xcconfig"; sourceTree = "<group>"; };
+		57C3D2052099E7120083E052 /* OTPVerificationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OTPVerificationController.h; sourceTree = "<group>"; };
+		57C3D2062099E7120083E052 /* OTPVerificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OTPVerificationController.m; sourceTree = "<group>"; };
+		57C3D2082099EBCD0083E052 /* SubmitOTPContoller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubmitOTPContoller.h; sourceTree = "<group>"; };
+		57C3D2092099EBCD0083E052 /* SubmitOTPController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubmitOTPController.m; sourceTree = "<group>"; };
 		618AD42A7691C8DA11A121E9 /* libPods-Dr Ateet Sharma.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dr Ateet Sharma.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6800F0457E175B9F9F046742 /* Pods-Dr Ateet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dr Ateet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dr Ateet/Pods-Dr Ateet.debug.xcconfig"; sourceTree = "<group>"; };
 		6914ACD11F46A2C8001131DE /* AddScheduleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddScheduleController.h; sourceTree = "<group>"; };
@@ -974,6 +986,10 @@
 				69FAE8D01EDD262C0099141C /* Patients */,
 				69FAE8CD1EDD1E3B0099141C /* Dr Ateet.entitlements */,
 				69FAE87E1EDBF2A80099141C /* Resources */,
+				57C3D2082099EBCD0083E052 /* SubmitOTPContoller.h */,
+				57C3D2092099EBCD0083E052 /* SubmitOTPController.m */,
+				57C3D2052099E7120083E052 /* OTPVerificationController.h */,
+				57C3D2062099E7120083E052 /* OTPVerificationController.m */,
 				69FAE8681EDBCC130099141C /* AppDelegate.h */,
 				69FAE8691EDBCC130099141C /* AppDelegate.m */,
 				69981F551F56AAAF00915518 /* CallController.h */,
@@ -1765,6 +1781,7 @@
 				697AB60D20775003006EA8F0 /* LoadingController.m in Sources */,
 				6923B4631FCD7CFF005039BB /* Schedule.m in Sources */,
 				6923B4641FCD7CFF005039BB /* ScheduleListController.m in Sources */,
+				57C3D20D2099EDDD0083E052 /* OTPVerificationController.m in Sources */,
 				6923B4651FCD7CFF005039BB /* Slot.m in Sources */,
 				6923B4661FCD7CFF005039BB /* ReportsController.m in Sources */,
 				6923B4671FCD7CFF005039BB /* HomeController.m in Sources */,
@@ -1803,6 +1820,7 @@
 				6923B4841FCD7CFF005039BB /* PatientAppointmentsController.m in Sources */,
 				6923B4851FCD7CFF005039BB /* ChatThread.m in Sources */,
 				6923B4861FCD7CFF005039BB /* MenuController.m in Sources */,
+				57C3D2102099EDDD0083E052 /* SubmitOTPController.m in Sources */,
 				6923B4871FCD7CFF005039BB /* RegisterMobileController.m in Sources */,
 				69C9A3A61FFE1C7E00231853 /* Notification.m in Sources */,
 				6923B4881FCD7CFF005039BB /* NSError+PrintHTML.m in Sources */,
@@ -1833,6 +1851,7 @@
 				697AB60C20775003006EA8F0 /* LoadingController.m in Sources */,
 				6956CAB31F5A89E700B66EB8 /* Schedule.m in Sources */,
 				6956CAB41F5A89E700B66EB8 /* ScheduleListController.m in Sources */,
+				57C3D20C2099EDDD0083E052 /* OTPVerificationController.m in Sources */,
 				6956CAB51F5A89E700B66EB8 /* Slot.m in Sources */,
 				6956CAB61F5A89E700B66EB8 /* ReportsController.m in Sources */,
 				6956CAB71F5A89E700B66EB8 /* HomeController.m in Sources */,
@@ -1871,6 +1890,7 @@
 				6956CACE1F5A89E700B66EB8 /* PatientAppointmentsController.m in Sources */,
 				6956CACF1F5A89E700B66EB8 /* ChatThread.m in Sources */,
 				6956CAD01F5A89E700B66EB8 /* MenuController.m in Sources */,
+				57C3D20F2099EDDD0083E052 /* SubmitOTPController.m in Sources */,
 				6956CAD11F5A89E700B66EB8 /* RegisterMobileController.m in Sources */,
 				69C9A3A51FFE1C7E00231853 /* Notification.m in Sources */,
 				6956CAD21F5A89E700B66EB8 /* NSError+PrintHTML.m in Sources */,
@@ -1901,6 +1921,7 @@
 				697AB60E20775003006EA8F0 /* LoadingController.m in Sources */,
 				69C9D6AC2076049200F64B02 /* Schedule.m in Sources */,
 				69C9D6AD2076049200F64B02 /* ScheduleListController.m in Sources */,
+				57C3D20B2099EDDD0083E052 /* OTPVerificationController.m in Sources */,
 				69C9D6AE2076049200F64B02 /* Slot.m in Sources */,
 				69C9D6AF2076049200F64B02 /* ReportsController.m in Sources */,
 				69C9D6B02076049200F64B02 /* HomeController.m in Sources */,
@@ -1939,6 +1960,7 @@
 				69C9D6D12076049200F64B02 /* PatientAppointmentsController.m in Sources */,
 				69C9D6D22076049200F64B02 /* ChatThread.m in Sources */,
 				69C9D6D32076049200F64B02 /* MenuController.m in Sources */,
+				57C3D20E2099EDDD0083E052 /* SubmitOTPController.m in Sources */,
 				69C9D6D42076049200F64B02 /* RegisterMobileController.m in Sources */,
 				69C9D6D52076049200F64B02 /* Notification.m in Sources */,
 				69C9D6D62076049200F64B02 /* NSError+PrintHTML.m in Sources */,
@@ -1969,6 +1991,7 @@
 				697AB60B20775003006EA8F0 /* LoadingController.m in Sources */,
 				697DBA521F3ACB6F00241776 /* Schedule.m in Sources */,
 				697DBA4F1F3ACB4300241776 /* ScheduleListController.m in Sources */,
+				57C3D2072099E7120083E052 /* OTPVerificationController.m in Sources */,
 				692569681F4ED74D007DC450 /* Slot.m in Sources */,
 				692569571F4EB741007DC450 /* ReportsController.m in Sources */,
 				69FAE86D1EDBCC130099141C /* HomeController.m in Sources */,
@@ -2007,6 +2030,7 @@
 				6925696B1F4EE27E007DC450 /* PatientAppointmentsController.m in Sources */,
 				69FAE8DA1EDD29620099141C /* ChatThread.m in Sources */,
 				69EE2FCC1F3999AB0083E929 /* MenuController.m in Sources */,
+				57C3D20A2099EBCD0083E052 /* SubmitOTPController.m in Sources */,
 				69EE2FD21F399B190083E929 /* RegisterMobileController.m in Sources */,
 				69C9A3A41FFE1C7E00231853 /* Notification.m in Sources */,
 				69FAE8C91EDD1B8C0099141C /* NSError+PrintHTML.m in Sources */,

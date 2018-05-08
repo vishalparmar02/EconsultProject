@@ -266,6 +266,8 @@ NSString *const XLFormTextFieldMaxNumberOfCharacters = @"textFieldMaxNumberOfCha
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     return [self.formViewController textFieldShouldReturn:textField];
+    
+    
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField

@@ -54,6 +54,8 @@
     }
 }
 
+
+
 - (void)registerForPushNotifications{
     NSString *message = [NSString stringWithFormat:@"Get the most out of %@ App by allowing notifications in the next alert.", APP_NAME];
     [UIAlertController showAlertInViewController:self.window.rootViewController
@@ -80,6 +82,7 @@
     
 }
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSLog(@"API: %@", API_URL);
     
@@ -105,6 +108,7 @@
     
     return YES;
 }
+
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -141,6 +145,8 @@
     [RTCPeerConnectionFactory deinitializeSSL];
 }
 
+
+
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     return;
     DDLogVerbose(@"deviceToken: %@", deviceToken);
@@ -170,6 +176,7 @@
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     DDLogVerbose(@"%s with error: %@", __PRETTY_FUNCTION__, error);
 }
+
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
     if([UIApplication sharedApplication].applicationState != UIApplicationStateActive){
@@ -250,9 +257,15 @@
     UIViewController *paneViewController = [HomeController navigationController];
     self.drawerController.paneViewController = paneViewController;
     [self.drawerController setDrawerViewController:[MenuController controller] forDirection:MSDynamicsDrawerDirectionLeft];
+    
+    
+    
 }
 
-- (void)toggleMenu{
+- (void)toggleMenu
+{
+    
+    
     [self.drawerController setPaneState:!self.drawerController.paneState
                             inDirection:MSDynamicsDrawerDirectionLeft
                                animated:YES
@@ -260,7 +273,10 @@
                              completion:nil];
 }
 
-- (void)setController{
+
+- (void)setController
+{
+    
     if (![APIManager sharedManager].ready) {
       self.window.rootViewController = self.loadingController;
         [NSTimer scheduledTimerWithTimeInterval:0.5 repeats:NO block:^(NSTimer * _Nonnull timer) {

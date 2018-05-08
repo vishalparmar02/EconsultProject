@@ -12,24 +12,32 @@
 
 @implementation Appointment
 
+
 + (void)fetchClashingAppointmentsBackgroundWithBlock:(nullable ArrayResultBlock)block{
+    
+    
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
     
     AFJSONRequestSerializer *reqSerializer = [AFJSONRequestSerializer serializer];
     [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"api-token"];
     NSString *URLString          = [API_BASE_URL stringByAppendingPathComponent:GET_CLASHING_APPOINTMENTS];
+    
     
     NSMutableURLRequest *request = [reqSerializer requestWithMethod:@"GET"
                                                           URLString:URLString
                                                          parameters:nil
                                                               error:nil];
     
+    
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error) {
             NSLog(@"Error: %@", error);
             if(block)block(nil, error);
         } else {
+            
+            
             NSMutableArray *appointments = [NSMutableArray array];
             NSArray *appointmentsArray = responseObject[@"data"];
             for (NSDictionary *appointmentDict in appointmentsArray) {
@@ -50,7 +58,10 @@
     [dataTask resume];
 }
 
-+ (void)fetchAppointmentsForDate:(NSDate*)date inBackgroundWithBlock:(nullable ArrayResultBlock)block{
++ (void)fetchAppointmentsForDate:(NSDate*)date inBackgroundWithBlock:(nullable ArrayResultBlock)block
+{
+    
+    
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
@@ -80,6 +91,10 @@
             NSArray *appointmentsArray = responseObject[@"data"];
             for (NSDictionary *appointmentDict in appointmentsArray) {
                 [appointments addObject:[Appointment appointmentFromDictionary:appointmentDict]];
+                
+                NSLog(@"%@",appointmentDict);
+                NSLog(@"%@",appointments);
+                
             }
             
             [appointments sortUsingComparator:^NSComparisonResult(Appointment *obj1, Appointment *obj2) {
@@ -90,9 +105,14 @@
         }
     }];
     [dataTask resume];
+    
+    
+    
 }
 
 + (void)fetchAppointmentsForPatientInBackgroundWithBlock:(nullable ArrayResultBlock)block{
+    
+    
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
@@ -164,6 +184,8 @@
 }
 
 - (void)updateInBackgroundWithBlock:(nullable BooleanResultBlock)block{
+    
+    
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
@@ -296,24 +318,42 @@ static NSDateFormatter *inFormatter, *outFormatter, *appointmentDF;
     return [appointmentDF dateFromString:appointmentDateString];
 }
 
+
 - (BOOL)hasPassed{
+    
     return [self.appointmentEndDate compare:[NSDate date]] == NSOrderedAscending;
+    
 }
+
 
 - (BOOL)isOnToday{
+    
     return [self.appointmentDateString isEqualToString:self.todayDateString];
+    
 }
+
 
 - (BOOL)isInFuture{
+    
     return [self.appointmentDate compare:[NSDate date]] == NSOrderedDescending;
+    
 }
+
 
 - (BOOL)isOnline{
+    
     return [[self[@"clinic_name"] lowercaseString] isEqualToString:@"online"];
+    
 }
 
-- (NSDate*)appointmentEndDate{
-    if(!appointmentDF){
+
+- (NSDate*)appointmentEndDate
+{
+    
+    
+    if(!appointmentDF)
+    {
+        
         appointmentDF = [NSDateFormatter new];
         
     }
@@ -322,16 +362,26 @@ static NSDateFormatter *inFormatter, *outFormatter, *appointmentDF;
                                        self[@"appointment_date"],
                                        [self endTime]];
     return [appointmentDF dateFromString:appointmentDateString];
+    
+    
 }
 
-- (void)startConsultation{
-    if (![self isOnline]) {
+
+- (void)startConsultation
+{
+    
+    
+    
+    if (![self isOnline])
+    {
         return;
     }
     
-    if ([[CUser currentUser] isStaff]) {
+    if ([[CUser currentUser] isStaff])
+    {
         return;
     }
+    
     
     NSNumber *senderID = [[CUser currentUser] isPatient] ? [CUser currentUser][@"patient_id"] : @-1;
     NSString *calleeChannel = PATIENT_CHANNEL([self[@"patient_id"] stringValue]);
@@ -345,6 +395,7 @@ static NSDateFormatter *inFormatter, *outFormatter, *appointmentDF;
         callDescription = [NSString stringWithFormat:@"%@ would like to start video consulation.", patientName];
     }
     
+    
     NSDictionary *callDict = @{@"description" : callDescription,
                                @"is_initiator" : @1,
                                @"room_id" : roomID,
@@ -354,6 +405,7 @@ static NSDateFormatter *inFormatter, *outFormatter, *appointmentDF;
                                @"caller" : [[CUser currentUser] fullName],
                                @"callee" : @"Dr."};
     [PubNubManager sendMessage:callDict toChannel:calleeChannel];
+    
 }
 
 @end

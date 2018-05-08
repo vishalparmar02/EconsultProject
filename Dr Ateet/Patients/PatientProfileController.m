@@ -10,40 +10,58 @@
 #import <SDWebImage/SDImageCache.h>
 #import <SDWebImage/UIButton+WebCache.h>
 #import "UIImage+FixRotation.h"
+#import "OTPVerificationController.h"
+#import "MenuController.h"
 
 @interface PatientProfileController ()
 
+{
+    XLFormDescriptor * form;
+    XLFormSectionDescriptor * section;
+    XLFormRowDescriptor * row;
+    
+}
 @property (nonatomic, strong) IBOutlet  UIView          *headerView;
 @property (nonatomic, strong) IBOutlet  UIButton        *profileImageButton;
-@property (nonatomic, strong)           UIBarButtonItem *editButton, *saveButton;
+@property (nonatomic, strong) UIBarButtonItem *editButton, *saveButton;
+
+
 
 @end
 
 @implementation PatientProfileController
 
-+ (id)controller{
+
++ (id)controller
+{
     return ControllerFromMainStoryBoard([self description]);
 }
+
+
 
 + (id)navigationController{
     return [[UINavigationController alloc] initWithRootViewController:[self controller]];
 }
 
-
 - (void)awakeFromNib{
     [super awakeFromNib];
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
+    
+    
     [super viewDidLoad];
+    
+    
     self.title = @"My Profile";
     NSURL *profileURLString = [[CUser currentUser] profileImageURL];
     self.profileImageButton.imageView.contentMode = UIViewContentModeScaleAspectFill;
     [self.profileImageButton sd_setImageWithURL:profileURLString
-                                  forState:UIControlStateNormal
-                          placeholderImage:nil
-                                   options:SDWebImageProgressiveDownload];
-    [self initializeForm];
+                                       forState:UIControlStateNormal
+                               placeholderImage:nil
+                                        options:SDWebImageProgressiveDownload];
+   
     
     self.tableView.tableHeaderView = _headerView;
     [self applyTheme];
@@ -56,8 +74,25 @@
     self.saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave
                                                                     target:self
                                                                     action:@selector(updateTapped)];
+   
     self.navigationItem.rightBarButtonItem = self.editButton;
+    
+     [self initializeForm];
+      [self setFormState:NO];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(ActionCaptured:)
+                                                 name:@"ReloadForm" object:nil];
+    
 }
+
+- (void)ActionCaptured:(NSNotification *)note {
+        
+    [self initializeForm];
+    
+}
+
 
 - (void)applyTheme{
     
@@ -80,10 +115,10 @@
     [ApplicationDelegate toggleMenu];
 }
 
+
 - (void)initializeForm {
-    XLFormDescriptor * form;
-    XLFormSectionDescriptor * section;
-    XLFormRowDescriptor * row;
+    
+    
     CUser *user = [CUser currentUser];
     UIFont *font = [UIFont fontWithName:@"Roboto-Medium" size:16];
     UIFont *detailFont = [UIFont fontWithName:@"Roboto-Regular" size:14];
@@ -115,23 +150,54 @@
     row.value = user[row.tag];
     [section addFormRow:row];
     
+    
     // Country Code
     row = [XLFormRowDescriptor formRowDescriptorWithTag:@"country_code" rowType:XLFormRowDescriptorTypePhone title:@"Country Code"];
     [row.cellConfigAtConfigure setObject:@"Country Code" forKey:@"textField.placeholder"];
     [row.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
     [row.cellConfig setObject:font forKey:@"textLabel.font"];
     [row.cellConfig setObject:detailFont forKey:@"textField.font"];
-    row.value = user[row.tag];
+     NSString *newnum1 = [[NSUserDefaults standardUserDefaults] valueForKey:@"NEWCOUTNRYCODE"];
+    if (newnum1 == nil)
+    {
+    [[NSUserDefaults standardUserDefaults]setObject:user[row.tag] forKey:@"NEWCOUTNRYCODE"];
+    }
+    NSString *newnum2 = [[NSUserDefaults standardUserDefaults] valueForKey:@"NEWCOUTNRYCODE"];
+    row.value = newnum2;
     [section addFormRow:row];
     
+    
     // Mobile Number
-    row = [XLFormRowDescriptor formRowDescriptorWithTag:@"mobile_number" rowType:XLFormRowDescriptorTypePhone title:@"Mobile Number"];
-    [row.cellConfigAtConfigure setObject:@"Mobile Number" forKey:@"textField.placeholder"];
-    [row.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
+//    row = [XLFormRowDescriptor formRowDescriptorWithTag:@"mobile_number" rowType:XLFormRowDescriptorTypeText title:@"Mobile Number"];
+//    [row.cellConfigAtConfigure setObject:@"Mobile Number" forKey:@"textField.placeholder"];
+//    [row.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
+//    [row.cellConfig setObject:font forKey:@"textLabel.font"];
+//    [row.cellConfig setObject:detailFont forKey:@"textField.font"];
+//    NSLog(@"%@",user[row.tag]);
+//    NSString *newnum = [[NSUserDefaults standardUserDefaults] valueForKey:@"NEWNUM"];
+//    if (newnum == nil)
+//    {
+//        [[NSUserDefaults standardUserDefaults]setObject:user[row.tag] forKey:@"NEWNUM"];
+//
+//    }
+//    NSString *newnum3 = [[NSUserDefaults standardUserDefaults] valueForKey:@"NEWNUM"];
+//    row.value = newnum3;
+//    [section addFormRow:row];
+    
+    row = [XLFormRowDescriptor formRowDescriptorWithTag:@"mobile_number" rowType:XLFormRowDescriptorTypeButton title:@"Mobile_Number"];
+    //[row.cellConfig setObject:[UIColor blackColor] forKey:@"textLabel.textColor"];
     [row.cellConfig setObject:font forKey:@"textLabel.font"];
-    [row.cellConfig setObject:detailFont forKey:@"textField.font"];
-    row.value = user[row.tag];
-    [section addFormRow:row];
+    row.cellStyle = UITableViewCellStyleValue1;
+    NSString *newnum = [[NSUserDefaults standardUserDefaults] valueForKey:@"NEWNUM"];
+        if (newnum == nil)
+        {
+            [[NSUserDefaults standardUserDefaults]setObject:user[row.tag] forKey:@"NEWNUM"];
+    
+        }
+        NSString *newnum3 = [[NSUserDefaults standardUserDefaults] valueForKey:@"NEWNUM"];
+        row.value = newnum3;
+        [section addFormRow:row];
+    
     
     //Age
     row = [XLFormRowDescriptor formRowDescriptorWithTag:@"age" rowType:XLFormRowDescriptorTypeInteger title:@"Age"];
@@ -160,8 +226,35 @@
     self.form = form;
     [self showMoreTapped];
     
-    [self setFormState:NO];
+  //  [self setFormState:NO];
+    
+   // self.navigationItem.rightBarButtonItem = self.editButton;vedited
+    
 }
+
+
+
+-(void)didSelectFormRow:(XLFormRowDescriptor *)formRow
+{
+    
+     NSLog(@"%@",formRow);
+    
+    
+    if ([formRow.tag isEqualToString:@"mobile_number"])
+    {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            OTPVerificationVC *View = [storyboard instantiateViewControllerWithIdentifier:@"OTPVerificationVC"];
+            [self.navigationController pushViewController:View animated:YES];
+            
+            
+        });
+    }
+}
+
+
 
 - (void)showMoreTapped{
     XLFormDescriptor *form = self.form;
@@ -218,6 +311,7 @@
     row.value = user[row.tag];
     [section addFormRow:row];
     
+    
     // Country
     row = [XLFormRowDescriptor formRowDescriptorWithTag:@"country"
                                                 rowType:XLFormRowDescriptorTypeText
@@ -268,9 +362,15 @@
 - (void)setFormState:(BOOL)enabled{
     for (XLFormSectionDescriptor *section in self.form.formSections){
         for (XLFormRowDescriptor *row in section.formRows){
-            row.disabled = @(!enabled);
+            
+            NSLog(@"%@",row);
+            
+            [row.cellConfig setObject:[UIColor blackColor] forKey:@"textLabel.textColor"];
+            
+         row.disabled = @(!enabled);
+        
+            }
         }
-    }
     [self.tableView reloadData];
 }
 
@@ -279,59 +379,88 @@
     self.navigationItem.rightBarButtonItem = self.saveButton;
 }
 
+
 - (void)updateTapped{
+    
+    
     NSMutableDictionary *currentUserDict = [[defaults_object(CURRENT_USER_KEY) JSONObject] mutableCopy];
     NSDictionary *formValues = self.form.formValues;
-    for (NSString *aKey in formValues.allKeys){
-        if ([formValues[aKey] isKindOfClass:[NSDate class]]) {
-            NSDate *date = formValues[aKey];
-            NSDateFormatter *df = [NSDateFormatter new];
-            [df setDateFormat:@"yyyy-MM-dd"];
-            currentUserDict[aKey] = [df stringFromDate:date];
-        }else{
-            currentUserDict[aKey] = formValues[aKey];
+    
+    if (formValues[@"first_name"] == [NSNull null] || formValues[@"last_name"] == [NSNull null])
+    {
+        [UIAlertController showAlertInViewController:self withTitle:@"Error" message:@"First name or Last name is mising" cancelButtonTitle:@"Ok" destructiveButtonTitle:nil otherButtonTitles:nil tapBlock:^(UIAlertController * _Nonnull controller, UIAlertAction * _Nonnull action, NSInteger buttonIndex) {
+            
+        }];
+
+
+    }
+    else
+    {
+        for (NSString *aKey in formValues.allKeys){
+            
+            if ([formValues[aKey] isKindOfClass:[NSDate class]]) {
+                NSDate *date = formValues[aKey];
+                NSDateFormatter *df = [NSDateFormatter new];
+                [df setDateFormat:@"yyyy-MM-dd"];
+                currentUserDict[aKey] = [df stringFromDate:date];
+            }else{
+                
+                NSLog(@"%@",aKey);
+                NSLog(@"%@",formValues[aKey]);
+                currentUserDict[aKey] = formValues[aKey];
+            }
+            
         }
         
-    }
-    __block CUser *currentUser = [CUser currentUser];
-    currentUser[@"update"] = currentUserDict;
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [currentUser updateInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        if (error) {
-            [UIAlertController showAlertInViewController:self
-                                               withTitle:@"Error"
-                                                 message:@"Please retry"
-                                       cancelButtonTitle:@"OK"
-                                  destructiveButtonTitle:nil
-                                       otherButtonTitles:nil
-                                                tapBlock:nil];
-        }else{
-            
-            self.navigationItem.rightBarButtonItem = self.editButton;
-            
-            for (NSString *aKey in currentUserDict.allKeys){
-                if ([currentUserDict[aKey] isKindOfClass:[NSNull class]]) {
-                    currentUser[aKey] = @"";
-                }else{
-                    currentUser[aKey] = currentUserDict[aKey];
+        
+        
+        
+        __block CUser *currentUser = [CUser currentUser];
+        currentUser[@"update"] = currentUserDict;
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [currentUser updateInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            if (error) {
+                
+                
+                [UIAlertController showAlertInViewController:self
+                                                   withTitle:@"Error"
+                                                     message:@"Please retry"
+                                           cancelButtonTitle:@"OK"
+                                      destructiveButtonTitle:nil
+                                           otherButtonTitles:nil
+                                                    tapBlock:nil];
+            }else{
+                
+                self.navigationItem.rightBarButtonItem = self.editButton;
+                
+                for (NSString *aKey in currentUserDict.allKeys){
+                    if ([currentUserDict[aKey] isKindOfClass:[NSNull class]]) {
+                        currentUser[aKey] = @"";
+                    }else{
+                        currentUser[aKey] = currentUserDict[aKey];
+                    }
                 }
+                [currentUser setCurrent];
+                
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [self setFormState:NO];
+                });
+                [UIAlertController showAlertInViewController:self
+                                                   withTitle:@"Success"
+                                                     message:@"Updated Successfully."
+                                           cancelButtonTitle:@"OK"
+                                      destructiveButtonTitle:nil
+                                           otherButtonTitles:nil
+                                                    tapBlock:^(UIAlertController * _Nonnull controller, UIAlertAction * _Nonnull action, NSInteger buttonIndex) {
+                                                    }];
             }
-            [currentUser setCurrent];
-            
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [self setFormState:NO];
-            });
-            [UIAlertController showAlertInViewController:self
-                                               withTitle:@"Success"
-                                                 message:@"Updated Successfully."
-                                       cancelButtonTitle:@"OK"
-                                  destructiveButtonTitle:nil
-                                       otherButtonTitles:nil
-                                                tapBlock:^(UIAlertController * _Nonnull controller, UIAlertAction * _Nonnull action, NSInteger buttonIndex) {
-                                                }];
-        }
-    }];
+        }];
+    }
+    
+    
+    
+    
 }
 
 - (IBAction)uploadTapped{
@@ -375,6 +504,8 @@
     
     [self presentViewController:view animated:YES completion:nil];
 }
+
+
 
 - (void)showImagePickerForIndex:(NSInteger)buttonIndex{
     BOOL isCamera = buttonIndex > 0;

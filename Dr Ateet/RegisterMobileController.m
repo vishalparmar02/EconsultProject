@@ -20,15 +20,20 @@
 
 @implementation RegisterMobileController
 
-- (void)viewDidLoad {
+
+
+- (void)viewDidLoad
+{
     if (TARGET_OS_SIMULATOR) {
         self.mobileNumberField.text = @"9574007979";
         NSString *countryCode = @"IN";
         NSString *imagePath = [NSString stringWithFormat:@"EMCCountryPickerController.bundle/%@", countryCode];
+        NSLog(@"%@",imagePath);
         UIImage *image = [UIImage imageNamed:imagePath inBundle:[NSBundle bundleForClass:self.class] compatibleWithTraitCollection:nil];
         
         self.countryFlagView.image = image;
         self.countryCodeField.text = @"+91";
+        
     }else if(DEBUG){
         self.mobileNumberField.text = @"7600660648";
         NSString *countryCode = @"IN";
@@ -49,6 +54,17 @@
 - (IBAction)nextTapped{
     self.nextButton.enabled = NO;
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    
+    
+    NSLog(@"%@",self.countryCodeField.text);
+    NSLog(@"%@",self.mobileNumberField.text);
+    
+    
+    
+    [[NSUserDefaults standardUserDefaults]setObject:self.countryCodeField.text forKey:@"NEWCOUTNRYCODE"];
+    [[NSUserDefaults standardUserDefaults]setObject:self.mobileNumberField.text forKey:@"NEWNUM"];
+    
     [CUser registerMobile:self.mobileNumberField.text country:self.countryCodeField.text
     inBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];

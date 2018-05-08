@@ -22,7 +22,10 @@
     return self;
 }
 
+
+
 + (void)fetchClinicsInBackgroundWithBlock:(nullable ArrayResultBlock)block{
+    
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     NSLog(API_URL);
@@ -34,6 +37,7 @@
                                                          parameters:nil
                                                               error:nil];
     
+    
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error) {
             NSLog(@"Error: %@", error);
@@ -41,18 +45,24 @@
         } else {
             NSMutableArray *clinics = [NSMutableArray array];
             Clinic *onlineClinic = [Clinic clinicFromDictionary:@{@"clinic_name" : @"Online",
+                      
                                                                   @"id" : @-1}];
             [clinics addObject:onlineClinic];
             for (NSDictionary *clinicDict in responseObject[@"clinics"]) {
+                
                 [clinics addObject:[Clinic clinicFromDictionary:clinicDict]];
             }
             if(block)block(clinics, nil);
         }
     }];
     [dataTask resume];
+    
+    
 }
 
+
 - (void)saveInBackgroundWithBlock:(nullable BooleanResultBlock)block{
+    
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
@@ -75,7 +85,11 @@
     [dataTask resume];
 }
 
+
+
 - (void)updateInBackgroundWithBlock:(nullable BooleanResultBlock)block{
+    
+    
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     
     NSString *endPoint = [NSString stringWithFormat:UPDATE_CLINICS, self.objectId];
@@ -101,7 +115,10 @@
     [dataTask resume];
 }
 
+
 - (void)deleteInBackgroundWithBlock:(nullable BooleanResultBlock)block{
+    
+    
     NSString *endPoint = [NSString stringWithFormat:DELETE_CLINIC, self.objectId, @"0"];
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
@@ -131,7 +148,10 @@
     [dataTask resume];
 }
 
+
 - (void)forceDeleteInBackgroundWithBlock:(nullable BooleanResultBlock)block{
+    
+    
     NSString *endPoint = [NSString stringWithFormat:DELETE_CLINIC, self.objectId, @"1"];
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];

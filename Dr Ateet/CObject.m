@@ -10,15 +10,20 @@
 
 @implementation CObject
 
-- (instancetype)init{
+- (instancetype)init
+{
+    
     if (self = [super init]) {
         internalObject = [[NSMutableDictionary alloc] init];
         updateObject = [[NSMutableDictionary alloc] init];
     }
     return self;
+    
+    
 }
 
 - (instancetype)initWithDictionary:(NSDictionary*)dict{
+    
     if (self = [self init]) {
         for (NSString *key in dict.allKeys) {
             if([dict[key] isKindOfClass:[NSNull class]]){
@@ -32,20 +37,29 @@
     return self;
 }
 
+
 - (NSString*)objectId{
     NSString *objectId = self[@"id"];
     return [objectId isKindOfClass:[NSNumber class]] ? [(NSNumber*)objectId stringValue] : objectId;
 }
 
-- (void)resetDetails:(NSDictionary*)dict{
+
+
+- (void)resetDetails:(NSDictionary*)dict
+{
+    
     for (NSString *key in dict.allKeys) {
         internalObject[key] = dict[key];
     }
 }
 
+
+
+
 - (nullable id)objectForKey:(NSString *)key{
     return updateObject[key] ? updateObject[key] : (internalObject[key] ? internalObject[key] : @"");;
 }
+
 
 - (void)setObject:(id)object forKey:(NSString *)key{
     if ([object isKindOfClass:[NSArray class]]) {
@@ -55,9 +69,14 @@
     }
 }
 
+
+
+
 - (nullable id)objectForKeyedSubscript:(NSString *)key{
     return updateObject[key] ? updateObject[key] : (internalObject[key] ? internalObject[key] : @"");
 }
+
+
 
 - (void)setObject:(id)object forKeyedSubscript:(NSString *)key{
     if ([object isKindOfClass:[NSArray class]]) {
@@ -67,26 +86,33 @@
     }
 }
 
+
 - (void)deleteInBackgroundWithBlock:(nullable BooleanResultBlock)block{
     NSError *error = [NSError errorWithDomain:@"Local" code:-101 userInfo:@{@"Error" : @"Not implemented yet"}];
     block(NO, error);
 }
+
 
 - (void)updateInBackgroundWithBlock:(nullable BooleanResultBlock)block{
     NSError *error = [NSError errorWithDomain:@"Local" code:-101 userInfo:@{@"Error" : @"Not implemented yet"}];
     block(NO, error);
 }
 
+
 - (void)updateInBackground{
     [self updateInBackgroundWithBlock:nil];
 }
+
 
 - (void)saveInBackgroundWithBlock:(nullable BooleanResultBlock)block{
     NSLog(@"Not implemented");
 }
 
+
 - (void)saveInBackground{
     [self saveInBackgroundWithBlock:nil];
 }
+
+
 
 @end

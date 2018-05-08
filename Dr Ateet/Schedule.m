@@ -16,6 +16,7 @@
     return clinic;
 }
 
+
 - (instancetype)initWithDictionary:(NSDictionary*)dict{
 //    NSLog(dict.description);
     if (self = [super initWithDictionary:dict]) {
@@ -24,6 +25,7 @@
 }
 
 + (void)fetchSchedulesInBackgroundWithBlock:(nullable ArrayResultBlock)block{
+    
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
@@ -55,10 +57,14 @@
 
 static NSDateFormatter *inFormatter, *outFormatter;
 
-- (NSString*)endTime{
+- (NSString*)endTime
+{
+    
+    
     NSString *endTimeString = self[@"close_time"];
     
     if(!inFormatter){
+        
         inFormatter = [NSDateFormatter new];
         inFormatter.dateFormat = @"H:m:s";
         
@@ -69,12 +75,19 @@ static NSDateFormatter *inFormatter, *outFormatter;
     
     NSDate *endTime = [inFormatter dateFromString:endTimeString];
     return [outFormatter stringFromDate:endTime];
+    
+    
 }
 
-- (NSString*)startTime{
+- (NSString*)startTime
+{
+    
+    
     NSString *startTimeString = self[@"open_time"];
     
     if(!inFormatter){
+        
+        
         inFormatter = [NSDateFormatter new];
         inFormatter.dateFormat = @"H:m:s";
         
@@ -84,13 +97,21 @@ static NSDateFormatter *inFormatter, *outFormatter;
     
     NSDate *startTime = [inFormatter dateFromString:startTimeString];
     return [outFormatter stringFromDate:startTime];
+    
+    
 }
 
-- (NSString*)time{
+- (NSString*)time
+{
+    
+    
     NSString *startTimeString = self[@"open_time"];
     NSString *endTimeString = self[@"close_time"];
     
-    if(!inFormatter){
+    if(!inFormatter)
+    {
+        
+        
         inFormatter = [NSDateFormatter new];
         inFormatter.dateFormat = @"H:m:s";
         
@@ -109,7 +130,10 @@ static NSDateFormatter *inFormatter, *outFormatter;
     return time;
 }
 
-- (NSString*)repeatMonthsString{
+- (NSString*)repeatMonthsString
+{
+    
+    
     NSArray *months = [MonthSelector allMonths];
     NSArray *selectedMonths = self[@"repeat_month"];
     NSMutableArray *selectedMonthNames = [NSMutableArray array];
@@ -124,7 +148,9 @@ static NSDateFormatter *inFormatter, *outFormatter;
     return [NSString stringWithFormat:@"%@ Minutes", self[@"time_duration"]];
 }
 
-- (NSString*)repeatString{
+- (NSString*)repeatString
+{
+    
     NSArray *repeatArray = self[@"repeat"];
     NSMutableArray *repeatStringArray = [NSMutableArray array];
     for (NSDictionary *repeatDict in repeatArray) {
@@ -238,6 +264,7 @@ static NSDateFormatter *inFormatter, *outFormatter;
     [dataTask resume];
 }
 
+
 - (void)deleteInBackgroundWithBlock:(nullable BooleanResultBlock)block{
     NSString *endPoint = [NSString stringWithFormat:DELETE_SCHEDULE, self[@"schedule_id"], @"0"];
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -268,10 +295,14 @@ static NSDateFormatter *inFormatter, *outFormatter;
     [dataTask resume];
 }
 
+
 - (void)forceDeleteInBackgroundWithBlock:(nullable BooleanResultBlock)block{
+    
+    
     NSString *endPoint = [NSString stringWithFormat:DELETE_SCHEDULE, self[@"schedule_id"], @"1"];
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
     
     AFJSONRequestSerializer *reqSerializer = [AFJSONRequestSerializer serializer];
     [reqSerializer setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"api-token"];
@@ -298,12 +329,15 @@ static NSDateFormatter *inFormatter, *outFormatter;
     [dataTask resume];
 }
 
+
 - (NSComparisonResult)compare:(id)other{
     
     NSString *selfStartTimeString = self[@"open_time"];
     NSString *otherStartTimeString = other[@"open_time"];
     
-    if(!inFormatter){
+    if(!inFormatter)
+    {
+        
         inFormatter = [NSDateFormatter new];
         inFormatter.dateFormat = @"H:m:s";
         

@@ -15,6 +15,7 @@
 
 - (void)setMenuText:(NSString*)text badge:(NSInteger)badge;
 
+
 @end
 
 @interface MenuController : UIViewController

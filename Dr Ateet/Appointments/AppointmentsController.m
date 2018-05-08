@@ -43,6 +43,8 @@
     return vc;
 }
 
+
+
 - (void)viewDidLoad{
     [super viewDidLoad];
     
@@ -171,6 +173,7 @@
         }
     }
 }
+
 
 #pragma mark - CalendarManager delegate - Page mangement
 

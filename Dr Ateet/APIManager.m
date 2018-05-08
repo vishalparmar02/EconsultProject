@@ -87,6 +87,7 @@
                         }];
 }
 
+
 - (void)checkValidity{
     if ([self baseURL].length &&
         [self pubnubPublishKey].length &&
@@ -138,6 +139,8 @@
 
 
 - (void)checkUpdate{
+    
+    
     NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleShortVersionString"];
     NSDictionary *params = @{@"device_type" : @"iOS",
                              @"version_name" : version};

@@ -60,6 +60,8 @@
 
 - (void)awakeFromNib{
     [super awakeFromNib];
+    
+    
     self.weekCheckBoxes = [NSMutableArray array];
     _dayCheckBox = [[BEMCheckBox alloc] initWithFrame:_dayButtonContainer.bounds];
     _dayCheckBox.delegate = self;
@@ -280,6 +282,7 @@ static NSDateFormatter *saveTimeFormatter;
 }
 
 - (void)updateTapped{
+
     if (self.startTimeField.text.length == 0 ||
         self.endTimeField.text.length == 0 ||
         self.timePerPatientField.text.length == 0) {

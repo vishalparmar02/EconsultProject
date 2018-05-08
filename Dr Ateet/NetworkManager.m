@@ -32,6 +32,7 @@
     for (NSString *headerField in headers) {
         [request setValue:headers[headerField] forHTTPHeaderField:headerField];
     }
+    if([CUser currentUser])[request setValue:[CUser currentUser].authHeader forHTTPHeaderField:@"api-token"];
   
   NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
     if (error) {
